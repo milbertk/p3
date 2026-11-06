@@ -1,0 +1,119 @@
+/*
+|--------------------------------------------------------------------------
+| Global Color Variables
+|--------------------------------------------------------------------------
+*/
+
+
+$primaryColor: #2563eb;
+$primaryHover: #1d4ed8;
+
+$secondaryColor: #64748b;
+$secondaryHover: #475569;
+
+$successColor: #16a34a;
+$warningColor: #f59e0b;
+$dangerColor: #dc2626;
+
+$backgroundColor: #f5f7fb;
+$cardBackground: #ffffff;
+
+$borderColor: #e5e7eb;
+$borderHover: #d1d5db;
+
+$textPrimary: #111827;
+$textSecondary: #6b7280;
+$textLight: #9ca3af;
+
+$headerSpecial: #2563eb;
+
+$hoverBackground: #f3f4f6;
+
+$shadowSoft: 0 2px 8px rgba(15, 23, 42, 0.05);
+$shadowMedium: 0 8px 24px rgba(15, 23, 42, 0.08);
+
+$radiusSmall: 8px;
+$radiusMedium: 12px;
+$radiusLarge: 16px;
+
+$transitionFast: 0.2s ease;
+$transitionNormal: 0.3s ease;
+
+/*
+|--------------------------------------------------------------------------
+| Layout
+|--------------------------------------------------------------------------
+*/
+
+$headerHeight: 58px;
+$sidebarWidth: 260px;
+
+/*
+|--------------------------------------------------------------------------
+| Responsive Breakpoints
+|--------------------------------------------------------------------------
+*/
+
+$mobile: 768px;
+$tablet: 1024px;
+$desktop: 1280px;
+
+/*
+|--------------------------------------------------------------------------
+| Reusable Mixins
+|--------------------------------------------------------------------------
+*/
+
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flexBetween {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin cardStyle {
+  background: $cardBackground;
+  border: 1px solid $borderColor;
+  border-radius: $radiusMedium;
+  box-shadow: $shadowSoft;
+}
+
+@mixin hoverEffect {
+  transition: all $transitionFast;
+
+  &:hover {
+    background: $hoverBackground;
+  }
+}
+
+/*
+|--------------------------------------------------------------------------
+| Optional Global Classes
+|--------------------------------------------------------------------------
+*/
+
+.card-template {
+  @include cardStyle;
+  padding: 1rem;
+}
+
+.text-secondary {
+  color: $textSecondary;
+}
+
+.text-light {
+  color: $textLight;
+}
+
+.shadow-soft {
+  box-shadow: $shadowSoft;
+}
+
+.shadow-medium {
+  box-shadow: $shadowMedium;
+}

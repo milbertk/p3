@@ -1,0 +1,335 @@
+@import "../../Styles/Styles.scss";
+
+// Floating chat window, anchored to the bottom-right corner.
+.ai-assistant {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1050;
+  display: flex;
+  flex-direction: column;
+  width: min(400px, calc(100vw - 32px));
+  height: min(600px, calc(100vh - 100px));
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  background: #fff;
+  color: #1f2937;
+  box-shadow: 0 24px 60px rgba(17, 24, 39, .22);
+  animation: ai-assistant-in .18s ease-out;
+
+  button { font: inherit; cursor: pointer; }
+  button:disabled { cursor: not-allowed; opacity: .45; }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: .55rem;
+    padding: .75rem .8rem;
+    border-bottom: 1px solid #eef0f3;
+    background: linear-gradient(135deg, rgba($headerSpecial, .1), rgba($headerSpecial, .02));
+  }
+
+  &__avatar {
+    display: grid;
+    flex: 0 0 36px;
+    width: 36px;
+    height: 36px;
+    place-items: center;
+    border-radius: 11px;
+    background: $headerSpecial;
+    color: #fff;
+  }
+
+  &__heading { display: flex; flex: 1; flex-direction: column; min-width: 0; }
+  &__heading strong { font-size: .95rem; }
+  &__heading small { color: #6b7280; font-size: .7rem; }
+
+  &__icon-button {
+    display: grid;
+    width: 32px;
+    height: 32px;
+    place-items: center;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    background: transparent;
+    color: #4b5563;
+    &:hover:not(:disabled) { background: #f3f4f6; }
+    &.is-active { border-color: rgba($headerSpecial, .3); background: rgba($headerSpecial, .1); color: $headerSpecial; }
+  }
+
+  &__messages {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: .7rem;
+    padding: 1rem .9rem;
+    overflow-y: auto;
+    background: #f9fafb;
+  }
+
+  &__welcome p { margin: 0 0 .8rem; color: #4b5563; font-size: .85rem; line-height: 1.5; }
+
+  &__suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .45rem;
+    button {
+      padding: .45rem .7rem;
+      border: 1px solid rgba($headerSpecial, .3);
+      border-radius: 999px;
+      background: #fff;
+      color: $headerSpecial;
+      font-size: .76rem;
+      text-align: left;
+      &:hover { background: rgba($headerSpecial, .08); }
+    }
+  }
+
+  &__message {
+    max-width: 88%;
+    padding: .6rem .8rem;
+    border-radius: 14px;
+    font-size: .85rem;
+    line-height: 1.45;
+    p { margin: 0; white-space: pre-wrap; }
+
+    &--user {
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+      background: $headerSpecial;
+      color: #fff;
+    }
+
+    &--assistant {
+      align-self: flex-start;
+      border: 1px solid #e5e7eb;
+      border-bottom-left-radius: 4px;
+      background: #fff;
+    }
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: .35rem;
+    margin: .6rem 0 0;
+    padding: 0;
+    list-style: none;
+    li { display: flex; align-items: center; gap: .6rem; padding: .45rem .55rem; border-radius: 9px; background: #f3f4f6; }
+    li > span:last-child { display: flex; flex-direction: column; min-width: 0; }
+    strong { font-size: .8rem; }
+    small { color: #6b7280; font-size: .72rem; }
+  }
+
+  &__item-meta {
+    flex: 0 0 auto;
+    min-width: 68px;
+    color: $headerSpecial;
+    font-size: .74rem;
+    font-weight: 700;
+  }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+    margin-top: .6rem;
+    button {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      padding: .4rem .65rem;
+      border: 1px solid rgba($headerSpecial, .35);
+      border-radius: 8px;
+      background: rgba($headerSpecial, .07);
+      color: $headerSpecial;
+      font-size: .75rem;
+      font-weight: 600;
+      &:hover { background: rgba($headerSpecial, .14); }
+      svg { font-size: .65rem; }
+    }
+  }
+
+  &__play {
+    display: inline-flex;
+    align-items: center;
+    gap: .3rem;
+    margin-top: .5rem;
+    padding: 0;
+    border: none;
+    background: none;
+    color: #6b7280;
+    font-size: .72rem;
+    &:hover { color: $headerSpecial; }
+  }
+
+  &__typing {
+    display: flex;
+    gap: 4px;
+    padding: .75rem .9rem;
+    span {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #9ca3af;
+      animation: ai-assistant-dot 1s infinite ease-in-out;
+      &:nth-child(2) { animation-delay: .15s; }
+      &:nth-child(3) { animation-delay: .3s; }
+    }
+  }
+
+  &__voice-error {
+    padding: .5rem .9rem;
+    border-top: 1px solid #fde2e2;
+    background: #fef2f2;
+    color: #b42318;
+    font-size: .75rem;
+  }
+
+  &__composer {
+    display: flex;
+    align-items: center;
+    gap: .45rem;
+    padding: .65rem;
+    border-top: 1px solid #eef0f3;
+    background: #fff;
+
+    input {
+      flex: 1;
+      min-width: 0;
+      height: 40px;
+      padding: 0 .75rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      color: #1f2937;
+      font: inherit;
+      font-size: .85rem;
+      &:focus { border-color: $headerSpecial; outline: none; box-shadow: 0 0 0 3px rgba($headerSpecial, .12); }
+    }
+  }
+
+  &__mic, &__send {
+    display: grid;
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    border-radius: 10px;
+  }
+
+  &__mic {
+    border: 1px solid #e5e7eb;
+    background: #fff;
+    color: #4b5563;
+    &:hover { background: #f3f4f6; }
+    &.is-listening {
+      border-color: #dc2626;
+      background: #fef2f2;
+      color: #dc2626;
+      animation: ai-assistant-pulse 1.2s infinite;
+    }
+  }
+
+  &__send { border: none; background: $headerSpecial; color: #fff; }
+}
+
+@keyframes ai-assistant-in {
+  from { opacity: 0; transform: translateY(12px) scale(.98); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes ai-assistant-dot {
+  0%, 80%, 100% { opacity: .35; transform: translateY(0); }
+  40% { opacity: 1; transform: translateY(-3px); }
+}
+
+@keyframes ai-assistant-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, .35); }
+  100% { box-shadow: 0 0 0 10px rgba(220, 38, 38, 0); }
+}
+
+@media (max-width: 560px) {
+  .ai-assistant {
+    right: 8px;
+    bottom: 8px;
+    width: calc(100vw - 16px);
+    height: calc(100vh - 80px);
+  }
+}
+
+/* "Select language" list of the assistant voice (2026-10-25) */
+.voice-language {
+  position: relative;
+  display: inline-block;
+}
+.voice-language__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border: 1px solid #d0d7de;
+  border-radius: 999px;
+  background: #fff;
+  color: #333;
+  font-size: 12px;
+  cursor: pointer;
+}
+.voice-language__button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.voice-language__button small {
+  color: #6b7280;
+  font-weight: 600;
+}
+.voice-language__chevron {
+  font-size: 10px;
+}
+.voice-language__list {
+  position: absolute;
+  bottom: calc(100% + 4px);
+  left: 0;
+  z-index: 20;
+  min-width: 150px;
+  margin: 0;
+  padding: 4px;
+  list-style: none;
+  background: #fff;
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+.voice-language__option {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 7px 10px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #333;
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+}
+.voice-language__option:hover,
+.voice-language__option.is-selected {
+  background: #eef2ff;
+}
+.ai-assistant__voice-language {
+  padding: 6px 12px 0;
+}
+
+// Aleph = the AK icon (2026-10-25): white avatar with a thin teal border.
+.ai-assistant__avatar {
+  background: #ffffff;
+  border: 1px solid rgba(0, 184, 169, 0.45);
+  padding: 6px 4px;
+
+  .ak-mark {
+    width: 100%;
+  }
+}

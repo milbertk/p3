@@ -1,0 +1,170 @@
+@import "../../Styles/Styles.scss";
+
+.sidebar-template {
+  position: fixed;
+  top: $headerHeight;
+  left: 0;
+  width: $sidebarWidth;
+  height: calc(100vh - #{$headerHeight});
+  background: $sidebarBackground;
+  border-right: 1px solid $sidebarBorderColor;
+  box-shadow: $shadowSoft;
+  display: flex;
+  flex-direction: column;
+  z-index: 900;
+  transition: width $transitionNormal;
+}
+
+.sidebar-template.collapsed {
+  width: $sidebarCollapsedWidth;
+}
+
+.sidebar-header {
+  height: 58px;
+  padding: 0 0.85rem;
+  border-bottom: 1px solid $sidebarBorderColor;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: $sidebarTextColor;
+  white-space: nowrap;
+}
+
+.sidebar-collapse-button {
+  width: 34px;
+  height: 34px;
+  border: 1px solid $sidebarBorderColor;
+  background: $sidebarButtonBackground;
+  color: $sidebarTextMuted;
+  border-radius: $radiusSmall;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all $transitionFast;
+}
+
+.sidebar-collapse-button:hover {
+  background: $sidebarHoverBackground;
+  color: $sidebarActiveColor;
+  border-color: $sidebarActiveColor;
+}
+
+.sidebar-nav {
+  //padding: 0.75rem 0.6rem;
+  display: flex;
+  flex-direction: column;
+  //gap: 0.35rem;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 0.75rem;
+}
+
+/* Section title of a menu group (Sell, Bookings…). */
+.sidebar-group-title {
+  margin-top: 0.6rem;
+  padding: 0.55rem 0.75rem 0.25rem;
+  border-top: 1px solid $sidebarBorderColor;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+/* Keep every option at its size; the menu scrolls instead. */
+.sidebar-nav > .sidebar-item {
+  flex-shrink: 0;
+}
+
+.sidebar-item {
+  width: 100%;
+  min-height: 42px;
+  border: none;
+  background: transparent;
+  color: $sidebarTextMuted;
+  border-radius: $radiusSmall;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  transition: all $transitionFast;
+}
+
+.sidebar-item:hover {
+  background: $sidebarHoverBackground;
+  color: $sidebarActiveColor;
+}
+
+.sidebar-icon {
+  min-width: 18px;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar-template.collapsed .sidebar-header {
+  justify-content: center;
+}
+
+.sidebar-template.collapsed .sidebar-item {
+  justify-content: center;
+  padding: 0;
+}
+
+/* Collapsed: the section title becomes a thin line. */
+.sidebar-template.collapsed .sidebar-group-title {
+  margin: 0.35rem 0.3rem 0.2rem;
+  padding: 0;
+  height: 0;
+}
+
+@media (max-width: $mobile) {
+  .sidebar-template {
+    top: $mobileHeaderHeight;
+    height: calc(100vh - #{$mobileHeaderHeight});
+    width: $sidebarCollapsedWidth;
+  }
+
+  .sidebar-template:not(.collapsed) {
+    width: 220px;
+  }
+
+  .sidebar-label,
+  .sidebar-title,
+  .sidebar-group-title span {
+    display: none;
+  }
+
+  .sidebar-template:not(.collapsed) .sidebar-label,
+  .sidebar-template:not(.collapsed) .sidebar-title,
+  .sidebar-template:not(.collapsed) .sidebar-group-title span {
+    display: inline;
+  }
+}
+// AlephK accent (2026-10-25): the icon of the option under the mouse turns teal.
+.sidebar-item:hover .sidebar-icon {
+  color: #00b8a9;
+}

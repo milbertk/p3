@@ -1,0 +1,119 @@
+.company-invitation-page {
+  padding: 24px;
+  background: #f5f6fa;
+}
+
+.company-invitation-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.company-invitation-card__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+
+  h2 {
+    margin: 8px 0 4px;
+  }
+
+  p {
+    margin: 0;
+    color: #6b7280;
+  }
+}
+
+.company-invitation-card__icon,
+.company-invitation-card__badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #4338ca;
+  padding: 8px 12px;
+  font-weight: 600;
+}
+
+.company-invitation-summary {
+  margin-bottom: 20px;
+  padding: 14px;
+  border-radius: 14px;
+  background: #f9fafb;
+
+  span {
+    display: block;
+    color: #6b7280;
+    font-size: 13px;
+  }
+}
+
+.company-invitation-form {
+  display: grid;
+  gap: 14px;
+
+  label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    padding: 10px 12px;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    border: none;
+    outline: none;
+    font: inherit;
+    background: transparent;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+}
+
+.message-box {
+  align-items: flex-start !important;
+}
+
+.invitation-preview {
+  border: 1px dashed #c7d2fe;
+  background: #f8fafc;
+  border-radius: 14px;
+  padding: 14px;
+
+  p {
+    margin: 8px 0;
+    color: #374151;
+  }
+
+  small {
+    color: #6b7280;
+  }
+}
+
+.btn-primary {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 18px;
+  background: #4f46e5;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}

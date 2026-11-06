@@ -1,0 +1,2787 @@
+{
+  "login": {
+    "businessPlatform": "Plataforma empresarial",
+    "manageCompanyTitle": "Administre su empresa en un solo lugar",
+    "manageCompanyDescription": "Acceda a sus herramientas, usuarios, empresas, invitaciones y notificaciones desde un espacio de trabajo limpio y seguro.",
+    "signIn": "Iniciar sesión",
+    "signInSubtitle": "Bienvenido de nuevo. Ingrese sus datos.",
+    "email": "Correo electrónico",
+    "emailPlaceholderLogin": "ejemplo@correo.com",
+    "password": "Contraseña",
+    "passwordPlaceholder": "Ingrese su contraseña",
+    "orContinueWith": "O continuar con",
+    "google": "Google",
+    "facebook": "Facebook",
+    "microsoft": "Microsoft",
+    "apple": "Apple",
+    "dontHaveAccount": "¿No tiene una cuenta?",
+    "createAccount": "Crear cuenta",
+    "secureAccess": "Acceso seguro",
+    "createWorkspaceAccount": "Cree su cuenta de trabajo",
+    "registerDescription": "Regístrese para administrar sus empresas, usuarios, invitaciones y herramientas empresariales desde una plataforma moderna y segura.",
+    "registerSubtitle": "Ingrese su información para comenzar a usar la plataforma.",
+    "emailPlaceholder": "su@correo.com",
+    "confirmPassword": "Confirmar contraseña",
+    "confirmPasswordPlaceholder": "Confirme su contraseña",
+    "register": "Registrarse",
+    "alreadyMember": "¿Ya es miembro?",
+    "signInLink": "Iniciar sesión",
+    "unverified.title": "Verifique su correo electrónico",
+    "unverified.description": "Su cuenta fue creada, pero su correo electrónico aún no ha sido verificado.",
+    "unverified.step1": "Abra su bandeja de entrada y busque el mensaje de verificación.",
+    "unverified.step2": "Haga clic en el enlace de verificación del correo.",
+    "unverified.step3": "Después de verificar su correo, regrese e inicie sesión nuevamente.",
+    "unverified.resend": "Reenviar correo de verificación",
+    "unverified.login": "Ir al inicio de sesión",
+    "allFieldsRequired": "Todos los campos son obligatorios.",
+    "appleComingSoon": "El inicio de sesión con Apple estará disponible pronto.",
+    "backendCreateUserError": "La cuenta se creó en Firebase, pero no se pudo registrar en nuestro sistema.",
+    "emailAlreadyInUse": "Este correo ya está registrado. Intente iniciar sesión con Google o redes sociales.",
+    "emptyLogin": "Todos los campos son obligatorios.",
+    "invalidEmail": "El correo electrónico no es válido.",
+    "loginError": "No se pudo iniciar sesión.",
+    "loginSuccess": "Sesión iniciada correctamente.",
+    "operationNotAllowed": "El registro con correo y contraseña está desactivado por ahora.",
+    "passwordTooShort": "La contraseña debe tener al menos 6 caracteres.",
+    "passwordsDoNotMatch": "Las contraseñas no coinciden.",
+    "popupClosed": "Se cerró la ventana de inicio de sesión.",
+    "registerError": "No se pudo registrar.",
+    "registerSuccess": "Cuenta creada correctamente.",
+    "registering": "Creando cuenta...",
+    "signingIn": "Iniciando sesión...",
+    "socialLoginError": "No se pudo iniciar sesión con la red social.",
+    "tooManyRequests": "Demasiados intentos. Inténtelo más tarde.",
+    "userDisabled": "Esta cuenta fue desactivada.",
+    "userNotFound": "No existe una cuenta con este correo.",
+    "weakPassword": "La contraseña es muy débil. Use al menos 6 caracteres.",
+    "wrongPassword": "Correo o contraseña incorrectos.",
+    "forgotPassword": "¿Olvidó su contraseña?",
+    "forgotSending": "Enviando...",
+    "forgotEnterEmail": "Escriba su correo arriba y vuelva a presionar \"¿Olvidó su contraseña?\".",
+    "forgotSent": "Si existe una cuenta con este correo, le enviamos un enlace para cambiar la contraseña. Revise su bandeja de entrada y la carpeta de spam.",
+    "verificationSent": "Le enviamos un correo de verificación. Ábralo, haga clic en el enlace y luego inicie sesión."
+  },
+  "inactive": {
+    "title": "Cuenta inactiva",
+    "description": "Su cuenta está actualmente inactiva y no puede usarse para acceder a la aplicación.",
+    "step1": "Si cree que esto es un error, contacte al equipo de soporte.",
+    "step2": "Si ya no necesita acceso, puede cerrar sesión abajo.",
+    "support": "Contactar soporte",
+    "logout": "Cerrar sesión",
+    "logging_out": "Cerrando sesión...",
+    "support_opened": "Abriendo soporte...",
+    "support_error": "No se pudo abrir soporte. Inténtelo de nuevo."
+  },
+  "header": {
+    "companyLogo": "Empresa",
+    "companyName": "Empresa",
+    "selectCompany": "Seleccionar empresa",
+    "currentCompany": "Empresa actual",
+    "companySelection": "Selección de empresa",
+    "selectManagedCompany": "Seleccione una de las empresas donde tiene permisos de administrador.",
+    "searchCompany": "Buscar empresa",
+    "members": "miembros",
+    "noCompaniesFound": "No se encontraron empresas",
+    "changeSearch": "Intente con otra búsqueda.",
+    "home": "Inicio",
+    "support": "Soporte",
+    "searchAi": "Búsqueda con IA",
+    "notifications": "Notificaciones",
+    "loadingNotifications": "Cargando notificaciones...",
+    "notificationsError": "Error al cargar las notificaciones",
+    "pendingNotifications": "notificación(es) pendiente(s)",
+    "selectPlatform": "Seleccionar plataforma",
+    "userMenu": "Menú de usuario",
+    "companiesLoadError": "Error al cargar las empresas.",
+    "loadingCompanies": "Cargando empresas...",
+    "signedInAs": "Sesión iniciada como",
+    "clock": {
+      "yourComputer": "Su computadora",
+      "companyTitle": "Hora de la empresa: {{day}} {{time}}, {{zone}} ({{offset}})",
+      "computerTitle": "Su computadora: {{time}} ({{zone}}, {{offset}})",
+      "sameAsComputer": "La misma hora que su computadora"
+    }
+  },
+  "sidebar": {
+    "title": "Navegación",
+    "home": "Inicio",
+    "inviteNewUsers": "Invitar nuevos usuarios",
+    "addUsersToCompany": "Agregar usuarios a una empresa",
+    "manageInvitations": "Administrar invitaciones",
+    "companies": "Empresas",
+    "companyUsers": "Usuarios de empresa",
+    "expandMenu": "Expandir menú",
+    "collapseMenu": "Contraer menú",
+    "customers": "Clientes",
+    "products": "Productos",
+    "category": "Categorías",
+    "order": "Nuevo pedido",
+    "pageConfiguration": "Página de la empresa",
+    "trackingm": "Etapas del pedido",
+    "aprovala": "Pedidos web",
+    "aprovalb": "Solicitudes de reserva",
+    "trackingord": "Seguimiento de pedidos",
+    "usersbcompany": "Equipo y permisos",
+    "booking": "Horarios de reserva",
+    "selfbooking": "Reservar para un cliente",
+    "appointments": "Citas",
+    "reports": "Reportes",
+    "viewStore": "Ver mi tienda",
+    "groups": {
+      "sell": "Vender",
+      "bookings": "Reservas",
+      "customers": "Clientes",
+      "myStore": "Mi tienda",
+      "reports": "Reportes",
+      "team": "Equipo"
+    }
+  },
+  "platforms": {
+    "home": {
+      "title": "Inicio",
+      "tooltip": "Ir a la plataforma de inicio"
+    },
+    "shao": {
+      "title": "AlephTelos",
+      "tooltip": "Abrir AlephTelos: productos, órdenes, reservas y su tienda"
+    }
+  },
+  "companyForm": {
+    "createTitle": "Crear empresa",
+    "editTitle": "Editar empresa",
+    "subtitle": "Registre o actualice la información de la empresa.",
+    "createMode": "Modo creación",
+    "updateMode": "Modo actualización",
+    "companyName": "Nombre de la empresa",
+    "legalName": "Razón social",
+    "identificationType": "Tipo de identificación",
+    "identificationNumber": "Número de identificación",
+    "email": "Correo electrónico",
+    "phone": "Teléfono",
+    "city": "Ciudad",
+    "district": "Distrito",
+    "address1": "Dirección",
+    "plan": "Plan",
+    "status": "Estado",
+    "active": "Activa",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "saving": "Guardando...",
+    "saved": "Empresa guardada correctamente",
+    "saveError": "Error al guardar la empresa",
+    "companyNameRequired": "El nombre de la empresa es obligatorio",
+    "identificationRequired": "El tipo y número de identificación son obligatorios",
+    "searchCompany": "Buscar empresa",
+    "generalInfo": "Información general",
+    "contact": "Contacto",
+    "location": "Ubicación",
+    "address": "Dirección",
+    "classification": "Clasificación",
+    "website": "Sitio web",
+    "countryCode": "Código de país",
+    "countryName": "País",
+    "stateCode": "Código de provincia/estado",
+    "stateName": "Provincia/estado",
+    "postalCode": "Código postal",
+    "address2": "Dirección 2",
+    "directions": "Indicaciones",
+    "category": "Categoría",
+    "internalCategory": "Categoría interna",
+    "employees": "Empleados",
+    "statusActive": "Activa",
+    "statusInactive": "Inactiva",
+    "statusSuspended": "Suspendida",
+    "isVirtual": "Empresa virtual",
+    "legalEntity": "Persona jurídica",
+    "physicalPerson": "Persona física",
+    "identificationTypeRequired": "El tipo de identificación es obligatorio",
+    "identificationNumberRequired": "El número de identificación es obligatorio",
+    "invalidEmail": "Correo electrónico inválido",
+    "invalidWebsite": "URL de sitio web inválida",
+    "invalidEmployees": "La cantidad de empleados no puede ser menor que cero",
+    "companySelected": "Empresa seleccionada correctamente.",
+    "noResults": "Sin resultados",
+    "searchCountry": "Buscar país",
+    "selectCountry": "Seleccione un país"
+  },
+  "companySearch": {
+    "title": "Mis empresas",
+    "subtitle": "Busque y seleccione una de sus empresas registradas.",
+    "results": "resultados",
+    "searchPlaceholder": "Buscar por nombre de empresa, razón social, identificación o ciudad...",
+    "search": "Buscar",
+    "name": "Nombre",
+    "legalName": "Razón social",
+    "identification": "Identificación",
+    "city": "Ciudad",
+    "status": "Estado",
+    "actions": "Acciones",
+    "active": "Activa",
+    "inactive": "Inactiva",
+    "select": "Seleccionar",
+    "empty": "No se encontraron empresas con la búsqueda actual.",
+    "loadError": "Error al cargar las empresas.",
+    "loading": "Cargando empresas...",
+    "searching": "Buscando..."
+  },
+  "addUserToCompany": {
+    "title": "Invitar usuario a empresa",
+    "subtitle": "Escriba el correo exacto del usuario, seleccione la empresa, asigne un rol y envíe la solicitud.",
+    "statusPending": "Pendiente",
+    "user": "Usuario",
+    "searchUser": "Escriba el correo exacto del usuario",
+    "noUsersFound": "No hay ningún usuario con ese correo",
+    "company": "Empresa",
+    "role": "Rol",
+    "roleUser": "Usuario",
+    "roleManager": "Administrador",
+    "roleAdmin": "Administrador principal",
+    "message": "Mensaje de invitación",
+    "messagePlaceholder": "Escriba un mensaje breve de invitación...",
+    "sendRequest": "Enviar solicitud",
+    "sending": "Enviando...",
+    "userRequired": "Debe seleccionar un usuario.",
+    "companyRequired": "Debe seleccionar una empresa.",
+    "requestCreated": "La solicitud de usuario de empresa fue creada.",
+    "requestError": "Error al crear la solicitud de usuario de empresa.",
+    "defaultInvitationMessage": "Hola, quisiera invitarle a unirse a esta empresa.",
+    "manageRequests": "Administrar solicitudes",
+    "errorLoadingCompanies": "Error al cargar las empresas",
+    "errorSearchingUsers": "Error al buscar usuarios",
+    "loadingCompanies": "Cargando empresas...",
+    "loadingUsers": "Cargando usuarios...",
+    "noCompaniesFound": "No se encontraron empresas",
+    "noName": "Sin nombre",
+    "selectCompany": "Seleccione una empresa"
+  },
+  "manageCompanyRequests": {
+    "title": "Administrar solicitudes",
+    "subtitle": "Revise, busque, filtre y cancele solicitudes para unirse a empresas.",
+    "back": "Volver",
+    "company": "Empresa",
+    "results": "Resultados",
+    "searchPlaceholder": "Buscar por usuario, correo, rol o ID de solicitud...",
+    "all": "Todas",
+    "statusPending": "Pendiente",
+    "statusApproved": "Aprobada",
+    "statusRejected": "Rechazada",
+    "statusCanceled": "Cancelada",
+    "statusExpired": "Expirada",
+    "requestId": "ID de solicitud",
+    "role": "Rol",
+    "created": "Creada",
+    "cancelRequest": "Cancelar solicitud",
+    "noRequestsFound": "No se encontraron solicitudes.",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "page": "Página",
+    "requestNotFound": "Solicitud no encontrada.",
+    "requestCanceled": "Solicitud cancelada correctamente.",
+    "loadingCompanies": "Cargando empresas...",
+    "selectCompany": "Seleccione una empresa",
+    "loadingRequests": "Cargando solicitudes...",
+    "noCompaniesFound": "No se encontraron empresas",
+    "errorLoadingCompanies": "Error al cargar empresas",
+    "errorLoadingRequests": "Error al cargar solicitudes",
+    "canceling": "Cancelando...",
+    "cancelError": "Error al cancelar la solicitud"
+  },
+  "companyUsers": {
+    "title": "Usuarios de empresa",
+    "subtitle": "Administre roles, acceso y membresías entre empresas.",
+    "users": "usuarios",
+    "company": "Empresa",
+    "results": "Resultados",
+    "searchPlaceholder": "Buscar por nombre, correo, ID de usuario o empresa...",
+    "allRoles": "Todos los roles",
+    "allStatuses": "Todos los estados",
+    "active": "Activo",
+    "inactive": "Inactivo",
+    "clear": "Limpiar",
+    "user": "Usuario",
+    "role": "Rol",
+    "status": "Estado",
+    "joinedAt": "Ingreso",
+    "updatedAt": "Actualizado",
+    "actions": "Acciones",
+    "changeRole": "Cambiar rol",
+    "deactivate": "Desactivar",
+    "activate": "Activar",
+    "noResults": "Ningún usuario coincide con los filtros.",
+    "changeRoleHint": "Actualizar el rol para",
+    "selectRole": "Seleccione rol",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "roleUpdated": "El rol fue actualizado.",
+    "userActivated": "El usuario fue activado.",
+    "userDeactivated": "El usuario fue desactivado.",
+    "loadingCompanies": "Cargando empresas...",
+    "selectCompany": "Seleccione una empresa",
+    "loadingUsers": "Cargando usuarios...",
+    "noCompaniesFound": "No se encontraron empresas",
+    "errorLoadingCompanies": "Error al cargar empresas",
+    "errorLoadingUsers": "Error al cargar usuarios de empresa",
+    "errorUpdatingStatus": "Error al actualizar el estado del usuario",
+    "errorUpdatingRole": "Error al actualizar el rol"
+  },
+  "companyInvitation": {
+    "title": "Enviar invitación de empresa",
+    "subtitle": "Invite a un usuario a unirse al espacio de trabajo de su empresa.",
+    "invitation": "Invitación",
+    "company": "Empresa",
+    "emailPlaceholder": "Correo electrónico del usuario",
+    "messagePlaceholder": "Escriba un mensaje opcional",
+    "defaultMessage": "Hola, queremos invitarle a unirse al espacio de trabajo de nuestra empresa. Use el enlace de invitación para crear o acceder a su cuenta y completar el proceso.",
+    "previewTitle": "Vista previa del correo",
+    "linkNotice": "El correo de invitación incluirá un enlace de acceso seguro.",
+    "send": "Enviar invitación",
+    "sending": "Enviando...",
+    "sentSuccess": "Invitación enviada correctamente.",
+    "sentError": "No se pudo enviar la invitación.",
+    "emailRequired": "Ingrese un correo electrónico.",
+    "invalidEmail": "Ingrese un correo válido."
+  },
+  "inviteNotifications": {
+    "title": "Notificaciones de invitación",
+    "subtitle": "Revise invitaciones pendientes de empresas y elija si desea aceptarlas o rechazarlas.",
+    "pending": "pendientes",
+    "total": "Total de invitaciones",
+    "status": "Estado",
+    "mockMode": "Datos de prueba",
+    "realMode": "Datos reales",
+    "accept": "Aceptar",
+    "reject": "Rechazar",
+    "processing": "Procesando...",
+    "acceptedMessage": "Invitación aceptada correctamente.",
+    "rejectedMessage": "Invitación rechazada correctamente.",
+    "emptyTitle": "No hay invitaciones pendientes",
+    "emptyText": "No tiene invitaciones de empresa en este momento.",
+    "defaultMessage": "Ha sido invitado a unirse a esta empresa.",
+    "requestNotFound": "Solicitud no encontrada.",
+    "errorLoading": "Error al cargar invitaciones.",
+    "processError": "Error al procesar la invitación.",
+    "loading": "Cargando",
+    "loadingText": "Cargando sus invitaciones.",
+    "errorTitle": "No se pudieron cargar los datos",
+    "retry": "Reintentar"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "closeModal": "Cerrar ventana"
+  },
+  "notifications": {
+    "section": "Notificaciones",
+    "title": "Panel de notificaciones",
+    "subtitle": "Revise sus notificaciones recientes y acciones pendientes.",
+    "emptyTitle": "Sin notificaciones",
+    "emptyDescription": "No tiene notificaciones pendientes en este momento.",
+    "defaultTitle": "Nueva notificación",
+    "defaultDescription": "Tiene una nueva notificación por revisar.",
+    "watchAccept": "Ver detalles",
+    "errorLoading": "Error al cargar notificaciones",
+    "errorTitle": "No se pudieron cargar los datos",
+    "retry": "Reintentar",
+    "pendingInvitedRequests": "Tiene invitaciones pendientes para unirse a una empresa.",
+    "types": {
+      "general": "General",
+      "request": "Solicitud",
+      "system": "Sistema",
+      "high": "Alta",
+      "medium": "Media",
+      "low": "Baja"
+    },
+    "mock": {
+      "invitationTitle": "Nueva invitación de empresa",
+      "invitationDescription": "Ha recibido una invitación para unirse al espacio de trabajo de una empresa.",
+      "systemTitle": "Notificación del sistema",
+      "systemDescription": "Hay una actualización reciente del sistema disponible para revisar."
+    }
+  },
+  "userMenu": {
+    "section": "Cuenta",
+    "title": "Configuración de cuenta",
+    "subtitle": "Administre su perfil, seguridad, correo y opciones de cuenta.",
+    "profile": "Perfil",
+    "security": "Seguridad",
+    "changePassword": "Cambiar contraseña",
+    "changeEmail": "Cambiar correo",
+    "transferAccount": "Transferir cuenta",
+    "logout": "Cerrar sesión",
+    "navigationLabel": "Menú de cuenta",
+    "appearance": {
+      "title": "Apariencia",
+      "light": "Claro",
+      "dark": "Oscuro",
+      "system": "Igual que mi dispositivo"
+    },
+    "signedInAs": "Sesión iniciada como"
+  },
+  "profile": {
+    "section": "Perfil",
+    "title": "Configuración de perfil",
+    "subtitle": "Administre su información personal y preferencias.",
+    "firstName": "Nombre",
+    "lastName": "Apellidos",
+    "email": "Correo alternativo",
+    "phone": "Número de teléfono",
+    "country": "País",
+    "language": "Idioma preferido",
+    "firstNamePlaceholder": "Ingrese su nombre",
+    "lastNamePlaceholder": "Ingrese sus apellidos",
+    "emailPlaceholder": "Ingrese su correo",
+    "languagePlaceholder": "Seleccione un idioma",
+    "save": "Guardar perfil",
+    "saving": "Guardando...",
+    "saved": "Perfil guardado correctamente",
+    "retry": "Reintentar",
+    "errors": {
+      "firstName": "El nombre es obligatorio.",
+      "lastName": "Los apellidos son obligatorios.",
+      "email": "El correo es obligatorio.",
+      "phone": "El número de teléfono es obligatorio.",
+      "country": "El país es obligatorio.",
+      "language": "El idioma es obligatorio.",
+      "load": "Error al cargar el perfil",
+      "save": "Error al guardar el perfil"
+    }
+  },
+  "changePassword": {
+    "section": "Seguridad",
+    "title": "Cambiar contraseña",
+    "subtitle": "Actualice su contraseña para mantener su cuenta segura.",
+    "currentPassword": "Contraseña actual",
+    "newPassword": "Nueva contraseña",
+    "confirmPassword": "Confirmar contraseña",
+    "currentPasswordPlaceholder": "Ingrese su contraseña actual",
+    "newPasswordPlaceholder": "Ingrese su nueva contraseña",
+    "confirmPasswordPlaceholder": "Confirme su nueva contraseña",
+    "save": "Cambiar contraseña",
+    "saving": "Guardando...",
+    "success": "Contraseña cambiada correctamente.",
+    "checkingProvider": "Validando el proveedor de la cuenta...",
+    "onlyEmailUsers": "El cambio de contraseña solo está disponible para usuarios con correo y contraseña. Esta cuenta usa un proveedor externo.",
+    "onlyEmailUsersWithProvider": "El cambio de contraseña solo está disponible para usuarios con correo y contraseña. Esta cuenta usa {{provider}}.",
+    "emailPasswordProvider": "Correo / Contraseña",
+    "externalProvider": "Proveedor externo",
+    "providers": {
+      "password": "Correo / Contraseña",
+      "google.com": "Google",
+      "apple.com": "Apple",
+      "facebook.com": "Facebook",
+      "microsoft.com": "Microsoft",
+      "github.com": "GitHub",
+      "external": "Proveedor externo",
+      "unknown": "Proveedor desconocido"
+    },
+    "errors": {
+      "currentPassword": "La contraseña actual es obligatoria.",
+      "newPassword": "La nueva contraseña es obligatoria.",
+      "confirmPassword": "La confirmación de contraseña es obligatoria.",
+      "minLength": "La nueva contraseña debe tener al menos 8 caracteres.",
+      "passwordMismatch": "Las contraseñas no coinciden.",
+      "samePassword": "La nueva contraseña debe ser diferente de la actual.",
+      "requestError": "No se pudo cambiar la contraseña.",
+      "general": "Ocurrió un error al cambiar la contraseña.",
+      "providerValidation": "Error al validar el proveedor de la cuenta."
+    }
+  },
+  "changeEmail": {
+    "section": "Cuenta",
+    "title": "Cambiar correo",
+    "subtitle": "Actualiza el correo asociado a tu cuenta.",
+    "currentEmail": "Correo actual",
+    "newEmail": "Nuevo correo",
+    "password": "Contraseña",
+    "currentEmailPlaceholder": "Ingrese su correo actual",
+    "newEmailPlaceholder": "Ingrese su nuevo correo",
+    "passwordPlaceholder": "Ingrese su contraseña",
+    "save": "Guardar",
+    "saving": "Guardando...",
+    "success": "Correo actualizado correctamente.",
+    "checkingProvider": "Validando el proveedor de la cuenta...",
+    "onlyEmailUsers": "El cambio de correo solo está disponible para usuarios de correo y contraseña.",
+    "onlyEmailUsersWithProvider": "El cambio de correo solo está disponible para usuarios de correo y contraseña. Esta cuenta usa {{provider}}.",
+    "errors": {
+      "currentEmail": "El correo actual es requerido.",
+      "newEmail": "El nuevo correo es requerido.",
+      "password": "La contraseña es requerida.",
+      "invalidEmail": "Ingrese un correo válido.",
+      "sameEmail": "El nuevo correo debe ser diferente al correo actual.",
+      "requestError": "No fue posible actualizar el correo.",
+      "providerValidation": "Error validando el proveedor de la cuenta.",
+      "general": "Error cambiando el correo."
+    }
+  },
+  "transferAccount": {
+    "section": "Transferencia de cuenta",
+    "title": "Transferir cuenta",
+    "subtitle": "Transfiera la cuenta seleccionada y sus empresas a otro usuario de la plataforma.",
+    "warning": "Esta acción puede transferir el acceso y la administración de la cuenta seleccionada. Confirme cuidadosamente el usuario destino antes de continuar.",
+    "account": "Cuenta a transferir",
+    "accountPlaceholder": "Seleccione una cuenta",
+    "companies": "empresas",
+    "targetUser": "Usuario destino",
+    "searchPlaceholder": "Buscar usuario por nombre o correo",
+    "summaryTitle": "Resumen de transferencia",
+    "fromAccount": "Cuenta",
+    "toUser": "Usuario destino",
+    "confirmText": "Entiendo que esta cuenta y sus empresas serán transferidas al usuario seleccionado.",
+    "transfer": "Transferir cuenta",
+    "processing": "Procesando...",
+    "success": "Cuenta transferida correctamente.",
+    "errors": {
+      "userRequired": "Debe seleccionar un usuario destino.",
+      "accountRequired": "Debe seleccionar una cuenta.",
+      "confirmRequired": "Debe confirmar la transferencia antes de continuar.",
+      "requestError": "No se pudo transferir la cuenta.",
+      "general": "Ocurrió un error al transferir la cuenta."
+    }
+  },
+  "transferCompany": {
+    "section": "Administración de empresas",
+    "title": "Transferir empresa",
+    "subtitle": "Transfiere una empresa del usuario actual a otro usuario.",
+    "warning": "Esta acción transferirá la empresa seleccionada a otro usuario. Revise cuidadosamente la información antes de confirmar.",
+    "company": "Empresa",
+    "companyPlaceholder": "Seleccione una empresa",
+    "targetUser": "Usuario destino",
+    "searchPlaceholder": "Buscar usuario por nombre o correo",
+    "summaryTitle": "Resumen de transferencia",
+    "companyName": "Empresa",
+    "legalName": "Razón social",
+    "identification": "Identificación",
+    "currentOwner": "Propietario actual",
+    "toUser": "Transferir a",
+    "confirmText": "Confirmo que deseo transferir esta empresa al usuario seleccionado.",
+    "processing": "Procesando...",
+    "transfer": "Transferir empresa",
+    "success": "Empresa transferida correctamente.",
+    "confirmDialog": "¿Está seguro de que desea transferir esta empresa? Esta acción cambiará el propietario de la empresa.",
+    "errors": {
+      "companyRequired": "La empresa es requerida.",
+      "userRequired": "El usuario destino es requerido.",
+      "confirmRequired": "Debe confirmar la transferencia.",
+      "requestError": "No fue posible transferir la empresa.",
+      "general": "Error transfiriendo la empresa.",
+      "sameCurrentOwner": "El nuevo propietario debe ser diferente al propietario actual.",
+      "sameLoggedUser": "El nuevo propietario debe ser diferente al usuario conectado.",
+      "loadCompanies": "Error al cargar las empresas.",
+      "loadUsers": "Error al buscar usuarios.",
+      "userIdRequired": "El usuario seleccionado no tiene un ID válido."
+    },
+    "loadingCompanies": "Cargando empresas...",
+    "noUsersFound": "No se encontraron usuarios.",
+    "searchingUsers": "Buscando..."
+  },
+  "noPlan": {
+    "accessStatus": "Acceso al plan",
+    "title": "Su empresa no tiene un plan activo",
+    "description": "Solicite asistencia a nuestro equipo de ventas para recibir asesoría personalizada y seleccionar el mejor plan para su negocio.",
+    "freeTrialTitle": "Su primer mes es gratuito",
+    "freeTrialDescription": "Pruebe la plataforma durante un mes sin costo y reciba acompañamiento durante el proceso de implementación.",
+    "companySelectionRequiredTitle": "Debe seleccionar una empresa",
+    "companyReloadRequired": "Debe seleccionar una empresa y recargar la página antes de solicitar un plan.",
+    "reloadPage": "Recargar página",
+    "configurePage": "Configurar página para clientes",
+    "currentCompany": "Empresa actual",
+    "companyId": "ID de la empresa",
+    "company": "Empresa",
+    "companyNotSelected": "No hay una empresa seleccionada",
+    "formTitle": "Solicitar información del plan",
+    "formDescription": "Ingrese la información de la persona que debe recibir asesoría sobre los planes disponibles.",
+    "contactName": "Persona de contacto",
+    "contactNamePlaceholder": "Nombre completo de la persona de contacto",
+    "contactNameRequired": "El nombre de la persona de contacto es obligatorio.",
+    "contactEmail": "Correo personal de contacto",
+    "contactEmailPlaceholder": "contacto@ejemplo.com",
+    "contactEmailRequired": "El correo de contacto es obligatorio.",
+    "contactEmailInvalid": "Ingrese un correo electrónico válido.",
+    "contactPhone": "Teléfono de contacto",
+    "contactPhoneRequired": "El teléfono de contacto es obligatorio.",
+    "contactPhoneInvalid": "Ingrese un número telefónico válido, incluido el código de país.",
+    "contactPhoneHelp": "Seleccione el país e ingrese el número telefónico con su código internacional.",
+    "searchCountry": "Buscar país",
+    "message": "Mensaje",
+    "messagePlaceholder": "Cuéntenos qué necesita su empresa y cuáles procesos desea mejorar.",
+    "messageRequired": "Escriba un mensaje breve.",
+    "sendRequest": "Solicitar plan y asesoría",
+    "sending": "Enviando...",
+    "success": "Su solicitud fue enviada correctamente. Nuestro equipo de ventas se pondrá en contacto con usted.",
+    "sendError": "No fue posible enviar la solicitud. Inténtelo nuevamente."
+  },
+  "serviceHubStart": {
+    "eyebrow": "Gestión de servicios",
+    "title": "Bienvenido a AlephTelos",
+    "description": "Administre sus servicios, clientes, tareas y procesos empresariales desde un solo lugar.",
+    "currentCompany": "Empresa actual",
+    "companyRequiredTitle": "Debe seleccionar una empresa",
+    "companyRequiredMessage": "Debe seleccionar una empresa y recargar la página antes de utilizar AlephTelos.",
+    "reloadPage": "Recargar página",
+    "favoritesTitle": "Opciones favoritas",
+    "favoritesDescription": "Sus opciones utilizadas con mayor frecuencia aparecerán aquí.",
+    "noFavoritesTitle": "Todavía no tiene opciones favoritas",
+    "noFavoritesDescription": "En el futuro podrá marcar las opciones utilizadas con mayor frecuencia como favoritas y acceder rápidamente a ellas desde esta página.",
+    "footerMessage": "AlephTelos está listo para ayudarle a organizar y administrar las operaciones de su negocio.",
+    "configurePage": "Configurar página de la empresa",
+    "notifications": {
+      "title": "Las notificaciones a clientes no están listas",
+      "noEmail": "Agregue un correo para notificaciones para recibir nuevos pedidos y solicitudes de cita.",
+      "noSmtp": "Configure su propio SMTP para que sus clientes reciban correos sobre sus pedidos y citas.",
+      "action": "Configurar ahora"
+    },
+    "share": {
+      "linkLabel": "Enlace de la tienda",
+      "whatsapp": "Compartir por WhatsApp",
+      "whatsappText": "Visita nuestra tienda en línea {{name}}: {{link}}",
+      "qr": "Código QR",
+      "qrAlt": "Código QR de tu tienda",
+      "qrDownload": "Descargar PNG",
+      "qrHelp": "Imprímelo en volantes, menús o en tu mostrador. Los clientes lo escanean con la cámara del celular.",
+      "qrError": "No se pudo crear el código QR.",
+      "qrLoading": "Creando código QR…",
+      "noSlug": "Consejo: dale a tu tienda una dirección corta (por ejemplo /mi-tienda) para que el enlace sea fácil de leer y recordar.",
+      "setSlug": "Definir dirección"
+    },
+    "openShowcase": "Abrir tienda",
+    "showcaseModalTitle": "Comparte tu tienda",
+    "showcaseHelp": "Comparte este enlace con tus clientes. En WhatsApp y Facebook muestra el nombre y la imagen de tu tienda.",
+    "close": "Cerrar",
+    "copied": "Copiado",
+    "copy": "Copiar",
+    "quickActions": {
+      "appointment": "Cree su cita",
+      "appointmentDesc": "Configure la disponibilidad y los espacios de reserva.",
+      "appointmentModal": "Mantenimiento de reservas",
+      "customer": "Cree su cliente",
+      "customerDesc": "Registre un cliente nuevo.",
+      "customerModal": "Clientes",
+      "product": "Cree su producto",
+      "productDesc": "Agregue un producto o servicio a su catálogo.",
+      "productModal": "Productos",
+      "reports": "Reportes",
+      "reportsDesc": "Abra el panel de reportes.",
+      "reportsModal": "Reportes",
+      "unavailable": "Este componente no está disponible. Revise su ruta de importación en ServiceHubStart.jsx."
+    },
+    "quickActionsDescription": "Abra las herramientas que más usa, desde aquí.",
+    "quickActionsTitle": "Acciones rápidas",
+    "showcaseFor": "Tienda pública de",
+    "showcaseLink": "Enlace de la tienda"
+  },
+  "pageConfiguration": {
+    "eyebrow": "Página de la empresa",
+    "title": "Configuración de la página de la empresa",
+    "description": "Defina cómo ven los clientes a su empresa y cómo se comunica con ellos.",
+    "fields": {
+      "displayName": "Nombre mostrado a los clientes",
+      "font": "Fuente de la página",
+      "logo": "Logo",
+      "header": "Imagen de encabezado",
+      "notificationEmail": "Correo para notificaciones",
+      "contactWhatsapp": "Número de WhatsApp",
+      "notificationLanguage": "Idioma de los mensajes a clientes",
+      "currency": "Moneda de la tienda",
+      "currencyOther": "Otra…",
+      "currencySymbol": "Símbolo de moneda",
+      "paymentInstructions": "Instrucciones de pago",
+      "termsText": "Términos y condiciones",
+      "privacyText": "Política de privacidad",
+      "useDefaultSmtp": "Usar el correo general de AlephK mientras mi empresa no tenga servidor de correo (SMTP)",
+      "copyEmail": "Correo para copias (dueño)",
+      "socialLink": "Enlace de red social",
+      "socialLinkType": "Red",
+      "customerServiceEmail": "Correo de servicio al cliente",
+      "timeZone": "Zona horaria de la empresa",
+      "timeZoneLabel": "Texto para los clientes (opcional)"
+    },
+    "placeholders": {
+      "displayName": "Ejemplo: Mi empresa",
+      "font": "Seleccione una fuente",
+      "notificationEmail": "pedidos@suempresa.com",
+      "paymentInstructions": "ej. SINPE Móvil 8888-7777 (Maderas Finas)\nCuenta BN CR00 0000 0000 0000 0000 00",
+      "termsText": "Escriba los términos de su tienda: pedidos, pagos, entregas, cancelaciones...",
+      "privacyText": "Explique qué datos de clientes recopila (nombre, teléfono, correo, dirección), para qué, y cómo pueden pedir cambiarlos o eliminarlos.",
+      "timeZoneLabel": "Hora de Costa Rica"
+    },
+    "help": {
+      "displayName": "Este nombre será visible en la página para clientes.",
+      "logo": "Imagen cuadrada (mismo ancho y alto). Recomendado: 512 × 512 px. Identifica a su empresa en la página para clientes.",
+      "header": "Imagen rectangular ancha (4:1). Recomendado: 1920 × 480 px. Se mostrará como banner en la parte superior de la página para clientes. Mantenga el contenido importante en el centro.",
+      "upload": "Use imágenes JPG, PNG, WEBP o GIF (máx. 5 MB cada una). Las imágenes se suben al guardar.",
+      "notificationEmail": "A este correo llegan los pedidos web, solicitudes de cita, cancelaciones y solicitudes de nuevo horario, además de una \"[Copia]\" de cada correo enviado a sus clientes.",
+      "contactWhatsapp": "Incluya el código de país, p. ej. +506 8888 7777. Se usa en el enlace “Escríbanos por WhatsApp” de los correos.",
+      "notificationLanguage": "Los correos a sus clientes se escriben en este idioma.",
+      "currency": "Una sola moneda para todos los precios de su tienda, el carrito y los correos. Los productos usan esta moneda.",
+      "paymentInstructions": "Cómo le pagan sus clientes (por ejemplo SINPE Móvil, cuenta bancaria). Se muestra después de un pedido, en \"Mis pedidos\" y en los correos. Los pagos en línea llegarán pronto.",
+      "legalText": "Opcional. Si está vacío, la tienda no muestra este enlace. Texto simple, hasta {{max}} caracteres.",
+      "useDefaultSmtp": "Si su empresa tiene su propio SMTP, siempre se usa ese. Sin SMTP propio y sin esta opción, sus clientes no reciben correos.",
+      "copyEmail": "Con el correo general de AlephK, la copia de cada correo enviado a sus clientes llega solo a este correo (es el mismo Correo para notificaciones de arriba). Nunca se envía a la cuenta de AlephK.",
+      "socialLink": "Opcional. Pegue el enlace de su página (Facebook, Messenger, Instagram, TikTok…) y elija la red para su ícono. La tienda muestra \"Contáctenos\" con WhatsApp y este enlace, solo los que complete.",
+      "customerServiceEmail": "Opcional. Recibe una copia oculta de cada correo enviado a sus clientes (pedidos, citas, cambios, seguimiento). Los clientes responden a este correo.",
+      "timeZone": "\"Hoy\", los espacios libres, los plazos para cambiar o cancelar, los correos y el asistente usan esta zona. El servidor trabaja en GMT; la lista muestra la diferencia GMT de cada zona.",
+      "timeZoneLabel": "Se muestra junto a las horas en la tienda y en los correos, por ejemplo \"Hora de Costa Rica, GMT−6\". Vacío = el nombre de la zona. Hasta {{max}} caracteres."
+    },
+    "preview": "Vista previa para clientes",
+    "previewName": "Su empresa",
+    "previewDescription": "Los productos, servicios y opciones de contacto aparecerán aquí en el futuro.",
+    "noFileSelected": "Ninguna imagen seleccionada",
+    "saved": "Configuración guardada correctamente.",
+    "actions": {
+      "cancel": "Cancelar",
+      "save": "Guardar configuración",
+      "removeImage": "Quitar imagen",
+      "saving": "Guardando...",
+      "choose": {
+        "logo": "Seleccionar logo",
+        "header": "Seleccionar encabezado"
+      }
+    },
+    "loading": "Cargando configuración...",
+    "currentImage": "Imagen guardada",
+    "errors": {
+      "noCompany": "Seleccione una empresa antes de configurar su página.",
+      "load": "No se pudo cargar la configuración guardada.",
+      "save": "No se pudo guardar la configuración. Intente de nuevo."
+    },
+    "warnings": {
+      "logoShape": "Esta imagen no es cuadrada. Podría recortarse; use una imagen con el mismo ancho y alto.",
+      "headerShape": "Esta imagen no tiene forma de rectángulo 4:1. Podría recortarse; use una imagen unas 4 veces más ancha que alta.",
+      "noNotificationEmail": "Agregue un correo para notificaciones; si no, no recibirá nuevos pedidos ni solicitudes de cita.",
+      "noCopyEmail": "Sin este correo no recibirá las copias de los correos a sus clientes.",
+      "timeZoneChanged": "Está cambiando la zona horaria. Las citas y los espacios guardados conservan su hora (las 2 p. m. siguen siendo las 2 p. m.). Solo cambia la hora actual que se usa en los cálculos: el día de hoy, los espacios libres y los plazos para cambiar o cancelar.",
+      "timeZoneLabelCheck": "Revise también el texto para los clientes: dice \"{{label}}\"."
+    },
+    "logoPreviewAlt": "Vista previa del logo de la página para clientes",
+    "headerPreviewAlt": "Vista previa del encabezado de la página para clientes",
+    "noLogo": "Sin logo",
+    "noHeader": "Sin imagen de encabezado",
+    "sections": {
+      "communication": "Comunicación con clientes",
+      "money": "Precios y pago",
+      "legal": "Términos y privacidad",
+      "timeZone": "Zona horaria"
+    },
+    "languages": {
+      "en": "English",
+      "es": "Español"
+    },
+    "smtp": {
+      "button": "Configurar su propio SMTP",
+      "title": "Su servidor de correo (SMTP)",
+      "description": "Las notificaciones se envían desde su propia cuenta de correo, así sus clientes ven a su empresa como remitente. Sin SMTP no se envía ningún correo.",
+      "fields": {
+        "host": "Servidor SMTP",
+        "port": "Puerto",
+        "security": "Seguridad",
+        "username": "Usuario",
+        "password": "Contraseña",
+        "fromEmail": "Correo remitente",
+        "fromName": "Nombre del remitente",
+        "enabled": "Enviar notificaciones con este SMTP"
+      },
+      "securityStarttls": "STARTTLS (puerto 587)",
+      "securitySsl": "SSL/TLS (puerto 465)",
+      "passwordSaved": "Hay una contraseña guardada. Deje este campo vacío para conservarla.",
+      "help": "Gmail: smtp.gmail.com, puerto 587, STARTTLS, su correo de Gmail como usuario y una Contraseña de aplicación (no su contraseña normal). Outlook / Microsoft 365: smtp.office365.com, puerto 587, STARTTLS.",
+      "save": "Guardar SMTP",
+      "saving": "Guardando...",
+      "saved": "SMTP guardado. Envíe un correo de prueba para verificarlo.",
+      "saveError": "No se pudo guardar el SMTP.",
+      "loadError": "No se pudo cargar la configuración SMTP.",
+      "test": "Enviar correo de prueba",
+      "testing": "Enviando...",
+      "testTo": "Enviar la prueba a",
+      "testOk": "Correo de prueba enviado a {{to}}. Revise la bandeja de entrada (y la de spam).",
+      "testFailed": "El correo de prueba falló: {{error}}",
+      "lastTest": "Última prueba: {{date}} — {{result}}",
+      "ok": "Correcta",
+      "failed": "Fallida",
+      "notConfigured": "SMTP no configurado — no se envían correos a sus clientes.",
+      "notConfiguredShort": "SMTP no configurado",
+      "configured": "SMTP configurado",
+      "disabled": "SMTP desactivado — no se envían correos.",
+      "close": "Cerrar"
+    },
+    "slug": {
+      "label": "Dirección de la tienda (enlace)",
+      "placeholder": "ej. maderas-finas",
+      "suggest": "Sugerir desde el nombre",
+      "preview": "El enlace de tu tienda:",
+      "help": "Corta y fácil de recordar: minúsculas, números y guiones (3–60). Déjala vacía para usar el código interno. Debe ser única.",
+      "errors": {
+        "short": "Usa entre 3 y 60 caracteres.",
+        "format": "Usa solo minúsculas, números y guiones.",
+        "reserved": "Esta palabra está reservada por la plataforma. Elige otra.",
+        "uuid": "No puede parecerse a un código interno.",
+        "taken": "Otra empresa ya usa esta dirección. Prueba otra."
+      }
+    },
+    "socialLinkTypes": {
+      "FACEBOOK": "Facebook / Messenger",
+      "INSTAGRAM": "Instagram",
+      "TIKTOK": "TikTok",
+      "OTHER": "Otra"
+    },
+    "timeZone": {
+      "useMine": "Usar la zona de mi computadora",
+      "mineUnknown": "No se pudo leer la zona horaria de esta computadora. Elíjala de la lista.",
+      "now": "Ahora en esta zona: {{time}}",
+      "summer": "verano",
+      "summerNote": "Esta zona usa horario de verano: la hora cambia sola dos veces al año."
+    }
+  },
+  "categories": {
+    "form": {
+      "eyebrow": "Gestión de categorías",
+      "titleCreate": "Crear categoría",
+      "titleEdit": "Mantener categoría",
+      "description": "Cree y mantenga categorías simples que luego podrán utilizarse para productos, servicios, pedidos y pasos de seguimiento.",
+      "modeMaintenance": "Editando",
+      "pendingInternalCode": "Código interno pendiente",
+      "autoGenerated": "Generado automáticamente por el sistema",
+      "internalCodeHelp": "Este código es de uso interno y puede ser generado por la base de datos o el backend.",
+      "publishedCodeHelp": "Este es el código visible o reconocible por los usuarios.",
+      "statusHelp": "Las categorías inactivas no estarán disponibles para nuevos registros.",
+      "searchTitle": "Buscar categorías",
+      "searchPlaceholder": "Buscar por código, nombre o estado",
+      "noCategories": "No se encontraron categorías",
+      "noCategoriesHelp": "Intente con otra búsqueda o cree una nueva categoría.",
+      "sections": {
+        "basic": "Información básica"
+      },
+      "fields": {
+        "internalCode": "Código interno de categoría",
+        "publishedCode": "Código publicado",
+        "categoryName": "Nombre de la categoría",
+        "description": "Descripción"
+      },
+      "placeholders": {
+        "publishedCode": "Ejemplo: DELIVERY",
+        "categoryName": "Ejemplo: Productos de entrega",
+        "description": "Describa para qué se utiliza esta categoría."
+      },
+      "status": {
+        "active": "Activa",
+        "inactive": "Inactiva"
+      },
+      "actions": {
+        "search": "Buscar categoría",
+        "new": "Nueva",
+        "delete": "Eliminar",
+        "clear": "Limpiar",
+        "cancel": "Cancelar",
+        "save": "Guardar categoría",
+        "update": "Actualizar categoría",
+        "saving": "Guardando...",
+        "delete2": "Desactivar"
+      },
+      "validation": {
+        "publishedCodeRequired": "El código publicado es obligatorio.",
+        "nameRequired": "El nombre de la categoría es obligatorio.",
+        "categoryRequired": "Seleccione una categoría para editar."
+      },
+      "success": {
+        "created": "Categoría creada correctamente.",
+        "updated": "Categoría actualizada correctamente.",
+        "deleted": "Categoría eliminada correctamente.",
+        "deactivated": "Categoría desactivada correctamente."
+      },
+      "error": {
+        "save": "No fue posible guardar la categoría. Inténtelo nuevamente.",
+        "delete": "No fue posible eliminar la categoría. Inténtelo nuevamente.",
+        "missingCompany": "No hay una empresa seleccionada. Seleccione una empresa primero.",
+        "missingInternalId": "Esta categoría no tiene un ID interno y no se puede editar.",
+        "search": "No se pudieron buscar las categorías. Intente de nuevo.",
+        "select": "No se pudo cargar la información de la categoría. Intente de nuevo."
+      },
+      "searching": "Buscando..."
+    }
+  },
+  "steps": {
+    "form": {
+      "eyebrow": "Pasos de seguimiento",
+      "titleCreate": "Crear paso",
+      "titleEdit": "Mantener paso",
+      "description": "Cree y mantenga pasos reutilizables que luego podrán utilizarse en diferentes flujos de seguimiento.",
+      "modeMaintenance": "Editando",
+      "pendingCode": "Código de paso pendiente",
+      "stepCodeHelp": "Este código identifica el paso internamente o en reportes.",
+      "stepNameHelp": "Este es el nombre que se mostrará a los usuarios al dar seguimiento a una orden, producto o servicio.",
+      "statusHelp": "Los pasos inactivos no estarán disponibles para nuevos flujos de seguimiento.",
+      "searchTitle": "Buscar pasos",
+      "searchPlaceholder": "Buscar por código, nombre o estado",
+      "noSteps": "No se encontraron pasos",
+      "noStepsHelp": "Intente con otra búsqueda o cree un nuevo paso.",
+      "sections": {
+        "basic": "Información básica"
+      },
+      "fields": {
+        "stepCode": "Código del paso",
+        "stepName": "Nombre del paso"
+      },
+      "placeholders": {
+        "stepCode": "Ejemplo: EN-PROCESO",
+        "stepName": "Ejemplo: En proceso"
+      },
+      "status": {
+        "active": "Activo",
+        "inactive": "Inactivo"
+      },
+      "actions": {
+        "search": "Buscar paso",
+        "new": "Nuevo",
+        "delete": "Eliminar",
+        "clear": "Limpiar",
+        "cancel": "Cancelar",
+        "save": "Guardar paso",
+        "update": "Actualizar paso",
+        "saving": "Guardando..."
+      },
+      "validation": {
+        "codeRequired": "El código del paso es obligatorio.",
+        "nameRequired": "El nombre del paso es obligatorio.",
+        "stepRequired": "Seleccione un paso para editar."
+      },
+      "success": {
+        "created": "Paso creado correctamente.",
+        "updated": "Paso actualizado correctamente.",
+        "deleted": "Paso eliminado correctamente."
+      },
+      "error": {
+        "save": "No fue posible guardar el paso. Inténtelo nuevamente.",
+        "delete": "No fue posible eliminar el paso. Inténtelo nuevamente."
+      }
+    }
+  },
+  "trackingMaintenance": {
+    "eyebrow": "Configuración de productos",
+    "title": "Etapas del pedido",
+    "description": "Cree un flujo de seguimiento o busque uno existente para modificarlo.",
+    "fields": {
+      "search": {
+        "label": "Buscar seguimiento",
+        "placeholder": "Ingrese un nombre o código interno"
+      },
+      "name": {
+        "label": "Nombre del seguimiento",
+        "placeholder": "Ejemplo: Seguimiento de entrega estándar"
+      },
+      "internalCode": {
+        "label": "Código interno",
+        "placeholder": "Ejemplo: TRK-001"
+      },
+      "category": {
+        "label": "Categoría",
+        "placeholder": "Seleccione una categoría",
+        "help": "La categoría seleccionada determina cuál seguimiento se aplica al producto."
+      }
+    },
+    "steps": {
+      "title": "Pasos del seguimiento",
+      "description": "Busque un paso, agréguelo al flujo y defina si requiere el paso anterior.",
+      "count_one": "{{count}} paso",
+      "count_other": "{{count}} pasos",
+      "searchPlaceholder": "Buscar pasos por nombre o código",
+      "searchLabel": "Buscar pasos disponibles",
+      "empty": "Aún no se han agregado pasos.",
+      "noCode": "Sin código interno",
+      "requiresPrevious": "Requiere el paso anterior"
+    },
+    "actions": {
+      "createStep": "Crear paso",
+      "search": "Buscar",
+      "save": "Guardar seguimiento",
+      "update": "Actualizar seguimiento",
+      "moveUp": "Mover paso hacia arriba",
+      "moveDown": "Mover paso hacia abajo",
+      "removeStep": "Eliminar paso"
+    },
+    "messages": {
+      "enterSearch": "Ingrese el nombre o código interno del seguimiento.",
+      "loaded": "El seguimiento se ha cargado. Ahora puede modificarlo.",
+      "notFound": "No se encontró el seguimiento. Complete el formulario para crearlo.",
+      "required": "El nombre, el código interno y la categoría son obligatorios.",
+      "updated": "El seguimiento se ha actualizado correctamente.",
+      "created": "El seguimiento se ha creado correctamente."
+    },
+    "mock": {
+      "categories": {
+        "furniture": "Muebles",
+        "customProducts": "Productos personalizados",
+        "deliveries": "Entregas"
+      },
+      "steps": {
+        "orderReceived": "Pedido recibido",
+        "designApproval": "Aprobación del diseño",
+        "inProduction": "En producción",
+        "qualityReview": "Revisión de calidad",
+        "readyForDelivery": "Listo para entregar"
+      }
+    }
+  },
+  "orderMaintenance": {
+    "eyebrow": "Gestión de pedidos",
+    "title": "Nuevo pedido",
+    "description": "Registre y confirme un pedido recibido mediante un canal social o directo.",
+    "status": {
+      "scheduled": "Pedido programado",
+      "placed": "Pedido nuevo (recibido)"
+    },
+    "customer": {
+      "title": "Cliente y origen",
+      "description": "Busque al cliente e indique cómo se recibió el pedido.",
+      "searchPlaceholder": "Buscar por nombre, teléfono o correo electrónico",
+      "searchLabel": "Buscar cliente",
+      "searching": "Buscando...",
+      "noResults": "No se encontraron clientes.",
+      "createNew": "Crear un cliente nuevo",
+      "searchError": "No se pudieron buscar los clientes. Inténtelo de nuevo."
+    },
+    "products": {
+      "title": "Productos o servicios",
+      "description": "Agregue cada producto o servicio confirmado con el cliente.",
+      "searchPlaceholder": "Buscar por nombre del producto o código interno",
+      "searchLabel": "Buscar productos",
+      "empty": "Aún no se han agregado productos o servicios.",
+      "total": "Total del pedido",
+      "columns": {
+        "product": "Producto",
+        "code": "Código",
+        "subtotal": "Subtotal (₡)"
+      },
+      "noAppointments": "Las citas no aparecen aquí: se reservan en Citas."
+    },
+    "details": {
+      "title": "Compromiso y referencias",
+      "description": "Registre las fechas acordadas, los requerimientos y los archivos de respaldo."
+    },
+    "fields": {
+      "channel": {
+        "label": "Canal del pedido"
+      },
+      "quantity": "Cantidad",
+      "unitPrice": "Precio unitario",
+      "startDate": "Fecha de inicio",
+      "deliveryDate": "Fecha estimada de entrega",
+      "notes": {
+        "label": "Requerimientos y notas",
+        "placeholder": "Describa la solicitud, síntomas, medidas, personalización, acuerdo de entrega u otro detalle importante.",
+        "help": "Incluya todo lo que se ha confirmado durante la conversación con el cliente."
+      },
+      "discountPercentage": "Desc. %",
+      "taxAmount": "Impuestos (₡)",
+      "taxMode": {
+        "amount": "Monto (₡)",
+        "help": "Elija cómo se ingresan los impuestos para cada producto de esta orden.",
+        "label": "Modo de impuestos",
+        "percentage": "Porcentaje (%)"
+      },
+      "taxPercentage": "Impuesto %",
+      "customerEmail": {
+        "label": "Correo del cliente para notificaciones",
+        "help": "El cliente recibe un correo cuando se crea el pedido y cada vez que cambia su estado.",
+        "missing": "Sin correo, el cliente no recibirá actualizaciones de este pedido. Aun así puede guardarlo."
+      }
+    },
+    "channels": {
+      "phone": "Llamada telefónica",
+      "other": "Otro"
+    },
+    "attachments": {
+      "label": "Agregar imágenes o documentos",
+      "add": "Agregar imágenes o documentos",
+      "addFiles": "Agregar archivos",
+      "help": "Referencias en imagen, PDF, Word o Excel"
+    },
+    "actions": {
+      "createCustomer": "Crear cliente",
+      "change": "Cambiar",
+      "removeProduct": "Eliminar producto",
+      "removeAttachment": "Eliminar archivo adjunto",
+      "confirm": "Confirmar y crear pedido",
+      "saving": "Guardando...",
+      "uploading": "Subiendo archivos..."
+    },
+    "messages": {
+      "customerRequired": "Seleccione un cliente antes de crear el pedido.",
+      "productRequired": "Agregue al menos un producto o servicio.",
+      "datesRequired": "La fecha de inicio y la fecha estimada de entrega son obligatorias.",
+      "invalidDeliveryDate": "La fecha estimada de entrega no puede ser anterior a la fecha de inicio.",
+      "saved": "El pedido se ha creado y programado correctamente.",
+      "generalTrackingRequired": "Seleccione un seguimiento general o desactive la opción.",
+      "missingCompany": "No hay una empresa seleccionada. Seleccione una empresa primero.",
+      "saveError": "No se pudo guardar la orden. Inténtelo de nuevo."
+    },
+    "mock": {
+      "products": {
+        "cuttingBoard": "Tabla de cortar personalizada",
+        "grillBoard": "Tabla parrillera",
+        "customService": "Servicio personalizado"
+      }
+    },
+    "tracking": {
+      "description": "Elija cómo se dará seguimiento a esta orden.",
+      "generalHelp": "Todos los productos usarán el seguimiento seleccionado.",
+      "generalLabel": "Seguimiento general",
+      "generalPlaceholder": "Seleccione un seguimiento general",
+      "perProductNote": "Puede asignar un seguimiento diferente a cada producto.",
+      "title": "Seguimiento",
+      "useGeneralLabel": "Usar modo de seguimiento general"
+    }
+  },
+  "operationalTracking": {
+    "eyebrow": "Operaciones",
+    "title": "Seguimiento de pedidos",
+    "description": "Revise, filtre y actualice pedidos de productos y servicios desde un solo lugar.",
+    "orderCount_one": "{{count}} pedido",
+    "orderCount_other": "{{count}} pedidos",
+    "common": {
+      "all": "Todos",
+      "yes": "Sí",
+      "no": "No"
+    },
+    "filters": {
+      "title": "Filtros",
+      "help": "Los pedidos siempre se muestran del más antiguo al más reciente.",
+      "customer": "Cliente",
+      "startDate": "Fecha inicial",
+      "endDate": "Fecha final",
+      "category": "Categoría",
+      "type": "Tipo",
+      "orderName": "Nombre o número del pedido",
+      "orderPlaceholder": "Buscar pedido",
+      "product": "Producto o servicio",
+      "productPlaceholder": "Buscar producto o servicio",
+      "booking": "Tiene reserva",
+      "role": "Rol",
+      "status": "Estado"
+    },
+    "type": {
+      "product": "Producto",
+      "service": "Servicio"
+    },
+    "status": {
+      "placed": "Colocado",
+      "inReview": "En revisión",
+      "inProgress": "En proceso",
+      "waitingCustomer": "Esperando al cliente",
+      "onHold": "En espera",
+      "completed": "Completado",
+      "pending": "Pendiente (activa)"
+    },
+    "actions": {
+      "search": "Buscar",
+      "clear": "Limpiar",
+      "details": "Detalles",
+      "changeStatus": "Cambiar estado",
+      "addComment": "Agregar comentario",
+      "addFiles": "Agregar archivos",
+      "removeFile": "Eliminar archivo",
+      "close": "Cerrar",
+      "save": "Guardar cambios",
+      "cancel": "Cancelar",
+      "history": "Historial",
+      "items": "Artículos",
+      "uploading": "Subiendo..."
+    },
+    "columns": {
+      "number": "#",
+      "order": "Nombre del pedido",
+      "customer": "Cliente",
+      "product": "Producto / Servicio",
+      "type": "Tipo",
+      "date": "Fecha del pedido",
+      "status": "Estado actual",
+      "actions": "Acciones"
+    },
+    "list": {
+      "title": "Pedidos operativos",
+      "oldestFirst": "Los pedidos más antiguos aparecen primero.",
+      "booking": "Reserva",
+      "delivery": "Entrega",
+      "empty": "Ningún pedido coincide con los filtros seleccionados."
+    },
+    "detail": {
+      "responsible": "Responsable",
+      "delivery": "Fecha de entrega",
+      "followUp": "Fecha de seguimiento",
+      "status": "Estado actual",
+      "comments": "Comentarios y actividad",
+      "noComments": "No se han agregado comentarios.",
+      "commentPlaceholder": "Escriba un comentario operativo...",
+      "attachments": "Archivos adjuntos",
+      "contactInfo": "Información de contacto",
+      "loading": "Cargando...",
+      "timeline": "Cronología de seguimiento",
+      "timelineEmpty": "Aún no hay movimientos.",
+      "timelineLoading": "Cargando cronología...",
+      "user": "Usuario"
+    },
+    "messages": {
+      "results_one": "Se encontró {{count}} resultado.",
+      "results_other": "Se encontraron {{count}} resultados.",
+      "statusChanged": "El estado del pedido se ha actualizado.",
+      "detailsSaved": "Los detalles del pedido se han guardado.",
+      "cancelled": "Orden cancelada."
+    },
+    "contact": {
+      "address": "Dirección / ubicación",
+      "email": "Correo electrónico",
+      "empty": "No indicado",
+      "name": "Nombre",
+      "openMap": "Abrir ubicación",
+      "phone": "Teléfono",
+      "preferred": "Contacto preferido",
+      "social": "Red social",
+      "title": "Información de contacto"
+    },
+    "history": {
+      "empty": "Aún no hay historial.",
+      "loading": "Cargando historial...",
+      "note": "Cambios de etapa registrados para esta orden.",
+      "title": "Historial de seguimiento"
+    },
+    "items": {
+      "empty": "Esta orden no tiene artículos.",
+      "loading": "Cargando artículos...",
+      "noProcess": "Sin proceso asignado",
+      "notStarted": "— Sin iniciar —",
+      "note": "El estado de la orden se calcula automáticamente a partir de los artículos.",
+      "qty": "Cant.",
+      "stage": "Etapa",
+      "title": "Artículos de la orden"
+    }
+  },
+  "companyUsersAccess": {
+    "menuLabel": "Equipo y permisos",
+    "sectionLabel": "Administración de AlephTelos",
+    "title": "Equipo y permisos",
+    "subtitle": "Agregue usuarios, controle su acceso y asigne permisos para la empresa seleccionada actualmente.",
+    "currentCompany": "Empresa actual",
+    "ownerProtected": "El propietario de la empresa no se puede desactivar.",
+    "summary": {
+      "total": "Total de usuarios",
+      "active": "Usuarios activos",
+      "inactive": "Usuarios inactivos"
+    },
+    "filters": {
+      "name": "Nombre",
+      "namePlaceholder": "Filtrar por nombre del usuario",
+      "email": "Correo electrónico",
+      "emailPlaceholder": "Filtrar por correo electrónico",
+      "status": "Estado",
+      "allStatuses": "Todos los estados",
+      "search": "Buscar",
+      "searchPlaceholder": "Buscar por nombre o correo"
+    },
+    "list": {
+      "title": "Usuarios asignados",
+      "count": "Mostrando {{visible}} de {{total}} usuarios",
+      "empty": "Ningún usuario coincide con los filtros seleccionados.",
+      "loading": "Cargando usuarios de la empresa..."
+    },
+    "table": {
+      "user": "Usuario",
+      "role": "Rol",
+      "joinedAt": "Fecha de ingreso",
+      "permissions": "Permisos",
+      "permissionsAssigned": "asignados",
+      "status": "Estado",
+      "actions": "Acciones"
+    },
+    "status": {
+      "active": "Activo",
+      "inactive": "Inactivo"
+    },
+    "roles": {
+      "owner": "Propietario",
+      "manager": "Administrador",
+      "operator": "Operador",
+      "viewer": "Consulta"
+    },
+    "actions": {
+      "addUser": "Agregar usuario",
+      "addToCompany": "Agregar a la empresa",
+      "activate": "Activar",
+      "deactivate": "Desactivar",
+      "permissions": "Permisos",
+      "savePermissions": "Guardar permisos",
+      "clear": "Limpiar filtros",
+      "cancel": "Cancelar",
+      "close": "Cerrar",
+      "saving": "Guardando..."
+    },
+    "addUser": {
+      "title": "Agregar usuario a la empresa",
+      "search": "Buscar un usuario de la plataforma",
+      "searchPlaceholder": "Buscar por nombre o correo",
+      "role": "Rol inicial",
+      "noCandidates": "Ningún usuario disponible de la plataforma coincide con esta búsqueda.",
+      "alreadyAssigned": "Este usuario ya está asignado a la empresa.",
+      "loading": "Cargando usuarios...",
+      "saveError": "No se pudo agregar el usuario. Inténtelo de nuevo.",
+      "saving": "Agregando usuario...",
+      "usersUnavailable": "Los usuarios no están disponibles en este momento.",
+      "noPlan": "Esta empresa no tiene un plan activo, por eso no puede agregar usuarios. Elija un plan o solicite una prueba gratis en Inicio → Su plan."
+    },
+    "permissions": {
+      "title": "Editar permisos",
+      "subtitle": "Controle el acceso de este usuario a AlephTelos para {{company}}.",
+      "selectedCount": "{{selected}} de {{total}} seleccionados",
+      "selectGroup": "Seleccionar todos",
+      "clearGroup": "Limpiar grupo",
+      "groups": {
+        "orders": "Órdenes",
+        "tracking": "Seguimiento operativo",
+        "transitions": "Transiciones de estado del flujo",
+        "maintenance": "Formularios de mantenimiento",
+        "administration": "Administración"
+      },
+      "groupDescriptions": {
+        "orders": "Cree, edite, asigne y controle las órdenes de la empresa.",
+        "tracking": "Trabaje con el seguimiento operativo y su información de respaldo.",
+        "transitions": "Elija exactamente cuáles movimientos del flujo puede realizar este usuario.",
+        "maintenance": "Administre los datos maestros utilizados por AlephTelos.",
+        "administration": "Administre el acceso de la empresa y revise la actividad administrativa."
+      },
+      "items": {
+        "ordersView": "Ver órdenes",
+        "ordersCreate": "Crear órdenes",
+        "ordersEdit": "Editar órdenes",
+        "ordersAssign": "Asignar responsables",
+        "ordersCancel": "Cancelar órdenes",
+        "trackingView": "Ver el seguimiento operativo",
+        "trackingComments": "Agregar comentarios al seguimiento",
+        "trackingAttachments": "Administrar archivos adjuntos",
+        "trackingAssignResponsible": "Cambiar el usuario responsable",
+        "placedToReview": "Colocada → En revisión",
+        "reviewToProgress": "En revisión → En progreso",
+        "progressToCustomer": "En progreso → Esperando al cliente",
+        "customerToProgress": "Esperando al cliente → En progreso",
+        "progressToHold": "En progreso → En espera",
+        "holdToProgress": "En espera → En progreso",
+        "progressToCompleted": "En progreso → Completada",
+        "reopenOrder": "Reabrir una orden completada",
+        "customersMaintenance": "Mantenimiento de clientes",
+        "productsMaintenance": "Mantenimiento de productos",
+        "categoriesMaintenance": "Mantenimiento de categorías",
+        "stepsMaintenance": "Mantenimiento de pasos",
+        "trackingMaintenance": "Mantenimiento de plantillas de seguimiento",
+        "companyUsers": "Administrar usuarios de la empresa",
+        "managePermissions": "Asignar permisos de usuarios",
+        "auditLog": "Ver el registro de auditoría"
+      },
+      "menuDescriptions": {
+        "home": "Acceso a la página de inicio.",
+        "customers": "Agregar, buscar y editar clientes.",
+        "products": "Productos y servicios.",
+        "category": "Agrupar productos en categorías.",
+        "trackingm": "Las etapas por las que pasa un pedido.",
+        "order": "Crear pedidos nuevos.",
+        "aprovala": "Aprobar o rechazar pedidos de la tienda pública.",
+        "aprovalb": "Aprobar o rechazar solicitudes de reserva.",
+        "trackingord": "Seguir y actualizar el avance de los pedidos.",
+        "usersbcompany": "Usuarios de la empresa y su acceso.",
+        "booking": "Horas disponibles para reservar.",
+        "selfbooking": "Crear citas para los clientes.",
+        "appointments": "Administrar citas.",
+        "pageConfiguration": "Logo, encabezado, correo de avisos y servidor de correo de la tienda.",
+        "reports": "Reportes de ventas y reservas."
+      }
+    },
+    "messages": {
+      "userAdded": "{{name}} se ha agregado a la empresa.",
+      "userActivated": "{{name}} se ha activado.",
+      "userDeactivated": "{{name}} se ha desactivado.",
+      "permissionsSaved": "Se han guardado los permisos de {{name}}.",
+      "permissionsLoadError": "No se pudieron cargar los permisos.",
+      "permissionsLoading": "Cargando permisos...",
+      "permissionsSaveError": "No se pudieron guardar los permisos.",
+      "statusUpdateError": "No se pudo actualizar el estado del usuario."
+    }
+  },
+  "companyShowcase": {
+    "publicStore": "Vitrina pública",
+    "companyLink": "/showcase/{{slug}}",
+    "search": {
+      "label": "Buscar productos",
+      "placeholder": "Buscar productos por nombre",
+      "clear": "Limpiar búsqueda de productos"
+    },
+    "products": {
+      "title": "Productos y servicios",
+      "resultCount": "{{count}} disponibles",
+      "searchingFor": "Resultados para “{{search}}”",
+      "emptyTitle": "No se encontraron productos",
+      "emptyDescription": "Pruebe con otro nombre de producto o limpie la búsqueda."
+    },
+    "product": {
+      "bookingAvailable": "Reserva disponible",
+      "customQuote": "Cotización personalizada"
+    },
+    "actions": {
+      "orderHere": "Ordenar aquí",
+      "contactUs": "Contáctenos",
+      "bookNow": "Reservar",
+      "close": "Cerrar",
+      "cancel": "Cancelar"
+    },
+    "contact": {
+      "externalChannel": "Continuar en un canal externo",
+      "whatsappMessage": "Hola, estoy interesado en {{product}} de {{company}}. Código del producto: {{code}}."
+    },
+    "pagination": {
+      "label": "Páginas de productos",
+      "summary": "Mostrando {{start}}–{{end}} de {{total}}",
+      "previous": "Página anterior",
+      "next": "Página siguiente"
+    },
+    "cart": {
+      "open": "Abrir carrito de compras",
+      "title": "Su carrito",
+      "itemCount": "{{count}} artículos",
+      "emptyTitle": "Su carrito está vacío",
+      "emptyDescription": "Agregue un producto de la vitrina para comenzar una orden.",
+      "remove": "Eliminar {{product}} del carrito",
+      "subtotal": "Subtotal",
+      "checkoutDescription": "El envío, los impuestos y la disponibilidad final serán confirmados con la empresa."
+    },
+    "checkout": {
+      "signIn": "Iniciar sesión o crear una cuenta",
+      "continueAsGuest": "Continuar como invitado",
+      "guestTitle": "Orden como invitado",
+      "guestDescription": "Ingrese su información de contacto para que la empresa pueda confirmar la orden.",
+      "accountTitle": "Inicie sesión para realizar la orden",
+      "accountDescription": "La orden quedará asociada con su cuenta y estará disponible para seguimiento.",
+      "mockAuthentication": "Autenticación simulada: reemplace este formulario con el inicio de sesión o registro de la plataforma.",
+      "submitGuestOrder": "Enviar orden como invitado",
+      "signInAndOrder": "Iniciar sesión y enviar orden",
+      "createAccount": "Crear una cuenta nueva",
+      "member": "Miembro",
+      "guestType": "invitado",
+      "memberType": "miembro"
+    },
+    "booking": {
+      "title": "Solicitar una reserva",
+      "description": "No se requiere una cuenta. Ingrese su información de contacto y horario preferido; la empresa confirmará la disponibilidad.",
+      "preferredDate": "Fecha preferida",
+      "preferredTime": "Hora preferida",
+      "notesPlaceholder": "Describa lo que necesita para este servicio",
+      "submit": "Enviar solicitud de reserva",
+      "availableTimes": "Horarios disponibles",
+      "loadingAvailability": "Cargando disponibilidad…",
+      "nextMonth": "Mes siguiente",
+      "noSlots": "No hay disponibilidad para este día.",
+      "pickDate": "Seleccione una fecha para ver los horarios disponibles.",
+      "prevMonth": "Mes anterior"
+    },
+    "form": {
+      "name": "Nombre completo",
+      "phone": "Número de teléfono",
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "address": "Dirección de entrega",
+      "preferredContact": "Medio de contacto preferido",
+      "emailOption": "Correo electrónico",
+      "phoneOption": "Llamada telefónica",
+      "notes": "Notas",
+      "notesPlaceholder": "Agregue medidas, detalles de personalización o instrucciones de entrega"
+    },
+    "messages": {
+      "addedToCart": "{{product}} se ha agregado al carrito.",
+      "orderCreated": "La orden {{reference}} se ha creado para {{name}} como una orden de {{customerType}}.",
+      "bookingCreated": "La solicitud de reserva {{reference}} se ha creado para {{service}}."
+    },
+    "notFound": {
+      "title": "No se encontró la vitrina de la empresa",
+      "description": "No se encontró una empresa pública para “{{slug}}”. Revise el enlace de la empresa e inténtelo nuevamente."
+    }
+  },
+  "bookingAvailabilityMaintenance": {
+    "eyebrow": "AlephTelos · Reservas",
+    "title": "Horarios de reserva",
+    "description": "Cree los espacios que los clientes podrán solicitar posteriormente.",
+    "mockBadge": "Datos de prueba",
+    "actions": {
+      "new": "Nueva configuración",
+      "search": "Buscar",
+      "save": "Guardar configuración",
+      "update": "Actualizar configuración",
+      "addRange": "Agregar horario",
+      "removeRange": "Eliminar horario",
+      "previousMonth": "Mes anterior",
+      "nextMonth": "Mes siguiente",
+      "openDay": "Abrir este día",
+      "closeDay": "Cerrar este día"
+    },
+    "search": {
+      "label": "Buscar una configuración de reservas",
+      "placeholder": "Busque por nombre de configuración o servicio",
+      "help": "Escriba parte del nombre de la configuración o del servicio.",
+      "serviceLabel": "Servicio: {{service}}"
+    },
+    "general": {
+      "title": "Información general",
+      "description": "Identifique el servicio y defina la duración de cada espacio disponible."
+    },
+    "fields": {
+      "name": {
+        "label": "Nombre de la configuración",
+        "placeholder": "Ejemplo: Horario habitual de consultoría"
+      },
+      "service": {
+        "label": "Servicio",
+        "placeholder": "Seleccione un servicio",
+        "searchPlaceholder": "Escriba para buscar un servicio",
+        "help": "Cada servicio tiene un horario de reservas. Elija el servicio: si ya tiene horario, se abre para editarlo."
+      },
+      "duration": {
+        "label": "Duración de la cita",
+        "option": "{{count}} minutos"
+      },
+      "active": {
+        "label": "Configuración activa",
+        "help": "Solo las configuraciones activas publicarán disponibilidad."
+      },
+      "from": "Desde",
+      "to": "Hasta",
+      "generalAppointments": {
+        "label": "Citas por espacio (general)",
+        "help": "Capacidad por defecto. Un rango puede sobrescribirla."
+      },
+      "lifespan": {
+        "label": "Ventana de reserva",
+        "help": "Con cuánta anticipación pueden reservar los clientes.",
+        "options": {
+          "ONE_WEEK": "1 semana",
+          "ONE_MONTH": "1 mes",
+          "THREE_MONTHS": "3 meses",
+          "SIX_MONTHS": "6 meses",
+          "ONE_YEAR": "1 año"
+        }
+      },
+      "disableDates": {
+        "label": "Deshabilitar fechas (feriados)",
+        "to": "a",
+        "help": "Rango único opcional para desactivar la reserva."
+      },
+      "rangeAppointments": "Citas",
+      "usesGeneral": "Usa la general"
+    },
+    "mode": {
+      "title": "Modalidad de disponibilidad",
+      "description": "Seleccione cómo abrirá este servicio sus espacios para reservas.",
+      "weekly": {
+        "title": "Horario semanal recurrente",
+        "description": "Repita la misma disponibilidad en los días seleccionados."
+      },
+      "manual": "Fechas específicas",
+      "recurring": "Horario recurrente"
+    },
+    "weekly": {
+      "title": "Disponibilidad semanal",
+      "description": "Active cada día laboral y defina uno o varios horarios.",
+      "enabledCount": "{{count}} días activos",
+      "allDay": "Disponible todo el día",
+      "closed": "No se ha configurado disponibilidad para este día."
+    },
+    "manual": {
+      "title": "Disponibilidad por calendario",
+      "description": "Seleccione una fecha y abra los horarios que podrán solicitarse.",
+      "openCount": "{{count}} fechas abiertas",
+      "legend": "Día con disponibilidad",
+      "selectedDate": "Fecha seleccionada",
+      "dayClosed": "Esta fecha no se ha abierto para reservas.",
+      "allDay": "Disponible todo el día"
+    },
+    "preview": {
+      "title": "Vista previa de espacios generados",
+      "description": "Los horarios se han dividido según la duración seleccionada para cada cita.",
+      "count": "{{count}} espacios",
+      "day": "Día para la vista previa",
+      "slot": "{{start}} – {{end}}",
+      "empty": "No se pueden generar espacios con la configuración actual."
+    },
+    "days": {
+      "monday": {
+        "long": "Lunes",
+        "short": "Lun"
+      },
+      "tuesday": {
+        "long": "Martes",
+        "short": "Mar"
+      },
+      "wednesday": {
+        "long": "Miércoles",
+        "short": "Mié"
+      },
+      "thursday": {
+        "long": "Jueves",
+        "short": "Jue"
+      },
+      "friday": {
+        "long": "Viernes",
+        "short": "Vie"
+      },
+      "saturday": {
+        "long": "Sábado",
+        "short": "Sáb"
+      },
+      "sunday": {
+        "long": "Domingo",
+        "short": "Dom"
+      }
+    },
+    "messages": {
+      "newReady": "La nueva configuración de reservas está lista.",
+      "enterSearch": "Digite el nombre de una configuración o servicio.",
+      "notFound": "Ninguna configuración de reservas coincide con la búsqueda.",
+      "loaded": "La configuración de reservas se ha cargado.",
+      "required": "Elija un servicio.",
+      "availabilityRequired": "Abra al menos un día o una fecha del calendario.",
+      "invalidRanges": "Revise los horarios. No pueden traslaparse y cada horario debe admitir al menos una cita completa.",
+      "created": "La configuración de reservas se ha creado con datos de prueba.",
+      "updated": "La configuración de reservas se ha actualizado con datos de prueba.",
+      "missingCompany": "No hay compañía seleccionada. Seleccione una compañía primero.",
+      "searchDone": "Reservas encontradas.",
+      "searchError": "No se pudieron buscar las reservas. Intente de nuevo.",
+      "selectError": "No se pudo cargar la reserva. Intente de nuevo.",
+      "saveError": "No se pudo guardar la reserva. Intente de nuevo.",
+      "editingExisting": "Editando el horario existente de {{service}}.",
+      "newForService": "Nuevo horario para {{service}}.",
+      "serviceHasSchedule": "Este servicio ya tiene un horario de reservas.",
+      "checkServiceError": "No se pudo revisar el horario del servicio. Inténtelo de nuevo."
+    },
+    "mock": {
+      "services": {
+        "consulting": "Consultoría profesional",
+        "installation": "Instalación en sitio",
+        "technicalReview": "Revisión técnica"
+      }
+    },
+    "autocomplete": {
+      "searching": "Buscando...",
+      "noResults": "No se encontraron servicios",
+      "hasSchedule": "Tiene horario"
+    },
+    "existing": {
+      "unsavedChanges": "{{service}} ya tiene un horario de reservas. ¿Abrirlo? Se perderán los cambios sin guardar de esta pantalla.",
+      "saveConflict": "{{service}} ya tiene un horario de reservas. Ábralo para editarlo.",
+      "open": "Abrirlo",
+      "keep": "Seguir editando"
+    }
+  },
+  "bookingRequestManagement": {
+    "eyebrow": "AlephTelos · Reservas",
+    "title": "Solicitudes de reserva",
+    "description": "Revise las citas y acepte, rechace o finalice cada solicitud.",
+    "mockBadge": "Datos de prueba",
+    "sortedByTime": "Ordenadas por hora de la cita",
+    "filters": {
+      "search": "Busque por cliente, teléfono, correo o servicio",
+      "searchLabel": "Buscar solicitudes de reserva",
+      "period": "Periodo",
+      "status": "Estado",
+      "from": "Desde",
+      "to": "Hasta"
+    },
+    "periods": {
+      "today": "Hoy",
+      "week": "Esta semana",
+      "month": "Este mes",
+      "all": "Todas las fechas",
+      "custom": "Rango personalizado"
+    },
+    "statusFilters": {
+      "all": "Todos",
+      "active": "Activos",
+      "requested": "Solicitudes pendientes",
+      "accepted": "Aceptadas",
+      "rejected": "Rechazadas",
+      "finished": "Finalizadas"
+    },
+    "statuses": {
+      "requested": "Pendiente",
+      "accepted": "Aceptada",
+      "rejected": "Rechazada",
+      "finished": "Finalizada"
+    },
+    "contacts": {
+      "whatsapp": "WhatsApp",
+      "phone": "Teléfono",
+      "email": "Correo electrónico"
+    },
+    "list": {
+      "title": "Citas",
+      "doubleClickHelp": "Haga doble clic sobre una fila o utilice Detalles para revisar la solicitud.",
+      "count": "{{count}} citas"
+    },
+    "columns": {
+      "appointment": "Cita",
+      "customer": "Cliente",
+      "contact": "Contacto",
+      "service": "Servicio",
+      "status": "Estado",
+      "actions": "Acciones"
+    },
+    "actions": {
+      "viewDetails": "Detalles",
+      "viewDetailsFor": "Ver detalles de {{name}}",
+      "resetFilters": "Restablecer filtros",
+      "close": "Cerrar",
+      "accept": "Aceptar solicitud",
+      "reject": "Rechazar",
+      "finish": "Marcar como finalizada"
+    },
+    "details": {
+      "eyebrow": "Detalle de la solicitud",
+      "appointment": "Cita solicitada",
+      "customer": "Cliente",
+      "preferredContact": "Contacto preferido",
+      "phone": "Teléfono",
+      "email": "Correo electrónico",
+      "service": "Servicio solicitado",
+      "requestedAt": "Solicitud recibida",
+      "notes": "Notas",
+      "noNotes": "No se han incluido notas adicionales.",
+      "noEmail": "Sin correo — el cliente no recibirá avisos"
+    },
+    "empty": {
+      "title": "No se encontraron citas",
+      "description": "Ninguna solicitud de reserva coincide con los filtros de fecha y estado."
+    },
+    "footer": {
+      "defaultFilters": "Vista predeterminada: Hoy + Activos (pendientes y aceptadas)."
+    },
+    "messages": {
+      "filtersReset": "Se han restablecido los filtros predeterminados Hoy + Activos.",
+      "statusChanged": {
+        "accepted": "La solicitud de reserva se ha aceptado.",
+        "rejected": "La solicitud de reserva se ha rechazado.",
+        "finished": "La cita se ha marcado como finalizada."
+      }
+    },
+    "mock": {
+      "services": {
+        "consulting": "Consultoría profesional",
+        "installation": "Instalación en sitio",
+        "technicalReview": "Revisión técnica"
+      }
+    }
+  },
+  "webOrderApproval": {
+    "eyebrow": "Operación en línea",
+    "title": "Pedidos web",
+    "subtitle": "Revisa las solicitudes que no son reservaciones recibidas desde la vitrina pública y convierte las aprobadas en órdenes operativas con seguimiento.",
+    "company": {
+      "label": "Empresa actual"
+    },
+    "summary": {
+      "label": "Resumen de pedidos web",
+      "pending": "Pendientes de revisión",
+      "registered": "Clientes registrados",
+      "guests": "Clientes invitados",
+      "approvedToday": "Aprobados hoy"
+    },
+    "booking": {
+      "title": "Las reservaciones se administran por separado",
+      "description_one": "Se ha excluido {{count}} solicitud de reservación de esta lista porque pertenece al flujo de aprobación de reservaciones.",
+      "description_other": "Se han excluido {{count}} solicitudes de reservación de esta lista porque pertenecen al flujo de aprobación de reservaciones.",
+      "description": "{{count}} solicitudes de reserva se administran en el flujo de reservas."
+    },
+    "filters": {
+      "title": "Filtros de la bandeja",
+      "description": "La bandeja predeterminada muestra las solicitudes pendientes de hoy.",
+      "search": "Buscar",
+      "searchPlaceholder": "Solicitud, cliente, correo, teléfono, código o artículo",
+      "period": "Periodo",
+      "region": "Región",
+      "status": "Estado",
+      "customerType": "Identificación del cliente",
+      "orderType": "Tipo de orden"
+    },
+    "period": {
+      "today": "Hoy",
+      "yesterday": "Ayer",
+      "last7": "Últimos 7 días",
+      "last30": "Últimos 30 días",
+      "all": "Todas las fechas"
+    },
+    "options": {
+      "allRegions": "Todas las regiones",
+      "allStatuses": "Todos los estados",
+      "allCustomers": "Todos los clientes",
+      "allOrderTypes": "Productos y servicios"
+    },
+    "region": {
+      "sanJose": "San José",
+      "alajuela": "Alajuela",
+      "heredia": "Heredia",
+      "cartago": "Cartago",
+      "guanacaste": "Guanacaste"
+    },
+    "status": {
+      "pending": "Pendiente",
+      "approved": "Aprobada",
+      "rejected": "Rechazada"
+    },
+    "customerType": {
+      "registered": "Cliente registrado",
+      "guest": "Cliente invitado"
+    },
+    "orderType": {
+      "product": "Producto",
+      "service": "Servicio"
+    },
+    "list": {
+      "title": "Pedidos web recibidos",
+      "resultCount_one": "{{count}} solicitud coincidente",
+      "resultCount_other": "{{count}} solicitudes coincidentes",
+      "doubleClickTip": "Haz doble clic en una fila para ver sus detalles",
+      "resultCount": "{{count}} solicitudes"
+    },
+    "columns": {
+      "request": "Solicitud",
+      "customer": "Cliente",
+      "region": "Región",
+      "item": "Producto o servicio",
+      "requestedAt": "Recibida",
+      "status": "Estado",
+      "actions": "Acciones"
+    },
+    "labels": {
+      "noAccount": "Sin cuenta de cliente",
+      "quantity": "Cant. {{count}}",
+      "toConfirm": "Por confirmar",
+      "noNotes": "No se proporcionaron notas adicionales."
+    },
+    "actions": {
+      "reset": "Restablecer filtros",
+      "details": "Ver detalles",
+      "approve": "Aprobar",
+      "reject": "Rechazar",
+      "close": "Cerrar",
+      "cancel": "Cancelar",
+      "confirmApproval": "Aprobar y crear orden",
+      "confirmRejection": "Confirmar rechazo"
+    },
+    "empty": {
+      "title": "No hay pedidos web coincidentes",
+      "description": "Cambia o restablece los filtros para revisar otras solicitudes."
+    },
+    "dialog": {
+      "approveTitle": "Aprobar solicitud web",
+      "rejectTitle": "Rechazar solicitud web",
+      "detailsTitle": "Detalle de la solicitud web",
+      "registeredExplanation": "Esta solicitud está vinculada con el cliente {{id}} y puede asociarse directamente con su registro.",
+      "guestExplanation": "Esta solicitud se realizó sin una cuenta. Posteriormente se podrá invitar al contacto para que se registre.",
+      "approvalEffectTitle": "Flujo operativo que se creará",
+      "approvalEffectDescription": "La aprobación creará la orden operativa, copiará el flujo de seguimiento «{{workflow}}» y colocará su estado inicial al comienzo.",
+      "flowCreated": "Orden operativa y seguimiento creados",
+      "rejectionReason": "Motivo del rechazo",
+      "rejectionPlaceholder": "Explica por qué no se puede aceptar esta solicitud",
+      "rejectionHelp": "Este motivo se guardará con la solicitud web y podrá utilizarse posteriormente para comunicarse con el cliente."
+    },
+    "details": {
+      "customer": "Cliente",
+      "region": "Región",
+      "email": "Correo electrónico",
+      "phone": "Teléfono",
+      "item": "Producto o servicio",
+      "amount": "Monto estimado",
+      "requestedAt": "Fecha de solicitud",
+      "workflow": "Plantilla de seguimiento",
+      "notes": "Notas de la solicitud",
+      "orderReference": "Orden",
+      "trackingReference": "Seguimiento",
+      "noEmail": "Sin correo — el cliente no recibirá avisos"
+    },
+    "messages": {
+      "approved": "Se aprobó {{request}}. Se crearon la orden {{order}} y el seguimiento {{tracking}}.",
+      "rejected": "Se rechazó {{request}} y se registró el motivo.",
+      "approveError": "No se pudo aprobar la solicitud. Inténtelo de nuevo.",
+      "rejectError": "No se pudo rechazar la solicitud. Inténtelo de nuevo."
+    }
+  },
+  "customers": {
+    "create": {
+      "eyebrow": "Gestión de clientes",
+      "title": "Crear cliente",
+      "description": "Registre un nuevo cliente con información de contacto, perfil social, categoría y estado.",
+      "fields": {
+        "customerId": "Identificación del cliente",
+        "name": "Nombre",
+        "alias": "Alias",
+        "cellphone": "Teléfono celular",
+        "email": "Correo electrónico",
+        "preferredContactMethod": "Medio de contacto preferido",
+        "socialNetwork": "Red social",
+        "socialNetworkLink": "Enlace de la red social",
+        "birthday": "Fecha de nacimiento",
+        "birthYear": "Año de nacimiento",
+        "website": "Sitio web",
+        "address": "Dirección",
+        "status": "Estado",
+        "category": "Categoría",
+        "comments": "Comentarios"
+      },
+      "placeholders": {
+        "customerId": "Ejemplo: CUST-0001",
+        "name": "Nombre completo del cliente",
+        "alias": "Apodo o nombre comercial",
+        "cellphone": "+506 8888 8888",
+        "email": "cliente@ejemplo.com",
+        "socialNetworkLink": "Pegue el enlace del perfil o de contacto",
+        "birthYear": "Ejemplo: 1990",
+        "website": "https://ejemplo.com",
+        "address": "Dirección del cliente",
+        "comments": "Escriba notas relevantes sobre este cliente."
+      },
+      "sections": {
+        "basic": "Información básica",
+        "contact": "Información de contacto",
+        "extra": "Información adicional",
+        "comments": "Comentarios"
+      },
+      "actions": {
+        "new": "Nuevo cliente",
+        "clear": "Limpiar",
+        "cancel": "Cancelar",
+        "saving": "Guardando...",
+        "save": "Guardar cliente"
+      },
+      "validation": {
+        "customerIdRequired": "La identificación del cliente es obligatoria.",
+        "nameRequired": "El nombre del cliente es obligatorio.",
+        "cellphoneInvalid": "Ingrese un número de teléfono celular válido.",
+        "emailInvalid": "Ingrese una dirección de correo electrónico válida.",
+        "websiteInvalid": "Ingrese una URL válida para el sitio web. Ejemplo: https://ejemplo.com",
+        "socialNetworkLinkInvalid": "Ingrese un enlace válido de una red social. Ejemplo: https://...",
+        "birthYearInvalid": "Ingrese un año de nacimiento válido."
+      },
+      "success": "El cliente se ha creado correctamente.",
+      "error": "No se ha podido crear el cliente. Inténtelo nuevamente."
+    },
+    "update": {
+      "title": "Editar cliente",
+      "actions": {
+        "save": "Actualizar cliente"
+      },
+      "success": "El cliente se ha actualizado correctamente.",
+      "error": "No se ha podido actualizar el cliente. Inténtelo nuevamente."
+    },
+    "search": {
+      "title": "Buscar cliente existente",
+      "fields": {
+        "term": "Identificación, nombre, alias, teléfono o correo electrónico"
+      },
+      "placeholder": "Ingrese información del cliente",
+      "actions": {
+        "open": "Buscar cliente",
+        "search": "Buscar",
+        "searching": "Buscando...",
+        "edit": "Editar"
+      },
+      "columns": {
+        "id": "Identificación",
+        "name": "Nombre",
+        "phone": "Teléfono",
+        "email": "Correo electrónico",
+        "status": "Estado",
+        "action": "Acción"
+      },
+      "empty": "No se han encontrado clientes.",
+      "error": "No se han podido buscar los clientes. Inténtelo nuevamente.",
+      "missingInternalId": "Este cliente no tiene una identificación interna y no se puede editar.",
+      "missingCompany": "No hay una empresa seleccionada. Seleccione una empresa primero.",
+      "selectError": "No se pudo cargar la información del cliente. Intente de nuevo."
+    },
+    "save": {
+      "empty": "Complete al menos un campo antes de guardar.",
+      "missingCompany": "No hay una empresa seleccionada. Seleccione una empresa primero."
+    }
+  },
+  "products": {
+    "form": {
+      "searchEyebrow": "Mantenimiento de productos",
+      "searchTitle": "Buscar productos",
+      "searchPlaceholder": "Buscar por nombre, código o categoría",
+      "eyebrow": "Gestión de productos",
+      "titleCreate": "Crear producto",
+      "titleEdit": "Mantener producto",
+      "description": "Registre o actualice un servicio, producto por encargo o producto de inventario.",
+      "noProducts": "No se encontraron productos",
+      "noProductsHelp": "Pruebe otra búsqueda o cree un producto nuevo.",
+      "imagePlaceholder": "Ninguna imagen seleccionada",
+      "currencyOther": "Otro…",
+      "currencies": {
+        "USD": "Dólar estadounidense",
+        "CRC": "Colón costarricense",
+        "EUR": "Euro",
+        "GBP": "Libra esterlina",
+        "GTQ": "Quetzal guatemalteco",
+        "CAD": "Dólar canadiense",
+        "AUD": "Dólar australiano",
+        "BRL": "Real brasileño",
+        "MXN": "Peso mexicano",
+        "JPY": "Yen japonés",
+        "CNY": "Yuan chino",
+        "CHF": "Franco suizo",
+        "INR": "Rupia india",
+        "KRW": "Won surcoreano",
+        "SGD": "Dólar de Singapur",
+        "HKD": "Dólar de Hong Kong",
+        "NZD": "Dólar neozelandés",
+        "SEK": "Corona sueca",
+        "ZAR": "Rand sudafricano",
+        "COP": "Peso colombiano",
+        "PEN": "Sol peruano",
+        "CLP": "Peso chileno",
+        "ARS": "Peso argentino",
+        "NIO": "Córdoba nicaragüense",
+        "HNL": "Lempira hondureño",
+        "PAB": "Balboa panameño",
+        "DOP": "Peso dominicano"
+      },
+      "currencySymbolHelp": "Símbolo de moneda que se muestra con el precio ($ por defecto)",
+      "taxesHelp": "Los impuestos se configurarán en otro formulario.",
+      "showOnWebHelp": "El producto será visible en el catálogo web.",
+      "availableForWebSalesHelp": "Los clientes pueden agregarlo al carrito y pedirlo en línea.",
+      "webBehaviorHelp": "Este comportamiento se usará en el futuro sistema web.",
+      "sections": {
+        "basic": "Información básica",
+        "pricing": "Precios",
+        "visibility": "Visibilidad y comportamiento de venta",
+        "additional": "Opciones adicionales"
+      },
+      "fields": {
+        "productType": "Tipo de producto",
+        "name": "Nombre del producto",
+        "code": "Código del producto",
+        "description": "Descripción",
+        "image": "Imagen del producto",
+        "hasPrice": "El producto tiene precio",
+        "currency": "Moneda",
+        "currencySymbol": "Símbolo de moneda",
+        "basePrice": "Precio base",
+        "taxFree": "Exento de impuestos",
+        "showOnWeb": "Mostrar en web",
+        "availableForWebSales": "Disponible para ventas web",
+        "webBehavior": "Comportamiento web",
+        "status": "Estado",
+        "category": "Categoría",
+        "comments": "Comentarios",
+        "showTaxes": "Mostrar precio con impuestos",
+        "stepTemplate": "Proceso (seguimiento)",
+        "taxPercentage": "% de impuesto",
+        "webContactPhone": "Celular de contacto (número internacional completo)",
+        "webMessengerLink": "Enlace de Messenger",
+        "isAppointment": "Es una cita (reserva)"
+      },
+      "placeholders": {
+        "name": "Ejemplo: Reparación premium de bicicletas",
+        "code": "Ejemplo: SRV-001",
+        "description": "Escriba una descripción breve del producto o servicio.",
+        "category": "Seleccione una categoría",
+        "comments": "Comentarios internos sobre este producto."
+      },
+      "actions": {
+        "new": "Nuevo",
+        "loadImage": "Cargar imagen",
+        "removeImage": "Quitar",
+        "addTaxes": "Agregar impuestos",
+        "delete": "Eliminar",
+        "clear": "Limpiar",
+        "cancel": "Cancelar",
+        "save": "Guardar producto",
+        "update": "Actualizar producto",
+        "saving": "Guardando...",
+        "search": "Buscar producto"
+      },
+      "validation": {
+        "invalidImage": "Seleccione un archivo de imagen válido.",
+        "nameRequired": "El nombre del producto es obligatorio.",
+        "codeRequired": "El código del producto es obligatorio.",
+        "priceRequired": "El precio base es obligatorio.",
+        "priceInvalid": "Ingrese un precio base válido.",
+        "productRequired": "Seleccione un producto para editar.",
+        "categoryRequired": "La categoría es obligatoria.",
+        "stepTemplateRequired": "Seleccione un proceso (seguimiento) para este producto."
+      },
+      "success": {
+        "created": "Producto creado correctamente.",
+        "updated": "Producto actualizado correctamente.",
+        "deleted": "Producto eliminado correctamente.",
+        "deactivated": "Producto desactivado correctamente."
+      },
+      "error": {
+        "save": "No se pudo guardar el producto. Inténtelo de nuevo.",
+        "delete": "No se pudo eliminar el producto. Inténtelo de nuevo.",
+        "missingCompany": "No hay una empresa seleccionada. Seleccione una empresa primero.",
+        "missingInternalId": "Este producto no tiene un ID interno y no se puede editar.",
+        "search": "No se pudieron buscar los productos. Intente de nuevo.",
+        "select": "No se pudo cargar la información del producto. Intente de nuevo."
+      },
+      "storeCurrencyHelp": "La moneda de la tienda se define en Página de la empresa",
+      "addStepTemplate": "Crear un proceso nuevo",
+      "addStepTemplateTitle": "Crear un proceso",
+      "loadingCategories": "Cargando categorías...",
+      "modeMaintenance": "Editando",
+      "searching": "Buscando...",
+      "showTaxesHelp": "Si está activo, el precio mostrado incluye impuestos.",
+      "stepTemplateBookingSoon": "La asignación de procesos aún no está disponible para productos de reserva. Próximamente.",
+      "stepTemplateHelp": "Asigne el proceso (pasos) que seguirá este producto.",
+      "stepTemplatePlaceholder": "Seleccione un proceso",
+      "taxFreeHelp": "Marque si este producto no tiene impuestos.",
+      "uploadingImage": "Subiendo imagen...",
+      "webContactPhoneHelp": "Incluya el código de país para que WhatsApp abra desde cualquier país. Ejemplo: +506 8888 7777.",
+      "webMessengerLinkHelp": "Opcional. Pegue su enlace de Messenger (ej. https://m.me/supagina).",
+      "productTypes": {
+        "SERVICE": "Servicio",
+        "ORDER_PRODUCT": "Producto por pedido",
+        "INVENTORY_PRODUCT": "Producto de inventario"
+      },
+      "addCategory": "Crear una categoría nueva",
+      "addCategoryTitle": "Crear una categoría",
+      "stepTemplateDisabled": "Proceso actual (deshabilitado)",
+      "isAppointmentHelp": "Los clientes reservan fecha y hora en la tienda en lugar de agregarlo al carrito.",
+      "contactFromCompany": "Los botones de contacto (WhatsApp y red social) se configuran una vez para todos los productos en la página de la empresa."
+    }
+  },
+  "app": {
+    "loading": "Cargando..."
+  },
+  "unverified": {
+    "description": "Verifique su dirección de correo para continuar.",
+    "email_error": "No se pudo enviar el correo de verificación.",
+    "email_sent": "Correo de verificación enviado.",
+    "no_firebase_session": "No se encontró una sesión activa. Inicie sesión de nuevo.",
+    "resend": "Reenviar correo de verificación",
+    "sending": "Enviando...",
+    "signOut": "Cerrar sesión",
+    "step1": "Abra el correo de verificación.",
+    "step2": "Seleccione el enlace de verificación.",
+    "step3": "Regrese aquí e inicie sesión de nuevo.",
+    "title": "Verifique su correo electrónico"
+  },
+  "companySelector": {
+    "eyebrow": "Selección de empresa",
+    "title": "Seleccione una empresa",
+    "description": "Elija una de las empresas donde tiene un rol de administrador.",
+    "companyCount_one": "{{count}} empresa",
+    "companyCount_other": "{{count}} empresas",
+    "searchPlaceholder": "Buscar por nombre o identificación de empresa",
+    "searchLabel": "Buscar empresas",
+    "identification": "Identificación",
+    "memberCount_one": "{{count}} miembro",
+    "memberCount_other": "{{count}} miembros",
+    "noPlatforms": "Sin plataformas activas",
+    "selected": "Seleccionada",
+    "select": "Seleccionar empresa",
+    "emptyTitle": "No se encontraron empresas",
+    "emptyDescription": "Intente buscar con otro nombre o identificación de empresa.",
+    "status": {
+      "active": "Activa",
+      "pending": "Pendiente",
+      "inactive": "Inactiva"
+    }
+  },
+  "supportRequest": {
+    "title": "Contactar a soporte",
+    "description": "Indíquenos cómo contactarle y qué está pasando. Nuestro equipo le contactará en el horario que mejor le convenga.",
+    "sections": {
+      "contact": "¿Cómo prefiere que le contactemos?",
+      "availability": "Su disponibilidad",
+      "issue": "Describa su problema"
+    },
+    "methods": {
+      "email": "Correo",
+      "phone": "Llamada",
+      "whatsapp": "WhatsApp",
+      "videoCall": "Videollamada"
+    },
+    "contactLabels": {
+      "email": "Su correo",
+      "phone": "Su número de teléfono",
+      "whatsapp": "Su número de WhatsApp",
+      "videoCall": "Correo para enviar el enlace de la reunión"
+    },
+    "contactPlaceholders": {
+      "email": "nombre@empresa.com",
+      "tel": "+52 55 1234 5678"
+    },
+    "fields": {
+      "preferredDate": "Fecha preferida",
+      "timeSlots": "Mejor horario",
+      "category": "Tema",
+      "priority": "Prioridad",
+      "subject": "Asunto",
+      "description": "¿Qué sucedió?",
+      "images": "Capturas de pantalla (hasta {{max}})"
+    },
+    "timeSlots": {
+      "morning": "Mañana",
+      "afternoon": "Tarde",
+      "evening": "Noche"
+    },
+    "categories": {
+      "technical": "Problema técnico",
+      "account": "Cuenta o acceso",
+      "billing": "Plan o facturación",
+      "howTo": "Cómo usar una función",
+      "other": "Otro"
+    },
+    "priorities": {
+      "low": "Baja",
+      "normal": "Normal",
+      "high": "Alta – bloquea mi trabajo"
+    },
+    "placeholders": {
+      "subject": "Ejemplo: no puedo guardar una orden",
+      "description": "Describa los pasos que siguió, qué esperaba y qué vio en su lugar."
+    },
+    "help": {
+      "images": "JPG, PNG, WEBP o GIF, máx. 5 MB cada una. Una captura nos ayuda a resolverlo más rápido."
+    },
+    "errors": {
+      "imageType": "Solo se permiten imágenes JPG, PNG, WEBP o GIF.",
+      "imageSize": "Cada imagen debe pesar 5 MB o menos.",
+      "imageCount": "Puede adjuntar hasta {{max}} imágenes.",
+      "tooMany": "Envió muchas solicitudes hoy. Inténtelo mañana o contáctenos por WhatsApp.",
+      "invalid": "Revise los datos del formulario e inténtelo de nuevo.",
+      "send": "No pudimos enviar su solicitud. Inténtelo de nuevo en unos minutos.",
+      "captchaPending": "Complete la verificación de seguridad sobre los botones.",
+      "captchaFailed": "La verificación de seguridad falló. Complétela de nuevo y vuelva a enviar."
+    },
+    "actions": {
+      "send": "Enviar solicitud",
+      "sending": "Enviando...",
+      "cancel": "Cancelar",
+      "close": "Cerrar",
+      "newRequest": "Nueva solicitud",
+      "addImage": "Agregar imagen",
+      "removeImage": "Quitar imagen"
+    },
+    "sent": {
+      "title": "Solicitud recibida",
+      "description": "Nuestro equipo de soporte le contactará por {{method}} en {{contact}}. Guarde este número de ticket:",
+      "imagesSkipped": "Algunas capturas no se pudieron subir. La solicitud se envió sin ellas."
+    }
+  },
+  "aiAssistant": {
+    "title": "Aleph",
+    "demoBadge": "Demo · respuestas de ejemplo",
+    "betaBadge": "Beta · respuestas con IA",
+    "error": "Lo siento, no pude responder en este momento. Intente de nuevo en un momento.",
+    "welcome": "¡Hola! Soy Aleph, el asistente de AlephK (beta). Pregúnteme cómo usar el sistema o dónde encontrar algo. Todavía no puedo ver sus citas ni sus órdenes.",
+    "placeholder": "Escriba una pregunta...",
+    "listening": "Escuchando... hable ahora",
+    "send": "Enviar",
+    "clear": "Borrar conversación",
+    "close": "Cerrar",
+    "thinking": "El asistente está escribiendo",
+    "suggestions": {
+      "appointmentsEvening": "¿Qué citas tengo esta tarde?",
+      "pendingOrders": "Dame la lista de órdenes que debo completar",
+      "createAppointment": "¿Cómo creo una cita?",
+      "changeLogo": "¿Dónde cambio mi logo?",
+      "createOrder": "¿Cómo creo una orden?",
+      "reports": "¿Dónde veo mis reportes de ventas?"
+    },
+    "voice": {
+      "dictate": "Dictar por voz",
+      "stopDictation": "Detener dictado",
+      "play": "Escuchar respuesta",
+      "stop": "Detener",
+      "autoSpeakOn": "Leer respuestas en voz alta",
+      "autoSpeakOff": "Dejar de leer respuestas en voz alta",
+      "unsupported": "El dictado por voz no es compatible con este navegador. Pruebe con Chrome o Edge.",
+      "error": "No se pudo usar el micrófono. Revise el permiso del navegador.",
+      "selectLanguage": "Seleccionar idioma"
+    },
+    "mock": {
+      "appointmentsToday": "Hoy tiene {{count}} citas:",
+      "appointmentsEvening": "Esta tarde tiene {{count}} citas:",
+      "pendingOrders": "Tiene {{count}} órdenes por completar, ordenadas por fecha de entrega:",
+      "orderStatus": {
+        "placed": "Registrada",
+        "inProgress": "En proceso",
+        "partialDone": "Parcialmente lista"
+      },
+      "guides": {
+        "createAppointment": "Para crear una cita, abra Citas en el menú lateral y elija el cliente, el servicio y la hora. Los clientes también pueden reservar solos con Autorreserva, usando los horarios de Disponibilidad de reservas.",
+        "createOrder": "Para crear una orden, abra Iniciar una orden en el menú lateral, elija el cliente y agregue los productos. Puede seguir su avance en Seguimiento operativo de órdenes, y las órdenes de su página pública llegan a Aprobación de órdenes web.",
+        "customers": "Puede agregar, buscar y editar clientes en Clientes, en el menú lateral.",
+        "products": "Los productos y servicios se administran en Productos. Agrúpelos primero en Categoria para encontrarlos más fácil.",
+        "category": "Las categorías se administran en Categoria, en el menú lateral.",
+        "reports": "Abra Reportes en el menú lateral para ver órdenes por estado, mejores clientes, más vendidos, ingresos en el tiempo y más.",
+        "pageConfiguration": "Su logo, imagen de encabezado y el nombre mostrado a los clientes se configuran en Configuración de página. Se muestran en su vitrina pública.",
+        "usersAndPermissions": "Los usuarios y sus permisos se administran en Usuarios y permisos de empresa."
+      },
+      "fallback": "Soy una demo y por ahora solo conozco algunas preguntas de ejemplo. Pruebe preguntar por sus citas de hoy, sus órdenes pendientes, o cómo crear una cita o una orden."
+    },
+    "limits": {
+      "notInPlan": "El asistente de IA está incluido en los planes PRO y ENTERPRISE. Mejore su plan para usarlo.",
+      "monthly": "Su empresa alcanzó el límite mensual de uso de IA. Se reinicia el primer día del próximo mes.",
+      "daily": "Alcanzó el límite diario de preguntas. Intente de nuevo mañana.",
+      "monthlyInteractions": "Su empresa usó las preguntas de IA de este mes incluidas en su plan. Se reinician el día 1 del próximo mes; un plan mayor incluye más preguntas."
+    }
+  },
+  "appointment": {
+    "fields": {
+      "emailMissing": "Sin correo, el cliente no recibirá avisos sobre esta cita.",
+      "comments": "Comentarios",
+      "commentsPlaceholder": "Agregue cualquier detalle sobre esta cita.",
+      "customerName": "Nombre del cliente",
+      "customerNamePlaceholder": "Ejemplo: Andrea Vargas",
+      "customerSearchPlaceholder": "Buscar por nombre, teléfono o correo",
+      "date": "Fecha",
+      "email": "Correo electrónico",
+      "endHour": "Hora de fin",
+      "phone": "Teléfono",
+      "registeredCustomer": "Cliente registrado",
+      "service": "Servicio",
+      "servicePlaceholder": "Buscar un servicio",
+      "social": "Enlace de red social",
+      "startHour": "Hora de inicio",
+      "useRegistered": "Seleccionar un cliente registrado"
+    },
+    "title": "Reservar para un cliente",
+    "titleEdit": "Editar cita",
+    "actions": {
+      "change": "Cambiar",
+      "close": "Cerrar",
+      "delete": "Eliminar",
+      "new": "Nueva",
+      "reject": "Rechazar / Inactivar",
+      "save": "Guardar cita",
+      "search": "Buscar",
+      "update": "Actualizar cita"
+    },
+    "contact": {
+      "description": "Cómo contactar al cliente.",
+      "title": "Contacto"
+    },
+    "customer": {
+      "description": "Elija el servicio y para quién es.",
+      "title": "Servicio y cliente"
+    },
+    "description": "Como proveedor del servicio, registre o modifique una cita para un cliente.",
+    "details": {
+      "description": "Cualquier nota sobre esta cita.",
+      "title": "Comentarios"
+    },
+    "errors": {
+      "customerRequired": "Elija un cliente registrado.",
+      "dateRequired": "Elija una fecha.",
+      "delete": "No se pudo eliminar.",
+      "hourOrder": "La hora de fin debe ser posterior a la hora de inicio.",
+      "hoursRequired": "Indique la hora de inicio y de fin.",
+      "missingCompany": "No hay una empresa seleccionada.",
+      "nameRequired": "Ingrese el nombre del cliente.",
+      "reject": "No se pudo rechazar.",
+      "save": "No se pudo guardar la cita.",
+      "search": "No se pudo buscar.",
+      "searchTerm": "Escriba algo para buscar.",
+      "serviceRequired": "Elija un servicio."
+    },
+    "eyebrow": "Citas",
+    "messages": {
+      "conflict": "Atención: este horario ya está ocupado por {count} cita(s).",
+      "deleted": "La cita fue eliminada.",
+      "loaded": "Cita cargada. Ya puede modificarla.",
+      "notFound": "No se encontraron citas.",
+      "rejected": "La cita fue rechazada / inactivada.",
+      "saved": "La cita se guardó correctamente."
+    },
+    "schedule": {
+      "description": "Indique el día y la hora de inicio y fin.",
+      "title": "Fecha y hora"
+    },
+    "search": {
+      "placeholder": "Buscar una cita por cliente, id o fecha"
+    },
+    "summary": {
+      "id": "ID",
+      "reference": "Referencia"
+    }
+  },
+  "appointmentManagement": {
+    "actionError": "No se pudo completar la acción.",
+    "actions": {
+      "cancel": "Cancelar",
+      "close": "Cerrar",
+      "details": "Detalles",
+      "finish": "Finalizar",
+      "resetFilters": "Limpiar filtros"
+    },
+    "calendar": {
+      "dayEyebrow": "CITAS",
+      "next": "Mes siguiente",
+      "noDay": "No hay citas este día.",
+      "prev": "Mes anterior"
+    },
+    "columns": {
+      "actions": "Acciones",
+      "customer": "Cliente",
+      "service": "Servicio",
+      "status": "Estado",
+      "time": "Cita"
+    },
+    "count": "citas",
+    "description": "Revise las próximas citas y finalice o cancele cada una.",
+    "detail": {
+      "customer": "Cliente",
+      "email": "Correo electrónico",
+      "eyebrow": "DETALLE DE LA CITA",
+      "noNotes": "Sin notas.",
+      "notes": "Notas",
+      "phone": "Teléfono",
+      "service": "Servicio",
+      "when": "Cita"
+    },
+    "empty": "Ninguna cita coincide con los filtros actuales.",
+    "eyebrow": "ALEPHTELOS · CITAS",
+    "filters": {
+      "all": "Todas",
+      "onlyFuture": "Solo próximas",
+      "status": "Estado"
+    },
+    "listTitle": "Citas",
+    "loadError": "No se pudieron cargar las citas.",
+    "loading": "Cargando…",
+    "messages": {
+      "cancelled": "Cita cancelada.",
+      "finished": "Cita marcada como finalizada."
+    },
+    "noCompany": "No hay una empresa seleccionada.",
+    "searchPlaceholder": "Buscar por cliente, servicio, teléfono…",
+    "title": "Citas",
+    "view": {
+      "calendar": "Calendario",
+      "list": "Lista"
+    }
+  },
+  "reports": {
+    "actions": {
+      "pdf": "PDF",
+      "reset": "Limpiar"
+    },
+    "catalog": {
+      "empty": "Ningún reporte coincide con su búsqueda.",
+      "search": "Buscar reportes…"
+    },
+    "columns": {
+      "age": "Antigüedad (días)",
+      "appointment": "Cita",
+      "appointments": "Citas",
+      "cancelled": "Canceladas",
+      "created": "Creado",
+      "customer": "Cliente",
+      "date": "Fecha",
+      "duration": "Duración (min)",
+      "identifiedBy": "Identificado por",
+      "items": "Artículos",
+      "month": "Mes",
+      "order": "Pedido",
+      "orders": "Pedidos",
+      "period": "Periodo",
+      "product": "Producto",
+      "rate": "Tasa",
+      "revenue": "Ingresos",
+      "service": "Servicio",
+      "spent": "Gastado",
+      "status": "Estado",
+      "total": "Total",
+      "type": "Tipo",
+      "units": "Unidades"
+    },
+    "comingSoon": "Este reporte estará disponible pronto.",
+    "description": "Explore los reportes agrupados por categoría y revise los resultados.",
+    "distribution": "Distribución por estado",
+    "export": {
+      "error": "No se pudo generar el PDF. Intente de nuevo.",
+      "generated": "Generado",
+      "page": "Página",
+      "search": "Búsqueda",
+      "summary": "Resumen"
+    },
+    "eyebrow": "ALEPHTELOS · REPORTES",
+    "filters": {
+      "all": "Todos",
+      "from": "Desde",
+      "granularity": "Agrupar por",
+      "minDays": "Antigüedad mín. (días)",
+      "period": "Periodo",
+      "search": "Buscar por pedido o cliente…",
+      "searchAppt": "Buscar por cliente o servicio…",
+      "searchCustomer": "Buscar por nombre o contacto…",
+      "searchProduct": "Buscar por producto…",
+      "status": "Estado",
+      "to": "Hasta",
+      "type": "Tipo"
+    },
+    "granularity": {
+      "day": "Día",
+      "month": "Mes",
+      "week": "Semana"
+    },
+    "liveNote": "Mostrando datos en vivo de sus pedidos.",
+    "loading": "Cargando reporte…",
+    "noCompany": "No hay una empresa seleccionada. Elija una empresa para cargar este reporte.",
+    "noData": "No hay datos disponibles.",
+    "noteAging": "Abierto = no finalizado y no cancelado. La antigüedad son los días desde que se creó el pedido; los más antiguos primero.",
+    "noteAppt": "Las citas no generan ingresos, así que este reporte mide volumen y tiempo invertido.",
+    "noteCancel": "Canceladas incluye citas CANCELADAS y RECHAZADAS. No hay un estado aparte de inasistencia.",
+    "noteCustomer": "Un cliente puede identificarse por teléfono, correo, enlace web o ID de cliente.",
+    "noteProduct": "Los productos de pedido y de reserva se combinan en un solo ranking.",
+    "noteRevenue": "Los ingresos suman los totales de los pedidos, sin contar los cancelados. Cada fila es un periodo.",
+    "period": {
+      "all": "Todo el tiempo",
+      "custom": "Rango personalizado",
+      "month": "Últimos 30 días",
+      "week": "Últimos 7 días",
+      "year": "Este año"
+    },
+    "revenueByPeriod": "Ingresos por periodo",
+    "selectPrompt": "Seleccione un reporte de la lista.",
+    "soon": "Pronto",
+    "tiles": {
+      "aging": "Antiguos (8–30 d)",
+      "avgOrder": "Valor promedio del pedido",
+      "bestPeriod": "Mejor periodo",
+      "cancelRate": "Tasa de cancelación",
+      "cancelled": "Canceladas",
+      "customersShown": "Clientes mostrados",
+      "fresh": "Recientes (≤7 d)",
+      "oldest": "Más antiguo (días)",
+      "openOrders": "Pedidos abiertos",
+      "orders": "Pedidos",
+      "overdue": "Atrasados (>30 d)",
+      "productsShown": "Productos mostrados",
+      "revenue": "Ingresos",
+      "timeInvested": "Tiempo invertido (h)",
+      "topBuyer": "Mejor comprador",
+      "topSeller": "Más vendido",
+      "topSpent": "Mayor gasto",
+      "total": "Total de pedidos",
+      "totalAppointments": "Total de citas",
+      "unitsSold": "Unidades vendidas"
+    },
+    "title": "Reportes",
+    "type": {
+      "booking": "Reserva",
+      "order": "Pedido"
+    }
+  },
+  "stepTemplate": {
+    "actions": {
+      "addStep": "Agregar paso",
+      "moveDown": "Bajar",
+      "moveUp": "Subir",
+      "new": "Nuevo",
+      "removeStep": "Quitar paso",
+      "save": "Guardar proceso",
+      "saving": "Guardando...",
+      "search": "Buscar",
+      "searching": "Buscando...",
+      "delete": "Eliminar",
+      "disable": "Deshabilitar",
+      "enable": "Habilitar"
+    },
+    "description": "Defina un conjunto de pasos reutilizable. Luego puede asignarlo a un producto.",
+    "errors": {
+      "codeRequired": "Ingrese un código interno.",
+      "missingCompany": "No hay una empresa seleccionada.",
+      "nameRequired": "Ingrese un nombre.",
+      "save": "No se pudo guardar la plantilla.",
+      "search": "No se pudo buscar.",
+      "select": "No se pudo cargar la plantilla.",
+      "stepsRequired": "Agregue al menos un paso.",
+      "delete": "No se pudo eliminar el proceso.",
+      "status": "No se pudo cambiar el estado del proceso."
+    },
+    "eyebrow": "Procesos",
+    "fields": {
+      "internalCode": "Código interno",
+      "name": "Nombre"
+    },
+    "messages": {
+      "loaded": "Plantilla cargada. Puede editarla.",
+      "noResults": "No se encontraron plantillas.",
+      "saved": "Plantilla guardada correctamente.",
+      "deleted": "Proceso eliminado.",
+      "enabled": "Proceso habilitado. Se ofrece de nuevo para los productos.",
+      "disabled": "Proceso deshabilitado. Ya no se ofrece para productos nuevos; los productos y pedidos que lo usan siguen funcionando."
+    },
+    "search": {
+      "placeholder": "Buscar por nombre o código"
+    },
+    "section": {
+      "info": "Información del proceso",
+      "infoHelp": "Asigne un nombre y un código al proceso.",
+      "steps": "Pasos",
+      "stepsHelp": "Agregue los pasos en orden."
+    },
+    "steps": {
+      "empty": "Aún no hay pasos. Agregue el primero.",
+      "finalStep": "Paso final (terminado)",
+      "namePlaceholder": "Nombre del paso",
+      "requiresPrevious": "Requiere el anterior",
+      "notifyCustomer": "Avisar al cliente (correo)",
+      "notifyCustomerHelp": "Cuando un producto del pedido llega a este paso, el cliente recibe un correo. Déjelo sin marcar para pasos internos."
+    },
+    "title": "Crear un proceso",
+    "titleEdit": "Editar proceso",
+    "status": {
+      "disabled": "Deshabilitado"
+    },
+    "usage": {
+      "usedBy": "Usado por",
+      "products": "producto(s)",
+      "orders": "línea(s) de pedido",
+      "notUsed": "No lo usa ningún producto ni pedido"
+    },
+    "confirmDelete": "¿Eliminar este proceso y sus pasos? No se puede deshacer."
+  },
+  "plans": {
+    "names": {
+      "FREE": "Gratis",
+      "BASIC": "Básico",
+      "PRO": "Pro",
+      "ENTERPRISE": "Empresarial",
+      "TRIAL": "Prueba",
+      "ENTREPRENEUR": "Emprendedor",
+      "SPECIAL": "Especial",
+      "NONE": "Sin plan"
+    },
+    "title": "Su plan",
+    "close": "Cerrar",
+    "back": "Volver a los planes",
+    "loading": "Cargando planes…",
+    "loadError": "No se pudieron cargar los planes. Intente de nuevo.",
+    "seePlans": "Ver planes",
+    "request": "Solicitar este plan",
+    "requestTrial": "Solicitar la prueba",
+    "paymentNote": "Precios en dólares, impuestos no incluidos. Los pagos en línea estarán disponibles pronto. Después de su solicitud, un agente lo contactará con los siguientes pasos.",
+    "badge": {
+      "label": "Su plan: {{plan}}",
+      "title": "Vea lo que incluye su plan y solicite otro plan",
+      "ended": "prueba terminada",
+      "daysLeft_one": "queda {{count}} día",
+      "daysLeft_other": "quedan {{count}} días",
+      "readOnly": "solo lectura"
+    },
+    "current": {
+      "label": "Plan actual",
+      "badge": "Actual",
+      "expired": "Su plan {{plan}} terminó el {{date}}. La empresa queda en solo lectura hasta que se le asigne un plan.",
+      "endsIn_one": "Queda {{count}} día (hasta el {{date}}).",
+      "endsIn_other": "Quedan {{count}} días (hasta el {{date}}).",
+      "pending": "Solicitó el plan {{plan}} el {{date}}. Un agente lo contactará pronto.",
+      "agreedPrice": "Su precio: US${{amount}} / mes + impuestos (precio acordado)",
+      "price": "Su precio: {{price}}",
+      "none": "Su empresa no tiene un plan activo, por eso está en solo lectura. Elija un plan o solicite una prueba gratis."
+    },
+    "usage": {
+      "users": "Usuarios activos",
+      "products": "Productos",
+      "unlimited": "ilimitados",
+      "storage": "Almacenamiento",
+      "aiQuestions": "Preguntas de IA este mes"
+    },
+    "price": {
+      "ask": "Consulte el precio",
+      "free": "Gratis",
+      "monthly": "US${{amount}} / mes + impuestos",
+      "trial_one": "Gratis por {{count}} día",
+      "trial_other": "Gratis por {{count}} días",
+      "agreed": "Precio acordado"
+    },
+    "features": {
+      "usersUnlimited": "Usuarios ilimitados",
+      "users_one": "{{count}} usuario",
+      "users_other": "Hasta {{count}} usuarios",
+      "productsUnlimited": "Productos ilimitados",
+      "products_one": "{{count}} producto",
+      "products_other": "Hasta {{count}} productos",
+      "allReports": "Todos los reportes",
+      "basicReport": "Solo el reporte \"Pedidos por estado\"",
+      "webBookings": "Reservas desde su tienda en línea",
+      "managerBookings": "Reservas solo desde el administrador",
+      "ai": "Asistente de IA (Aleph)",
+      "trial_one": "{{count}} día para probar todo",
+      "trial_other": "{{count}} días para probar todo",
+      "support_one": "{{count}} hora de soporte humano al mes",
+      "support_other": "{{count}} horas de soporte humano al mes",
+      "noSupport": "Horas de soporte humano",
+      "storage_one": "{{count}} GB de almacenamiento",
+      "storage_other": "{{count}} GB de almacenamiento",
+      "storageUnlimited": "Almacenamiento ilimitado",
+      "aiInteractions": "Asistente de IA (Aleph): hasta {{count}} preguntas / mes"
+    },
+    "form": {
+      "title": "Solicitar un plan",
+      "intro": "Cuéntenos sobre usted y el plan que desea. Un agente lo contactará pronto.",
+      "plan": "Plan",
+      "choosePlan": "Elija un plan",
+      "name": "Su nombre",
+      "email": "Correo electrónico",
+      "phone": "Teléfono / WhatsApp",
+      "message": "Mensaje (opcional)",
+      "messagePlaceholder": "Por ejemplo: cuántos usuarios necesita o la mejor hora para llamarle.",
+      "cancel": "Cancelar",
+      "send": "Enviar solicitud",
+      "sending": "Enviando…",
+      "errors": {
+        "plan": "Elija el plan que desea.",
+        "name": "Escriba su nombre.",
+        "email": "Escriba un correo válido.",
+        "tooMany": "Ya envió varias solicitudes hoy. Un agente lo contactará pronto.",
+        "send": "No se pudo enviar la solicitud. Intente de nuevo.",
+        "captchaPending": "Complete la verificación de seguridad sobre el botón.",
+        "captchaFailed": "La verificación de seguridad falló. Complétela de nuevo y vuelva a enviar."
+      }
+    },
+    "sent": {
+      "title": "Solicitud enviada",
+      "text": "¡Gracias! Un agente lo contactará pronto sobre el plan {{plan}}."
+    },
+    "limits": {
+      "users_one": "Su plan {{plan}} permite {{count}} usuario activo, por eso no puede agregar más usuarios a esta empresa. Solicite un plan en Inicio → Su plan.",
+      "users_other": "Su plan {{plan}} permite {{count}} usuarios activos, por eso no puede agregar más usuarios a esta empresa. Solicite un plan en Inicio → Su plan.",
+      "products_one": "Su plan {{plan}} permite {{count}} producto. Desactive un producto o solicite un plan en Inicio → Su plan.",
+      "products_other": "Su plan {{plan}} permite {{count}} productos. Desactive un producto o solicite un plan en Inicio → Su plan.",
+      "feature": "Esta opción no está incluida en su plan {{plan}}. Solicite un plan en Inicio → Su plan.",
+      "required": "Su empresa todavía no tiene un plan activo. Únase a un plan para usar esta opción. Sin plan solo puede configurar su empresa básica (nombre, logo y encabezado) en Página de la empresa. Elija un plan o solicite una prueba gratis en Inicio → Su plan.",
+      "storage": "Su plan {{plan}} incluye {{count}} GB de almacenamiento y está lleno. Elimine archivos o solicite un plan con más almacenamiento en Inicio → Su plan."
+    },
+    "reports": {
+      "lockedBadge": "Mejorar",
+      "lockedBadgeTitle": "No incluido en su plan",
+      "lockedText": "Su plan {{plan}} incluye solo el reporte \"Pedidos por estado\". Solicite un plan para usar todos los reportes.",
+      "reason": "Todos los planes incluyen todos los reportes."
+    },
+    "readOnly": {
+      "title": "Modo solo lectura.",
+      "none": "Su empresa no tiene un plan activo. Puede ver sus datos y configurar su empresa básica (nombre, logo y encabezado) en Página de la empresa, pero no puede usar las demás opciones hasta que se una a un plan o inicie una prueba gratis.",
+      "ended": "Su plan terminó. Puede ver sus datos, pero no puede crear ni cambiar nada hasta que elija un plan.",
+      "button": "Elegir un plan"
+    },
+    "aiNote": "Preguntas de IA por mes: el asistente de IA de cada plan usa como máximo el {{percent}}% del precio del plan. Una pregunta = un mensaje a Aleph o al asistente de su tienda. Se reinician el día 1 de cada mes.",
+    "basicCompany": {
+      "title": "Primero cree su empresa básica",
+      "text": "Antes de solicitar un plan, configure el nombre, el logo y el encabezado de su empresa en Página de la empresa. Puede hacerlo sin plan.",
+      "missing": "Falta:",
+      "go": "Ir a Página de la empresa",
+      "fields": {
+        "name": "nombre",
+        "logo": "logo",
+        "header": "encabezado"
+      }
+    }
+  },
+  "brand": {
+    "poweredBy": "Impulsado por"
+  }
+}

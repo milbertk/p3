@@ -1,0 +1,86 @@
+// ==============================
+// 🎨 AUTH STYLE SYSTEM
+// ==============================
+
+// Backgrounds
+$auth-bg-main: #f8fafc;
+$auth-bg-card: #ffffff;
+$auth-bg-soft: #f3f5f8;
+$auth-bg-hover: #f9fafb;
+
+// Main colors
+$auth-primary: #2563eb;
+$auth-primary-hover: #1d4ed8;
+
+$auth-accent: #4f46e5;
+$auth-accent-hover: #4338ca;
+$auth-accent-soft: #eef2ff;
+
+$auth-secondary: #64748b;
+$auth-danger: #dc2626;
+$auth-white: #ffffff;
+
+// Text
+$auth-text-main: #111827;
+$auth-text-label: #374151;
+$auth-text-muted: #6b7280;
+$auth-text-placeholder: #9ca3af;
+
+// Borders
+$auth-border: #d1d5db;
+$auth-border-soft: #e5e7eb;
+$auth-border-hover: #9ca3af;
+
+// Fonts
+$auth-font-main: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+// Overlays
+$auth-overlay-dark: rgba(15, 23, 42, 0.9);
+$auth-overlay-primary: rgba(200, 212, 238, 0.66);
+
+$auth-overlay-dark-strong: rgba(15, 23, 42, 0.92);
+$auth-overlay-accent: rgba(79, 70, 229, 0.68);
+
+$auth-glass-bg: rgba(255, 255, 255, 0.18);
+
+// Shadows
+$auth-shadow-soft: 0 4px 6px rgba(0, 0, 0, 0.1);
+$auth-shadow-medium: 0 12px 24px rgba(15, 23, 42, 0.12);
+$auth-shadow-strong: 0 24px 60px rgba(15, 23, 42, 0.25);
+
+$auth-shadow-card: 0 24px 60px rgba(15, 23, 42, 0.12);
+$auth-shadow-primary: 0 12px 24px rgba(37, 99, 235, 0.22);
+$auth-shadow-accent: 0 12px 24px rgba(79, 70, 229, 0.22);
+$auth-shadow-mobile-card: 0 16px 36px rgba(15, 23, 42, 0.1);
+
+// Focus rings
+$auth-focus-ring: 0 0 0 4px rgba(37, 99, 235, 0.12);
+$auth-focus-ring-accent: 0 0 0 4px rgba(79, 70, 229, 0.12);
+
+// Buttons
+$auth-btn-bg: $auth-primary;
+$auth-btn-hover: $auth-primary-hover;
+$auth-btn-text: $auth-white;
+
+// Radius
+$auth-radius-sm: 8px;
+$auth-radius-md: 12px;
+$auth-radius-lg: 20px;
+$auth-radius-xl: 24px;
+$auth-radius-pill: 999px;
+
+$auth-radius-icon: 16px;
+$auth-radius-mobile: 12px;
+$auth-radius-sm-card: 18px;
+
+// Spacing
+$auth-spacing-xs: 0.5rem;
+$auth-spacing-sm: 0.75rem;
+$auth-spacing-md: 1rem;
+$auth-spacing-lg: 1.5rem;
+$auth-spacing-xl: 2rem;
+
+// Images
+$auth-login-bg-image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80";
+
+$auth-register-bg-image: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1600&q=80";

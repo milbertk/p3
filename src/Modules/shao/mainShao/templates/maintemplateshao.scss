@@ -1,0 +1,22 @@
+
+@import "../../../../Shared/Styles/Styles.scss";
+
+.main-template {
+  width: 100%;
+  min-height: 100vh;
+  background: $backgroundColor;
+}
+
+.main-template-content {
+  padding-top: $headerHeight;
+  padding-left: $sidebarCollapsedWidth;
+  min-height: 100vh;
+  transition: padding-left $transitionNormal;
+  overflow-x: auto;
+}
+
+@media (max-width: $mobile) {
+  .main-template-content {
+    padding-top: $mobileHeaderHeight;
+  }
+}

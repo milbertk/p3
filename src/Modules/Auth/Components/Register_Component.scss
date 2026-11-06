@@ -1,0 +1,279 @@
+@import "../Styles/AuthStyle.scss";
+
+.register-design {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  background: $auth-bg-main;
+  font-family: $auth-font-main;
+
+  &__visual {
+    position: relative;
+    min-height: 100vh;
+    background:
+      linear-gradient(135deg, $auth-overlay-dark-strong, $auth-overlay-accent),
+      url($auth-register-bg-image);
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__visual-content {
+    position: absolute;
+    left: 4rem;
+    right: 4rem;
+    bottom: 4rem;
+    max-width: 560px;
+    color: $auth-white;
+
+    h1 {
+      margin: 1rem 0;
+      font-size: 3rem;
+      line-height: 1.1;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    p {
+      margin: 0;
+      font-size: 1.08rem;
+      line-height: 1.7;
+      opacity: 0.92;
+    }
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 0.9rem;
+    border-radius: $auth-radius-pill;
+    background: $auth-glass-bg;
+    backdrop-filter: blur(8px);
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
+  &__panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  &__card {
+    width: 100%;
+    max-width: 430px;
+    background: $auth-bg-card;
+    padding: 2.3rem;
+    border-radius: $auth-radius-xl;
+    border: 1px solid $auth-border-soft;
+    box-shadow: $auth-shadow-card;
+
+    h2 {
+      margin: 0;
+      font-size: 1.9rem;
+      color: $auth-text-main;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+  }
+
+  &__icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1rem;
+    border-radius: $auth-radius-icon;
+    display: grid;
+    place-items: center;
+    background: $auth-accent-soft;
+    color: $auth-accent;
+    font-size: 1.35rem;
+  }
+
+  &__subtitle {
+    margin: 0.5rem 0 1.8rem;
+    color: $auth-text-muted;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  &__field {
+    margin-bottom: 1rem;
+
+    label {
+      display: block;
+      margin-bottom: 0.45rem;
+      color: $auth-text-label;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    input {
+      width: 100%;
+      min-height: 46px;
+      padding: 0.85rem 0.95rem;
+      border-radius: $auth-radius-md;
+      border: 1px solid $auth-border;
+      background: $auth-bg-card;
+      color: $auth-text-main;
+      font-size: 0.95rem;
+      outline: none;
+      box-sizing: border-box;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+      &::placeholder {
+        color: $auth-text-placeholder;
+      }
+
+      &:focus {
+        border-color: $auth-accent;
+        box-shadow: $auth-focus-ring-accent;
+      }
+    }
+  }
+
+  &__input-wrapper {
+    position: relative;
+
+    svg {
+      position: absolute;
+      left: 0.95rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: $auth-text-placeholder;
+      font-size: 0.95rem;
+    }
+
+    input {
+      padding-left: 2.6rem;
+    }
+  }
+
+  &__primary {
+    width: 100%;
+    min-height: 48px;
+    margin-top: 0.3rem;
+    border: none;
+    border-radius: $auth-radius-md;
+    padding: 0.9rem;
+    background: $auth-accent;
+    color: $auth-white;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      background: $auth-accent-hover;
+      transform: translateY(-1px);
+      box-shadow: $auth-shadow-accent;
+    }
+  }
+
+  &__signin {
+    margin: 1.5rem 0 0;
+    text-align: center;
+    color: $auth-text-muted;
+    font-size: 0.95rem;
+
+    a {
+      color: $auth-accent;
+      font-weight: 800;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .register-design {
+    display: block;
+    min-height: 100vh;
+    background: $auth-bg-main;
+
+    &__visual {
+      min-height: 220px;
+      border-radius: 0 0 28px 28px;
+    }
+
+    &__visual-content {
+      left: 1.4rem;
+      right: 1.4rem;
+      bottom: 1.5rem;
+      max-width: none;
+
+      h1 {
+        margin: 0.75rem 0 0.5rem;
+        font-size: 1.8rem;
+        line-height: 1.16;
+      }
+
+      p {
+        font-size: 0.92rem;
+        line-height: 1.5;
+      }
+    }
+
+    &__panel {
+      display: block;
+      padding: 1rem;
+      margin-top: -1.2rem;
+    }
+
+    &__card {
+      max-width: none;
+      padding: 1.45rem;
+      border-radius: $auth-radius-lg;
+      box-shadow: $auth-shadow-mobile-card;
+
+      h2 {
+        font-size: 1.55rem;
+      }
+    }
+
+    &__field input {
+      min-height: 48px;
+      font-size: 1rem;
+      border-radius: $auth-radius-mobile;
+    }
+
+    &__primary {
+      min-height: 50px;
+      border-radius: $auth-radius-mobile;
+      font-size: 1rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .register-design {
+    &__visual {
+      min-height: 205px;
+    }
+
+    &__visual-content {
+      left: 1rem;
+      right: 1rem;
+      bottom: 1.1rem;
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 0.86rem;
+      }
+    }
+
+    &__panel {
+      padding: 0.75rem;
+    }
+
+    &__card {
+      padding: 1.15rem;
+      border-radius: $auth-radius-sm-card;
+    }
+  }
+}

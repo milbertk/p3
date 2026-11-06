@@ -1,0 +1,455 @@
+@import "../Styles/AuthStyle.scss";
+
+.login-design {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  background: $auth-bg-soft;
+  font-family: $auth-font-main;
+
+  &__image {
+    position: relative;
+    min-height: 100vh;
+    background:
+      linear-gradient(135deg, $auth-overlay-dark, $auth-overlay-primary),
+      url($auth-login-bg-image);
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__image-content {
+    position: absolute;
+    left: 4rem;
+    right: 4rem;
+    bottom: 4rem;
+    max-width: 560px;
+    color: $auth-white;
+
+    h1 {
+      margin: 1rem 0;
+      font-size: 3rem;
+      line-height: 1.1;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    p {
+      margin: 0;
+      font-size: 1.08rem;
+      line-height: 1.7;
+      opacity: 0.92;
+    }
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 0.9rem;
+    border-radius: $auth-radius-pill;
+    background: $auth-glass-bg;
+    backdrop-filter: blur(8px);
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
+  &__panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  /* ---- Mobile-only header (hidden on desktop) ---- */
+  &__mobile-header {
+    display: none; /* overridden in @media (max-width: 768px) below */
+    position: relative;
+    width: 100%;
+    min-height: 150px;
+    margin-bottom: 1.5rem;
+    border-radius: $auth-radius-xl;
+    overflow: hidden;
+    background:
+      linear-gradient(135deg, $auth-overlay-dark, $auth-overlay-primary),
+      url($auth-login-bg-image);
+    background-size: cover;
+    background-position: center;
+    color: $auth-white;
+  }
+
+  &__mobile-header-content {
+    position: absolute;
+    left: 1.25rem;
+    right: 1.25rem;
+    bottom: 1.25rem;
+
+    .login-design__badge {
+      margin-bottom: 0.6rem;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 1.35rem;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+  }
+
+  &__card {
+    width: 90%;
+    max-width: 430px;
+    background: $auth-bg-card;
+    padding: 2.3rem;
+    border-radius: $auth-radius-xl;
+    border: 1px solid $auth-border-soft;
+    box-shadow: $auth-shadow-card;
+
+    h2 {
+      margin: 0;
+      font-size: 1.9rem;
+      color: $auth-text-main;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+  }
+
+  &__subtitle {
+    margin: 0.5rem 0 1.8rem;
+    color: $auth-text-muted;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  &__field {
+    margin-bottom: 1rem;
+
+    label {
+      display: block;
+      margin-bottom: 0.45rem;
+      color: $auth-text-label;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    input {
+      width: 100%;
+      min-height: 46px;
+      padding: 0.85rem 0.95rem;
+      border-radius: $auth-radius-md;
+      border: 1px solid $auth-border;
+      background: $auth-bg-card;
+      color: $auth-text-main;
+      font-size: 0.95rem;
+      outline: none;
+      box-sizing: border-box;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+
+      &::placeholder {
+        color: $auth-text-placeholder;
+      }
+
+      &:focus {
+        border-color: $auth-primary;
+        box-shadow: $auth-focus-ring;
+      }
+    }
+  }
+
+  &__options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin: 0.8rem 0 1.2rem;
+    font-size: 0.88rem;
+    color: $auth-text-muted;
+
+    label {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      cursor: pointer;
+    }
+
+    input {
+      width: 15px;
+      height: 15px;
+    }
+
+    a {
+      color: $auth-primary;
+      text-decoration: none;
+      font-weight: 700;
+      white-space: nowrap;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__primary {
+    width: 100%;
+    min-height: 48px;
+    border: none;
+    border-radius: $auth-radius-md;
+    padding: 0.9rem;
+    background: $auth-primary;
+    color: $auth-white;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      background: $auth-primary-hover;
+      transform: translateY(-1px);
+      box-shadow: $auth-shadow-primary;
+    }
+  }
+
+  &__divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.7rem 0;
+    color: $auth-text-placeholder;
+    font-size: 0.85rem;
+
+    &::before,
+    &::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: $auth-border-soft;
+    }
+  }
+
+  &__social-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+
+    button {
+      min-height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      padding: 0.8rem;
+      border-radius: $auth-radius-md;
+      border: 1px solid $auth-border;
+      background: $auth-bg-card;
+      color: $auth-text-label;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+
+      svg {
+        font-size: 1.05rem;
+      }
+
+      &:hover {
+        background: $auth-bg-hover;
+        border-color: $auth-border-hover;
+        transform: translateY(-1px);
+      }
+    }
+  }
+
+  &__register {
+    margin: 1.5rem 0 0;
+    text-align: center;
+    color: $auth-text-muted;
+    font-size: 0.95rem;
+
+    a {
+      color: $auth-primary;
+      font-weight: 800;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.login-design__register-button {
+  border: none;
+  background: transparent;
+  color: $auth-primary;
+  font-weight: 800;
+  cursor: pointer;
+  padding: 0;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* ============================================================== */
+/*  Responsive — tablet                                           */
+/* ============================================================== */
+@media (max-width: 1024px) {
+  .login-design {
+    grid-template-columns: 1fr 1fr;
+
+    &__image-content {
+      left: 2rem;
+      right: 2rem;
+      bottom: 2rem;
+
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      p {
+        font-size: 0.98rem;
+      }
+    }
+
+    &__card {
+      padding: 2rem;
+    }
+  }
+}
+
+/* ============================================================== */
+/*  Responsive — mobile                                           */
+/*  Hide the side image, show a small header at the top instead   */
+/* ============================================================== */
+@media (max-width: 768px) {
+  .login-design {
+    display: block;
+    min-height: 100vh;
+
+    /* Hide the desktop side image */
+    &__image {
+      display: none;
+    }
+
+    /* Show the mobile header */
+    &__mobile-header {
+      display: block;
+    }
+
+    &__panel {
+      padding: 1rem;
+      min-height: 100vh;
+    }
+
+    &__card {
+      width: 100%;
+      max-width: 480px;
+      padding: 1.75rem 1.25rem;
+
+      h2 {
+        font-size: 1.55rem;
+      }
+    }
+
+    &__subtitle {
+      margin: 0.4rem 0 1.4rem;
+      font-size: 0.9rem;
+    }
+
+    &__social-grid {
+      grid-template-columns: 1fr;
+    }
+
+    &__divider {
+      margin: 1.3rem 0;
+    }
+  }
+}
+
+/* ============================================================== */
+/*  Responsive — small phones                                     */
+/* ============================================================== */
+@media (max-width: 380px) {
+  .login-design {
+    &__mobile-header {
+      min-height: 120px;
+
+      h3 {
+        font-size: 1.15rem;
+      }
+    }
+
+    &__card {
+      padding: 1.5rem 1rem;
+    }
+
+    &__panel {
+      padding: 0.75rem;
+    }
+  }
+}
+/* Forgot your password? (2026-10-24) */
+.login-design__forgot {
+  display: flex;
+  justify-content: flex-end;
+  margin: -0.35rem 0 0.9rem;
+}
+
+.login-design__link-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #3730a3;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+
+  &:disabled { opacity: 0.6; cursor: not-allowed; }
+  &:focus-visible { outline: 2px solid #3730a3; outline-offset: 2px; }
+}
+
+// AlephK brand on the login page (2026-10-25).
+.login-design__brand-chip {
+  position: absolute;
+  top: 2.5rem;
+  left: 4rem;
+  padding: 0.55rem 0.9rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 8px 24px rgba(20, 36, 59, 0.18);
+  z-index: 1;
+}
+
+.login-design__card-brand {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+
+  .ak-brand__mark {
+    width: 54px;
+    flex-basis: 54px;
+  }
+
+  .ak-brand__name {
+    font-size: 1.35rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .login-design__brand-chip {
+    left: 2rem;
+  }
+}
+
+// Brand line at the top of the login page (2026-10-25).
+.login-design::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #14243b 0%, #00b8a9 55%, rgba(0, 184, 169, 0.25) 100%);
+  z-index: 50;
+  pointer-events: none;
+}

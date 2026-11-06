@@ -1,0 +1,40 @@
+// =====================================================================
+// Dark mode (2026-10-24)
+// <html data-theme="dark"> is set by Shared/Hooks/useTheme.js.
+//
+// Every screen of the app uses its own light colors, so dark mode inverts
+// the whole page once (light backgrounds become dark, dark text becomes
+// light, hue-rotate keeps the brand colors close to the originals) and
+// inverts photos, logos, videos, maps and QR codes back so they keep their
+// real colors. A filter on <html> does not break fixed headers or modals.
+//
+// To keep the real colors of any other element, add class="keep-colors".
+// =====================================================================
+
+html[data-theme="dark"] {
+  background-color: #121316;
+  color-scheme: dark;
+  filter: invert(1) hue-rotate(180deg) brightness(0.92) contrast(0.95);
+
+  body {
+    background-color: #ffffff; // becomes the dark page background
+    min-height: 100vh;
+  }
+
+  img,
+  video,
+  picture,
+  canvas,
+  iframe,
+  .keep-colors {
+    filter: invert(1) hue-rotate(180deg);
+  }
+
+  // Images inside an element that is already re-inverted stay as they are.
+  .keep-colors img,
+  .keep-colors video,
+  .keep-colors canvas,
+  .keep-colors iframe {
+    filter: none;
+  }
+}

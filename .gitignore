@@ -21,3 +21,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Local env files and AI backups (security S5, 2026-10-25)
+.env
+.env.production
+.ai_backups/

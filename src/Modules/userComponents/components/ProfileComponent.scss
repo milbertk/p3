@@ -1,0 +1,144 @@
+.profile-component {
+  padding: 1.25rem;
+
+  &__header {
+    margin-bottom: 1rem;
+
+    h2 {
+      margin: 0;
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    p {
+      margin-top: 0.35rem;
+      color: #64748b;
+      font-size: 0.92rem;
+    }
+  }
+
+  &__eyebrow {
+    display: inline-block;
+    margin-bottom: 0.35rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #64748b;
+    letter-spacing: 0.04em;
+  }
+
+  &__card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.04);
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+
+  &__actions {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__save {
+    border: none;
+    border-radius: 12px;
+    background: #2563eb;
+    color: #ffffff;
+    padding: 0.8rem 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-weight: 700;
+    transition: 0.18s ease;
+    cursor: pointer;
+
+    &:hover {
+      background: #1d4ed8;
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.profile-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+
+  label {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #374151;
+  }
+
+  input,
+  .profile-select {
+    width: 100%;
+    height: 48px;
+    border-radius: 12px;
+    border: 1px solid #d1d5db;
+    background: #f8fafc;
+    padding: 0 0.9rem;
+    font-size: 0.92rem;
+    transition: 0.18s ease;
+
+    &:focus {
+      outline: none;
+      border-color: #2563eb;
+      background: #ffffff;
+    }
+  }
+
+  &__error {
+    color: #dc2626;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+}
+
+.profile-phone-container {
+  width: 100%;
+}
+
+.profile-phone-input {
+  width: 100% !important;
+  height: 48px !important;
+  border-radius: 12px !important;
+  border: 1px solid #d1d5db !important;
+  background: #f8fafc !important;
+  font-size: 0.92rem !important;
+}
+
+@media (max-width: 640px) {
+  .profile-component {
+    padding: 0.85rem;
+
+    &__card {
+      padding: 1rem;
+    }
+
+    &__actions {
+      justify-content: stretch;
+    }
+
+    &__save {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}

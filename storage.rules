@@ -1,0 +1,99 @@
+rules_version = '2';
+
+// Firebase Storage rules for AlephK / Service Hub (2026-10-25, security S13).
+// Bucket: kdauth-9893b.firebasestorage.app
+//
+// HOW TO PUBLISH: Firebase console -> Storage -> Rules -> paste this file ->
+// Publish (or `firebase deploy --only storage` with this file in firebase.json).
+// Then TEST one upload of each kind: product image, Company page logo/header,
+// order attachment (new order screen + order details), tracking attachment and
+// a support screenshot.
+//
+// What they enforce now:
+//   - only signed-in users (Firebase Auth) can upload, read or delete;
+//   - only inside the folders the app uses (companies/{companyId}/...);
+//   - only the file types and sizes the screens allow;
+//   - everything else is denied.
+//
+// IMPORTANT - not enforced yet: "only MEMBERS of that company". Storage rules
+// cannot read the PostgreSQL database, and customers of the stores also sign
+// in with Firebase. To enforce it, usersAppAK must add the user's company ids
+// as a Firebase custom claim at login (Admin SDK SetCustomUserClaims), and
+// then every `isSignedIn()` below becomes `isMember(companyId)` (see the
+// commented function). The shao server ALREADY rejects files of another
+// company or another bucket when they are saved.
+//
+// Public product / page images keep working for store visitors: the app saves
+// their download URLs (with a token), which do not depend on these rules.
+
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    // Future (after the custom claim exists):
+    // function isMember(companyId) {
+    //   return request.auth != null
+    //     && request.auth.token.companies is list
+    //     && companyId in request.auth.token.companies;
+    // }
+
+    function isImage() {
+      return request.resource.contentType.matches('image/(jpeg|png|webp|gif)');
+    }
+
+    function isDocument() {
+      return isImage()
+        || request.resource.contentType == 'application/pdf'
+        || request.resource.contentType == 'application/msword'
+        || request.resource.contentType == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+        || request.resource.contentType == 'application/vnd.ms-excel'
+        || request.resource.contentType == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+    }
+
+    function maxMB(mb) {
+      return request.resource.size <= mb * 1024 * 1024;
+    }
+
+    // Product images: companies/{companyId}/products/{productId}/{file}
+    match /companies/{companyId}/products/{rest=**} {
+      allow read, delete: if isSignedIn();
+      allow create, update: if isSignedIn() && isImage() && maxMB(5);
+    }
+
+    // Company page logo / header: companies/{companyId}/page-configuration/{kind}/{file}
+    match /companies/{companyId}/page-configuration/{rest=**} {
+      allow read, delete: if isSignedIn();
+      allow create, update: if isSignedIn() && isImage() && maxMB(5);
+    }
+
+    // Order attachments: companies/{companyId}/orders/{orderId}/{file}
+    match /companies/{companyId}/orders/{rest=**} {
+      allow read, delete: if isSignedIn();
+      allow create, update: if isSignedIn() && isDocument() && maxMB(10);
+    }
+
+    // Tracking (stage) attachments: companies/{companyId}/order-trackings/{orderId}/{file}
+    match /companies/{companyId}/order-trackings/{rest=**} {
+      allow read, delete: if isSignedIn();
+      allow create, update: if isSignedIn() && isDocument() && maxMB(10);
+    }
+
+    // Support screenshots (with or without a selected company)
+    match /companies/{companyId}/support/{rest=**} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn() && isImage() && maxMB(5);
+    }
+    match /support/{rest=**} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn() && isImage() && maxMB(5);
+    }
+
+    // Everything else: denied.
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

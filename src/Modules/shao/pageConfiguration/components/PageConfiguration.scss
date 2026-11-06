@@ -1,0 +1,273 @@
+.page-configuration {
+  padding: 1.5rem;
+  color: #263447;
+
+  &__heading { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1rem; }
+  &__heading-icon { display: grid; width: 46px; height: 46px; flex: 0 0 46px; place-items: center; border-radius: 13px; background: #eef0ff; color: #4056d6; font-size: 1.2rem; }
+  &__heading span { color: #4056d6; font-size: .72rem; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; }
+  &__heading h1 { margin: .2rem 0; font-size: 1.55rem; }
+  &__heading p { margin: 0; color: #738095; line-height: 1.5; }
+  &__error { margin-bottom: 1.25rem; padding: .75rem 1rem; border: 1px solid #f5b5b5; border-radius: 10px; background: #fef2f2; color: #b42318; font-size: .8rem; }
+  &__loading { padding: 1.5rem 1rem; color: #667085; font-size: .85rem; }
+  button:disabled, input:disabled { cursor: not-allowed; opacity: .6; }
+  &__layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, .7fr); gap: 1.5rem; }
+  &__form { display: flex; flex-direction: column; gap: 1rem; }
+  &__form label { display: flex; flex-direction: column; gap: .4rem; }
+  &__form label > span { font-size: .82rem; font-weight: 750; }
+  &__form input, &__form select { min-height: 44px; padding: .7rem .8rem; border: 1px solid #dce2eb; border-radius: 10px; background: #fff; color: #263447; font: inherit; }
+  &__form small { color: #738095; font-size: .72rem; }
+  &__upload-field { display: flex; flex-direction: column; gap: .45rem; }
+  &__upload-field > span { font-size: .82rem; font-weight: 750; }
+  &__upload-row { display: flex; flex-wrap: wrap; gap: .65rem; }
+  &__upload-button, &__remove-image { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; min-height: 42px; padding: .65rem .9rem; border-radius: 10px; font-size: .8rem; font-weight: 750; cursor: pointer; }
+  &__upload-button { border: 1px solid #4056d6; background: #eef0ff; color: #3045ba; }
+  &__upload-button input { position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0; pointer-events: none; }
+  &__remove-image { border: 1px solid #e0a8a8; background: #fff7f7; color: #a33a3a; }
+  &__file-name { overflow: hidden; color: #596579; font-size: .76rem; font-weight: 650; text-overflow: ellipsis; white-space: nowrap; }
+  &__preview { padding: 1rem; border: 1px solid #e1e6ee; border-radius: 16px; background: #f8f9fc; }
+  &__preview > span { color: #738095; font: 700 .7rem/1 sans-serif; letter-spacing: .06em; text-transform: uppercase; }
+  &__preview h2 { margin: 1rem 0 .35rem; }
+  &__preview p { margin: 0; color: #738095; font-size: .8rem; }
+  &__header-image { display: grid; aspect-ratio: 4 / 1; margin-top: .8rem; overflow: hidden; place-items: center; align-content: center; border-radius: 12px; background: #e9edf5; color: #8b96a8; text-align: center; }
+  &__header-image img { width: 100%; height: 100%; object-fit: cover; }
+  &__header-image svg { font-size: 1.6rem; }
+  &__header-image small { display: block; margin-top: .3rem; font-size: .7rem; }
+  &__logo-image { display: grid; width: 72px; height: 72px; margin: -36px 0 0 1rem; position: relative; overflow: hidden; place-items: center; border: 3px solid #fff; border-radius: 14px; background: #dfe4ee; color: #8b96a8; text-align: center; box-shadow: 0 2px 8px rgba(38, 52, 71, .15); }
+  &__logo-image img { width: 100%; height: 100%; object-fit: cover; }
+  &__logo-image small { padding: .25rem; font-size: .6rem; line-height: 1.2; }
+  &__warning { display: flex; align-items: flex-start; gap: .45rem; padding: .55rem .7rem; border: 1px solid #f3d38a; border-radius: 9px; background: #fffaeb; color: #93600b; font-size: .74rem; line-height: 1.4; }
+  &__warning svg { flex: 0 0 auto; margin-top: .15rem; }
+  &__actions { display: flex; justify-content: flex-end; gap: .7rem; margin-top: .25rem; }
+  &__actions button { display: inline-flex; align-items: center; gap: .45rem; min-height: 42px; padding: .65rem 1rem; border-radius: 10px; font-weight: 750; cursor: pointer; }
+  &__cancel { border: 1px solid #dce2eb; background: #fff; color: #596579; }
+  &__save { border: 1px solid #4056d6; background: #4056d6; color: #fff; }
+  &__success { display: flex; align-items: center; gap: .5rem; padding: .7rem .8rem; border-radius: 9px; background: #ecfdf3; color: #18794e; font-size: .8rem; font-weight: 700; }
+}
+
+@media (max-width: 760px) {
+  .page-configuration { padding: 1rem; }
+  .page-configuration__layout { grid-template-columns: 1fr; }
+}
+
+/* ---- Communication with customers + company SMTP (2026-10-22) ---- */
+.page-configuration {
+  &__section-title { display: flex; align-items: center; gap: .5rem; margin-top: .75rem; padding-top: 1rem; border-top: 1px solid #e6eaf0; color: #263447; font-size: .9rem; font-weight: 800; }
+  &__section-title svg { color: #4056d6; }
+  &__smtp-row { display: flex; flex-wrap: wrap; align-items: center; gap: .7rem; }
+  &__smtp-button { display: inline-flex; align-items: center; gap: .5rem; min-height: 42px; padding: .65rem 1rem; border: 1px solid #4056d6; border-radius: 10px; background: #eef0ff; color: #3045ba; font-weight: 750; cursor: pointer; }
+  &__smtp-button:hover { background: #e2e6ff; }
+  &__smtp-state { padding: .3rem .65rem; border-radius: 999px; font-size: .72rem; font-weight: 750; }
+  &__smtp-state.is-ok { background: #effaf2; color: #1f7a44; }
+  &__smtp-state.is-off { background: #fffaeb; color: #93600b; }
+}
+
+.company-smtp {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  border: 1px solid #dfe4ee;
+  border-radius: 16px;
+  background: #fbfcfe;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  &__heading { display: flex; align-items: flex-start; gap: .9rem; }
+  &__heading h2 { margin: 0 0 .25rem; font-size: 1.15rem; }
+  &__heading p { margin: 0; color: #738095; font-size: .82rem; line-height: 1.5; }
+  &__icon { display: grid; width: 40px; height: 40px; flex: 0 0 40px; place-items: center; border-radius: 12px; background: #eef0ff; color: #4056d6; }
+  &__close { margin-left: auto; display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid #dce2eb; border-radius: 9px; background: #fff; color: #596579; cursor: pointer; }
+  &__loading { color: #667085; font-size: .85rem; }
+  &__status { display: flex; align-items: center; gap: .5rem; padding: .6rem .8rem; border-radius: 10px; font-size: .8rem; font-weight: 650; }
+  &__status.is-ok { border: 1px solid #b7e1c4; background: #effaf2; color: #1f7a44; }
+  &__status.is-off { border: 1px solid #f3d38a; background: #fffaeb; color: #93600b; }
+  &__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: .9rem; }
+  label { display: flex; flex-direction: column; gap: .35rem; }
+  label > span { font-size: .8rem; font-weight: 750; }
+  input, select { min-height: 42px; padding: .6rem .75rem; border: 1px solid #dce2eb; border-radius: 10px; background: #fff; color: #263447; font: inherit; }
+  small { color: #738095; font-size: .72rem; line-height: 1.45; }
+  &__check { flex-direction: row !important; align-items: center; gap: .5rem !important; align-self: end; min-height: 42px; }
+  &__check input { min-height: 0; width: 18px; height: 18px; }
+  &__actions { display: flex; justify-content: flex-end; }
+  &__save, &__test button { display: inline-flex; align-items: center; gap: .45rem; min-height: 42px; padding: .65rem 1rem; border-radius: 10px; font-weight: 750; cursor: pointer; }
+  &__save { border: 1px solid #4056d6; background: #4056d6; color: #fff; }
+  &__test { display: flex; flex-wrap: wrap; align-items: flex-end; gap: .7rem; padding-top: 1rem; border-top: 1px dashed #dfe4ee; }
+  &__test label { flex: 1 1 240px; }
+  &__test button { border: 1px solid #4056d6; background: #fff; color: #3045ba; }
+  button:disabled, input:disabled, select:disabled { cursor: not-allowed; opacity: .6; }
+}
+
+/* ---- Store address (slug) — 2026-10-22 ---- */
+.page-configuration__slug-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: stretch;
+}
+
+.page-configuration__slug-row input {
+  flex: 1;
+  min-width: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.page-configuration__slug-row button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0 0.85rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #f8fafc;
+  color: #334155;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.page-configuration__slug-row button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.page-configuration__slug-preview {
+  display: block;
+  word-break: break-all;
+}
+
+.page-configuration__slug-preview strong {
+  color: #0f766e;
+}
+
+.page-configuration__slug.has-error input {
+  border-color: #dc2626;
+}
+
+.page-configuration__slug-error {
+  color: #b91c1c;
+  font-weight: 600;
+}
+
+@media (max-width: 560px) {
+  .page-configuration__slug-row {
+    flex-direction: column;
+  }
+
+  .page-configuration__slug-row button {
+    justify-content: center;
+    min-height: 38px;
+  }
+}
+
+/* ---- Store money: currency + payment instructions — 2026-10-22 ---- */
+.page-configuration__currency-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.page-configuration__currency-row select {
+  flex: 1;
+  min-width: 0;
+}
+
+.page-configuration__currency-row input {
+  width: 90px;
+  flex: 0 0 90px;
+  text-align: center;
+}
+
+.page-configuration textarea {
+  width: 100%;
+  min-height: 96px;
+  padding: .7rem .8rem;
+  border: 1px solid #dce2eb;
+  border-radius: 10px;
+  background: #fff;
+  color: #263447;
+  font: inherit;
+  resize: vertical;
+}
+
+// AlephK general email option (2026-10-30).
+.page-configuration__checkbox {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+
+  input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    min-height: 0;
+    margin-top: 2px;
+    padding: 0;
+  }
+
+  span {
+    font-weight: 600;
+  }
+}
+
+.page-configuration__checkbox-help {
+  display: block;
+  margin: -6px 0 12px 28px;
+  color: #6b7280;
+}
+
+// Company copies with the AlephK general email (2026-10-30).
+.page-configuration__copy-email { display: grid; gap: 8px; margin: 4px 0 12px 26px; padding-left: 12px; border-left: 3px solid #dfe4ec; }
+
+// Store "Contact us" social link + network (2026-10-31).
+.page-configuration__social { display: grid; grid-template-columns: minmax(0, 1fr) 190px; gap: 12px; align-items: end;
+  @media (max-width: 640px) { grid-template-columns: 1fr; }
+}
+
+/* ---- Company time zone — 2026-11-04 ---- */
+.page-configuration__timezone-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: stretch;
+}
+
+.page-configuration__timezone-row select {
+  flex: 1;
+  min-width: 0;
+}
+
+.page-configuration__timezone-row button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0 0.85rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #f8fafc;
+  color: #334155;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.page-configuration__timezone-row button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.page-configuration__timezone-now {
+  color: #3045ba;
+  font-weight: 650;
+}
+
+@media (max-width: 760px) {
+  .page-configuration__timezone-row {
+    flex-direction: column;
+  }
+
+  .page-configuration__timezone-row button {
+    justify-content: center;
+    min-height: 38px;
+    white-space: normal;
+  }
+}

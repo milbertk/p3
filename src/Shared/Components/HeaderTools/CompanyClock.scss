@@ -1,0 +1,77 @@
+// Clock in the top bar (2026-11-04): company time + this computer's time.
+.company-clock {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-right: 4px;
+  padding: 3px 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #f8fafc;
+  cursor: default;
+  user-select: none;
+
+  &__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+  }
+
+  &__item--computer {
+    padding-left: 0.6rem;
+    border-left: 1px solid #e5e7eb;
+  }
+
+  &__icon {
+    flex: 0 0 auto;
+    color: #4c6ef5;
+    font-size: 0.85rem;
+  }
+
+  &__item--computer &__icon {
+    color: #7a8396;
+  }
+
+  &__text {
+    display: inline-flex;
+    flex-direction: column;
+    line-height: 1.15;
+    white-space: nowrap;
+
+    small {
+      max-width: 150px;
+      overflow: hidden;
+      color: #7a8396;
+      font-size: 0.66rem;
+      text-overflow: ellipsis;
+    }
+
+    strong {
+      color: #14243b;
+      font-size: 0.82rem;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+
+    em {
+      color: #7a8396;
+      font-size: 0.66rem;
+      font-style: normal;
+      font-weight: 600;
+    }
+  }
+
+  @media (max-width: 900px) {
+    &__item--computer {
+      display: none;
+    }
+
+    &__text small {
+      display: none;
+    }
+  }
+
+  @media (max-width: 560px) {
+    display: none;
+  }
+}

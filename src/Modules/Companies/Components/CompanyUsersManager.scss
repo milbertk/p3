@@ -1,0 +1,374 @@
+.company-users-page {
+  width: 100%;
+  min-height: 100%;
+  padding: 1.5rem;
+  background: #f5f7fb;
+}
+
+.company-users-card {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+}
+
+.company-users-card__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.4rem 1.6rem;
+  border-bottom: 1px solid #edf0f5;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+
+  h2 {
+    margin: 0.4rem 0 0.2rem;
+    color: #111827;
+    font-size: 1.35rem;
+    font-weight: 700;
+  }
+
+  p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 0.92rem;
+  }
+}
+
+.company-users-card__icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: #eef4ff;
+  color: #2563eb;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.company-users-card__badge {
+  align-self: flex-start;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  background: #f1f5f9;
+  color: #334155;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.company-users-toolbar {
+  display: grid;
+  grid-template-columns: 1.1fr 2fr 1fr 1fr auto;
+  gap: 0.8rem;
+  padding: 1rem 1.6rem;
+  border-bottom: 1px solid #edf0f5;
+
+  label {
+    height: 42px;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0 0.85rem;
+    border: 1px solid #dbe1ea;
+    border-radius: 12px;
+    background: #f9fafb;
+    color: #64748b;
+  }
+
+  input,
+  select {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #111827;
+    font-size: 0.9rem;
+  }
+}
+
+.company-users-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 1rem 1.6rem;
+  border-bottom: 1px solid #edf0f5;
+
+  div {
+    padding: 0.85rem 1rem;
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  span {
+    color: #64748b;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  strong {
+    color: #111827;
+    font-size: 0.98rem;
+  }
+}
+
+.company-users-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.company-users-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    padding: 0.85rem 1rem;
+    background: #f8fafc;
+    color: #64748b;
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-align: left;
+    text-transform: uppercase;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  td {
+    padding: 0.95rem 1rem;
+    color: #334155;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #edf0f5;
+    vertical-align: middle;
+  }
+
+  tr:hover td {
+    background: #f9fbff;
+  }
+}
+
+.user-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  span:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  strong {
+    color: #111827;
+    font-size: 0.9rem;
+  }
+
+  small {
+    color: #64748b;
+    font-size: 0.78rem;
+  }
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background: #eef4ff;
+  color: #2563eb;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+}
+
+.role-badge,
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.32rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.role-badge--admin {
+  background: #eef4ff;
+  color: #1d4ed8;
+}
+
+.role-badge--manager {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.role-badge--user {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.role-badge--support {
+  background: #ede9fe;
+  color: #6d28d9;
+}
+
+.status-badge--active {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status-badge--inactive {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.table-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-warning,
+.btn-success {
+  border: none;
+  border-radius: 12px;
+  height: 42px;
+  padding: 0 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: #ffffff;
+
+  &:hover {
+    background: #1d4ed8;
+  }
+}
+
+.btn-secondary {
+  background: #f1f5f9;
+  color: #334155;
+
+  &:hover {
+    background: #e2e8f0;
+  }
+}
+
+.btn-warning {
+  background: #fff7ed;
+  color: #c2410c;
+
+  &:hover {
+    background: #ffedd5;
+  }
+}
+
+.btn-success {
+  background: #dcfce7;
+  color: #166534;
+
+  &:hover {
+    background: #bbf7d0;
+  }
+}
+
+.btn-small {
+  height: 34px;
+  padding: 0 0.75rem;
+  font-size: 0.78rem;
+}
+
+.empty-state {
+  padding: 2rem !important;
+  text-align: center;
+  color: #94a3b8;
+}
+
+.role-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+  padding: 1rem;
+}
+
+.role-modal {
+  width: min(440px, 100%);
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1.4rem;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.22);
+
+  h3 {
+    margin: 0 0 0.4rem;
+    color: #111827;
+    font-size: 1.2rem;
+  }
+
+  p {
+    margin: 0 0 1rem;
+    color: #64748b;
+    font-size: 0.9rem;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    color: #334155;
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
+  select {
+    height: 42px;
+    border: 1px solid #dbe1ea;
+    border-radius: 12px;
+    padding: 0 0.85rem;
+    background: #f9fafb;
+    outline: none;
+  }
+}
+
+.role-modal__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.7rem;
+  margin-top: 1.2rem;
+}
+
+@media (max-width: 900px) {
+  .company-users-toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .company-users-summary {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .company-users-page {
+    padding: 1rem;
+  }
+
+  .company-users-card__header {
+    flex-direction: column;
+  }
+}

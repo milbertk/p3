@@ -1,0 +1,2787 @@
+{
+  "login": {
+    "businessPlatform": "Business Platform",
+    "manageCompanyTitle": "Manage your company in one place",
+    "manageCompanyDescription": "Access your tools, users, companies, invitations, and notifications from a clean and secure workspace.",
+    "signIn": "Sign in",
+    "signInSubtitle": "Welcome back. Please enter your details.",
+    "email": "Email",
+    "emailPlaceholderLogin": "example@email.com",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "orContinueWith": "Or continue with",
+    "google": "Google",
+    "facebook": "Facebook",
+    "microsoft": "Microsoft",
+    "apple": "Apple",
+    "dontHaveAccount": "Don’t have an account?",
+    "createAccount": "Create account",
+    "secureAccess": "Secure Access",
+    "createWorkspaceAccount": "Create your workspace account",
+    "registerDescription": "Register to manage your companies, users, invitations, and business tools from a modern and secure platform.",
+    "registerSubtitle": "Enter your information to start using the platform.",
+    "emailPlaceholder": "your@email.com",
+    "confirmPassword": "Confirm password",
+    "confirmPasswordPlaceholder": "Confirm your password",
+    "register": "Register",
+    "alreadyMember": "Already a member?",
+    "signInLink": "Sign in",
+    "unverified.title": "Verify your email",
+    "unverified.description": "Your account has been created, but your email address has not been verified yet.",
+    "unverified.step1": "Open your email inbox and look for the verification message.",
+    "unverified.step2": "Click the verification link in the email.",
+    "unverified.step3": "After verifying your email, return and log in again.",
+    "unverified.resend": "Resend verification email",
+    "unverified.login": "Go to login",
+    "allFieldsRequired": "All fields are required.",
+    "appleComingSoon": "Apple sign-in coming soon.",
+    "backendCreateUserError": "Account created in Firebase but failed to register in our system.",
+    "emailAlreadyInUse": "This email is already registered, please check login with Google or social networks.",
+    "emptyLogin": "All fields are required.",
+    "invalidEmail": "The email address is not valid.",
+    "loginError": "Login failed.",
+    "loginSuccess": "Signed in successfully.",
+    "operationNotAllowed": "Email/password sign-up is currently disabled.",
+    "passwordTooShort": "Password must be at least 6 characters.",
+    "passwordsDoNotMatch": "Passwords do not match.",
+    "popupClosed": "Sign-in window was closed.",
+    "registerError": "Could not register.",
+    "registerSuccess": "Account created successfully.",
+    "registering": "Creating account...",
+    "signingIn": "Signing in...",
+    "socialLoginError": "Social sign-in failed.",
+    "tooManyRequests": "Too many attempts. Try again later.",
+    "userDisabled": "This account has been disabled.",
+    "userNotFound": "No account found with this email.",
+    "weakPassword": "Password is too weak. Use at least 6 characters.",
+    "wrongPassword": "Incorrect email or password.",
+    "forgotPassword": "Forgot your password?",
+    "forgotSending": "Sending...",
+    "forgotEnterEmail": "Write your email above, then press \"Forgot your password?\" again.",
+    "forgotSent": "If an account exists for this email, we sent you a link to reset your password. Check your inbox and spam folder.",
+    "verificationSent": "We sent you a verification email. Open it and click the link, then sign in."
+  },
+  "inactive": {
+    "title": "Account inactive",
+    "description": "Your account is currently inactive and cannot be used to access the application.",
+    "step1": "If you believe this is a mistake, contact our support team.",
+    "step2": "If you no longer need access, you can log out below.",
+    "support": "Contact support",
+    "logout": "Log out",
+    "logging_out": "Logging out...",
+    "support_opened": "Opening support...",
+    "support_error": "Could not open support. Please try again."
+  },
+  "header": {
+    "companyLogo": "Company",
+    "companyName": "Company",
+    "selectCompany": "Select company",
+    "currentCompany": "Current company",
+    "companySelection": "Company selection",
+    "selectManagedCompany": "Select one of the companies where you are a manager.",
+    "searchCompany": "Search company",
+    "members": "members",
+    "noCompaniesFound": "No companies found",
+    "changeSearch": "Try another search.",
+    "home": "Home",
+    "support": "Support",
+    "searchAi": "AI search",
+    "notifications": "Notifications",
+    "loadingNotifications": "Loading notifications...",
+    "notificationsError": "Error loading notifications",
+    "pendingNotifications": "pending notification(s)",
+    "selectPlatform": "Select platform",
+    "userMenu": "User menu",
+    "companiesLoadError": "Error loading companies.",
+    "loadingCompanies": "Loading companies...",
+    "signedInAs": "Signed in as",
+    "clock": {
+      "yourComputer": "Your computer",
+      "companyTitle": "Company time: {{day}} {{time}}, {{zone}} ({{offset}})",
+      "computerTitle": "Your computer: {{time}} ({{zone}}, {{offset}})",
+      "sameAsComputer": "Same time as your computer"
+    }
+  },
+  "sidebar": {
+    "title": "Navigation",
+    "home": "Home",
+    "inviteNewUsers": "Invite new users",
+    "addUsersToCompany": "Add users to a company",
+    "manageInvitations": "Manage invitations",
+    "companies": "Companies",
+    "companyUsers": "Company users",
+    "expandMenu": "Expand menu",
+    "collapseMenu": "Collapse menu",
+    "customers": "Customers",
+    "products": "Products",
+    "category": "Categories",
+    "order": "New order",
+    "pageConfiguration": "Company page",
+    "trackingm": "Order stages",
+    "aprovala": "Web orders",
+    "aprovalb": "Booking requests",
+    "trackingord": "Order tracking",
+    "usersbcompany": "Team and permissions",
+    "booking": "Booking schedules",
+    "selfbooking": "Book for a customer",
+    "appointments": "Appointments",
+    "reports": "Reports",
+    "viewStore": "View my store",
+    "groups": {
+      "sell": "Sell",
+      "bookings": "Bookings",
+      "customers": "Customers",
+      "myStore": "My store",
+      "reports": "Reports",
+      "team": "Team"
+    }
+  },
+  "platforms": {
+    "home": {
+      "title": "Home",
+      "tooltip": "Go to the home platform"
+    },
+    "shao": {
+      "title": "AlephTelos",
+      "tooltip": "Open AlephTelos: products, orders, bookings and your store"
+    }
+  },
+  "companyForm": {
+    "createTitle": "Create company",
+    "editTitle": "Edit company",
+    "subtitle": "Register or update company information.",
+    "createMode": "Create mode",
+    "updateMode": "Update mode",
+    "companyName": "Company name",
+    "legalName": "Legal name",
+    "identificationType": "Identification type",
+    "identificationNumber": "Identification number",
+    "email": "Email",
+    "phone": "Phone",
+    "city": "City",
+    "district": "District",
+    "address1": "Address",
+    "plan": "Plan",
+    "status": "Status",
+    "active": "Active",
+    "cancel": "Cancel",
+    "save": "Save",
+    "saving": "Saving...",
+    "saved": "Company saved successfully",
+    "saveError": "Error saving company",
+    "companyNameRequired": "Company name is required",
+    "identificationRequired": "Identification type and number are required",
+    "searchCompany": "Search company",
+    "generalInfo": "General information",
+    "contact": "Contact",
+    "location": "Location",
+    "address": "Address",
+    "classification": "Classification",
+    "website": "Website",
+    "countryCode": "Country code",
+    "countryName": "Country",
+    "stateCode": "State code",
+    "stateName": "State name",
+    "postalCode": "Postal code",
+    "address2": "Address 2",
+    "directions": "Directions",
+    "category": "Category",
+    "internalCategory": "Internal category",
+    "employees": "Employees",
+    "statusActive": "Active",
+    "statusInactive": "Inactive",
+    "statusSuspended": "Suspended",
+    "isVirtual": "Virtual company",
+    "legalEntity": "Legal entity",
+    "physicalPerson": "Physical person",
+    "identificationTypeRequired": "Identification type is required",
+    "identificationNumberRequired": "Identification number is required",
+    "invalidEmail": "Invalid email address",
+    "invalidWebsite": "Invalid website URL",
+    "invalidEmployees": "Employees cannot be less than zero",
+    "companySelected": "Company selected successfully.",
+    "noResults": "No results",
+    "searchCountry": "Search country",
+    "selectCountry": "Select country"
+  },
+  "companySearch": {
+    "title": "My companies",
+    "subtitle": "Search and select one of your registered companies.",
+    "results": "results",
+    "searchPlaceholder": "Search by company name, legal name, ID or city...",
+    "search": "Search",
+    "name": "Name",
+    "legalName": "Legal name",
+    "identification": "Identification",
+    "city": "City",
+    "status": "Status",
+    "actions": "Actions",
+    "active": "Active",
+    "inactive": "Inactive",
+    "select": "Select",
+    "empty": "No companies found with the current search.",
+    "loadError": "Error loading companies.",
+    "loading": "Loading companies...",
+    "searching": "Searching..."
+  },
+  "addUserToCompany": {
+    "title": "Invite user to company",
+    "subtitle": "Type the exact email of the user, select the company, assign a role, and send the request.",
+    "statusPending": "Pending",
+    "user": "User",
+    "searchUser": "Type the exact email of the user",
+    "noUsersFound": "No user with that email",
+    "company": "Company",
+    "role": "Role",
+    "roleUser": "User",
+    "roleManager": "Manager",
+    "roleAdmin": "Administrator",
+    "message": "Invitation message",
+    "messagePlaceholder": "Write a short invitation message...",
+    "sendRequest": "Send request",
+    "sending": "Sending...",
+    "userRequired": "Please select a user.",
+    "companyRequired": "Please select a company.",
+    "requestCreated": "Company user request has been created.",
+    "requestError": "Error creating company user request.",
+    "defaultInvitationMessage": "Hello, I would like to invite you to join this company.",
+    "manageRequests": "Manage requests",
+    "errorLoadingCompanies": "Error loading companies",
+    "errorSearchingUsers": "Error searching users",
+    "loadingCompanies": "Loading companies...",
+    "loadingUsers": "Loading users...",
+    "noCompaniesFound": "No companies found",
+    "noName": "No name",
+    "selectCompany": "Select company"
+  },
+  "manageCompanyRequests": {
+    "title": "Manage requests",
+    "subtitle": "Review, search, filter, and cancel company join requests.",
+    "back": "Back",
+    "company": "Company",
+    "results": "Results",
+    "searchPlaceholder": "Search by user, email, role or request ID...",
+    "all": "All",
+    "statusPending": "Pending",
+    "statusApproved": "Approved",
+    "statusRejected": "Rejected",
+    "statusCanceled": "Canceled",
+    "statusExpired": "Expired",
+    "requestId": "Request ID",
+    "role": "Role",
+    "created": "Created",
+    "cancelRequest": "Cancel request",
+    "noRequestsFound": "No requests found.",
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page",
+    "requestNotFound": "Request not found.",
+    "requestCanceled": "Request canceled successfully.",
+    "loadingCompanies": "Loading companies...",
+    "selectCompany": "Select a company",
+    "loadingRequests": "Loading requests...",
+    "noCompaniesFound": "No companies found",
+    "errorLoadingCompanies": "Error loading companies",
+    "errorLoadingRequests": "Error loading requests",
+    "canceling": "Canceling...",
+    "cancelError": "Error canceling the request"
+  },
+  "companyUsers": {
+    "title": "Company users",
+    "subtitle": "Manage roles, access and membership across companies.",
+    "users": "users",
+    "company": "Company",
+    "results": "Results",
+    "searchPlaceholder": "Search by name, email, user ID or company...",
+    "allRoles": "All roles",
+    "allStatuses": "All statuses",
+    "active": "Active",
+    "inactive": "Inactive",
+    "clear": "Clear",
+    "user": "User",
+    "role": "Role",
+    "status": "Status",
+    "joinedAt": "Joined",
+    "updatedAt": "Updated",
+    "actions": "Actions",
+    "changeRole": "Change role",
+    "deactivate": "Deactivate",
+    "activate": "Activate",
+    "noResults": "No users match your filters.",
+    "changeRoleHint": "Update the role for",
+    "selectRole": "Select role",
+    "cancel": "Cancel",
+    "save": "Save",
+    "roleUpdated": "Role has been updated.",
+    "userActivated": "User has been activated.",
+    "userDeactivated": "User has been deactivated.",
+    "loadingCompanies": "Loading companies...",
+    "selectCompany": "Select a company",
+    "loadingUsers": "Loading users...",
+    "noCompaniesFound": "No companies found",
+    "errorLoadingCompanies": "Error loading companies",
+    "errorLoadingUsers": "Error loading company users",
+    "errorUpdatingStatus": "Error updating user status",
+    "errorUpdatingRole": "Error updating role"
+  },
+  "companyInvitation": {
+    "title": "Send company invitation",
+    "subtitle": "Invite a user to join your company workspace.",
+    "invitation": "Invitation",
+    "company": "Company",
+    "emailPlaceholder": "User email address",
+    "messagePlaceholder": "Write an optional message",
+    "defaultMessage": "Hello, we would like to invite you to join our company workspace. Please use the invitation link to create or access your account and complete the process.",
+    "previewTitle": "Email preview",
+    "linkNotice": "The invitation email will include a secure access link.",
+    "send": "Send invitation",
+    "sending": "Sending...",
+    "sentSuccess": "Invitation sent successfully.",
+    "sentError": "The invitation could not be sent.",
+    "emailRequired": "Please enter an email address.",
+    "invalidEmail": "Please enter a valid email."
+  },
+  "inviteNotifications": {
+    "title": "Invitation notifications",
+    "subtitle": "Review pending company invitations and choose whether to accept or reject them.",
+    "pending": "pending",
+    "total": "Total invitations",
+    "status": "Status",
+    "mockMode": "Mocking data",
+    "accept": "Accept",
+    "reject": "Reject",
+    "processing": "Processing...",
+    "acceptedMessage": "Invitation accepted successfully.",
+    "rejectedMessage": "Invitation rejected successfully.",
+    "emptyTitle": "No pending invitations",
+    "emptyText": "You do not have company invitations at this moment.",
+    "realMode": "Real data",
+    "defaultMessage": "You have been invited to join this company.",
+    "requestNotFound": "Request not found.",
+    "errorLoading": "Error loading invitations.",
+    "processError": "Error processing invitation.",
+    "loading": "Loading",
+    "loadingText": "Loading your invitations.",
+    "errorTitle": "Could not load data",
+    "retry": "Retry"
+  },
+  "common": {
+    "loading": "Loading...",
+    "closeModal": "Close modal"
+  },
+  "notifications": {
+    "section": "Notifications",
+    "title": "Notifications panel",
+    "subtitle": "Review your recent notifications and pending actions.",
+    "emptyTitle": "No notifications",
+    "emptyDescription": "You do not have pending notifications at this moment.",
+    "defaultTitle": "New notification",
+    "defaultDescription": "You have a new notification to review.",
+    "watchAccept": "View details",
+    "types": {
+      "general": "General",
+      "request": "Request",
+      "system": "System",
+      "high": "High",
+      "medium": "Medium",
+      "low": "Low"
+    },
+    "mock": {
+      "invitationTitle": "New company invitation",
+      "invitationDescription": "You have received an invitation to join a company workspace.",
+      "systemTitle": "System notification",
+      "systemDescription": "A recent system update is available for review."
+    },
+    "errorLoading": "Error loading notifications",
+    "errorTitle": "Could not load data",
+    "retry": "Retry",
+    "pendingInvitedRequests": "You have pending invitations to join a company."
+  },
+  "userMenu": {
+    "section": "Account",
+    "title": "Account settings",
+    "subtitle": "Manage your profile, security, email and account options.",
+    "profile": "Profile",
+    "security": "Security",
+    "changePassword": "Change password",
+    "changeEmail": "Change email",
+    "transferAccount": "Transfer account",
+    "logout": "Log out",
+    "navigationLabel": "Account menu",
+    "appearance": {
+      "title": "Appearance",
+      "light": "Light",
+      "dark": "Dark",
+      "system": "Same as my device"
+    },
+    "signedInAs": "Signed in as"
+  },
+  "profile": {
+    "section": "Profile",
+    "title": "Profile settings",
+    "subtitle": "Manage your personal information and preferences.",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "email": "Alternative email",
+    "phone": "Phone number",
+    "country": "Country",
+    "language": "Preferred language",
+    "firstNamePlaceholder": "Enter your first name",
+    "lastNamePlaceholder": "Enter your last name",
+    "emailPlaceholder": "Enter your email",
+    "languagePlaceholder": "Select a language",
+    "save": "Save profile",
+    "saving": "Saving...",
+    "errors": {
+      "firstName": "First name is required.",
+      "lastName": "Last name is required.",
+      "email": "Email is required.",
+      "phone": "Phone number is required.",
+      "country": "Country is required.",
+      "language": "Language is required.",
+      "load": "Error loading profile",
+      "save": "Error saving profile"
+    },
+    "saved": "Profile saved successfully",
+    "retry": "Retry"
+  },
+  "changePassword": {
+    "section": "Security",
+    "title": "Change password",
+    "subtitle": "Update your password to keep your account secure.",
+    "currentPassword": "Current password",
+    "newPassword": "New password",
+    "confirmPassword": "Confirm password",
+    "currentPasswordPlaceholder": "Enter your current password",
+    "newPasswordPlaceholder": "Enter your new password",
+    "confirmPasswordPlaceholder": "Confirm your new password",
+    "save": "Change password",
+    "saving": "Saving...",
+    "success": "Password changed successfully.",
+    "errors": {
+      "currentPassword": "Current password is required.",
+      "newPassword": "New password is required.",
+      "confirmPassword": "Password confirmation is required.",
+      "minLength": "The new password must have at least 8 characters.",
+      "passwordMismatch": "The passwords do not match.",
+      "samePassword": "The new password must be different from the current password.",
+      "requestError": "Could not change the password.",
+      "general": "An error occurred while changing the password.",
+      "providerValidation": "Error validating account provider."
+    },
+    "checkingProvider": "Checking account provider...",
+    "onlyEmailUsers": "Password change is only available for email/password users. This account uses an external provider.",
+    "onlyEmailUsersWithProvider": "Password change is only available for email/password users. This account uses {{provider}}.",
+    "emailPasswordProvider": "Email / Password",
+    "externalProvider": "External provider",
+    "providers": {
+      "password": "Email / Password",
+      "google.com": "Google",
+      "apple.com": "Apple",
+      "facebook.com": "Facebook",
+      "microsoft.com": "Microsoft",
+      "github.com": "GitHub",
+      "external": "External provider",
+      "unknown": "Unknown provider"
+    }
+  },
+  "changeEmail": {
+    "section": "Account",
+    "title": "Change email",
+    "subtitle": "Update the email associated with your account.",
+    "currentEmail": "Current email",
+    "newEmail": "New email",
+    "password": "Password",
+    "currentEmailPlaceholder": "Enter your current email",
+    "newEmailPlaceholder": "Enter your new email",
+    "passwordPlaceholder": "Enter your password",
+    "save": "Save",
+    "saving": "Saving...",
+    "success": "Email changed successfully.",
+    "checkingProvider": "Checking account provider...",
+    "onlyEmailUsers": "Email change is only available for email/password users.",
+    "onlyEmailUsersWithProvider": "Email change is only available for email/password users. This account uses {{provider}}.",
+    "errors": {
+      "currentEmail": "Current email is required.",
+      "newEmail": "New email is required.",
+      "password": "Password is required.",
+      "invalidEmail": "Please enter a valid email.",
+      "sameEmail": "The new email must be different from the current email.",
+      "requestError": "Could not update the email.",
+      "providerValidation": "Error validating account provider.",
+      "general": "Error changing email."
+    }
+  },
+  "transferAccount": {
+    "section": "Account transfer",
+    "title": "Transfer account",
+    "subtitle": "Transfer the selected account and its companies to another platform user.",
+    "warning": "This action can transfer access and administration of the selected account. Please confirm the destination user carefully before continuing.",
+    "account": "Account to transfer",
+    "accountPlaceholder": "Select an account",
+    "companies": "companies",
+    "targetUser": "Destination user",
+    "searchPlaceholder": "Search user by name or email",
+    "summaryTitle": "Transfer summary",
+    "fromAccount": "Account",
+    "toUser": "Destination user",
+    "confirmText": "I understand that this account and its companies will be transferred to the selected user.",
+    "transfer": "Transfer account",
+    "processing": "Processing...",
+    "success": "Account transferred successfully.",
+    "errors": {
+      "userRequired": "You must select a destination user.",
+      "accountRequired": "You must select an account.",
+      "confirmRequired": "You must confirm the transfer before continuing.",
+      "requestError": "Could not transfer the account.",
+      "general": "An error occurred while transferring the account."
+    }
+  },
+  "transferCompany": {
+    "section": "Company management",
+    "title": "Transfer company",
+    "subtitle": "Transfer a company from the current user to another user.",
+    "warning": "This action will transfer the selected company to another user. Review the information carefully before confirming.",
+    "company": "Company",
+    "companyPlaceholder": "Select a company",
+    "targetUser": "Target user",
+    "searchPlaceholder": "Search user by name or email",
+    "summaryTitle": "Transfer summary",
+    "companyName": "Company",
+    "legalName": "Legal name",
+    "identification": "Identification",
+    "currentOwner": "Current owner",
+    "toUser": "Transfer to",
+    "confirmText": "I confirm that I want to transfer this company to the selected user.",
+    "processing": "Processing...",
+    "transfer": "Transfer company",
+    "success": "Company transferred successfully.",
+    "confirmDialog": "Are you sure you want to transfer this company? This action will change the company owner.",
+    "errors": {
+      "companyRequired": "Company is required.",
+      "userRequired": "Target user is required.",
+      "confirmRequired": "You must confirm the transfer.",
+      "requestError": "Could not transfer the company.",
+      "general": "Error transferring company.",
+      "sameCurrentOwner": "The new owner must be different from the current owner.",
+      "sameLoggedUser": "The new owner must be different from the logged user.",
+      "loadCompanies": "Error loading companies.",
+      "loadUsers": "Error searching users.",
+      "userIdRequired": "The selected user does not have a valid ID."
+    },
+    "loadingCompanies": "Loading companies...",
+    "noUsersFound": "No users found.",
+    "searchingUsers": "Searching..."
+  },
+  "noPlan": {
+    "accessStatus": "Plan access",
+    "title": "Your company does not have an active plan",
+    "description": "Request assistance from our sales team to receive personalized advice and choose the best plan for your business.",
+    "freeTrialTitle": "Your first month is free",
+    "freeTrialDescription": "Test the platform for one month at no cost and receive guidance during the implementation process.",
+    "companySelectionRequiredTitle": "Company selection required",
+    "companyReloadRequired": "You must select a company and reload the page before requesting a plan.",
+    "reloadPage": "Reload page",
+    "configurePage": "Configure customer page",
+    "currentCompany": "Current company",
+    "companyId": "Company ID",
+    "company": "Company",
+    "companyNotSelected": "No company selected",
+    "formTitle": "Request plan information",
+    "formDescription": "Provide the contact information of the person who should receive advice about the available plans.",
+    "contactName": "Contact person",
+    "contactNamePlaceholder": "Full name of the contact person",
+    "contactNameRequired": "The contact person name is required.",
+    "contactEmail": "Personal contact email",
+    "contactEmailPlaceholder": "contact@example.com",
+    "contactEmailRequired": "The contact email is required.",
+    "contactEmailInvalid": "Enter a valid contact email.",
+    "contactPhone": "Contact phone",
+    "contactPhoneRequired": "The contact phone number is required.",
+    "contactPhoneInvalid": "Enter a valid phone number, including the country code.",
+    "contactPhoneHelp": "Select the country and enter the phone number with its international dialing code.",
+    "searchCountry": "Search country",
+    "message": "Message",
+    "messagePlaceholder": "Tell us what your company needs and which processes you want to improve.",
+    "messageRequired": "Please write a short message.",
+    "sendRequest": "Request plan and advisory",
+    "sending": "Sending...",
+    "success": "Your request was sent successfully. Our sales team will contact you soon.",
+    "sendError": "We could not send your request. Please try again."
+  },
+  "serviceHubStart": {
+    "eyebrow": "Service management",
+    "title": "Welcome to AlephTelos",
+    "description": "Manage your services, customers, tasks, and business processes from one place.",
+    "currentCompany": "Current company",
+    "companyRequiredTitle": "Company selection required",
+    "companyRequiredMessage": "You must select a company and reload the page before using AlephTelos.",
+    "reloadPage": "Reload page",
+    "favoritesTitle": "Favorite options",
+    "favoritesDescription": "Your most frequently used options will appear here.",
+    "noFavoritesTitle": "You do not have favorite options yet",
+    "noFavoritesDescription": "In the future, you will be able to mark frequently used options as favorites and access them quickly from this page.",
+    "footerMessage": "AlephTelos is ready to help you organize and manage your business operations.",
+    "configurePage": "Configure company page",
+    "notifications": {
+      "title": "Customer notifications are not ready",
+      "noEmail": "Add a notification email to receive new orders and booking requests.",
+      "noSmtp": "Configure your own SMTP so your customers receive emails about their orders and bookings.",
+      "action": "Configure now"
+    },
+    "share": {
+      "linkLabel": "Store link",
+      "whatsapp": "Share on WhatsApp",
+      "whatsappText": "Visit our online store {{name}}: {{link}}",
+      "qr": "QR code",
+      "qrAlt": "QR code of your store",
+      "qrDownload": "Download PNG",
+      "qrHelp": "Print it on flyers, menus or your counter. Customers scan it with the phone camera.",
+      "qrError": "The QR code could not be created.",
+      "qrLoading": "Creating QR code…",
+      "noSlug": "Tip: give your store a short address (for example /my-store) so the link is easier to read and remember.",
+      "setSlug": "Set address"
+    },
+    "openShowcase": "Open store",
+    "showcaseModalTitle": "Share your store",
+    "showcaseHelp": "Share this link with your customers. In WhatsApp and Facebook it shows your store name and image.",
+    "close": "Close",
+    "copied": "Copied",
+    "copy": "Copy",
+    "quickActions": {
+      "appointment": "Create your appointment",
+      "appointmentDesc": "Set up booking availability and slots.",
+      "appointmentModal": "Booking maintenance",
+      "customer": "Create your customer",
+      "customerDesc": "Register a new customer.",
+      "customerModal": "Customers",
+      "product": "Create your product",
+      "productDesc": "Add a product or service to your catalog.",
+      "productModal": "Products",
+      "reports": "Reports",
+      "reportsDesc": "Open the reports dashboard.",
+      "reportsModal": "Reports",
+      "unavailable": "This component is not available. Check its import path in ServiceHubStart.jsx."
+    },
+    "quickActionsDescription": "Open the tools you use most, right from here.",
+    "quickActionsTitle": "Quick actions",
+    "showcaseFor": "Public showcase for",
+    "showcaseLink": "Showcase link"
+  },
+  "pageConfiguration": {
+    "eyebrow": "Company page",
+    "title": "Company page configuration",
+    "description": "Define how customers see your company and how you communicate with them.",
+    "fields": {
+      "displayName": "Name shown to customers",
+      "font": "Page font",
+      "logo": "Logo",
+      "header": "Header image",
+      "notificationEmail": "Notification email",
+      "contactWhatsapp": "WhatsApp number",
+      "notificationLanguage": "Language for customer messages",
+      "currency": "Store currency",
+      "currencyOther": "Other…",
+      "currencySymbol": "Currency symbol",
+      "paymentInstructions": "Payment instructions",
+      "termsText": "Terms and conditions",
+      "privacyText": "Privacy policy",
+      "useDefaultSmtp": "Use the AlephK general email while my company has no email server (SMTP)",
+      "copyEmail": "Email for copies (owner)",
+      "socialLink": "Social network link",
+      "socialLinkType": "Network",
+      "customerServiceEmail": "Customer service email",
+      "timeZone": "Company time zone",
+      "timeZoneLabel": "Text for customers (optional)"
+    },
+    "placeholders": {
+      "displayName": "Example: My company",
+      "font": "Select a font",
+      "notificationEmail": "orders@yourcompany.com",
+      "paymentInstructions": "e.g. SINPE Móvil 8888-7777 (Maderas Finas)\nBN account CR00 0000 0000 0000 0000 00",
+      "termsText": "Write the terms of your store: orders, payments, deliveries, cancellations...",
+      "privacyText": "Explain what customer data you collect (name, phone, email, address), why, and how customers can ask to change or delete it.",
+      "timeZoneLabel": "Costa Rica time"
+    },
+    "help": {
+      "displayName": "This name will be visible on the customer-facing page.",
+      "logo": "Square image (same width and height). Recommended: 512 × 512 px. It identifies your company on the customer page.",
+      "header": "Wide rectangular image (4:1). Recommended: 1920 × 480 px. It will be shown as the banner at the top of the customer page. Keep important content in the center.",
+      "upload": "Use JPG, PNG, WEBP or GIF images (max 5 MB each). Images are uploaded when you save.",
+      "notificationEmail": "New web orders, booking requests, cancellations and new-time requests are sent to this email, plus a \"[Copy]\" of every email sent to your customers.",
+      "contactWhatsapp": "Include the country code, e.g. +506 8888 7777. It is used for the “Talk to us on WhatsApp” link in emails.",
+      "notificationLanguage": "Emails to your customers are written in this language.",
+      "currency": "One currency for all prices of your store, the cart and the emails. Products use this currency.",
+      "paymentInstructions": "How customers pay you (for example SINPE Móvil, bank account). Shown after an order, in \"My orders\" and in the emails. Online payments are coming soon.",
+      "legalText": "Optional. When empty, the store does not show this link. Plain text, up to {{max}} characters.",
+      "useDefaultSmtp": "If your company has its own SMTP, it is always used. Without your own SMTP and without this option, your customers receive no emails.",
+      "copyEmail": "With the AlephK general email, the copy of every email sent to your customers goes only to this email (it is the same Notification email above). It is never sent to the AlephK account.",
+      "socialLink": "Optional. Paste the link of your page (Facebook, Messenger, Instagram, TikTok…) and choose the network for its icon. The store shows \"Contact us\" with WhatsApp and this link, only the ones you fill in.",
+      "customerServiceEmail": "Optional. Receives a blind copy of every email sent to your customers (orders, bookings, changes, tracking). Customers reply to this email.",
+      "timeZone": "\"Today\", the free slots, the change and cancel windows, the emails and the assistant use this zone. The server works in GMT; the list shows the GMT offset of each zone.",
+      "timeZoneLabel": "Shown next to the hours in the store and the emails, e.g. \"Costa Rica time, GMT−6\". Empty = the name of the zone. Up to {{max}} characters."
+    },
+    "preview": "Customer preview",
+    "previewName": "Your company",
+    "previewDescription": "Products, services, and contact options will appear here in the future.",
+    "noFileSelected": "No image selected",
+    "saved": "Configuration saved successfully.",
+    "actions": {
+      "cancel": "Cancel",
+      "save": "Save configuration",
+      "removeImage": "Remove image",
+      "saving": "Saving...",
+      "choose": {
+        "logo": "Choose logo",
+        "header": "Choose header"
+      }
+    },
+    "loading": "Loading configuration...",
+    "currentImage": "Saved image",
+    "errors": {
+      "noCompany": "Select a company before configuring its page.",
+      "load": "The saved configuration could not be loaded.",
+      "save": "The configuration could not be saved. Please try again."
+    },
+    "warnings": {
+      "logoShape": "This image is not square. It may be cropped; use an image with the same width and height.",
+      "headerShape": "This image does not have a 4:1 rectangle shape. It may be cropped; use an image about 4 times wider than it is tall.",
+      "noNotificationEmail": "Add a notification email, or you won't receive new orders and booking requests.",
+      "noCopyEmail": "Without this email you won't receive the copies of your customer emails.",
+      "timeZoneChanged": "You are changing the time zone. Saved appointments and slots keep their hours (2 p.m. stays 2 p.m.). Only the current time used for the calculations changes: today, the free slots, and the change and cancel windows.",
+      "timeZoneLabelCheck": "Check the text for customers too: it says \"{{label}}\"."
+    },
+    "logoPreviewAlt": "Customer page logo preview",
+    "headerPreviewAlt": "Customer page header preview",
+    "noLogo": "No logo",
+    "noHeader": "No header image configured",
+    "sections": {
+      "communication": "Communication with customers",
+      "money": "Prices and payment",
+      "legal": "Terms and privacy",
+      "timeZone": "Time zone"
+    },
+    "languages": {
+      "en": "English",
+      "es": "Español"
+    },
+    "smtp": {
+      "button": "Configure your own SMTP",
+      "title": "Your email server (SMTP)",
+      "description": "Notifications are sent from your own email account, so your customers see your company as the sender. Without SMTP, no emails are sent.",
+      "fields": {
+        "host": "SMTP server",
+        "port": "Port",
+        "security": "Security",
+        "username": "User",
+        "password": "Password",
+        "fromEmail": "Sender email",
+        "fromName": "Sender name",
+        "enabled": "Send notifications with this SMTP"
+      },
+      "securityStarttls": "STARTTLS (port 587)",
+      "securitySsl": "SSL/TLS (port 465)",
+      "passwordSaved": "A password is saved. Leave this field empty to keep it.",
+      "help": "Gmail: smtp.gmail.com, port 587, STARTTLS, your Gmail address as user and an App Password (not your normal password). Outlook / Microsoft 365: smtp.office365.com, port 587, STARTTLS.",
+      "save": "Save SMTP",
+      "saving": "Saving...",
+      "saved": "SMTP saved. Send a test email to check it.",
+      "saveError": "The SMTP could not be saved.",
+      "loadError": "The SMTP configuration could not be loaded.",
+      "test": "Send test email",
+      "testing": "Sending...",
+      "testTo": "Send the test to",
+      "testOk": "Test email sent to {{to}}. Check the inbox (and the spam folder).",
+      "testFailed": "The test email failed: {{error}}",
+      "lastTest": "Last test: {{date}} — {{result}}",
+      "ok": "OK",
+      "failed": "Failed",
+      "notConfigured": "SMTP not configured — no emails are sent to your customers.",
+      "notConfiguredShort": "SMTP not configured",
+      "configured": "SMTP configured",
+      "disabled": "SMTP disabled — no emails are sent.",
+      "close": "Close"
+    },
+    "slug": {
+      "label": "Store address (link)",
+      "placeholder": "e.g. maderas-finas",
+      "suggest": "Suggest from name",
+      "preview": "Your store link:",
+      "help": "Short and easy to remember: lowercase letters, numbers and hyphens (3–60). Leave it empty to use the internal code. It must be unique.",
+      "errors": {
+        "short": "Use between 3 and 60 characters.",
+        "format": "Use only lowercase letters, numbers and hyphens.",
+        "reserved": "This word is reserved by the platform. Choose another one.",
+        "uuid": "It cannot look like an internal code.",
+        "taken": "This address is already taken by another company. Try another one."
+      }
+    },
+    "socialLinkTypes": {
+      "FACEBOOK": "Facebook / Messenger",
+      "INSTAGRAM": "Instagram",
+      "TIKTOK": "TikTok",
+      "OTHER": "Other"
+    },
+    "timeZone": {
+      "useMine": "Use my computer's time zone",
+      "mineUnknown": "The time zone of this computer could not be read. Choose it from the list.",
+      "now": "Now in this zone: {{time}}",
+      "summer": "summer",
+      "summerNote": "This zone uses summer time: the hour changes by itself twice a year."
+    }
+  },
+  "products": {
+    "form": {
+      "searchEyebrow": "Product maintenance",
+      "searchTitle": "Search products",
+      "searchPlaceholder": "Search by name, code or category",
+      "eyebrow": "Product management",
+      "titleCreate": "Create product",
+      "titleEdit": "Maintain product",
+      "description": "Register or update a service, order product, or inventory product.",
+      "noProducts": "No products found",
+      "noProductsHelp": "Try another search or create a new product.",
+      "imagePlaceholder": "No image selected",
+      "currencyOther": "Other…",
+      "currencies": {
+        "USD": "US dollar",
+        "CRC": "Costa Rican colón",
+        "EUR": "Euro",
+        "GBP": "British pound",
+        "GTQ": "Guatemalan quetzal",
+        "CAD": "Canadian dollar",
+        "AUD": "Australian dollar",
+        "BRL": "Brazilian real",
+        "MXN": "Mexican peso",
+        "JPY": "Japanese yen",
+        "CNY": "Chinese yuan",
+        "CHF": "Swiss franc",
+        "INR": "Indian rupee",
+        "KRW": "South Korean won",
+        "SGD": "Singapore dollar",
+        "HKD": "Hong Kong dollar",
+        "NZD": "New Zealand dollar",
+        "SEK": "Swedish krona",
+        "ZAR": "South African rand",
+        "COP": "Colombian peso",
+        "PEN": "Peruvian sol",
+        "CLP": "Chilean peso",
+        "ARS": "Argentine peso",
+        "NIO": "Nicaraguan córdoba",
+        "HNL": "Honduran lempira",
+        "PAB": "Panamanian balboa",
+        "DOP": "Dominican peso"
+      },
+      "currencySymbolHelp": "Currency symbol shown with the price (default $)",
+      "taxesHelp": "Taxes will be configured in another form.",
+      "showOnWebHelp": "The product will be visible in the web catalog.",
+      "availableForWebSalesHelp": "Customers can add it to the cart and order it online.",
+      "webBehaviorHelp": "This behavior will be used in the future web system.",
+      "sections": {
+        "basic": "Basic information",
+        "pricing": "Pricing",
+        "visibility": "Visibility and sales behavior",
+        "additional": "Additional options"
+      },
+      "fields": {
+        "productType": "Product type",
+        "name": "Product name",
+        "code": "Product code",
+        "description": "Description",
+        "image": "Product image",
+        "hasPrice": "Product has price",
+        "currency": "Currency",
+        "currencySymbol": "Currency symbol",
+        "basePrice": "Base price",
+        "taxFree": "Tax free",
+        "showOnWeb": "Show on web",
+        "availableForWebSales": "Available for web sales",
+        "webBehavior": "Web behavior",
+        "status": "Status",
+        "category": "Category",
+        "comments": "Comments",
+        "showTaxes": "Show price with taxes",
+        "stepTemplate": "Process (tracking)",
+        "taxPercentage": "Tax %",
+        "webContactPhone": "Contact cellphone (full international number)",
+        "webMessengerLink": "Messenger link",
+        "isAppointment": "This is an appointment (booking)"
+      },
+      "placeholders": {
+        "name": "Example: Premium Bicycle Repair",
+        "code": "Example: SRV-001",
+        "description": "Write a short description of this product or service.",
+        "category": "Select category",
+        "comments": "Internal comments about this product."
+      },
+      "actions": {
+        "new": "New",
+        "loadImage": "Load image",
+        "removeImage": "Remove",
+        "addTaxes": "Add taxes",
+        "delete": "Delete",
+        "clear": "Clear",
+        "cancel": "Cancel",
+        "save": "Save product",
+        "update": "Update product",
+        "saving": "Saving...",
+        "search": "Search product"
+      },
+      "validation": {
+        "invalidImage": "Please select a valid image file.",
+        "nameRequired": "Product name is required.",
+        "codeRequired": "Product code is required.",
+        "priceRequired": "Base price is required.",
+        "priceInvalid": "Enter a valid base price.",
+        "productRequired": "Select a product to edit.",
+        "categoryRequired": "Category is required.",
+        "stepTemplateRequired": "Please select a process (tracking) for this product."
+      },
+      "success": {
+        "created": "Product created successfully.",
+        "updated": "Product updated successfully.",
+        "deleted": "Product deleted successfully.",
+        "deactivated": "Product deactivated successfully."
+      },
+      "error": {
+        "save": "The product could not be saved. Please try again.",
+        "delete": "The product could not be deleted. Please try again.",
+        "missingCompany": "No company is selected. Please select a company first.",
+        "missingInternalId": "This product does not have an internal ID and cannot be edited.",
+        "search": "Products could not be searched. Please try again.",
+        "select": "The product information could not be loaded. Please try again."
+      },
+      "storeCurrencyHelp": "The store currency is set in Company page",
+      "addStepTemplate": "Create a new process",
+      "addStepTemplateTitle": "Create a process",
+      "loadingCategories": "Loading categories...",
+      "modeMaintenance": "Editing",
+      "searching": "Searching...",
+      "showTaxesHelp": "If on, the shown price includes taxes.",
+      "stepTemplateBookingSoon": "Process assignment is not available for booking products yet. Coming soon.",
+      "stepTemplateHelp": "Assign the process (steps) this product will follow.",
+      "stepTemplatePlaceholder": "Select a process",
+      "taxFreeHelp": "Check if this product has no taxes.",
+      "uploadingImage": "Uploading image...",
+      "webContactPhoneHelp": "Include the country code so WhatsApp opens for any country. Example: +506 8888 7777.",
+      "webMessengerLinkHelp": "Optional. Paste your Messenger link (e.g. https://m.me/yourpage).",
+      "productTypes": {
+        "SERVICE": "Service",
+        "ORDER_PRODUCT": "Order product",
+        "INVENTORY_PRODUCT": "Inventory product"
+      },
+      "addCategory": "Create a new category",
+      "addCategoryTitle": "Create a category",
+      "stepTemplateDisabled": "Current process (disabled)",
+      "isAppointmentHelp": "Customers book a date and time in the store instead of adding it to the cart.",
+      "contactFromCompany": "Contact buttons (WhatsApp and social network) are set once for all products in Company page."
+    }
+  },
+  "categories": {
+    "form": {
+      "eyebrow": "Category management",
+      "titleCreate": "Create category",
+      "titleEdit": "Maintain category",
+      "description": "Create and maintain simple categories that can be used later for products, services, orders, and tracking steps.",
+      "modeMaintenance": "Editing",
+      "pendingInternalCode": "Internal code pending",
+      "autoGenerated": "Auto generated by system",
+      "internalCodeHelp": "This code is for internal use and can be generated by the database or backend.",
+      "publishedCodeHelp": "This is the code visible or recognizable by users.",
+      "statusHelp": "Inactive categories will not be available for new records.",
+      "searchTitle": "Search categories",
+      "searchPlaceholder": "Search by code, name or status",
+      "noCategories": "No categories found",
+      "noCategoriesHelp": "Try another search or create a new category.",
+      "sections": {
+        "basic": "Basic information"
+      },
+      "fields": {
+        "internalCode": "Internal category code",
+        "publishedCode": "Published code",
+        "categoryName": "Category name",
+        "description": "Description"
+      },
+      "placeholders": {
+        "publishedCode": "Example: DELIVERY",
+        "categoryName": "Example: Delivery products",
+        "description": "Describe what this category is used for."
+      },
+      "status": {
+        "active": "Active",
+        "inactive": "Inactive"
+      },
+      "actions": {
+        "search": "Search category",
+        "new": "New",
+        "delete": "Delete",
+        "clear": "Clear",
+        "cancel": "Cancel",
+        "save": "Save category",
+        "update": "Update category",
+        "saving": "Saving...",
+        "delete2": "Deactivate"
+      },
+      "validation": {
+        "publishedCodeRequired": "Published code is required.",
+        "nameRequired": "Category name is required.",
+        "categoryRequired": "Select a category to edit."
+      },
+      "success": {
+        "created": "Category created successfully.",
+        "updated": "Category updated successfully.",
+        "deleted": "Category deleted successfully.",
+        "deactivated": "Category deactivated successfully."
+      },
+      "error": {
+        "save": "The category could not be saved. Please try again.",
+        "delete": "The category could not be deleted. Please try again.",
+        "missingCompany": "No company is selected. Please select a company first.",
+        "missingInternalId": "This category does not have an internal ID and cannot be edited.",
+        "search": "Categories could not be searched. Please try again.",
+        "select": "The category information could not be loaded. Please try again."
+      },
+      "searching": "Searching..."
+    }
+  },
+  "steps": {
+    "form": {
+      "eyebrow": "Tracking steps",
+      "titleCreate": "Create step",
+      "titleEdit": "Maintain step",
+      "description": "Create and maintain reusable steps that can be used later in different tracking flows.",
+      "modeMaintenance": "Editing",
+      "pendingCode": "Step code pending",
+      "stepCodeHelp": "This code identifies the step internally or in reports.",
+      "stepNameHelp": "This is the name shown to users when tracking an order, product or service.",
+      "statusHelp": "Inactive steps will not be available for new tracking flows.",
+      "searchTitle": "Search steps",
+      "searchPlaceholder": "Search by code, name or status",
+      "noSteps": "No steps found",
+      "noStepsHelp": "Try another search or create a new step.",
+      "sections": {
+        "basic": "Basic information"
+      },
+      "fields": {
+        "stepCode": "Step code",
+        "stepName": "Step name"
+      },
+      "placeholders": {
+        "stepCode": "Example: IN-PROGRESS",
+        "stepName": "Example: In progress"
+      },
+      "status": {
+        "active": "Active",
+        "inactive": "Inactive"
+      },
+      "actions": {
+        "search": "Search step",
+        "new": "New",
+        "delete": "Delete",
+        "clear": "Clear",
+        "cancel": "Cancel",
+        "save": "Save step",
+        "update": "Update step",
+        "saving": "Saving..."
+      },
+      "validation": {
+        "codeRequired": "Step code is required.",
+        "nameRequired": "Step name is required.",
+        "stepRequired": "Select a step to edit."
+      },
+      "success": {
+        "created": "Step created successfully.",
+        "updated": "Step updated successfully.",
+        "deleted": "Step deleted successfully."
+      },
+      "error": {
+        "save": "The step could not be saved. Please try again.",
+        "delete": "The step could not be deleted. Please try again."
+      }
+    }
+  },
+  "trackingMaintenance": {
+    "eyebrow": "Product configuration",
+    "title": "Order stages",
+    "description": "Create a tracking flow or search for an existing one to modify it.",
+    "fields": {
+      "search": {
+        "label": "Search tracking",
+        "placeholder": "Enter a name or internal code"
+      },
+      "name": {
+        "label": "Tracking name",
+        "placeholder": "Example: Standard delivery tracking"
+      },
+      "internalCode": {
+        "label": "Internal code",
+        "placeholder": "Example: TRK-001"
+      },
+      "category": {
+        "label": "Category",
+        "placeholder": "Select a category",
+        "help": "The selected category determines which tracking applies to the product."
+      }
+    },
+    "steps": {
+      "title": "Tracking steps",
+      "description": "Search for a step, add it to the flow, and define whether the previous step is required.",
+      "count_one": "{{count}} step",
+      "count_other": "{{count}} steps",
+      "searchPlaceholder": "Search steps by name or code",
+      "searchLabel": "Search available steps",
+      "empty": "No steps have been added yet.",
+      "noCode": "No internal code",
+      "requiresPrevious": "Requires previous step"
+    },
+    "actions": {
+      "createStep": "Create step",
+      "search": "Search",
+      "save": "Save tracking",
+      "update": "Update tracking",
+      "moveUp": "Move step up",
+      "moveDown": "Move step down",
+      "removeStep": "Remove step"
+    },
+    "messages": {
+      "enterSearch": "Enter a tracking name or internal code.",
+      "loaded": "Tracking loaded. You can now modify it.",
+      "notFound": "No tracking was found. Complete the form to create it.",
+      "required": "Name, internal code, and category are required.",
+      "updated": "Tracking updated successfully.",
+      "created": "Tracking created successfully."
+    },
+    "mock": {
+      "categories": {
+        "furniture": "Furniture",
+        "customProducts": "Custom products",
+        "deliveries": "Deliveries"
+      },
+      "steps": {
+        "orderReceived": "Order received",
+        "designApproval": "Design approval",
+        "inProduction": "In production",
+        "qualityReview": "Quality review",
+        "readyForDelivery": "Ready for delivery"
+      }
+    }
+  },
+  "orderMaintenance": {
+    "eyebrow": "Order management",
+    "title": "New order",
+    "description": "Register and confirm an order received through a social or direct channel.",
+    "status": {
+      "scheduled": "Scheduled order",
+      "placed": "New order (placed)"
+    },
+    "customer": {
+      "title": "Customer and origin",
+      "description": "Find the customer and indicate how the order was received.",
+      "searchPlaceholder": "Search by name, phone number, or email",
+      "searchLabel": "Search customer",
+      "searching": "Searching...",
+      "noResults": "No customers found.",
+      "createNew": "Create a new customer",
+      "searchError": "The customers could not be searched. Please try again."
+    },
+    "products": {
+      "title": "Products or services",
+      "description": "Add every product or service confirmed with the customer.",
+      "searchPlaceholder": "Search by product name or internal code",
+      "searchLabel": "Search products",
+      "empty": "No products or services have been added yet.",
+      "total": "Order total",
+      "columns": {
+        "product": "Product",
+        "code": "Code",
+        "subtotal": "Subtotal (₡)"
+      },
+      "noAppointments": "Appointments are not listed here: they are booked in Appointments."
+    },
+    "details": {
+      "title": "Commitment and references",
+      "description": "Record the agreed dates, requirements, and supporting files."
+    },
+    "fields": {
+      "channel": {
+        "label": "Order channel"
+      },
+      "quantity": "Quantity",
+      "unitPrice": "Unit price",
+      "startDate": "Start date",
+      "deliveryDate": "Estimated delivery date",
+      "notes": {
+        "label": "Requirements and notes",
+        "placeholder": "Describe the request, symptoms, measurements, personalization, delivery agreement, or any other important detail.",
+        "help": "Include everything that has been confirmed during the conversation with the customer."
+      },
+      "discountPercentage": "Disc %",
+      "taxAmount": "Taxes (₡)",
+      "taxMode": {
+        "amount": "Amount (₡)",
+        "help": "Choose how taxes are entered for every product in this order.",
+        "label": "Tax mode",
+        "percentage": "Percentage (%)"
+      },
+      "taxPercentage": "Tax %",
+      "customerEmail": {
+        "label": "Customer email for notifications",
+        "help": "The customer receives an email when the order is created and every time its status changes.",
+        "missing": "Without an email the customer won't receive updates about this order. You can still save it."
+      }
+    },
+    "channels": {
+      "phone": "Phone call",
+      "other": "Other"
+    },
+    "attachments": {
+      "label": "Add images or documents",
+      "add": "Add images or documents",
+      "addFiles": "Add files",
+      "help": "Images, PDF, Word, or Excel references"
+    },
+    "actions": {
+      "createCustomer": "Create customer",
+      "change": "Change",
+      "removeProduct": "Remove product",
+      "removeAttachment": "Remove attachment",
+      "confirm": "Confirm and create order",
+      "saving": "Saving...",
+      "uploading": "Uploading files..."
+    },
+    "messages": {
+      "customerRequired": "Select a customer before creating the order.",
+      "productRequired": "Add at least one product or service.",
+      "datesRequired": "The start date and estimated delivery date are required.",
+      "invalidDeliveryDate": "The estimated delivery date cannot be earlier than the start date.",
+      "saved": "The order has been created and scheduled successfully.",
+      "generalTrackingRequired": "Please choose a general tracking or turn the option off.",
+      "missingCompany": "No company is selected. Please select a company first.",
+      "saveError": "The order could not be saved. Please try again."
+    },
+    "mock": {
+      "products": {
+        "cuttingBoard": "Custom cutting board",
+        "grillBoard": "Grill board",
+        "customService": "Custom service"
+      }
+    },
+    "tracking": {
+      "description": "Choose how this order will be tracked.",
+      "generalHelp": "All products will use the selected tracking.",
+      "generalLabel": "General tracking",
+      "generalPlaceholder": "Select a general tracking",
+      "perProductNote": "You can assign a different tracking to each product.",
+      "title": "Tracking",
+      "useGeneralLabel": "Use general tracking mode"
+    }
+  },
+  "operationalTracking": {
+    "eyebrow": "Operations",
+    "title": "Order tracking",
+    "description": "Review, filter, and update product and service orders from one place.",
+    "orderCount_one": "{{count}} order",
+    "orderCount_other": "{{count}} orders",
+    "common": {
+      "all": "All",
+      "yes": "Yes",
+      "no": "No"
+    },
+    "filters": {
+      "title": "Filters",
+      "help": "Orders are always displayed from oldest to newest.",
+      "customer": "Customer",
+      "startDate": "Start date",
+      "endDate": "End date",
+      "category": "Category",
+      "type": "Type",
+      "orderName": "Order name or number",
+      "orderPlaceholder": "Search order",
+      "product": "Product or service",
+      "productPlaceholder": "Search product or service",
+      "booking": "Has booking",
+      "role": "Role",
+      "status": "Status"
+    },
+    "type": {
+      "product": "Product",
+      "service": "Service"
+    },
+    "status": {
+      "placed": "Placed",
+      "inReview": "In review",
+      "inProgress": "In progress",
+      "waitingCustomer": "Waiting for customer",
+      "onHold": "On hold",
+      "completed": "Completed",
+      "pending": "Pending (active)"
+    },
+    "actions": {
+      "search": "Search",
+      "clear": "Clear",
+      "details": "Details",
+      "changeStatus": "Change status",
+      "addComment": "Add comment",
+      "addFiles": "Add files",
+      "removeFile": "Remove file",
+      "close": "Close",
+      "save": "Save changes",
+      "cancel": "Cancel",
+      "history": "History",
+      "items": "Items",
+      "uploading": "Uploading..."
+    },
+    "columns": {
+      "number": "#",
+      "order": "Order name",
+      "customer": "Customer",
+      "product": "Product / Service",
+      "type": "Type",
+      "date": "Order date",
+      "status": "Current status",
+      "actions": "Actions"
+    },
+    "list": {
+      "title": "Operational orders",
+      "oldestFirst": "Oldest orders appear first.",
+      "booking": "Booking",
+      "delivery": "Delivery",
+      "empty": "No orders match the selected filters."
+    },
+    "detail": {
+      "responsible": "Responsible",
+      "delivery": "Delivery date",
+      "followUp": "Follow-up date",
+      "status": "Current status",
+      "comments": "Comments and activity",
+      "noComments": "No comments have been added.",
+      "commentPlaceholder": "Write an operational comment...",
+      "attachments": "Attachments",
+      "contactInfo": "Contact information",
+      "loading": "Loading...",
+      "timeline": "Tracking timeline",
+      "timelineEmpty": "No movements yet.",
+      "timelineLoading": "Loading timeline...",
+      "user": "User"
+    },
+    "messages": {
+      "results_one": "{{count}} result found.",
+      "results_other": "{{count}} results found.",
+      "statusChanged": "The order status has been updated.",
+      "detailsSaved": "The order details have been saved.",
+      "cancelled": "Order cancelled."
+    },
+    "contact": {
+      "address": "Address / location",
+      "email": "Email",
+      "empty": "Not provided",
+      "name": "Name",
+      "openMap": "Open location",
+      "phone": "Phone",
+      "preferred": "Preferred contact",
+      "social": "Social network",
+      "title": "Contact information"
+    },
+    "history": {
+      "empty": "No history yet.",
+      "loading": "Loading history...",
+      "note": "Stage changes recorded for this order.",
+      "title": "Tracking history"
+    },
+    "items": {
+      "empty": "This order has no items.",
+      "loading": "Loading items...",
+      "noProcess": "No process assigned",
+      "notStarted": "— Not started —",
+      "note": "The order status is computed automatically from the items.",
+      "qty": "Qty",
+      "stage": "Stage",
+      "title": "Order items"
+    }
+  },
+  "companyUsersAccess": {
+    "menuLabel": "Team and permissions",
+    "sectionLabel": "AlephTelos administration",
+    "title": "Team and permissions",
+    "subtitle": "Add users, control their access, and assign permissions for the currently selected company.",
+    "currentCompany": "Current company",
+    "ownerProtected": "The company owner cannot be deactivated.",
+    "summary": {
+      "total": "Total users",
+      "active": "Active users",
+      "inactive": "Inactive users"
+    },
+    "filters": {
+      "name": "Name",
+      "namePlaceholder": "Filter by user name",
+      "email": "Email",
+      "emailPlaceholder": "Filter by email address",
+      "status": "Status",
+      "allStatuses": "All statuses",
+      "search": "Search",
+      "searchPlaceholder": "Search by name or email"
+    },
+    "list": {
+      "title": "Assigned users",
+      "count": "Showing {{visible}} of {{total}} users",
+      "empty": "No users match the selected filters.",
+      "loading": "Loading company users..."
+    },
+    "table": {
+      "user": "User",
+      "role": "Role",
+      "joinedAt": "Joined",
+      "permissions": "Permissions",
+      "permissionsAssigned": "assigned",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "roles": {
+      "owner": "Owner",
+      "manager": "Manager",
+      "operator": "Operator",
+      "viewer": "Viewer"
+    },
+    "actions": {
+      "addUser": "Add user",
+      "addToCompany": "Add to company",
+      "activate": "Activate",
+      "deactivate": "Deactivate",
+      "permissions": "Permissions",
+      "savePermissions": "Save permissions",
+      "clear": "Clear filters",
+      "cancel": "Cancel",
+      "close": "Close",
+      "saving": "Saving..."
+    },
+    "addUser": {
+      "title": "Add user to company",
+      "search": "Find a platform user",
+      "searchPlaceholder": "Search by name or email",
+      "role": "Initial role",
+      "noCandidates": "No available platform users have matched this search.",
+      "alreadyAssigned": "This user is already assigned to the company.",
+      "loading": "Loading users...",
+      "saveError": "The user could not be added. Please try again.",
+      "saving": "Adding user...",
+      "usersUnavailable": "Users are unavailable right now.",
+      "noPlan": "This company doesn't have an active plan, so you can't add users. Choose a plan or request a free trial from Home → Your plan."
+    },
+    "permissions": {
+      "title": "Edit permissions",
+      "subtitle": "Control this user's AlephTelos access for {{company}}.",
+      "selectedCount": "{{selected}} of {{total}} selected",
+      "selectGroup": "Select all",
+      "clearGroup": "Clear group",
+      "groups": {
+        "orders": "Orders",
+        "tracking": "Operational tracking",
+        "transitions": "Workflow status transitions",
+        "maintenance": "Maintenance forms",
+        "administration": "Administration"
+      },
+      "groupDescriptions": {
+        "orders": "Create, edit, assign, and control company orders.",
+        "tracking": "Work with the operational tracking record and its supporting information.",
+        "transitions": "Choose exactly which workflow movements this user can perform.",
+        "maintenance": "Maintain the master data used by AlephTelos.",
+        "administration": "Manage company access and review administrative activity."
+      },
+      "items": {
+        "ordersView": "View orders",
+        "ordersCreate": "Create orders",
+        "ordersEdit": "Edit orders",
+        "ordersAssign": "Assign responsible users",
+        "ordersCancel": "Cancel orders",
+        "trackingView": "View operational tracking",
+        "trackingComments": "Add tracking comments",
+        "trackingAttachments": "Manage attachments",
+        "trackingAssignResponsible": "Change the responsible user",
+        "placedToReview": "Placed → In review",
+        "reviewToProgress": "In review → In progress",
+        "progressToCustomer": "In progress → Waiting for customer",
+        "customerToProgress": "Waiting for customer → In progress",
+        "progressToHold": "In progress → On hold",
+        "holdToProgress": "On hold → In progress",
+        "progressToCompleted": "In progress → Completed",
+        "reopenOrder": "Reopen a completed order",
+        "customersMaintenance": "Customer maintenance",
+        "productsMaintenance": "Product maintenance",
+        "categoriesMaintenance": "Category maintenance",
+        "stepsMaintenance": "Step maintenance",
+        "trackingMaintenance": "Tracking template maintenance",
+        "companyUsers": "Manage company users",
+        "managePermissions": "Assign user permissions",
+        "auditLog": "View the audit log"
+      },
+      "menuDescriptions": {
+        "home": "Access to the start page.",
+        "customers": "Add, search and edit customers.",
+        "products": "Products and services.",
+        "category": "Group products in categories.",
+        "trackingm": "The stages an order goes through.",
+        "order": "Create new orders.",
+        "aprovala": "Approve or reject orders from the public store.",
+        "aprovalb": "Approve or reject booking requests.",
+        "trackingord": "Follow and update the progress of orders.",
+        "usersbcompany": "Users of the company and their access.",
+        "booking": "Hours available for booking.",
+        "selfbooking": "Create appointments for customers.",
+        "appointments": "Manage appointments.",
+        "pageConfiguration": "Logo, header, notification email and email server of the store.",
+        "reports": "Sales and booking reports."
+      }
+    },
+    "messages": {
+      "userAdded": "{{name}} has been added to the company.",
+      "userActivated": "{{name}} has been activated.",
+      "userDeactivated": "{{name}} has been deactivated.",
+      "permissionsSaved": "Permissions for {{name}} have been saved.",
+      "permissionsLoadError": "Permissions could not be loaded.",
+      "permissionsLoading": "Loading permissions...",
+      "permissionsSaveError": "Permissions could not be saved.",
+      "statusUpdateError": "The user status could not be updated."
+    }
+  },
+  "companyShowcase": {
+    "publicStore": "Public showcase",
+    "companyLink": "/showcase/{{slug}}",
+    "search": {
+      "label": "Search products",
+      "placeholder": "Search products by name",
+      "clear": "Clear product search"
+    },
+    "products": {
+      "title": "Products and services",
+      "resultCount": "{{count}} available",
+      "searchingFor": "Results for “{{search}}”",
+      "emptyTitle": "No products have been found",
+      "emptyDescription": "Try another product name or clear the search."
+    },
+    "product": {
+      "bookingAvailable": "Booking available",
+      "customQuote": "Custom quote"
+    },
+    "actions": {
+      "orderHere": "Order here",
+      "contactUs": "Contact us",
+      "bookNow": "Book now",
+      "close": "Close",
+      "cancel": "Cancel"
+    },
+    "contact": {
+      "externalChannel": "Continue in an external channel",
+      "whatsappMessage": "Hello, I am interested in {{product}} from {{company}}. Product code: {{code}}."
+    },
+    "pagination": {
+      "label": "Product pages",
+      "summary": "Showing {{start}}–{{end}} of {{total}}",
+      "previous": "Previous page",
+      "next": "Next page"
+    },
+    "cart": {
+      "open": "Open shopping cart",
+      "title": "Your cart",
+      "itemCount": "{{count}} items",
+      "emptyTitle": "Your cart is empty",
+      "emptyDescription": "Add a product from the showcase to begin an order.",
+      "remove": "Remove {{product}} from the cart",
+      "subtotal": "Subtotal",
+      "checkoutDescription": "Shipping, taxes, and final availability will be confirmed with the company."
+    },
+    "checkout": {
+      "signIn": "Sign in or create account",
+      "continueAsGuest": "Continue as guest",
+      "guestTitle": "Guest order",
+      "guestDescription": "Provide your contact information so the company can confirm the order.",
+      "accountTitle": "Sign in to place the order",
+      "accountDescription": "Your order will be connected to your account and available for tracking.",
+      "mockAuthentication": "Mock authentication: replace this form with the platform login or registration flow.",
+      "submitGuestOrder": "Submit guest order",
+      "signInAndOrder": "Sign in and submit order",
+      "createAccount": "Create a new account",
+      "member": "Member",
+      "guestType": "guest",
+      "memberType": "member"
+    },
+    "booking": {
+      "title": "Request a booking",
+      "description": "No account is required. Enter your contact information and preferred schedule; the company will confirm availability.",
+      "preferredDate": "Preferred date",
+      "preferredTime": "Preferred time",
+      "notesPlaceholder": "Describe what you need for this service",
+      "submit": "Submit booking request",
+      "availableTimes": "Available times",
+      "loadingAvailability": "Loading availability…",
+      "nextMonth": "Next month",
+      "noSlots": "No availability on this day.",
+      "pickDate": "Select a date to see available times.",
+      "prevMonth": "Previous month"
+    },
+    "form": {
+      "name": "Full name",
+      "phone": "Phone number",
+      "email": "Email address",
+      "password": "Password",
+      "address": "Delivery address",
+      "preferredContact": "Preferred contact method",
+      "emailOption": "Email",
+      "phoneOption": "Phone call",
+      "notes": "Notes",
+      "notesPlaceholder": "Add measurements, personalization details, or delivery instructions"
+    },
+    "messages": {
+      "addedToCart": "{{product}} has been added to your cart.",
+      "orderCreated": "Order {{reference}} has been created for {{name}} as a {{customerType}} order.",
+      "bookingCreated": "Booking request {{reference}} has been created for {{service}}."
+    },
+    "notFound": {
+      "title": "Company showcase not found",
+      "description": "No public company has been found for “{{slug}}”. Check the company link and try again."
+    }
+  },
+  "bookingAvailabilityMaintenance": {
+    "eyebrow": "AlephTelos · Booking",
+    "title": "Booking schedules",
+    "description": "Create the spaces that customers will be able to request later.",
+    "mockBadge": "Mock data",
+    "actions": {
+      "new": "New configuration",
+      "search": "Search",
+      "save": "Save configuration",
+      "update": "Update configuration",
+      "addRange": "Add time range",
+      "removeRange": "Remove time range",
+      "previousMonth": "Previous month",
+      "nextMonth": "Next month",
+      "openDay": "Open this day",
+      "closeDay": "Close this day"
+    },
+    "search": {
+      "label": "Find a booking configuration",
+      "placeholder": "Search by configuration or service name",
+      "help": "Type part of the configuration name or the service name.",
+      "serviceLabel": "Service: {{service}}"
+    },
+    "general": {
+      "title": "General information",
+      "description": "Identify the service and define the duration of each available space."
+    },
+    "fields": {
+      "name": {
+        "label": "Configuration name",
+        "placeholder": "Example: Standard consulting schedule"
+      },
+      "service": {
+        "label": "Service",
+        "placeholder": "Select a service",
+        "searchPlaceholder": "Type to search a service",
+        "help": "Each service has one booking schedule. Choose the service: if it already has a schedule, it opens so you can edit it."
+      },
+      "duration": {
+        "label": "Appointment duration",
+        "option": "{{count}} minutes"
+      },
+      "active": {
+        "label": "Active configuration",
+        "help": "Only active configurations will publish availability."
+      },
+      "from": "From",
+      "to": "To",
+      "generalAppointments": {
+        "label": "Appointments per slot (general)",
+        "help": "Default capacity. A range can override it."
+      },
+      "lifespan": {
+        "label": "Booking window",
+        "help": "How far ahead customers can book.",
+        "options": {
+          "ONE_WEEK": "1 week",
+          "ONE_MONTH": "1 month",
+          "THREE_MONTHS": "3 months",
+          "SIX_MONTHS": "6 months",
+          "ONE_YEAR": "1 year"
+        }
+      },
+      "disableDates": {
+        "label": "Disable dates (holidays)",
+        "to": "to",
+        "help": "Optional single range to turn booking off."
+      },
+      "rangeAppointments": "Appointments",
+      "usesGeneral": "Uses general"
+    },
+    "mode": {
+      "title": "Availability mode",
+      "description": "Choose how this service will open its booking spaces.",
+      "weekly": {
+        "title": "Recurring weekly schedule",
+        "description": "Repeat the same availability on selected weekdays."
+      },
+      "manual": "Specific dates",
+      "recurring": "Recurring schedule"
+    },
+    "weekly": {
+      "title": "Weekly availability",
+      "description": "Enable each working day and define one or more time ranges.",
+      "enabledCount": "{{count}} days enabled",
+      "allDay": "Available all day",
+      "closed": "No availability has been configured for this day."
+    },
+    "manual": {
+      "title": "Calendar availability",
+      "description": "Select a date and open the ranges that can be requested.",
+      "openCount": "{{count}} open dates",
+      "legend": "Day with availability",
+      "selectedDate": "Selected date",
+      "dayClosed": "This date has not been opened for bookings.",
+      "allDay": "Available all day"
+    },
+    "preview": {
+      "title": "Generated-space preview",
+      "description": "The ranges have been divided using the selected appointment duration.",
+      "count": "{{count}} spaces",
+      "day": "Preview day",
+      "slot": "{{start}} – {{end}}",
+      "empty": "No spaces can be generated with the current configuration."
+    },
+    "days": {
+      "monday": {
+        "long": "Monday",
+        "short": "Mon"
+      },
+      "tuesday": {
+        "long": "Tuesday",
+        "short": "Tue"
+      },
+      "wednesday": {
+        "long": "Wednesday",
+        "short": "Wed"
+      },
+      "thursday": {
+        "long": "Thursday",
+        "short": "Thu"
+      },
+      "friday": {
+        "long": "Friday",
+        "short": "Fri"
+      },
+      "saturday": {
+        "long": "Saturday",
+        "short": "Sat"
+      },
+      "sunday": {
+        "long": "Sunday",
+        "short": "Sun"
+      }
+    },
+    "messages": {
+      "newReady": "A new booking configuration is ready.",
+      "enterSearch": "Enter a configuration or service name.",
+      "notFound": "No booking configuration has matched the search.",
+      "loaded": "The booking configuration has been loaded.",
+      "required": "Choose a service.",
+      "availabilityRequired": "Open at least one day or calendar date.",
+      "invalidRanges": "Review the ranges. They cannot overlap, and each range must fit at least one complete appointment.",
+      "created": "The booking configuration has been created with mock data.",
+      "updated": "The booking configuration has been updated with mock data.",
+      "missingCompany": "No company is selected. Please select a company first.",
+      "searchDone": "Bookings found.",
+      "searchError": "Bookings could not be searched. Please try again.",
+      "selectError": "The booking could not be loaded. Please try again.",
+      "saveError": "The booking could not be saved. Please try again.",
+      "editingExisting": "Editing the existing schedule of {{service}}.",
+      "newForService": "New schedule for {{service}}.",
+      "serviceHasSchedule": "This service already has a booking schedule.",
+      "checkServiceError": "The service schedule could not be checked. Please try again."
+    },
+    "mock": {
+      "services": {
+        "consulting": "Professional consulting",
+        "installation": "On-site installation",
+        "technicalReview": "Technical review"
+      }
+    },
+    "autocomplete": {
+      "searching": "Searching...",
+      "noResults": "No services found",
+      "hasSchedule": "Has schedule"
+    },
+    "existing": {
+      "unsavedChanges": "{{service}} already has a booking schedule. Open it? Your unsaved changes on this screen will be lost.",
+      "saveConflict": "{{service}} already has a booking schedule. Open it to edit it.",
+      "open": "Open it",
+      "keep": "Keep editing"
+    }
+  },
+  "bookingRequestManagement": {
+    "eyebrow": "AlephTelos · Booking",
+    "title": "Booking requests",
+    "description": "Review appointments and accept, reject, or finish each request.",
+    "mockBadge": "Mock data",
+    "sortedByTime": "Ordered by appointment time",
+    "filters": {
+      "search": "Search by customer, phone, email, or service",
+      "searchLabel": "Search booking requests",
+      "period": "Period",
+      "status": "Status",
+      "from": "From",
+      "to": "To"
+    },
+    "periods": {
+      "today": "Today",
+      "week": "This week",
+      "month": "This month",
+      "all": "All dates",
+      "custom": "Custom range"
+    },
+    "statusFilters": {
+      "all": "All",
+      "active": "Active",
+      "requested": "Pending requests",
+      "accepted": "Accepted",
+      "rejected": "Rejected",
+      "finished": "Finished"
+    },
+    "statuses": {
+      "requested": "Pending",
+      "accepted": "Accepted",
+      "rejected": "Rejected",
+      "finished": "Finished"
+    },
+    "contacts": {
+      "whatsapp": "WhatsApp",
+      "phone": "Phone",
+      "email": "Email"
+    },
+    "list": {
+      "title": "Appointments",
+      "doubleClickHelp": "Double-click a row or use Details to review the request.",
+      "count": "{{count}} appointments"
+    },
+    "columns": {
+      "appointment": "Appointment",
+      "customer": "Customer",
+      "contact": "Contact",
+      "service": "Service",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "actions": {
+      "viewDetails": "Details",
+      "viewDetailsFor": "View details for {{name}}",
+      "resetFilters": "Reset filters",
+      "close": "Close",
+      "accept": "Accept request",
+      "reject": "Reject",
+      "finish": "Mark as finished"
+    },
+    "details": {
+      "eyebrow": "Booking request details",
+      "appointment": "Requested appointment",
+      "customer": "Customer",
+      "preferredContact": "Preferred contact",
+      "phone": "Phone",
+      "email": "Email",
+      "service": "Requested service",
+      "requestedAt": "Request received",
+      "notes": "Notes",
+      "noNotes": "No additional notes have been provided.",
+      "noEmail": "No email — the customer won't be notified"
+    },
+    "empty": {
+      "title": "No appointments found",
+      "description": "No booking requests match the selected date and status filters."
+    },
+    "footer": {
+      "defaultFilters": "Default view: Today + Active (pending and accepted)."
+    },
+    "messages": {
+      "filtersReset": "The default Today + Active filters have been restored.",
+      "statusChanged": {
+        "accepted": "The booking request has been accepted.",
+        "rejected": "The booking request has been rejected.",
+        "finished": "The appointment has been marked as finished."
+      }
+    },
+    "mock": {
+      "services": {
+        "consulting": "Professional consulting",
+        "installation": "On-site installation",
+        "technicalReview": "Technical review"
+      }
+    }
+  },
+  "webOrderApproval": {
+    "eyebrow": "Online operations",
+    "title": "Web orders",
+    "subtitle": "Review non-booking requests received from the public showcase and convert approved requests into operational orders with tracking.",
+    "company": {
+      "label": "Current company"
+    },
+    "summary": {
+      "label": "Web order summary",
+      "pending": "Pending review",
+      "registered": "Registered customers",
+      "guests": "Guest customers",
+      "approvedToday": "Approved today"
+    },
+    "booking": {
+      "title": "Booking requests are managed separately",
+      "description_one": "{{count}} booking request has been excluded from this queue and belongs to the booking approval workflow.",
+      "description_other": "{{count}} booking requests have been excluded from this queue and belong to the booking approval workflow.",
+      "description": "{{count}} booking requests are managed in the booking workflow."
+    },
+    "filters": {
+      "title": "Queue filters",
+      "description": "The default work queue shows today's pending requests.",
+      "search": "Search",
+      "searchPlaceholder": "Request, customer, email, phone, code or item",
+      "period": "Period",
+      "region": "Region",
+      "status": "Status",
+      "customerType": "Customer identification",
+      "orderType": "Order type"
+    },
+    "period": {
+      "today": "Today",
+      "yesterday": "Yesterday",
+      "last7": "Last 7 days",
+      "last30": "Last 30 days",
+      "all": "All dates"
+    },
+    "options": {
+      "allRegions": "All regions",
+      "allStatuses": "All statuses",
+      "allCustomers": "All customers",
+      "allOrderTypes": "Products and services"
+    },
+    "region": {
+      "sanJose": "San José",
+      "alajuela": "Alajuela",
+      "heredia": "Heredia",
+      "cartago": "Cartago",
+      "guanacaste": "Guanacaste"
+    },
+    "status": {
+      "pending": "Pending",
+      "approved": "Approved",
+      "rejected": "Rejected"
+    },
+    "customerType": {
+      "registered": "Registered customer",
+      "guest": "Guest customer"
+    },
+    "orderType": {
+      "product": "Product",
+      "service": "Service"
+    },
+    "list": {
+      "title": "Incoming web orders",
+      "resultCount_one": "{{count}} matching request",
+      "resultCount_other": "{{count}} matching requests",
+      "doubleClickTip": "Double-click a row to see its details",
+      "resultCount": "{{count}} requests"
+    },
+    "columns": {
+      "request": "Request",
+      "customer": "Customer",
+      "region": "Region",
+      "item": "Product or service",
+      "requestedAt": "Received",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "labels": {
+      "noAccount": "No customer account",
+      "quantity": "Qty. {{count}}",
+      "toConfirm": "To be confirmed",
+      "noNotes": "No additional notes were provided."
+    },
+    "actions": {
+      "reset": "Reset filters",
+      "details": "View details",
+      "approve": "Approve",
+      "reject": "Reject",
+      "close": "Close",
+      "cancel": "Cancel",
+      "confirmApproval": "Approve and create order",
+      "confirmRejection": "Confirm rejection"
+    },
+    "empty": {
+      "title": "No matching web orders",
+      "description": "Change or reset the filters to review other requests."
+    },
+    "dialog": {
+      "approveTitle": "Approve web request",
+      "rejectTitle": "Reject web request",
+      "detailsTitle": "Web request details",
+      "registeredExplanation": "This request is linked to customer {{id}} and can be associated directly with that customer record.",
+      "guestExplanation": "This request was placed without an account. The contact can be invited to register later.",
+      "approvalEffectTitle": "Operational flow to be created",
+      "approvalEffectDescription": "Approval will create the operational order, copy the “{{workflow}}” tracking workflow and place its first status at the beginning.",
+      "flowCreated": "Operational order and tracking created",
+      "rejectionReason": "Rejection reason",
+      "rejectionPlaceholder": "Explain why this request cannot be accepted",
+      "rejectionHelp": "This reason will be stored with the web request and can later be used for customer communication."
+    },
+    "details": {
+      "customer": "Customer",
+      "region": "Region",
+      "email": "Email",
+      "phone": "Phone",
+      "item": "Product or service",
+      "amount": "Estimated amount",
+      "requestedAt": "Request date",
+      "workflow": "Tracking template",
+      "notes": "Request notes",
+      "orderReference": "Order",
+      "trackingReference": "Tracking",
+      "noEmail": "No email — the customer won't be notified"
+    },
+    "messages": {
+      "approved": "{{request}} was approved. Order {{order}} and tracking {{tracking}} were created.",
+      "rejected": "{{request}} was rejected and the reason was recorded.",
+      "approveError": "The request could not be approved. Please try again.",
+      "rejectError": "The request could not be rejected. Please try again."
+    }
+  },
+  "customers": {
+    "create": {
+      "eyebrow": "Customer management",
+      "title": "Create customer",
+      "description": "Register a new customer with contact information, social profile, category and status.",
+      "fields": {
+        "customerId": "Customer ID",
+        "name": "Name",
+        "alias": "Alias",
+        "cellphone": "Cellphone",
+        "email": "Email",
+        "preferredContactMethod": "Preferred contact method",
+        "socialNetwork": "Social network",
+        "socialNetworkLink": "Social network link",
+        "birthday": "Birthday",
+        "birthYear": "Year of birth",
+        "website": "Website",
+        "address": "Address",
+        "status": "Status",
+        "category": "Category",
+        "comments": "Comments"
+      },
+      "placeholders": {
+        "customerId": "Example: CUST-0001",
+        "name": "Customer full name",
+        "alias": "Nickname or commercial name",
+        "cellphone": "+506 8888 8888",
+        "email": "customer@example.com",
+        "socialNetworkLink": "Paste the profile or contact link",
+        "birthYear": "Example: 1990",
+        "website": "https://example.com",
+        "address": "Customer address",
+        "comments": "Write relevant notes about this customer."
+      },
+      "sections": {
+        "basic": "Basic information",
+        "contact": "Contact information",
+        "extra": "Additional details",
+        "comments": "Comments"
+      },
+      "actions": {
+        "new": "New customer",
+        "clear": "Clear",
+        "cancel": "Cancel",
+        "saving": "Saving...",
+        "save": "Save customer"
+      },
+      "validation": {
+        "customerIdRequired": "Customer ID is required.",
+        "nameRequired": "Customer name is required.",
+        "cellphoneInvalid": "Enter a valid cellphone number.",
+        "emailInvalid": "Enter a valid email address.",
+        "websiteInvalid": "Enter a valid website URL. Example: https://example.com",
+        "socialNetworkLinkInvalid": "Enter a valid social network link. Example: https://...",
+        "birthYearInvalid": "Enter a valid year of birth."
+      },
+      "success": "Customer created successfully.",
+      "error": "The customer could not be created. Please try again."
+    },
+    "update": {
+      "title": "Edit customer",
+      "actions": {
+        "save": "Update customer"
+      },
+      "success": "Customer updated successfully.",
+      "error": "The customer could not be updated. Please try again."
+    },
+    "search": {
+      "title": "Search existing customer",
+      "fields": {
+        "term": "ID, name, alias, phone or email"
+      },
+      "placeholder": "Enter customer information",
+      "actions": {
+        "open": "Search customer",
+        "search": "Search",
+        "searching": "Searching...",
+        "edit": "Edit"
+      },
+      "columns": {
+        "id": "ID",
+        "name": "Name",
+        "phone": "Phone",
+        "email": "Email",
+        "status": "Status",
+        "action": "Action"
+      },
+      "empty": "No customers have been found.",
+      "error": "Customers could not be searched. Please try again.",
+      "missingInternalId": "This customer does not have an internal ID and cannot be edited.",
+      "missingCompany": "No company is selected. Please select a company first.",
+      "selectError": "The customer information could not be loaded. Please try again."
+    },
+    "save": {
+      "empty": "Fill in at least one field before saving.",
+      "missingCompany": "No company is selected. Please select a company first."
+    }
+  },
+  "app": {
+    "loading": "Loading..."
+  },
+  "unverified": {
+    "description": "Verify your email address to continue.",
+    "email_error": "The verification email could not be sent.",
+    "email_sent": "Verification email sent.",
+    "no_firebase_session": "No active session was found. Sign in again.",
+    "resend": "Resend verification email",
+    "sending": "Sending...",
+    "signOut": "Sign out",
+    "step1": "Open the verification email.",
+    "step2": "Select the verification link.",
+    "step3": "Return here and sign in again.",
+    "title": "Verify your email"
+  },
+  "companySelector": {
+    "eyebrow": "Company selection",
+    "title": "Select a company",
+    "description": "Choose one of the companies where you have a manager role.",
+    "companyCount_one": "{{count}} company",
+    "companyCount_other": "{{count}} companies",
+    "searchPlaceholder": "Search by company name or identification",
+    "searchLabel": "Search companies",
+    "identification": "ID",
+    "memberCount_one": "{{count}} member",
+    "memberCount_other": "{{count}} members",
+    "noPlatforms": "No active platforms",
+    "selected": "Selected",
+    "select": "Select company",
+    "emptyTitle": "No companies found",
+    "emptyDescription": "Try searching with another company name or identification.",
+    "status": {
+      "active": "Active",
+      "pending": "Pending",
+      "inactive": "Inactive"
+    }
+  },
+  "supportRequest": {
+    "title": "Contact support",
+    "description": "Tell us how to reach you and what is happening. Our team will contact you at the time that suits you best.",
+    "sections": {
+      "contact": "How should we contact you?",
+      "availability": "Your availability",
+      "issue": "Describe your issue"
+    },
+    "methods": {
+      "email": "Email",
+      "phone": "Phone call",
+      "whatsapp": "WhatsApp",
+      "videoCall": "Video call"
+    },
+    "contactLabels": {
+      "email": "Your email",
+      "phone": "Your phone number",
+      "whatsapp": "Your WhatsApp number",
+      "videoCall": "Email to send the meeting link"
+    },
+    "contactPlaceholders": {
+      "email": "name@company.com",
+      "tel": "+1 555 123 4567"
+    },
+    "fields": {
+      "preferredDate": "Preferred date",
+      "timeSlots": "Best time",
+      "category": "Topic",
+      "priority": "Priority",
+      "subject": "Subject",
+      "description": "What happened?",
+      "images": "Screenshots (up to {{max}})"
+    },
+    "timeSlots": {
+      "morning": "Morning",
+      "afternoon": "Afternoon",
+      "evening": "Evening"
+    },
+    "categories": {
+      "technical": "Technical problem",
+      "account": "Account or access",
+      "billing": "Plan or billing",
+      "howTo": "How to use a feature",
+      "other": "Other"
+    },
+    "priorities": {
+      "low": "Low",
+      "normal": "Normal",
+      "high": "High – it blocks my work"
+    },
+    "placeholders": {
+      "subject": "Example: I can't save an order",
+      "description": "Describe the steps you followed, what you expected and what you saw instead."
+    },
+    "help": {
+      "images": "JPG, PNG, WEBP or GIF, max 5 MB each. A screenshot helps us solve it faster."
+    },
+    "errors": {
+      "imageType": "Only JPG, PNG, WEBP or GIF images are allowed.",
+      "imageSize": "Each image must be 5 MB or smaller.",
+      "imageCount": "You can attach up to {{max}} images.",
+      "tooMany": "You sent many requests today. Please try again tomorrow or contact us by WhatsApp.",
+      "invalid": "Please check the form data and try again.",
+      "send": "We could not send your request. Please try again in a few minutes.",
+      "captchaPending": "Please complete the security check above the buttons.",
+      "captchaFailed": "The security check failed. Please complete it again and resend."
+    },
+    "actions": {
+      "send": "Send request",
+      "sending": "Sending...",
+      "cancel": "Cancel",
+      "close": "Close",
+      "newRequest": "New request",
+      "addImage": "Add image",
+      "removeImage": "Remove image"
+    },
+    "sent": {
+      "title": "Request received",
+      "description": "Our support team will contact you by {{method}} at {{contact}}. Keep this ticket number:",
+      "imagesSkipped": "Some screenshots could not be uploaded. The request was sent without them."
+    }
+  },
+  "aiAssistant": {
+    "title": "Aleph",
+    "demoBadge": "Demo · sample answers",
+    "betaBadge": "Beta · AI answers",
+    "error": "Sorry, I could not answer right now. Please try again in a moment.",
+    "welcome": "Hi! I'm Aleph, the AlephK assistant (beta). Ask me how to use the system or where to find something. I cannot see your appointments or orders yet.",
+    "placeholder": "Ask something...",
+    "listening": "Listening... speak now",
+    "send": "Send",
+    "clear": "Clear conversation",
+    "close": "Close",
+    "thinking": "The assistant is writing",
+    "suggestions": {
+      "appointmentsEvening": "Which appointments do I have this evening?",
+      "pendingOrders": "List the orders I still need to complete",
+      "createAppointment": "How do I create an appointment?",
+      "changeLogo": "Where do I change my logo?",
+      "createOrder": "How do I create an order?",
+      "reports": "Where can I see my sales reports?"
+    },
+    "voice": {
+      "dictate": "Dictate by voice",
+      "stopDictation": "Stop dictation",
+      "play": "Play answer",
+      "stop": "Stop",
+      "autoSpeakOn": "Read answers aloud",
+      "autoSpeakOff": "Stop reading answers aloud",
+      "unsupported": "Voice dictation is not supported in this browser. Try Chrome or Edge.",
+      "error": "The microphone could not be used. Check the browser permission.",
+      "selectLanguage": "Select language"
+    },
+    "mock": {
+      "appointmentsToday": "You have {{count}} appointments today:",
+      "appointmentsEvening": "This evening you have {{count}} appointments:",
+      "pendingOrders": "You have {{count}} orders to complete, ordered by due date:",
+      "orderStatus": {
+        "placed": "Placed",
+        "inProgress": "In progress",
+        "partialDone": "Partially done"
+      },
+      "guides": {
+        "createAppointment": "To create an appointment, open Appointments in the side menu and choose the customer, service and time. Customers can also book themselves through Self booking, using the hours set in Booking availability.",
+        "createOrder": "To create an order, open Start an order in the side menu, choose the customer and add the products. You can follow its progress in Operational order tracking, and orders from your public page arrive in Web order approval.",
+        "customers": "You can add, search and edit customers in Customers, in the side menu.",
+        "products": "Products and services are managed in Products. Group them first in Category so they are easier to find.",
+        "category": "Categories are managed in Category, in the side menu.",
+        "reports": "Open Reports in the side menu to see orders by status, top customers, best sellers, revenue over time and more.",
+        "pageConfiguration": "Your logo, header image and the name shown to customers are set in Page configuration. They appear on your public showcase.",
+        "usersAndPermissions": "Users and their permissions are managed in Company users and permissions."
+      },
+      "fallback": "I am a demo and only know a few sample questions for now. Try asking about your appointments today, your pending orders, or how to create an appointment or an order."
+    },
+    "limits": {
+      "notInPlan": "The AI assistant is included in the PRO and ENTERPRISE plans. Upgrade your plan to use it.",
+      "monthly": "Your company reached its monthly AI usage limit. It resets on the first day of next month.",
+      "daily": "You reached the daily question limit. Please try again tomorrow.",
+      "monthlyInteractions": "Your company used this month's AI questions included in its plan. They reset on the 1st of next month; a bigger plan includes more questions."
+    }
+  },
+  "appointment": {
+    "fields": {
+      "emailMissing": "Without an email the customer won't receive updates about this appointment.",
+      "comments": "Comments",
+      "commentsPlaceholder": "Add any detail about this appointment.",
+      "customerName": "Customer name",
+      "customerNamePlaceholder": "Example: Andrea Vargas",
+      "customerSearchPlaceholder": "Search by name, phone or email",
+      "date": "Date",
+      "email": "Email",
+      "endHour": "End hour",
+      "phone": "Phone",
+      "registeredCustomer": "Registered customer",
+      "service": "Service",
+      "servicePlaceholder": "Search a service",
+      "social": "Social network link",
+      "startHour": "Start hour",
+      "useRegistered": "Select a registered customer"
+    },
+    "title": "Book for a customer",
+    "titleEdit": "Edit appointment",
+    "actions": {
+      "change": "Change",
+      "close": "Close",
+      "delete": "Delete",
+      "new": "New",
+      "reject": "Reject / Inactivate",
+      "save": "Save appointment",
+      "search": "Search",
+      "update": "Update appointment"
+    },
+    "contact": {
+      "description": "How to reach the customer.",
+      "title": "Contact"
+    },
+    "customer": {
+      "description": "Choose the service and who it is for.",
+      "title": "Service and customer"
+    },
+    "description": "As the service provider, register or modify an appointment for a customer.",
+    "details": {
+      "description": "Any note about this appointment.",
+      "title": "Comments"
+    },
+    "errors": {
+      "customerRequired": "Please choose a registered customer.",
+      "dateRequired": "Please choose a date.",
+      "delete": "Could not delete.",
+      "hourOrder": "The end hour must be after the start hour.",
+      "hoursRequired": "Please set the start and end hour.",
+      "missingCompany": "No company is selected.",
+      "nameRequired": "Please enter the customer name.",
+      "reject": "Could not reject.",
+      "save": "The appointment could not be saved.",
+      "search": "Could not search.",
+      "searchTerm": "Type something to search.",
+      "serviceRequired": "Please choose a service."
+    },
+    "eyebrow": "Appointments",
+    "messages": {
+      "conflict": "Heads up: this schedule is already taken by {count} appointment(s).",
+      "deleted": "The appointment was deleted.",
+      "loaded": "Appointment loaded. You can now modify it.",
+      "notFound": "No appointments found.",
+      "rejected": "The appointment was rejected / inactivated.",
+      "saved": "The appointment was saved successfully."
+    },
+    "schedule": {
+      "description": "Set the day and the start/end hour.",
+      "title": "Date and time"
+    },
+    "search": {
+      "placeholder": "Search an appointment by customer, id or date"
+    },
+    "summary": {
+      "id": "ID",
+      "reference": "Reference"
+    }
+  },
+  "appointmentManagement": {
+    "actionError": "The action could not be completed.",
+    "actions": {
+      "cancel": "Cancel",
+      "close": "Close",
+      "details": "Details",
+      "finish": "Finish",
+      "resetFilters": "Reset filters"
+    },
+    "calendar": {
+      "dayEyebrow": "APPOINTMENTS",
+      "next": "Next month",
+      "noDay": "No appointments on this day.",
+      "prev": "Previous month"
+    },
+    "columns": {
+      "actions": "Actions",
+      "customer": "Customer",
+      "service": "Service",
+      "status": "Status",
+      "time": "Appointment"
+    },
+    "count": "appointments",
+    "description": "Review upcoming appointments and finish or cancel each one.",
+    "detail": {
+      "customer": "Customer",
+      "email": "Email",
+      "eyebrow": "APPOINTMENT DETAILS",
+      "noNotes": "No notes.",
+      "notes": "Notes",
+      "phone": "Phone",
+      "service": "Service",
+      "when": "Appointment"
+    },
+    "empty": "No appointments match the current filters.",
+    "eyebrow": "ALEPHTELOS · APPOINTMENTS",
+    "filters": {
+      "all": "All",
+      "onlyFuture": "Upcoming only",
+      "status": "Status"
+    },
+    "listTitle": "Appointments",
+    "loadError": "Could not load appointments.",
+    "loading": "Loading…",
+    "messages": {
+      "cancelled": "Appointment cancelled.",
+      "finished": "Appointment marked as finished."
+    },
+    "noCompany": "No company is selected.",
+    "searchPlaceholder": "Search by customer, service, phone…",
+    "title": "Appointments",
+    "view": {
+      "calendar": "Calendar",
+      "list": "List"
+    }
+  },
+  "reports": {
+    "actions": {
+      "pdf": "PDF",
+      "reset": "Reset"
+    },
+    "catalog": {
+      "empty": "No reports match your search.",
+      "search": "Search reports…"
+    },
+    "columns": {
+      "age": "Age (days)",
+      "appointment": "Appointment",
+      "appointments": "Appointments",
+      "cancelled": "Cancelled",
+      "created": "Created",
+      "customer": "Customer",
+      "date": "Date",
+      "duration": "Duration (min)",
+      "identifiedBy": "Identified by",
+      "items": "Items",
+      "month": "Month",
+      "order": "Order",
+      "orders": "Orders",
+      "period": "Period",
+      "product": "Product",
+      "rate": "Rate",
+      "revenue": "Revenue",
+      "service": "Service",
+      "spent": "Spent",
+      "status": "Status",
+      "total": "Total",
+      "type": "Type",
+      "units": "Units"
+    },
+    "comingSoon": "This report is coming soon.",
+    "description": "Browse reports grouped by category and review the results.",
+    "distribution": "Distribution by status",
+    "export": {
+      "error": "The PDF could not be generated. Please try again.",
+      "generated": "Generated",
+      "page": "Page",
+      "search": "Search",
+      "summary": "Summary"
+    },
+    "eyebrow": "ALEPHTELOS · REPORTS",
+    "filters": {
+      "all": "All",
+      "from": "From",
+      "granularity": "Group by",
+      "minDays": "Min age (days)",
+      "period": "Period",
+      "search": "Search by order or customer…",
+      "searchAppt": "Search by customer or service…",
+      "searchCustomer": "Search by name or contact…",
+      "searchProduct": "Search by product…",
+      "status": "Status",
+      "to": "To",
+      "type": "Type"
+    },
+    "granularity": {
+      "day": "Day",
+      "month": "Month",
+      "week": "Week"
+    },
+    "liveNote": "Showing live data from your orders.",
+    "loading": "Loading report…",
+    "noCompany": "No company selected — pick a company to load this report.",
+    "noData": "No data available.",
+    "noteAging": "Open = not done and not cancelled. Age is days since the order was created; oldest first.",
+    "noteAppt": "Appointments have no revenue, so this report measures volume and time invested.",
+    "noteCancel": "Cancelled counts CANCELLED and REJECTED appointments. There is no separate no-show status.",
+    "noteCustomer": "A customer may be identified by phone, email, web link or customer ID.",
+    "noteProduct": "Order products and booking products are combined into one ranking.",
+    "noteRevenue": "Revenue sums order totals, excluding cancelled orders. Each row is one period bucket.",
+    "period": {
+      "all": "All time",
+      "custom": "Custom range",
+      "month": "Last 30 days",
+      "week": "Last 7 days",
+      "year": "This year"
+    },
+    "revenueByPeriod": "Revenue by period",
+    "selectPrompt": "Select a report from the list.",
+    "soon": "Soon",
+    "tiles": {
+      "aging": "Aging (8–30d)",
+      "avgOrder": "Avg order value",
+      "bestPeriod": "Best period",
+      "cancelRate": "Cancellation rate",
+      "cancelled": "Cancelled",
+      "customersShown": "Customers shown",
+      "fresh": "Fresh (≤7d)",
+      "oldest": "Oldest (days)",
+      "openOrders": "Open orders",
+      "orders": "Orders",
+      "overdue": "Overdue (>30d)",
+      "productsShown": "Products shown",
+      "revenue": "Revenue",
+      "timeInvested": "Time invested (h)",
+      "topBuyer": "Top buyer",
+      "topSeller": "Top seller",
+      "topSpent": "Top spent",
+      "total": "Total orders",
+      "totalAppointments": "Total appointments",
+      "unitsSold": "Units sold"
+    },
+    "title": "Reports",
+    "type": {
+      "booking": "Booking",
+      "order": "Order"
+    }
+  },
+  "stepTemplate": {
+    "actions": {
+      "addStep": "Add step",
+      "moveDown": "Move down",
+      "moveUp": "Move up",
+      "new": "New",
+      "removeStep": "Remove step",
+      "save": "Save process",
+      "saving": "Saving...",
+      "search": "Search",
+      "searching": "Searching...",
+      "delete": "Delete",
+      "disable": "Disable",
+      "enable": "Enable"
+    },
+    "description": "Define a reusable set of steps. Later you can assign it to a product.",
+    "errors": {
+      "codeRequired": "Please enter an internal code.",
+      "missingCompany": "No company is selected.",
+      "nameRequired": "Please enter a name.",
+      "save": "The template could not be saved.",
+      "search": "Could not search.",
+      "select": "Could not load the template.",
+      "stepsRequired": "Add at least one step.",
+      "delete": "The process could not be deleted.",
+      "status": "The process status could not be changed."
+    },
+    "eyebrow": "Processes",
+    "fields": {
+      "internalCode": "Internal code",
+      "name": "Name"
+    },
+    "messages": {
+      "loaded": "Template loaded. You can edit it.",
+      "noResults": "No templates found.",
+      "saved": "Template saved successfully.",
+      "deleted": "Process deleted.",
+      "enabled": "Process enabled. It is offered again for products.",
+      "disabled": "Process disabled. It is no longer offered for new products; products and orders that use it keep working."
+    },
+    "search": {
+      "placeholder": "Search by name or code"
+    },
+    "section": {
+      "info": "Process information",
+      "infoHelp": "Give the process a name and a code.",
+      "steps": "Steps",
+      "stepsHelp": "Add the steps in order."
+    },
+    "steps": {
+      "empty": "No steps yet. Add the first one.",
+      "finalStep": "Final step (done)",
+      "namePlaceholder": "Step name",
+      "requiresPrevious": "Requires previous",
+      "notifyCustomer": "Notify the customer (email)",
+      "notifyCustomerHelp": "When an order item reaches this step, the customer receives an email. Leave it unchecked for internal steps."
+    },
+    "title": "Create a process",
+    "titleEdit": "Edit process",
+    "status": {
+      "disabled": "Disabled"
+    },
+    "usage": {
+      "usedBy": "Used by",
+      "products": "product(s)",
+      "orders": "order item(s)",
+      "notUsed": "Not used by any product or order"
+    },
+    "confirmDelete": "Delete this process and its steps? This cannot be undone."
+  },
+  "plans": {
+    "names": {
+      "FREE": "Free",
+      "BASIC": "Basic",
+      "PRO": "Pro",
+      "ENTERPRISE": "Enterprise",
+      "TRIAL": "Trial",
+      "ENTREPRENEUR": "Entrepreneur",
+      "SPECIAL": "Special",
+      "NONE": "No plan"
+    },
+    "title": "Your plan",
+    "close": "Close",
+    "back": "Back to the plans",
+    "loading": "Loading plans…",
+    "loadError": "The plans could not be loaded. Please try again.",
+    "seePlans": "See plans",
+    "request": "Request this plan",
+    "requestTrial": "Request the trial",
+    "paymentNote": "Prices in US dollars, taxes not included. Online payments are coming soon. After your request an agent will contact you with the next steps.",
+    "badge": {
+      "label": "Your plan: {{plan}}",
+      "title": "See what your plan includes and request another plan",
+      "ended": "trial ended",
+      "daysLeft_one": "{{count}} day left",
+      "daysLeft_other": "{{count}} days left",
+      "readOnly": "read-only"
+    },
+    "current": {
+      "label": "Current plan",
+      "badge": "Current",
+      "expired": "Your {{plan}} plan ended on {{date}}. The company is read-only until a plan is assigned.",
+      "endsIn_one": "{{count}} day left (until {{date}}).",
+      "endsIn_other": "{{count}} days left (until {{date}}).",
+      "pending": "You requested the {{plan}} plan on {{date}}. An agent will contact you soon.",
+      "agreedPrice": "Your price: US${{amount}} / month + taxes (agreed price)",
+      "price": "Your price: {{price}}",
+      "none": "Your company has no active plan, so it is read-only. Choose a plan or request a free trial."
+    },
+    "usage": {
+      "users": "Active users",
+      "products": "Products",
+      "unlimited": "unlimited",
+      "storage": "Storage",
+      "aiQuestions": "AI questions this month"
+    },
+    "price": {
+      "ask": "Ask for the price",
+      "free": "Free",
+      "monthly": "US${{amount}} / month + taxes",
+      "trial_one": "Free for {{count}} day",
+      "trial_other": "Free for {{count}} days",
+      "agreed": "Agreed price"
+    },
+    "features": {
+      "usersUnlimited": "Unlimited users",
+      "users_one": "{{count}} user",
+      "users_other": "Up to {{count}} users",
+      "productsUnlimited": "Unlimited products",
+      "products_one": "{{count}} product",
+      "products_other": "Up to {{count}} products",
+      "allReports": "All reports",
+      "basicReport": "Only the \"Orders by status\" report",
+      "webBookings": "Bookings from your online store",
+      "managerBookings": "Bookings only from the manager",
+      "ai": "AI assistant (Aleph)",
+      "trial_one": "{{count}} day to try everything",
+      "trial_other": "{{count}} days to try everything",
+      "support_one": "{{count}} hour of human support per month",
+      "support_other": "{{count}} hours of human support per month",
+      "noSupport": "Human support hours",
+      "storage_one": "{{count}} GB of storage",
+      "storage_other": "{{count}} GB of storage",
+      "storageUnlimited": "Unlimited storage",
+      "aiInteractions": "AI assistant (Aleph): up to {{count}} questions / month"
+    },
+    "form": {
+      "title": "Request a plan",
+      "intro": "Tell us about you and the plan you want. An agent will contact you soon.",
+      "plan": "Plan",
+      "choosePlan": "Choose a plan",
+      "name": "Your name",
+      "email": "Email",
+      "phone": "Phone / WhatsApp",
+      "message": "Message (optional)",
+      "messagePlaceholder": "For example: how many users you need, or the best time to call you.",
+      "cancel": "Cancel",
+      "send": "Send request",
+      "sending": "Sending…",
+      "errors": {
+        "plan": "Choose the plan you want.",
+        "name": "Please write your name.",
+        "email": "Please write a valid email.",
+        "tooMany": "You already sent several requests today. An agent will contact you soon.",
+        "send": "The request could not be sent. Please try again.",
+        "captchaPending": "Please complete the security check above the button.",
+        "captchaFailed": "The security check failed. Please complete it again and resend."
+      }
+    },
+    "sent": {
+      "title": "Request sent",
+      "text": "Thank you! An agent will contact you soon about the {{plan}} plan."
+    },
+    "limits": {
+      "users_one": "Your {{plan}} plan allows {{count}} active user, so you cannot add more users to this company. Request a plan from Home → Your plan.",
+      "users_other": "Your {{plan}} plan allows {{count}} active users, so you cannot add more users to this company. Request a plan from Home → Your plan.",
+      "products_one": "Your {{plan}} plan allows {{count}} product. Deactivate a product or request a plan from Home → Your plan.",
+      "products_other": "Your {{plan}} plan allows {{count}} products. Deactivate a product or request a plan from Home → Your plan.",
+      "feature": "This option is not included in your {{plan}} plan. Request a plan from Home → Your plan.",
+      "required": "Your company doesn't have an active plan yet. Join a plan to use this option. Without a plan you can only set up your basic company (name, logo and header) in Company page. Choose a plan or request a free trial from Home → Your plan.",
+      "storage": "Your {{plan}} plan includes {{count}} GB of storage and it is full. Delete files or request a plan with more storage from Home → Your plan."
+    },
+    "reports": {
+      "lockedBadge": "Upgrade",
+      "lockedBadgeTitle": "Not included in your plan",
+      "lockedText": "Your {{plan}} plan includes only the \"Orders by status\" report. Request a plan to use every report.",
+      "reason": "Every plan includes all the reports."
+    },
+    "readOnly": {
+      "title": "Read-only mode.",
+      "none": "Your company has no active plan. You can see your data and set up your basic company (name, logo and header) in Company page, but you cannot use the other options until you join a plan or start a free trial.",
+      "ended": "Your plan ended. You can see your data, but you cannot create or change anything until you choose a plan.",
+      "button": "Choose a plan"
+    },
+    "aiNote": "AI questions per month: the AI assistant of each plan uses at most {{percent}}% of the plan price. One question = one message to Aleph or to your store assistant. They reset on the 1st of each month.",
+    "basicCompany": {
+      "title": "First create your basic company",
+      "text": "Before requesting a plan, set up your company's name, logo and header in Company page. You can do it without a plan.",
+      "missing": "Missing:",
+      "go": "Go to Company page",
+      "fields": {
+        "name": "name",
+        "logo": "logo",
+        "header": "header"
+      }
+    }
+  },
+  "brand": {
+    "poweredBy": "Powered by"
+  }
+}

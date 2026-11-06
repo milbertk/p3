@@ -1,0 +1,246 @@
+.transfer-account {
+  width: 100%;
+  min-height: 100%;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__wrapper {
+    width: 100%;
+    max-width: 680px;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 1rem;
+
+    h2 {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    p {
+      margin-top: 0.45rem;
+      color: #64748b;
+      font-size: 0.92rem;
+    }
+  }
+
+  &__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-bottom: 0.45rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #64748b;
+  }
+
+  &__card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.04);
+    display: grid;
+    gap: 1rem;
+  }
+
+  &__warning {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    color: #92400e;
+    padding: 0.9rem;
+    border-radius: 14px;
+
+    p {
+      margin: 0;
+      font-size: 0.88rem;
+      line-height: 1.45;
+      font-weight: 600;
+    }
+  }
+
+  &__results {
+    position: absolute;
+    z-index: 20;
+    top: calc(100% + 0.4rem);
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
+    overflow: hidden;
+
+    button {
+      width: 100%;
+      border: none;
+      background: #ffffff;
+      padding: 0.85rem;
+      text-align: left;
+      display: grid;
+      gap: 0.15rem;
+      cursor: pointer;
+
+      &:hover {
+        background: #f8fafc;
+      }
+
+      strong {
+        color: #111827;
+        font-size: 0.9rem;
+      }
+
+      span {
+        color: #64748b;
+        font-size: 0.82rem;
+      }
+    }
+  }
+
+  &__summary {
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 1rem;
+
+    h3 {
+      margin: 0 0 0.65rem;
+      font-size: 1rem;
+      color: #111827;
+    }
+
+    p {
+      margin: 0.3rem 0;
+      color: #475569;
+      font-size: 0.9rem;
+    }
+  }
+
+  &__confirm {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    color: #475569;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+
+    input {
+      margin-top: 0.2rem;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+
+  &__button {
+    border: none;
+    border-radius: 12px;
+    background: #2563eb;
+    color: #ffffff;
+    min-width: 240px;
+    height: 48px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.55rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.18s ease;
+
+    &:hover {
+      background: #1d4ed8;
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.transfer-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+
+  &--autocomplete {
+    position: relative;
+  }
+
+  label {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #374151;
+  }
+
+  select,
+  input {
+    width: 100%;
+    height: 48px;
+    border-radius: 12px;
+    border: 1px solid #d1d5db;
+    background: #f8fafc;
+    padding: 0 0.95rem;
+    font-size: 0.92rem;
+    transition: 0.18s ease;
+
+    &:focus {
+      outline: none;
+      border-color: #2563eb;
+      background: #ffffff;
+    }
+  }
+
+  &__search {
+    position: relative;
+
+    svg {
+      position: absolute;
+      top: 50%;
+      left: 0.9rem;
+      transform: translateY(-50%);
+      color: #94a3b8;
+    }
+
+    input {
+      padding-left: 2.5rem;
+    }
+  }
+
+  &__error {
+    color: #dc2626;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+}
+
+@media (max-width: 640px) {
+  .transfer-account {
+    padding: 1rem;
+
+    &__card {
+      padding: 1rem;
+    }
+
+    &__button {
+      width: 100%;
+    }
+  }
+}

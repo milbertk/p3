@@ -1,0 +1,9 @@
+@import "../Styles/Styles.scss";
+
+.platforms-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+}

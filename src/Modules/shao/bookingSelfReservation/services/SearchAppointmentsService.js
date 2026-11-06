@@ -1,0 +1,100 @@
+import { APIShao } from "../../../../Shared/Utils/globalVar";
+
+export class SearchAppointmentsServiceError extends Error {
+  constructor(message, { status, response } = {}) {
+    super(message);
+    this.name = "SearchAppointmentsServiceError";
+    this.status = status;
+    this.response = response;
+  }
+}
+
+export default class SearchAppointmentsService {
+  constructor(baseUrl = APIShao) {
+    this.baseUrl = String(baseUrl || "").replace(/\/$/, "");
+  }
+
+  /**
+   * Searches appointments using optional filters.
+   *
+   * Backend route:
+   * GET /companies/{companyId}/appointments/search?<filters>
+   *
+   * Supported filters: term, customerName, customerId, serviceId, status,
+   * dateFrom, dateTo, limit, offset. Only the provided ones are sent.
+   */
+  async searchAppointments({ companyId, filters = {}, signal } = {}) {
+    const normalizedCompanyId = String(companyId || "").trim();
+    if (!normalizedCompanyId) {
+      throw new TypeError("The selected company ID is required.");
+    }
+
+    const allowedKeys = [
+      "term",
+      "customerName",
+      "customerId",
+      "serviceId",
+      "status",
+      "dateFrom",
+      "dateTo",
+      "limit",
+      "offset",
+    ];
+
+    const params = new URLSearchParams();
+    allowedKeys.forEach((key) => {
+      const value = filters?.[key];
+      if (value === undefined || value === null) {
+        return;
+      }
+      const normalized = String(value).trim();
+      if (normalized !== "") {
+        params.set(key, normalized);
+      }
+    });
+
+    const queryString = params.toString();
+
+    const requestUrl =
+      `${this.baseUrl}/companies/` +
+      `${encodeURIComponent(normalizedCompanyId)}/` +
+      `appointments/search` +
+      (queryString ? `?${queryString}` : "");
+
+    const response = await fetch(requestUrl, {
+      method: "GET",
+      credentials: "include",
+      headers: { Accept: "application/json" },
+      signal,
+    });
+
+    const data = await readResponse(response);
+
+    if (!response.ok) {
+      throw new SearchAppointmentsServiceError(
+        data?.message || `Error searching appointments: ${response.status}`,
+        { status: response.status, response: data },
+      );
+    }
+
+    return data;
+  }
+
+  /** Convenience helper: returns just the array of appointments. */
+  async getAppointments(request = {}) {
+    const response = await this.searchAppointments(request);
+    return response?.result || [];
+  }
+}
+
+async function readResponse(response) {
+  const rawText = await response.text();
+  if (!rawText) {
+    return {};
+  }
+  try {
+    return JSON.parse(rawText);
+  } catch {
+    return { message: rawText };
+  }
+}

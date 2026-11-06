@@ -1,0 +1,331 @@
+// ==============================
+// Theme variables
+// ==============================
+
+$background1: #f8fafc;
+
+$formBackGroundColor: #f3f5f8;
+
+// Main buttons (2026-10-29): AlephK navy with white text. This file is imported by many
+// stylesheets, so its .btn-primary wins over the page styles: keep a strong color here.
+$primaryButtonColor: #14243b;
+$hoverPrimaryButtonColor: #22385a;
+
+$hoverPlatform: #64748b;
+
+$platformColor: green;
+$danger: #dc2626;
+
+$white: #ffffff;
+$textDark: #111827;
+$textMuted: #6b7280;
+
+$borderColor: #d1d5db;
+$softBorderColor: #e5e7eb;
+
+$shadowSoft: 0 4px 6px rgba(0, 0, 0, 0.1);
+$shadowMedium: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+$buttonTextColor: #ffffff;
+$buttonAltColor: #007bff;
+$buttonAltHoverColor: #0056b3;
+
+
+// ==============================
+// Styles
+// ==============================
+
+.container {
+  height: 100vh;
+  background-color: $background1;
+  padding-top: 2rem;
+  width: 100%;
+}
+
+.card {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  background: $white;
+  border-radius: 8px;
+  box-shadow: $shadowSoft;
+}
+
+.form-check-label {
+  font-size: 0.9rem;
+}
+
+.btn-primary {
+  background-color: $primaryButtonColor;
+  border-color: $primaryButtonColor;
+
+  &:hover {
+    background-color: $hoverPrimaryButtonColor;
+    border-color: $hoverPrimaryButtonColor;
+  }
+}
+
+.btn-outline-primary,
+.btn-outline-danger,
+.btn-outline-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+.bi {
+  cursor: pointer;
+  color: $textMuted;
+
+  &:hover {
+    color: $primaryButtonColor;
+  }
+}
+
+.headerIcons {
+  font-size: 30px;
+  color: $hoverPlatform;
+  margin: 4px;
+
+  &:hover {
+    color: $hoverPrimaryButtonColor;
+    cursor: pointer;
+  }
+}
+
+.headerIconsBorder {
+  font-size: 30px;
+  color: $hoverPlatform;
+  border-style: solid;
+  border-width: 2px;
+  border-color: $hoverPlatform;
+  border-radius: 50%;
+  margin: 4px;
+
+  &:hover {
+    color: $hoverPrimaryButtonColor;
+    cursor: pointer;
+  }
+}
+
+.hiden {
+  display: none;
+}
+
+.inputSearch {
+  border-radius: 10px;
+  padding-left: 5rem;
+  margin-left: 100px;
+}
+
+.input {
+  border-radius: 10px;
+  text-align: center;
+  align-items: center;
+  margin-top: 30px;
+  box-shadow: $shadowMedium;
+  background-color: $white;
+
+  @media (orientation: portrait) {
+    width: 80%;
+    margin-left: 15%;
+  }
+
+  @media (orientation: landscape) {
+    width: 90%;
+    margin-left: 5%;
+  }
+}
+
+.hr {
+  position: relative;
+  width: 80%;
+}
+
+.page {
+  background-color: $formBackGroundColor;
+  overflow: auto;
+}
+
+.pageAlt {
+  background-color: $formBackGroundColor;
+}
+
+.button {
+  background-color: $buttonAltColor;
+  color: $buttonTextColor;
+  font-weight: bold;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: $buttonAltHoverColor;
+  }
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border-radius: 8px;
+  border: 1px solid $borderColor;
+  font-size: 1rem;
+}
+
+textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.errorLabel {
+  color: $danger;
+  font-size: 0.85rem;
+  margin-top: 4px;
+  font-weight: 500;
+  text-align: center;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Global Color Variables
+|--------------------------------------------------------------------------
+*/
+
+
+$primaryColor: #2563eb;
+$primaryHover: #1d4ed8;
+
+$secondaryColor: #64748b;
+$secondaryHover: #475569;
+
+$successColor: #16a34a;
+$warningColor: #f59e0b;
+$dangerColor: #dc2626;
+
+$backgroundColor: #f5f7fb;
+$cardBackground: #ffffff;
+
+$borderColor: #e5e7eb;
+$borderHover: #d1d5db;
+
+$textPrimary: #111827;
+$textSecondary: #6b7280;
+$textLight: #9ca3af;
+
+$headerSpecial: #2563eb;
+
+$hoverBackground: #f3f4f6;
+
+$shadowSoft: 0 2px 8px rgba(15, 23, 42, 0.05);
+$shadowMedium: 0 8px 24px rgba(15, 23, 42, 0.08);
+
+$radiusSmall: 8px;
+$radiusMedium: 12px;
+$radiusLarge: 16px;
+
+$transitionFast: 0.2s ease;
+$transitionNormal: 0.3s ease;
+
+/*
+|--------------------------------------------------------------------------
+| Layout
+|--------------------------------------------------------------------------
+*/
+
+$headerHeight: 58px;
+$sidebarWidth: 260px;
+
+/*
+|--------------------------------------------------------------------------
+| Responsive Breakpoints
+|--------------------------------------------------------------------------
+*/
+
+$mobile: 768px;
+$tablet: 1024px;
+$desktop: 1280px;
+
+/*
+|--------------------------------------------------------------------------
+| Reusable Mixins
+|--------------------------------------------------------------------------
+*/
+
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flexBetween {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin cardStyle {
+  background: $cardBackground;
+  border: 1px solid $borderColor;
+  border-radius: $radiusMedium;
+  box-shadow: $shadowSoft;
+}
+
+@mixin hoverEffect {
+  transition: all $transitionFast;
+
+  &:hover {
+    background: $hoverBackground;
+  }
+}
+
+/*
+|--------------------------------------------------------------------------
+| Optional Global Classes
+|--------------------------------------------------------------------------
+*/
+
+.card-template {
+  @include cardStyle;
+  padding: 1rem;
+}
+
+.text-secondary {
+  color: $textSecondary;
+}
+
+.text-light {
+  color: $textLight;
+}
+
+.shadow-soft {
+  box-shadow: $shadowSoft;
+}
+
+.shadow-medium {
+  box-shadow: $shadowMedium;
+}
+
+$sidebarWidth: 240px;
+$sidebarCollapsedWidth: 30px;
+
+$headerHeight: 58px;
+$mobileHeaderHeight: 58px;
+
+
+
+$sidebarBackground: #0f172a;
+$sidebarButtonBackground: #111827;
+$sidebarHoverBackground: #1e293b;
+$sidebarBorderColor: #1f2937;
+
+$sidebarTextColor: #f9fafb;
+$sidebarTextMuted: #cbd5e1;
+$sidebarActiveColor: #60a5fa;
