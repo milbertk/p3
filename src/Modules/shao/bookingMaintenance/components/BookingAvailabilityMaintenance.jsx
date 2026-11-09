@@ -1,4 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import {
   FaCalendarDay,
   FaCalendarWeek,
@@ -6,8 +8,13 @@ import {
   FaChevronRight,
   FaClock,
   FaFloppyDisk,
+  FaLocationDot,
+  FaLock,
+  FaMagnifyingGlass,
   FaPlus,
+  FaXmark,
   FaTrash,
+  FaTriangleExclamation,
 } from "react-icons/fa6";
 import "./BookingAvailabilityMaintenance.scss";
 
@@ -20,6 +27,12 @@ import {
   configurationToBundle,
   bundleToConfiguration,
 } from "./Bookingmappers";
+import LocationsService from "../../locations/services/LocationsService";
+import {
+  CUSTOMER_CHOOSES,
+  overlapMessage,
+  overlapsFromError,
+} from "../../locations/services/locationUtils";
 
 const SELECTED_COMPANY_STORAGE_KEY = "selectedCompany";
 
@@ -27,6 +40,7 @@ const saveBookingService = new SaveBookingService();
 const selectBookingService = new SelectBookingService();
 const searchBookingsService = new SearchBookingsService();
 const searchProductsService = new SearchProductsService();
+const locationsService = new LocationsService();
 
 function readSelectedCompanyId() {
   try {
@@ -77,6 +91,7 @@ const createRange = (start = "08:00", end = "17:00") => ({
   start,
   end,
   appointments: "", // empty -> uses the general appointments count
+  locationId: "", // optional location of these hours (2026-11-07)
 });
 
 const createWeeklySchedule = () =>
@@ -182,6 +197,15 @@ const formatTime = (minutes, locale) => {
   }).format(date);
 };
 
+// "Monday, November 9" for a YYYY-MM-DD date (2026-11-08).
+const formatDateLong = (dateKey, locale) => {
+  const [year, month, day] = String(dateKey || "").split("-").map(Number);
+  if (!year || !month || !day) return String(dateKey || "");
+  return new Intl.DateTimeFormat(locale, { weekday: "long", month: "long", day: "numeric" }).format(
+    new Date(year, month - 1, day),
+  );
+};
+
 const generateSlots = (availability, durationMinutes, locale) => {
   if (!availability) return [];
 
@@ -205,19 +229,55 @@ const generateSlots = (availability, durationMinutes, locale) => {
   });
 };
 
-const hasOverlappingRanges = (ranges) => {
-  const ordered = ranges
-    .map((range) => ({
-      start: timeToMinutes(range.start),
-      end: timeToMinutes(range.end),
-    }))
-    .sort((left, right) => left.start - right.start);
+// Ranges of one day must not overlap. Only ranges in two DIFFERENT fixed
+// locations may overlap, and only when the company switch "We can attend in
+// more than one location at the same time" is on (allowDifferentPlaces,
+// 2026-11-08); then each location has its own appointments. A range where the
+// customer chooses the location can be in any location, so it never overlaps
+// another range. Returns the first problem, or null.
+const rangeProblem = (ranges, duration, allowDifferentPlaces = false) => {
+  const items = ranges.map((range, index) => ({
+    index,
+    start: timeToMinutes(range.start),
+    end: timeToMinutes(range.end),
+    locationId: String(range.locationId || ""),
+  }));
+  const tooShort = items.find((item) => !(item.end - item.start >= duration));
+  if (tooShort) return { kind: "short", a: tooShort.index };
+  const differentPlaces = (a, b) =>
+    allowDifferentPlaces &&
+    a.locationId &&
+    b.locationId &&
+    a.locationId !== CUSTOMER_CHOOSES &&
+    b.locationId !== CUSTOMER_CHOOSES &&
+    a.locationId !== b.locationId;
 
-  return ordered.some(
-    (range, index) =>
-      range.start >= range.end ||
-      (index > 0 && range.start < ordered[index - 1].end),
-  );
+  for (const range of items) {
+    const other = items.find(
+      (candidate) =>
+        candidate.index > range.index &&
+        range.start < candidate.end &&
+        candidate.start < range.end &&
+        !differentPlaces(range, candidate),
+    );
+    if (other) return { kind: "overlap", a: range.index, b: other.index };
+  }
+  return null;
+};
+
+const addMinutes = (time, minutes) => {
+  const total = Math.min(timeToMinutes(time) + minutes, 24 * 60 - 1);
+  return `${String(Math.floor(total / 60)).padStart(2, "0")}:${String(total % 60).padStart(2, "0")}`;
+};
+
+// A new range lasts one appointment (2026-11-08): it starts where the last
+// range ends (09:00 for the first one).
+const nextRange = (ranges, durationMinutes) => {
+  const duration = Number(durationMinutes) > 0 ? Number(durationMinutes) : 60;
+  const last = ranges.length ? ranges[ranges.length - 1] : null;
+  let start = last && last.end ? last.end : "09:00";
+  if (timeToMinutes(start) + duration > 24 * 60) start = "09:00";
+  return createRange(start, addMinutes(start, duration));
 };
 
 const getCalendarCells = (monthDate) => {
@@ -249,6 +309,27 @@ const getCalendarCells = (monthDate) => {
  *
  * Replace the mock constants with service responses later, or provide onSearch/onSave.
  */
+// {{name}} values in a fallback text.
+const fill = (text, values = {}) =>
+  String(text).replace(/{{\s*(\w+)\s*}}/g, (all, name) => (values[name] !== undefined ? values[name] : all));
+
+// The locations hint can be closed; it stays closed in this browser.
+const HINT_CLOSED_KEY = "alephk.bookingSchedules.locationsHintClosed";
+const readHintClosed = () => {
+  try {
+    return window.localStorage.getItem(HINT_CLOSED_KEY) === "1";
+  } catch {
+    return false;
+  }
+};
+const saveHintClosed = () => {
+  try {
+    window.localStorage.setItem(HINT_CLOSED_KEY, "1");
+  } catch {
+    // Without storage the hint just shows again next time.
+  }
+};
+
 export default function BookingAvailabilityMaintenance({
   t,
   locale = "en",
@@ -282,6 +363,17 @@ export default function BookingAvailabilityMaintenance({
   const [scheduledServiceIds, setScheduledServiceIds] = useState([]);
   // "This service already has a schedule": { id, serviceName, reason }.
   const [existingSchedule, setExistingSchedule] = useState(null);
+  // Locations of the company (2026-11-07) and the clashes of the last save.
+  // locations stays empty (no field) while "We use locations" is off (2026-11-08).
+  const [locations, setLocations] = useState([]);
+  // Hint "create your locations first" (2026-11-08): null = not known yet.
+  const [locationsOn, setLocationsOn] = useState(null);
+  const [locationsSameTime, setLocationsSameTime] = useState(false);
+  // Mode change that deletes saved hours, waiting for confirmation (2026-11-08).
+  const [pendingMode, setPendingMode] = useState(null);
+  const [hintClosed, setHintClosed] = useState(readHintClosed);
+  const navigate = useNavigate();
+  const [overlaps, setOverlaps] = useState([]);
   // Snapshot of the form when it was loaded/created, to detect unsaved changes.
   const pristineRef = useRef(JSON.stringify(initialConfiguration));
 
@@ -313,6 +405,133 @@ export default function BookingAvailabilityMaintenance({
       active = false;
     };
   }, []);
+
+  // Locations of the company (active and disabled, to show the name of a
+  // disabled one that is still on some hours). Only when the company turned
+  // on "We use locations" (2026-11-08); otherwise the screen works as before
+  // (no location field) and the saved locations of the hours are kept.
+  useEffect(() => {
+    let active = true;
+    const companyId = readSelectedCompanyId();
+    if (!companyId) return undefined;
+    locationsService
+      .forForms({ companyId })
+      .then(({ enabled, sameTime, locations: list }) => {
+        if (!active) return;
+        setLocationsOn(Boolean(enabled));
+        setLocationsSameTime(Boolean(sameTime));
+        setLocations(enabled ? list : []);
+      })
+      .catch(() => {
+        // Without the list the screen works as before (no location field).
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  const tl = (key, fallback, options = {}) => {
+    try {
+      const value = t(key, { defaultValue: fallback, ...options });
+      return !value || value === key ? fill(fallback, options) : value;
+    } catch {
+      return fill(fallback, options);
+    }
+  };
+
+  // "Create your locations first" (2026-11-08): shown while the Location
+  // field is hidden because "We use locations" is off or there is no active
+  // location yet. Closing it keeps it closed in this browser.
+  const renderLocationsHint = () => {
+    if (locationsOn === null || hintClosed) return null;
+    const activeCount = locations.filter((location) => location.active).length;
+    if (locationsOn && activeCount > 0) return null;
+    const text = locationsOn
+      ? tl(
+          "bookingAvailabilityMaintenance.locationsHint.noActive",
+          "Locations is on, but you have no active location. Create one in Locations to choose it here.",
+        )
+      : tl(
+          "bookingAvailabilityMaintenance.locationsHint.off",
+          "Do you attend in more than one place? First turn on \"We use locations\" and create your locations in Locations. Then each block of hours can have a location, or let the customer choose.",
+        );
+    return (
+      <aside className="booking-locations-hint" role="note">
+        <FaLocationDot className="booking-locations-hint__icon" aria-hidden="true" />
+        <p>{text}</p>
+        <button
+          type="button"
+          className="booking-locations-hint__go"
+          onClick={() => navigate("/shao/locations")}
+        >
+          {tl("bookingAvailabilityMaintenance.locationsHint.go", "Go to Locations")}
+        </button>
+        <button
+          type="button"
+          className="booking-locations-hint__close"
+          onClick={() => {
+            saveHintClosed();
+            setHintClosed(true);
+          }}
+          aria-label={tl("bookingAvailabilityMaintenance.locationsHint.close", "Close")}
+          title={tl("bookingAvailabilityMaintenance.locationsHint.close", "Close")}
+        >
+          <FaXmark aria-hidden="true" />
+        </button>
+      </aside>
+    );
+  };
+
+  // Location field of one block of hours (only when the company uses
+  // locations and has some). "Customer chooses" = any active location, the
+  // customer decides when booking (2026-11-08).
+  const renderLocationSelect = (value, onChange, id) => {
+    if (locations.length === 0) return null;
+    const current = String(value || "");
+    const options = locations.filter(
+      (location) => location.active || location.locationId === current,
+    );
+    const choiceHint =
+      current === CUSTOMER_CHOOSES
+        ? tl(
+            "bookingAvailabilityMaintenance.fields.customerChoosesHint",
+            "The store shows these hours in every active location; the customer picks one.",
+          )
+        : "";
+    return (
+      <label className="booking-time-range__location">
+        <span>
+          <FaLocationDot aria-hidden="true" />{" "}
+          {tl("bookingAvailabilityMaintenance.fields.location", "Location")}
+        </span>
+        <select id={id} value={current} onChange={(event) => onChange(event.target.value)}>
+          <option value="">
+            {tl("bookingAvailabilityMaintenance.fields.noLocation", "No location")}
+          </option>
+          <option value={CUSTOMER_CHOOSES}>
+            {tl(
+              "bookingAvailabilityMaintenance.fields.customerChooses",
+              "Customer chooses (any active location)",
+            )}
+          </option>
+          {options.map((location) => (
+            <option key={location.locationId} value={location.locationId}>
+              {location.name}
+              {location.active
+                ? ""
+                : ` (${tl("bookingAvailabilityMaintenance.fields.locationDisabled", "disabled")})`}
+            </option>
+          ))}
+        </select>
+        {choiceHint && <small className="booking-time-range__location-hint">{choiceHint}</small>}
+      </label>
+    );
+  };
+  // Short placeholder of a range's appointments: "General (1)" (2026-11-08).
+  const generalPlaceholder = `${t("bookingAvailabilityMaintenance.fields.usesGeneral")} (${
+    String(configuration.generalAppointments || "").trim() || "1"
+  })`;
+  const rangeRowClass = `booking-time-range${locations.length > 0 ? " booking-time-range--with-location" : ""}`;
 
   // Load which services already have a schedule (up to 200 schedules).
   const loadScheduledServices = async () => {
@@ -374,6 +593,41 @@ export default function BookingAvailabilityMaintenance({
     [appLocale, configuration.durationMinutes, previewAvailability],
   );
 
+  // The same spaces, one row per location (2026-11-08). Without locations:
+  // one row without a name, as before.
+  const previewGroups = useMemo(() => {
+    if (!previewAvailability) return [];
+    const duration = Number(configuration.durationMinutes);
+    if (locations.length === 0 || previewAvailability.allDay) {
+      return [{ key: "all", label: "", slots: generatedSlots }];
+    }
+    const groups = [];
+    const byKey = new Map();
+    previewAvailability.ranges.forEach((range) => {
+      const key = String(range.locationId || "");
+      if (!byKey.has(key)) {
+        const group = { key, ranges: [] };
+        byKey.set(key, group);
+        groups.push(group);
+      }
+      byKey.get(key).ranges.push(range);
+    });
+    return groups.map((group) => ({
+      key: group.key || "none",
+      label:
+        group.key === CUSTOMER_CHOOSES
+          ? tl(
+              "bookingAvailabilityMaintenance.fields.customerChooses",
+              "Customer chooses (any active location)",
+            )
+          : group.key
+            ? locations.find((location) => location.locationId === group.key)?.name || group.key
+            : tl("bookingAvailabilityMaintenance.fields.noLocation", "No location"),
+      slots: generateSlots({ allDay: false, ranges: group.ranges }, duration, appLocale),
+    }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [previewAvailability, generatedSlots, locations, configuration.durationMinutes, appLocale]);
+
   const monthLabel = new Intl.DateTimeFormat(appLocale, {
     month: "long",
     year: "numeric",
@@ -395,9 +649,65 @@ export default function BookingAvailabilityMaintenance({
     setMessage("");
   };
 
-  const changeMode = (mode) => {
+  // A message under the Save button AND as a toast (2026-11-08), so it is
+  // easy to notice. kind: success | error | warning | info.
+  const notify = (kind, text) => {
+    setMessage(text || "");
+    if (!text) return;
+    const show = toast[kind] || toast;
+    show(text, { toastId: `booking-${kind}-${text}` });
+  };
+
+  // Saved hours of each mode (what the database has now).
+  const savedModes = () => {
+    try {
+      const saved = JSON.parse(pristineRef.current || "{}");
+      return {
+        weekly: (saved.weeklySchedule || []).some((day) => day.enabled),
+        manual: (saved.manualAvailability || []).length > 0,
+      };
+    } catch {
+      return { weekly: false, manual: false };
+    }
+  };
+
+  const modeName = (mode) =>
+    mode === "manual"
+      ? t("bookingAvailabilityMaintenance.manual.title")
+      : t("bookingAvailabilityMaintenance.mode.weekly.title");
+
+  const applyMode = (mode) => {
     setConfiguration((current) => ({ ...current, mode }));
-    setMessage("");
+    setPendingMode(null);
+    notify(
+      "info",
+      tl(
+        "bookingAvailabilityMaintenance.modeSwitch.done",
+        "Now using: {{mode}}. Only these hours are saved and published.",
+        { mode: modeName(mode) },
+      ),
+    );
+  };
+
+  // One mode only: leaving a mode that has saved hours asks first, because
+  // saving deletes them (booked appointments are kept).
+  const changeMode = (mode) => {
+    if (mode === configuration.mode) return;
+    const saved = savedModes();
+    const leavingSaved = configuration.id && saved[configuration.mode];
+    if (leavingSaved) {
+      setPendingMode(mode);
+      return;
+    }
+    applyMode(mode);
+  };
+
+  // The saved schedule used the other mode: its hours go when saving.
+  const deletesOnSave = () => {
+    if (!configuration.id) return null;
+    const saved = savedModes();
+    const other = configuration.mode === "weekly" ? "manual" : "weekly";
+    return saved[other] ? other : null;
   };
 
   const handleNew = () => {
@@ -405,6 +715,7 @@ export default function BookingAvailabilityMaintenance({
     setConfiguration(fresh);
     pristineRef.current = JSON.stringify(fresh);
     setExistingSchedule(null);
+    setOverlaps([]);
     setMessage(t("bookingAvailabilityMaintenance.messages.newReady"));
   };
 
@@ -414,6 +725,8 @@ export default function BookingAvailabilityMaintenance({
   // Label of the selected service (the schedule name equals the service name).
   const selectedServiceName =
     serviceNames[configuration.serviceId] || configuration.name || "";
+  // Step 1 done: the rest of the form opens (2026-11-08).
+  const serviceChosen = Boolean(configuration.serviceId);
 
   // Load the full bundle for a selected booking and fill the form.
   const handleSelectBooking = async (bookingConfigId) => {
@@ -442,8 +755,14 @@ export default function BookingAvailabilityMaintenance({
         loaded.weeklySchedule.find((day) => day.enabled)?.dayKey || "monday",
       );
 
-      if (loaded.manualAvailability.length > 0) {
-        const nextSelectedDate = loaded.manualAvailability[0].date;
+      // The first open date from today on (past dates are history), or
+      // today (2026-11-08).
+      {
+        const nextSelectedDate =
+          loaded.manualAvailability
+            .map((availability) => availability.date)
+            .filter((date) => date >= TODAY_DATE_KEY)
+            .sort()[0] || TODAY_DATE_KEY;
         const parsedDate = parseDateKey(nextSelectedDate);
         setSelectedDate(nextSelectedDate);
         setCalendarMonth(
@@ -470,7 +789,8 @@ export default function BookingAvailabilityMaintenance({
     setExistingSchedule(null);
     const opened = await handleSelectBooking(bookingConfigId);
     if (opened) {
-      setMessage(
+      notify(
+        "info",
         t("bookingAvailabilityMaintenance.messages.editingExisting", {
           service: serviceName,
         }),
@@ -535,7 +855,8 @@ export default function BookingAvailabilityMaintenance({
           }
         : { ...current, serviceId: service.id, name: service.name },
     );
-    setMessage(
+    notify(
+      "info",
       t("bookingAvailabilityMaintenance.messages.newForService", {
         service: service.name,
       }),
@@ -574,7 +895,7 @@ export default function BookingAvailabilityMaintenance({
       ...current,
       weeklySchedule: current.weeklySchedule.map((day) =>
         day.dayKey === dayKey
-          ? { ...day, ranges: [...day.ranges, createRange("13:00", "17:00")] }
+          ? { ...day, ranges: [...day.ranges, nextRange(day.ranges, current.durationMinutes)] }
           : day,
       ),
     }));
@@ -615,7 +936,7 @@ export default function BookingAvailabilityMaintenance({
         {
           date: selectedDate,
           allDay: false,
-          ranges: [createRange("09:00", "12:00")],
+          ranges: [nextRange([], current.durationMinutes)],
         },
       ],
     }));
@@ -670,7 +991,7 @@ export default function BookingAvailabilityMaintenance({
               ...availability,
               ranges: [
                 ...availability.ranges,
-                createRange("13:00", "17:00"),
+                nextRange(availability.ranges, current.durationMinutes),
               ],
             }
           : availability,
@@ -709,20 +1030,57 @@ export default function BookingAvailabilityMaintenance({
       return "bookingAvailabilityMaintenance.messages.availabilityRequired";
     }
 
-    const invalidAvailability = activeAvailabilities.some((availability) => {
-      if (availability.allDay) return false;
-      if (availability.ranges.length === 0) return true;
-      if (hasOverlappingRanges(availability.ranges)) return true;
-
-      return availability.ranges.some(
-        (range) =>
-          timeToMinutes(range.end) - timeToMinutes(range.start) < duration,
+    // The first problem found, said in words (2026-11-08).
+    const allowDifferentPlaces = locations.length > 0 && locationsSameTime;
+    for (const availability of activeAvailabilities) {
+      if (availability.allDay) continue;
+      const when =
+        configuration.mode === "weekly"
+          ? t(`bookingAvailabilityMaintenance.days.${availability.dayKey}.long`)
+          : formatDateLong(availability.date, appLocale);
+      if (availability.ranges.length === 0) {
+        return tl("bookingAvailabilityMaintenance.messages.noRanges", "{{when}}: add at least one time range.", { when });
+      }
+      const problem = rangeProblem(availability.ranges, duration, allowDifferentPlaces);
+      if (!problem) continue;
+      const hours = (index) => {
+        const range = availability.ranges[index];
+        return `${formatTime(timeToMinutes(range.start), appLocale)}–${formatTime(timeToMinutes(range.end), appLocale)}`;
+      };
+      if (problem.kind === "short") {
+        return tl(
+          "bookingAvailabilityMaintenance.messages.rangeTooShort",
+          "{{when}}, {{hours}}: the end must be after the start and leave room for at least one appointment of {{minutes}} minutes.",
+          { when, hours: hours(problem.a), minutes: duration },
+        );
+      }
+      const a = availability.ranges[problem.a];
+      const b = availability.ranges[problem.b];
+      const differentFixed =
+        a.locationId && b.locationId && a.locationId !== b.locationId &&
+        a.locationId !== CUSTOMER_CHOOSES && b.locationId !== CUSTOMER_CHOOSES;
+      const values = { when, a: hours(problem.a), b: hours(problem.b) };
+      if (differentFixed) {
+        return tl(
+          "bookingAvailabilityMaintenance.messages.overlapPlaces",
+          "{{when}}: {{a}} and {{b}} are at the same time in two locations. Turn on \"We can attend in more than one location at the same time\" in Locations, or change the hours.",
+          values,
+        );
+      }
+      if (a.locationId === CUSTOMER_CHOOSES || b.locationId === CUSTOMER_CHOOSES) {
+        return tl(
+          "bookingAvailabilityMaintenance.messages.overlapChoice",
+          "{{when}}: {{a}} and {{b}} overlap. A \"Customer chooses\" range can be in any location, so it can not share hours with another range.",
+          values,
+        );
+      }
+      return tl(
+        "bookingAvailabilityMaintenance.messages.overlap",
+        "{{when}}: {{a}} and {{b}} overlap. Change the hours.",
+        values,
       );
-    });
-
-    return invalidAvailability
-      ? "bookingAvailabilityMaintenance.messages.invalidRanges"
-      : null;
+    }
+    return null;
   };
 
   const handleSave = async (event) => {
@@ -730,28 +1088,35 @@ export default function BookingAvailabilityMaintenance({
     const validationMessage = validateConfiguration();
 
     if (validationMessage) {
-      setMessage(t(validationMessage));
+      notify(
+        "warning",
+        validationMessage.startsWith("bookingAvailabilityMaintenance.")
+          ? t(validationMessage)
+          : validationMessage,
+      );
       return;
     }
 
     const companyId = readSelectedCompanyId();
     if (!companyId) {
-      setMessage(
-        t("bookingAvailabilityMaintenance.messages.missingCompany"),
-      );
+      notify("error", t("bookingAvailabilityMaintenance.messages.missingCompany"));
       return;
     }
 
     const wasEditing = Boolean(configuration.id);
     // The schedule name is always the service name.
-    const bundle = configurationToBundle({
-      ...configuration,
-      name: selectedServiceName || configuration.name,
-    });
+    const bundle = configurationToBundle(
+      {
+        ...configuration,
+        name: selectedServiceName || configuration.name,
+      },
+      { today: TODAY_DATE_KEY },
+    );
 
     setSaving(true);
     setMessage("");
     setExistingSchedule(null);
+    setOverlaps([]);
 
     try {
       const response = await saveBookingService.saveBooking({
@@ -768,7 +1133,8 @@ export default function BookingAvailabilityMaintenance({
       // Keep the "Has schedule" labels up to date.
       loadScheduledServices();
 
-      setMessage(
+      notify(
+        "success",
         t(
           wasEditing
             ? "bookingAvailabilityMaintenance.messages.updated"
@@ -786,13 +1152,36 @@ export default function BookingAvailabilityMaintenance({
           serviceName: selectedServiceName,
           reason: "save",
         });
-        setMessage(t("bookingAvailabilityMaintenance.messages.serviceHasSchedule"));
+        notify("warning", t("bookingAvailabilityMaintenance.messages.serviceHasSchedule"));
         return;
       }
-      setMessage(
-        error?.message ||
-          t("bookingAvailabilityMaintenance.messages.saveError"),
-      );
+      // One location at a time (2026-11-07): these hours are already in
+      // another location.
+      const clashes = overlapsFromError(error);
+      if (clashes.length > 0) {
+        setOverlaps(clashes);
+        notify(
+          "warning",
+          tl(
+            "bookingAvailabilityMaintenance.messages.locationOverlap",
+            "Not saved: you attend in one location at a time and these hours are already in another location. Change the hours or the location, or turn on \"We can attend in more than one location at the same time\" in Locations.",
+          ),
+        );
+        return;
+      }
+      // Two ranges in the same location (database rule): a clear sentence.
+      const text = String(error?.message || "");
+      if (/overlap with another range|exclusion constraint/i.test(text)) {
+        notify(
+          "warning",
+          tl(
+            "bookingAvailabilityMaintenance.messages.rangesOverlapSaved",
+            "Not saved: two ranges of the same day are at the same time in the same location (or both without a location). Change the hours or choose a different location. Your saved hours were not changed.",
+          ),
+        );
+        return;
+      }
+      notify("error", text || t("bookingAvailabilityMaintenance.messages.saveError"));
     } finally {
       setSaving(false);
     }
@@ -822,14 +1211,18 @@ export default function BookingAvailabilityMaintenance({
       </header>
 
       <form onSubmit={handleSave}>
-        <section className="booking-panel">
+        {/* Step 1 (2026-11-08): the service first; the rest opens after it. */}
+        <section className="booking-panel booking-panel--step-service">
           <div className="booking-panel__title">
-            <span>
-              <FaClock aria-hidden="true" />
-            </span>
+            <span className="booking-step-number">1</span>
             <div>
-              <h2>{t("bookingAvailabilityMaintenance.general.title")}</h2>
-              <p>{t("bookingAvailabilityMaintenance.general.description")}</p>
+              <h2>{tl("bookingAvailabilityMaintenance.steps.service", "Choose the service")}</h2>
+              <p>
+                {tl(
+                  "bookingAvailabilityMaintenance.steps.serviceHelp",
+                  "Start here: everything else in this schedule belongs to the service.",
+                )}
+              </p>
             </div>
           </div>
 
@@ -841,6 +1234,8 @@ export default function BookingAvailabilityMaintenance({
               <label htmlFor="booking-service">
                 {t("bookingAvailabilityMaintenance.fields.service.label")}
               </label>
+              <div className="booking-service-search">
+                <FaMagnifyingGlass className="booking-service-search__icon" aria-hidden="true" />
               <ServiceAutocomplete
                 id="booking-service"
                 t={t}
@@ -853,6 +1248,7 @@ export default function BookingAvailabilityMaintenance({
                   "bookingAvailabilityMaintenance.fields.service.searchPlaceholder",
                 )}
               />
+              </div>
               <small className="booking-field__help">
                 {t("bookingAvailabilityMaintenance.fields.service.help")}
               </small>
@@ -892,6 +1288,37 @@ export default function BookingAvailabilityMaintenance({
               </div>
             )}
 
+          </div>
+        </section>
+
+        {/* Usable before the service is chosen (outside the locked part). */}
+        {renderLocationsHint()}
+
+        <fieldset
+          className={`booking-steps${serviceChosen ? "" : " is-locked"}`}
+          disabled={!serviceChosen}
+          aria-disabled={!serviceChosen}
+        >
+          {!serviceChosen && (
+            <p className="booking-locked-note" role="note">
+              <FaLock aria-hidden="true" />
+              {tl(
+                "bookingAvailabilityMaintenance.steps.locked",
+                "Choose a service first. Then the rest of the form opens.",
+              )}
+            </p>
+          )}
+
+        <section className="booking-panel">
+          <div className="booking-panel__title">
+            <span className="booking-step-number">2</span>
+            <div>
+              <h2>{t("bookingAvailabilityMaintenance.general.title")}</h2>
+              <p>{t("bookingAvailabilityMaintenance.general.description")}</p>
+            </div>
+          </div>
+
+          <div className="booking-general-grid">
             <div className="booking-field">
               <label htmlFor="booking-duration">
                 {t("bookingAvailabilityMaintenance.fields.duration.label")}
@@ -1004,9 +1431,7 @@ export default function BookingAvailabilityMaintenance({
 
         <section className="booking-panel">
           <div className="booking-panel__title">
-            <span>
-              <FaCalendarWeek aria-hidden="true" />
-            </span>
+            <span className="booking-step-number">3</span>
             <div>
               <h2>{t("bookingAvailabilityMaintenance.mode.title")}</h2>
               <p>{t("bookingAvailabilityMaintenance.mode.description")}</p>
@@ -1045,6 +1470,18 @@ export default function BookingAvailabilityMaintenance({
               </span>
             </button>
           </div>
+          <p className="booking-mode-note">
+            {deletesOnSave()
+              ? tl(
+                  "bookingAvailabilityMaintenance.modeSwitch.willDelete",
+                  "When you save, the saved hours of \"{{other}}\" are deleted. Booked appointments are kept.",
+                  { other: modeName(deletesOnSave()) },
+                )
+              : tl(
+                  "bookingAvailabilityMaintenance.modeSwitch.onlyOne",
+                  "Use one of the two options. Only the hours of the selected option are saved and offered.",
+                )}
+          </p>
         </section>
 
         {configuration.mode === "weekly" ? (
@@ -1113,7 +1550,7 @@ export default function BookingAvailabilityMaintenance({
                       {!day.allDay && (
                         <div className="booking-time-ranges">
                           {day.ranges.map((range) => (
-                            <div className="booking-time-range" key={range.id}>
+                            <div className={rangeRowClass} key={range.id}>
                               <label>
                                 <span>
                                   {t(
@@ -1162,9 +1599,7 @@ export default function BookingAvailabilityMaintenance({
                                   type="number"
                                   min="0"
                                   step="1"
-                                  placeholder={t(
-                                    "bookingAvailabilityMaintenance.fields.usesGeneral",
-                                  )}
+                                  placeholder={generalPlaceholder}
                                   value={range.appointments}
                                   onChange={(event) =>
                                     updateWeeklyRange(
@@ -1176,6 +1611,12 @@ export default function BookingAvailabilityMaintenance({
                                   }
                                 />
                               </label>
+                              {renderLocationSelect(
+                                range.locationId,
+                                (value) =>
+                                  updateWeeklyRange(day.dayKey, range.id, "locationId", value),
+                                `booking-location-${range.id}`,
+                              )}
                               <button
                                 className="booking-icon-button booking-icon-button--danger"
                                 type="button"
@@ -1221,7 +1662,9 @@ export default function BookingAvailabilityMaintenance({
               </div>
               <span>
                 {t("bookingAvailabilityMaintenance.manual.openCount", {
-                  count: configuration.manualAvailability.length,
+                  count: configuration.manualAvailability.filter(
+                    (availability) => availability.date >= TODAY_DATE_KEY,
+                  ).length,
                 })}
               </span>
             </div>
@@ -1346,10 +1789,19 @@ export default function BookingAvailabilityMaintenance({
                       </span>
                     </label>
 
+                    {selectedManualDay.allDay &&
+                      selectedManualDay.ranges[0] &&
+                      renderLocationSelect(
+                        selectedManualDay.ranges[0].locationId,
+                        (value) =>
+                          updateManualRange(selectedManualDay.ranges[0].id, "locationId", value),
+                        "booking-location-all-day",
+                      )}
+
                     {!selectedManualDay.allDay && (
                       <div className="booking-time-ranges">
                         {selectedManualDay.ranges.map((range) => (
-                          <div className="booking-time-range" key={range.id}>
+                          <div className={rangeRowClass} key={range.id}>
                             <label>
                               <span>
                                 {t(
@@ -1396,9 +1848,7 @@ export default function BookingAvailabilityMaintenance({
                                 type="number"
                                 min="0"
                                 step="1"
-                                placeholder={t(
-                                  "bookingAvailabilityMaintenance.fields.usesGeneral",
-                                )}
+                                placeholder={generalPlaceholder}
                                 value={range.appointments}
                                 onChange={(event) =>
                                   updateManualRange(
@@ -1409,6 +1859,11 @@ export default function BookingAvailabilityMaintenance({
                                 }
                               />
                             </label>
+                            {renderLocationSelect(
+                              range.locationId,
+                              (value) => updateManualRange(range.id, "locationId", value),
+                              `booking-location-${range.id}`,
+                            )}
                             <button
                               className="booking-icon-button booking-icon-button--danger"
                               type="button"
@@ -1474,30 +1929,69 @@ export default function BookingAvailabilityMaintenance({
             </div>
           )}
 
-          <div className="booking-slot-list">
-            {generatedSlots.length === 0 ? (
-              <div className="booking-slot-list__empty">
-                {t("bookingAvailabilityMaintenance.preview.empty")}
-              </div>
-            ) : (
-              generatedSlots.map((slot, index) => (
-                <span key={`${slot.start}-${slot.end}-${index}`}>
-                  <FaClock aria-hidden="true" />
-                  {t("bookingAvailabilityMaintenance.preview.slot", {
-                    start: slot.start,
-                    end: slot.end,
-                  })}
-                </span>
-              ))
-            )}
-          </div>
+          {generatedSlots.length === 0 ? (
+            <div className="booking-slot-list__empty">
+              {t("bookingAvailabilityMaintenance.preview.empty")}
+            </div>
+          ) : (
+            <div className="booking-slot-groups">
+              {previewGroups.map((group) => (
+                <div className="booking-slot-group" key={group.key}>
+                  {group.label && (
+                    <strong className="booking-slot-group__name">
+                      <FaLocationDot aria-hidden="true" />
+                      {group.label}
+                      <small>
+                        {t("bookingAvailabilityMaintenance.preview.count", {
+                          count: group.slots.length,
+                        })}
+                      </small>
+                    </strong>
+                  )}
+                  <div className="booking-slot-list">
+                    {group.slots.map((slot, index) => (
+                      <span key={`${slot.start}-${slot.end}-${index}`}>
+                        <FaClock aria-hidden="true" />
+                        {t("bookingAvailabilityMaintenance.preview.slot", {
+                          start: slot.start,
+                          end: slot.end,
+                        })}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </section>
+
+        {overlaps.length > 0 && (
+          <div className="booking-location-overlaps" role="alert">
+            <FaTriangleExclamation aria-hidden="true" />
+            <div>
+              <strong>
+                {tl(
+                  "bookingAvailabilityMaintenance.messages.overlapTitle",
+                  "Hours already in another location",
+                )}
+              </strong>
+              <ul>
+                {overlaps.map((overlap, index) => (
+                  <li key={index}>{overlapMessage(t, overlap)}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )}
+
+        </fieldset>
 
         <footer className="booking-availability-maintenance__footer">
           <p role="status">{message}</p>
           <button
             className="booking-button booking-button--primary"
             type="submit"
+            disabled={!serviceChosen || saving}
           >
             <FaFloppyDisk aria-hidden="true" />
             {t(
@@ -1508,6 +2002,47 @@ export default function BookingAvailabilityMaintenance({
           </button>
         </footer>
       </form>
+
+      {pendingMode && (
+        <div className="booking-confirm" role="presentation" onClick={() => setPendingMode(null)}>
+          <div
+            className="booking-confirm__dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="booking-confirm-title"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <h3 id="booking-confirm-title">
+              {tl("bookingAvailabilityMaintenance.modeSwitch.title", "Change to {{mode}}?", {
+                mode: modeName(pendingMode),
+              })}
+            </h3>
+            <p>
+              {tl(
+                "bookingAvailabilityMaintenance.modeSwitch.body",
+                "A schedule uses only one option. When you save, the saved hours of \"{{current}}\" are deleted and you start again with {{mode}}. Appointments already booked are kept.",
+                { current: modeName(configuration.mode), mode: modeName(pendingMode) },
+              )}
+            </p>
+            <div className="booking-confirm__actions">
+              <button
+                type="button"
+                className="booking-button booking-button--secondary"
+                onClick={() => setPendingMode(null)}
+              >
+                {tl("bookingAvailabilityMaintenance.modeSwitch.cancel", "Cancel")}
+              </button>
+              <button
+                type="button"
+                className="booking-button booking-button--primary"
+                onClick={() => applyMode(pendingMode)}
+              >
+                {tl("bookingAvailabilityMaintenance.modeSwitch.confirm", "Change and delete on save")}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

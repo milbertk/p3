@@ -21,6 +21,7 @@ import {
   LuUserCheck,
   LuPalette,
   LuExternalLink,
+  LuMapPin,
 } from "react-icons/lu";
 
 import "./maintemplateshao.scss";
@@ -124,6 +125,16 @@ const MENU_ITEMS = [
     icon: <FaUserClock />,
     labelKey: "sidebar.selfbooking",
     path: "/shao/book-for-customer",
+  },
+  {
+    // Locations ("Sedes", 2026-11-07). Users with "Booking schedules" can
+    // also change locations (the backend accepts both permissions).
+    key: "NAV_LOCATIONS_ACCESS",
+    alsoKeys: ["NAV_BOOKING_ACCESS"],
+    group: "bookings",
+    icon: <LuMapPin />,
+    labelKey: "sidebar.locations",
+    path: "/shao/locations",
   },
   // ---- Customers ----
   {
@@ -293,7 +304,8 @@ export default function MainTemplateShao(props) {
       enable:
         (item.key === "NAV_HOME_ACCESS" ||
           hasFullAccess ||
-          permissions.has(item.key)) &&
+          permissions.has(item.key) ||
+          (item.alsoKeys || []).some((code) => permissions.has(code))) &&
         (item.external !== "store" || Boolean(companyId)),
     }));
   }, [hasFullAccess, permissions, t]);

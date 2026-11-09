@@ -850,3 +850,324 @@ $success: #198754;
   font-size: 0.8rem;
   color: #6b7585;
 }
+/* =====================================================================
+   Locations ("Sedes", 2026-11-07): location field on each block of hours
+   and the list of hours that clash with another location.
+   ===================================================================== */
+// With a Location (2026-11-08): two lines so nothing overflows in the narrow
+// day editor: From · To · Appointments · delete, then the Location below.
+.booking-time-range--with-location {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 0.8fr) 38px;
+  grid-template-areas:
+    "from to count delete"
+    "location location location .";
+  row-gap: 8px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed #e1e5eb;
+
+  > label:nth-child(1) { grid-area: from; }
+  > label:nth-child(2) { grid-area: to; }
+  > label:nth-child(3) { grid-area: count; }
+  > .booking-time-range__location { grid-area: location; }
+  > .booking-icon-button { grid-area: delete; }
+
+  label,
+  input,
+  select {
+    min-width: 0;
+  }
+
+  input[type="time"] {
+    padding-right: 6px;
+    padding-left: 8px;
+  }
+
+  // Phone: one field per line (a time field needs about 130 px).
+  @media (max-width: 520px) {
+    grid-template-columns: minmax(0, 1fr) 38px;
+    grid-template-areas:
+      "from delete"
+      "to ."
+      "count ."
+      "location location";
+  }
+}
+
+.booking-time-range__location {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+
+  > span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: $muted;
+    font-size: 0.76rem;
+    font-weight: 650;
+
+    svg {
+      color: $primary;
+    }
+  }
+
+  select {
+    width: 100%;
+    min-height: 42px;
+    padding: 0 10px;
+    color: #1d2735;
+    background: #fff;
+    border: 1px solid #d5dbe5;
+    border-radius: 8px;
+  }
+}
+
+// "Customer chooses" hint under the location field (2026-11-08).
+.booking-time-range__location-hint {
+  color: $muted;
+  font-size: 0.74rem;
+  line-height: 1.3;
+}
+
+.booking-day-editor__content > .booking-time-range__location {
+  max-width: 320px;
+  margin-bottom: 12px;
+}
+
+.booking-location-overlaps {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 16px 0 0;
+  padding: 12px 14px;
+  color: #664d03;
+  background: #fff8e6;
+  border: 1px solid #f5dfa3;
+  border-radius: 10px;
+
+  svg {
+    flex: 0 0 auto;
+    margin-top: 3px;
+  }
+
+  ul {
+    margin: 6px 0 0;
+    padding-left: 18px;
+  }
+}
+
+// "Create your locations first" hint (2026-11-08).
+.booking-locations-hint {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  background: #eef3ff;
+  border: 1px solid rgba($primary, 0.25);
+  border-radius: 10px;
+  color: #2b3445;
+
+  p {
+    flex: 1;
+    margin: 0;
+    font-size: 0.88rem;
+    line-height: 1.4;
+  }
+
+  &__icon {
+    flex: 0 0 auto;
+    color: $primary;
+    font-size: 1.1rem;
+  }
+
+  &__go {
+    flex: 0 0 auto;
+    padding: 7px 12px;
+    color: #fff;
+    font-size: 0.84rem;
+    font-weight: 600;
+    background: $primary;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+
+    &:hover {
+      background: $primary-dark;
+    }
+  }
+
+  &__close {
+    flex: 0 0 auto;
+    display: inline-flex;
+    padding: 6px;
+    color: $muted;
+    background: transparent;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+
+    &:hover {
+      color: #2b3445;
+      background: rgba($primary, 0.08);
+    }
+  }
+
+  @media (max-width: 640px) {
+    flex-wrap: wrap;
+
+    p {
+      flex-basis: calc(100% - 70px);
+    }
+  }
+}
+
+// ---- Steps (2026-11-08): service first, the rest locked until then ----
+.booking-panel__title > span.booking-step-number {
+  color: #fff;
+  font-weight: 700;
+  background: $primary;
+  border-radius: 50%;
+}
+
+.booking-panel--step-service {
+  border-color: rgba($primary, 0.45);
+  box-shadow: 0 0 0 3px rgba($primary, 0.08);
+}
+
+.booking-service-search {
+  position: relative;
+
+  &__icon {
+    position: absolute;
+    top: 14px;
+    left: 12px;
+    z-index: 1;
+    color: $muted;
+    pointer-events: none;
+  }
+
+  .booking-autocomplete input {
+    padding-left: 36px;
+  }
+}
+
+.booking-steps {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+
+  &.is-locked {
+    > .booking-panel,
+    > .booking-locations-hint {
+      opacity: 0.45;
+      filter: grayscale(0.4);
+    }
+  }
+}
+
+.booking-locked-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 14px;
+  padding: 10px 14px;
+  color: #2b3445;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background: #fff8e6;
+  border: 1px solid #f5dfa3;
+  border-radius: 10px;
+
+  svg {
+    color: #b7791f;
+  }
+}
+
+.booking-mode-note {
+  margin: 12px 0 0;
+  color: $muted;
+  font-size: 0.82rem;
+}
+
+// Confirmation when changing the mode deletes saved hours.
+.booking-confirm {
+  position: fixed;
+  inset: 0;
+  z-index: 1060;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(17, 24, 39, 0.45);
+
+  &__dialog {
+    width: min(460px, 100%);
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(17, 24, 39, 0.25);
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 1.05rem;
+    }
+
+    p {
+      margin: 0 0 18px;
+      color: #3a4352;
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+}
+
+// Preview: one row per location (2026-11-08); many rows scroll inside.
+.booking-slot-groups {
+  display: grid;
+  gap: 12px;
+  max-height: 320px;
+  overflow: auto;
+  padding-right: 4px;
+
+  .booking-slot-list {
+    max-height: none;
+    overflow: visible;
+  }
+}
+
+.booking-slot-group {
+  display: grid;
+  gap: 7px;
+
+  & + & {
+    padding-top: 12px;
+    border-top: 1px dashed #e1e5eb;
+  }
+
+  &__name {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #2b3445;
+    font-size: 0.86rem;
+
+    svg {
+      color: $primary;
+    }
+
+    small {
+      margin-left: 4px;
+      color: $muted;
+      font-weight: 500;
+    }
+  }
+}
+

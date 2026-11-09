@@ -13,6 +13,7 @@ import {
   FaPhone,
   FaEnvelope,
   FaLink,
+  FaLocationDot,
 } from "react-icons/fa6";
 import "./BookingReservationForm.scss";
 
@@ -22,6 +23,7 @@ import SelectAppointmentService from "../services/SelectAppointmentService";
 import DeleteAppointmentService from "../services/DeleteAppointmentService";
 import SearchProductsService from "../../products/services/SearchProductsService";
 import SearchCustomersService from "../../customers/services/SearchCustomersService";
+import LocationsService from "../../locations/services/LocationsService";
 
 const SELECTED_COMPANY_STORAGE_KEY = "selectedCompany";
 
@@ -31,6 +33,7 @@ const selectAppointmentService = new SelectAppointmentService();
 const deleteAppointmentService = new DeleteAppointmentService();
 const searchProductsService = new SearchProductsService();
 const searchCustomersService = new SearchCustomersService();
+const locationsService = new LocationsService();
 
 function readSelectedCompanyId() {
   try {
@@ -75,6 +78,9 @@ const EMPTY_APPOINTMENT = {
   startHour: "",
   endHour: "",
 
+  // Location (2026-11-07): optional, "" = none.
+  locationId: "",
+
   // Notes.
   comments: "",
 };
@@ -95,6 +101,10 @@ export default function BookingReservationForm({ t, onCancel = () => {} }) {
   const [customerResults, setCustomerResults] = useState([]);
   const [saving, setSaving] = useState(false);
   const [searching, setSearching] = useState(false);
+  // Locations of the company (2026-11-07); the field shows only when the
+  // company uses locations ("We use locations", 2026-11-08) and has some.
+  const [locations, setLocations] = useState([]);
+  const [locationsOn, setLocationsOn] = useState(false);
 
   const tr = useMemo(() => {
     return (key, fallback) => {
@@ -109,6 +119,31 @@ export default function BookingReservationForm({ t, onCancel = () => {} }) {
   }, [t]);
 
   const isEditing = Boolean(appointment.appointmentId);
+
+  useEffect(() => {
+    let active = true;
+    const companyId = readSelectedCompanyId();
+    if (!companyId) return undefined;
+    locationsService
+      .forForms({ companyId })
+      .then(({ enabled, locations: list }) => {
+        if (!active) return;
+        setLocationsOn(enabled);
+        setLocations(enabled ? list : []);
+      })
+      .catch(() => {
+        // Without the list the form works as before (no location field).
+        // The saved location of a loaded appointment is still sent back.
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  // Active locations + the one of the loaded appointment (even if disabled).
+  const locationOptions = locations.filter(
+    (location) => location.active || location.locationId === appointment.locationId,
+  );
 
   const serviceName = selectedServiceName;
 
@@ -297,6 +332,7 @@ export default function BookingReservationForm({ t, onCancel = () => {} }) {
       date: appt.appointmentDate || appt.appointment_date || "",
       startHour: appt.startHour || appt.start_hour || "",
       endHour: appt.endHour || appt.end_hour || "",
+      locationId: appt.locationId || appt.location_id || "",
       comments: appt.comments || "",
     };
     setAppointment(loaded);
@@ -358,6 +394,7 @@ export default function BookingReservationForm({ t, onCancel = () => {} }) {
           appointmentDate: appointment.date,
           startHour: appointment.startHour,
           endHour: appointment.endHour,
+          locationId: appointment.locationId || "",
           status: "CANCELLED",
           comments: appointment.comments || "",
         },
@@ -432,6 +469,7 @@ export default function BookingReservationForm({ t, onCancel = () => {} }) {
       appointmentDate: appointment.date,
       startHour: appointment.startHour,
       endHour: appointment.endHour,
+      locationId: appointment.locationId || "",
       status: appointment.status || "SCHEDULED",
       comments: appointment.comments || "",
     };
@@ -445,6 +483,7 @@ export default function BookingReservationForm({ t, onCancel = () => {} }) {
 
       const saved = response?.result?.appointment;
       const conflicts = Number(response?.result?.conflictCount) || 0;
+      const otherLocations = Number(response?.result?.otherLocationCount) || 0;
 
       // Adopt the id/date returned by the backend so a second save updates.
       if (saved) {
@@ -456,14 +495,25 @@ export default function BookingReservationForm({ t, onCancel = () => {} }) {
         }));
       }
 
+      const warnings = [];
       if (conflicts > 0) {
-        setConflictWarning(
+        warnings.push(
           tr(
             "appointment.messages.conflict",
             "Heads up: this schedule is already taken by {count} appointment(s).",
           ).replace("{count}", String(conflicts)),
         );
       }
+      // One location at a time (2026-11-07): the same time in another place.
+      if (otherLocations > 0) {
+        warnings.push(
+          tr(
+            "appointment.messages.otherLocation",
+            "Heads up: at this time you already have {count} appointment(s) in another location.",
+          ).replace("{count}", String(otherLocations)),
+        );
+      }
+      if (warnings.length > 0) setConflictWarning(warnings.join(" "));
 
       setMessage(tr("appointment.messages.saved", "The appointment was saved successfully."));
     } catch (err) {
@@ -546,6 +596,7 @@ export default function BookingReservationForm({ t, onCancel = () => {} }) {
                   <strong>{appt.customerName}</strong>
                   <small>
                     {appt.date} · {appt.startHour}-{appt.endHour} · {appt.status}
+                    {locationsOn && appt.locationName ? ` · ${appt.locationName}` : ""}
                   </small>
                 </button>
               </li>
@@ -743,6 +794,26 @@ export default function BookingReservationForm({ t, onCancel = () => {} }) {
               <input id="appt-end" type="time" name="endHour" value={appointment.endHour} onChange={updateField} />
             </div>
           </div>
+
+          {locationOptions.length > 0 && (
+            <div className="reservation__grid reservation__grid--single">
+              <div className="reservation__field">
+                <label htmlFor="appt-location">
+                  <FaLocationDot aria-hidden="true" /> {tr("appointment.fields.location", "Location")}
+                </label>
+                <select id="appt-location" name="locationId" value={appointment.locationId} onChange={updateField}>
+                  <option value="">{tr("appointment.fields.noLocation", "No location")}</option>
+                  {locationOptions.map((location) => (
+                    <option key={location.locationId} value={location.locationId}>
+                      {location.name}
+                      {location.address ? ` — ${location.address}` : ""}
+                      {location.active ? "" : ` (${tr("appointment.fields.locationDisabled", "disabled")})`}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+          )}
 
         </div>
 

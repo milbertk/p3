@@ -6,6 +6,7 @@ import {
   FaEnvelope,
   FaEye,
   FaFilter,
+  FaLocationDot,
   FaMagnifyingGlass,
   FaPhone,
   FaRotateLeft,
@@ -18,6 +19,9 @@ import "./BookingRequestManagement.scss";
 import AppointmentRequestActionsService from "../../bookingRequestManagment/services/AppointmentRequestActionsService"
 import SelectAppointmentService from  "../../bookingSelfReservation/services/SelectAppointmentService"
 import SearchAppointmentsService from "../../bookingSelfReservation/services/SearchAppointmentsService"
+import { mapsUrl } from "../../locations/services/locationUtils";
+import LocationsService from "../../locations/services/LocationsService";
+import AppointmentLocationEditor from "../../locations/components/AppointmentLocationEditor";
 
 const SELECTED_COMPANY_STORAGE_KEY = "selectedCompany";
 
@@ -34,6 +38,16 @@ function readSelectedCompanyId() {
 
 const searchAppointmentsService = new SearchAppointmentsService();
 const appointmentActionsService = new AppointmentRequestActionsService();
+const locationsService = new LocationsService();
+
+// "We use locations" off (2026-11-08): the screen shows no location.
+const withoutLocation = (request) => ({
+  ...request,
+  locationId: "",
+  locationName: "",
+  locationAddress: "",
+  locationMapsUrl: "",
+});
 
 // Map a backend appointment status to this screen's vocabulary.
 function mapAppointmentStatus(backendStatus) {
@@ -63,6 +77,13 @@ function mapAppointmentRow(row) {
     requestedAt: row.createdAt || null,
     status: mapAppointmentStatus(row.status),
     notes: row.comments || "",
+    // Location chosen by the customer (2026-11-07); "" when none.
+    locationId: row.locationId || "",
+    locationName: row.locationName || "",
+    locationAddress: row.locationAddress || "",
+    locationMapsUrl: row.locationName
+      ? mapsUrl({ address: row.locationAddress, latitude: row.locationLatitude, longitude: row.locationLongitude })
+      : "",
   };
 }
 
@@ -198,6 +219,9 @@ export default function BookingRequestManagement({
   const [customTo, setCustomTo] = useState(formatDateInput(today));
   const [selectedRequestId, setSelectedRequestId] = useState(null);
   const [message, setMessage] = useState("");
+  // Locations of the company when it uses them (2026-11-08): the request
+  // detail can choose / change the location before approving.
+  const [companyLocations, setCompanyLocations] = useState([]);
 
   // Load the real requests (all statuses so every filter works).
   const loadRequests = async () => {
@@ -208,11 +232,25 @@ export default function BookingRequestManagement({
     }
     setLoadingRequests(true);
     try {
-      const rows = await searchAppointmentsService.getAppointments({
-        companyId,
-        filters: { limit: 500 },
-      });
-      setRequests((Array.isArray(rows) ? rows : []).map(mapAppointmentRow).filter(Boolean));
+      const [rows, settings] = await Promise.all([
+        searchAppointmentsService.getAppointments({
+          companyId,
+          filters: { limit: 500 },
+        }),
+        locationsService.getSettings({ companyId }).catch(() => ({ locationsEnabled: false })),
+      ]);
+      const locationsOn = Boolean(settings?.locationsEnabled);
+      setRequests(
+        (Array.isArray(rows) ? rows : [])
+          .map(mapAppointmentRow)
+          .filter(Boolean)
+          .map((request) => (locationsOn ? request : withoutLocation(request))),
+      );
+      setCompanyLocations(
+        locationsOn
+          ? await locationsService.list({ companyId, includeInactive: true }).catch(() => [])
+          : [],
+      );
     } catch (error) {
       console.error("Error loading booking requests:", error);
       setMessage(error?.message || "Could not load the requests.");
@@ -268,6 +306,26 @@ export default function BookingRequestManagement({
     statusFilter,
     t,
   ]);
+
+  // After "Save location": show the new location in the list and detail.
+  const applyLocation = (requestId, locationId) => {
+    const location = companyLocations.find((item) => item.locationId === locationId);
+    setRequests((current) =>
+      current.map((request) =>
+        request.id === requestId
+          ? {
+              ...request,
+              locationId: locationId || "",
+              locationName: location?.name || "",
+              locationAddress: location?.address || "",
+              locationMapsUrl: location
+                ? mapsUrl({ address: location.address, latitude: location.latitude, longitude: location.longitude })
+                : "",
+            }
+          : request,
+      ),
+    );
+  };
 
   const selectedRequest = requests.find(
     (request) => request.id === selectedRequestId,
@@ -490,6 +548,11 @@ export default function BookingRequestManagement({
                 </td>
                 <td>
                   {request.serviceName || request.serviceKey}
+                  {request.locationName && (
+                    <small className="booking-request-location">
+                      <FaLocationDot aria-hidden="true" /> {request.locationName}
+                    </small>
+                  )}
                 </td>
                 <td>
                   <span
@@ -651,7 +714,37 @@ export default function BookingRequestManagement({
                   {formatFullDateTime(selectedRequest.requestedAt, appLocale)}
                 </strong>
               </div>
+              {selectedRequest.locationName && (
+                <div>
+                  <small>
+                    {t("bookingRequestManagement.details.location", { defaultValue: "Location" })}
+                  </small>
+                  <strong>
+                    <FaLocationDot aria-hidden="true" /> {selectedRequest.locationName}
+                  </strong>
+                  {selectedRequest.locationAddress && <span>{selectedRequest.locationAddress}</span>}
+                  {selectedRequest.locationMapsUrl && (
+                    <a href={selectedRequest.locationMapsUrl} target="_blank" rel="noopener noreferrer">
+                      {t("bookingRequestManagement.details.openMaps", { defaultValue: "Open in Maps" })}
+                    </a>
+                  )}
+                </div>
+              )}
             </div>
+
+            {companyLocations.some((location) => location.active) &&
+              selectedRequest.status !== "rejected" && (
+                <AppointmentLocationEditor
+                  t={t}
+                  companyId={readSelectedCompanyId()}
+                  appointmentId={selectedRequest.id}
+                  locationId={selectedRequest.locationId}
+                  locations={companyLocations}
+                  warnWhenEmpty={selectedRequest.status === "requested"}
+                  notifiesCustomer={selectedRequest.status === "accepted"}
+                  onSaved={(locationId) => applyLocation(selectedRequest.id, locationId)}
+                />
+              )}
 
             <div className="booking-request-dialog__notes">
               <small>{t("bookingRequestManagement.details.notes")}</small>

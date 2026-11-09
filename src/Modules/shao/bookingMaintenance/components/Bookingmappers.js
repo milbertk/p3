@@ -6,8 +6,8 @@
 //    configuration = {
 //      id, name, serviceId, mode ("weekly"|"manual"), durationMinutes,
 //      active, generalAppointments, lifespan, disabledFrom, disabledTo,
-//      weeklySchedule: [ { dayKey, enabled, allDay, ranges: [{start,end,appointments}] } ],
-//      manualAvailability: [ { date, allDay, ranges: [{start,end,appointments}] } ],
+//      weeklySchedule: [ { dayKey, enabled, allDay, ranges: [{start,end,appointments,locationId}] } ],
+//      manualAvailability: [ { date, allDay, ranges: [{start,end,appointments,locationId}] } ],
 //    }
 //
 //  Backend bundle:
@@ -15,10 +15,28 @@
 //      config: { bookingConfigId, serviceProductId, name, appointmentDurationMinutes,
 //                active, generalAppointmentsPerSlot, bookingWindow,
 //                disableHolidaysEnabled, disabledFrom, disabledTo, availabilityMode },
-//      recurringRanges: [ { dayOfWeek, startTime, endTime, appointments, active } ],
-//      manualSlots:     [ { slotDate, allDay, startTime, endTime, appointments } ],
+//      recurringRanges: [ { dayOfWeek, startTime, endTime, appointments, active, locationId } ],
+//      manualSlots:     [ { slotDate, allDay, startTime, endTime, appointments, locationId } ],
+//
+//  locationId (2026-11-07): optional location of the hours ("" / null = none).
+//  customerChoosesLocation (2026-11-08): the customer chooses the location
+//    (any active one) when booking; then locationId is null. In the
+//    component it is the locationId value CUSTOMER_CHOOSES.
 //    }
 // =====================================================================
+
+import { CUSTOMER_CHOOSES } from "../../locations/services/locationUtils";
+
+// Location of one block of hours, component -> backend.
+const locationOut = (value) => {
+  const id = String(value || "").trim();
+  if (id === CUSTOMER_CHOOSES) return { locationId: null, customerChoosesLocation: true };
+  return { locationId: id || null, customerChoosesLocation: false };
+};
+
+// Location of one backend row -> component value.
+const locationIn = (row) =>
+  row?.customerChoosesLocation ? CUSTOMER_CHOOSES : String(row?.locationId || "");
 
 const DAY_KEY_TO_ENUM = {
   monday: "MONDAY",
@@ -67,7 +85,10 @@ function toNullableString(value) {
 // ---------------------------------------------------------------------
 // COMPONENT -> BACKEND (for saving)
 // ---------------------------------------------------------------------
-export function configurationToBundle(configuration) {
+// options.today ("YYYY-MM-DD", 2026-11-08): dates before it are history and
+// are not sent (the backend keeps them and would refuse them twice).
+export function configurationToBundle(configuration, options = {}) {
+  const today = String(options.today || "");
   const mode = configuration.mode === "manual" ? "MANUAL" : "RECURRING";
 
   const config = {
@@ -87,9 +108,11 @@ export function configurationToBundle(configuration) {
     availabilityMode: mode,
   };
 
+  // Only the hours of the chosen mode are sent (2026-11-08): saving deletes
+  // the hours of the other mode (booked appointments are kept).
   // Recurring ranges: one backend row per (enabled day x range).
   const recurringRanges = [];
-  (configuration.weeklySchedule || []).forEach((day) => {
+  (mode === "RECURRING" ? configuration.weeklySchedule || [] : []).forEach((day) => {
     if (!day.enabled) return;
     (day.ranges || []).forEach((range) => {
       recurringRanges.push({
@@ -98,13 +121,15 @@ export function configurationToBundle(configuration) {
         endTime: String(range.end || "").trim(),
         appointments: toNullableInt(range.appointments),
         active: true,
+        ...locationOut(range.locationId),
       });
     });
   });
 
   // Manual slots: one backend row per (date x range), or one all-day row.
   const manualSlots = [];
-  (configuration.manualAvailability || []).forEach((entry) => {
+  (mode === "MANUAL" ? configuration.manualAvailability || [] : []).forEach((entry) => {
+    if (today && String(entry.date || "") < today) return;
     if (entry.allDay) {
       manualSlots.push({
         slotDate: String(entry.date || "").trim(),
@@ -116,6 +141,7 @@ export function configurationToBundle(configuration) {
             ? entry.ranges[0].appointments
             : "",
         ),
+        ...locationOut(entry.ranges && entry.ranges[0] ? entry.ranges[0].locationId : ""),
       });
       return;
     }
@@ -126,6 +152,7 @@ export function configurationToBundle(configuration) {
         startTime: String(range.start || "").trim(),
         endTime: String(range.end || "").trim(),
         appointments: toNullableInt(range.appointments),
+        ...locationOut(range.locationId),
       });
     });
   });
@@ -157,6 +184,7 @@ export function bundleToConfiguration(bundle) {
           r.appointments === null || r.appointments === undefined
             ? ""
             : String(r.appointments),
+        locationId: locationIn(r),
       }));
 
     return {
@@ -166,7 +194,7 @@ export function bundleToConfiguration(bundle) {
       ranges:
         dayRanges.length > 0
           ? dayRanges
-          : [{ id: localId("range"), start: "08:00", end: "17:00", appointments: "" }],
+          : [{ id: localId("range"), start: "08:00", end: "17:00", appointments: "", locationId: "" }],
     };
   });
 
@@ -192,6 +220,7 @@ export function bundleToConfiguration(bundle) {
             slot.appointments === null || slot.appointments === undefined
               ? ""
               : String(slot.appointments),
+          locationId: locationIn(slot),
         },
       ];
       return;
@@ -205,6 +234,7 @@ export function bundleToConfiguration(bundle) {
         slot.appointments === null || slot.appointments === undefined
           ? ""
           : String(slot.appointments),
+      locationId: locationIn(slot),
     });
   });
 

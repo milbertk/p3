@@ -470,3 +470,17 @@ $ink: #1f2733;
     justify-content: center;
   }
 }
+/* Location of the appointment (2026-11-07). */
+.appointment-location {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 2px;
+  color: $muted;
+  font-size: 0.78rem;
+
+  svg {
+    flex: 0 0 auto;
+    color: #2948bd;
+  }
+}

@@ -13,6 +13,7 @@ export const ASSISTANT_ROUTES = {
   "/shao/booking-requests": "sidebar.aprovalb",
   "/shao/appointments": "sidebar.appointments",
   "/shao/book-for-customer": "sidebar.selfbooking",
+  "/shao/locations": "sidebar.locations",
   "/shao/customers": "sidebar.customers",
   "/shao/page-configuration": "sidebar.pageConfiguration",
   "/shao/reports": "sidebar.reports",

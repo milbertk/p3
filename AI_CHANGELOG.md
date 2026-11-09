@@ -4,6 +4,189 @@ Keeps the latest 15 changes made with Claude (oldest are removed). Newest first.
 
 ---
 
+## 51. 2026-11-08 — Location in Booking requests and Appointments
+
+**Backups:** `.ai_backups/2026-11-08_before_appointment_location/`.
+
+**Description:** works with shao #41. Only when "We use locations" is ON:
+- New component `AppointmentLocationEditor` (Location list + "Save location"): active locations, plus the current one
+  even if disabled; "No location". Save is disabled until something changes. Toasts: saved, saved + customer notified,
+  warning when another appointment is at that hour in another location, error.
+- Booking requests detail: the editor shows for requests that aren't rejected. A request without a location shows
+  "Choose the location before approving" (a warning; approving is still allowed).
+- Appointments detail: the editor shows for scheduled appointments; the customer gets an email.
+- `LocationsService.setAppointmentLocation()`; en/es texts `locations.appointmentEditor.*`.
+Book for a customer already had the location field (unchanged). Browser-tested (en/es): options, warning, save +
+PUT, notified toast, error toast, locations OFF = no editor. AI knowledge: updated (shao #41, usersAppAK #24).
+
+**New:** src/Modules/shao/locations/components/AppointmentLocationEditor.jsx + .scss
+
+**Modified:** src/Modules/shao/bookingRequestManagment/components/BookingRequestManagement.jsx,
+src/Modules/shao/trackingAppointments/components/AppointmentManagement.jsx,
+src/Modules/shao/locations/services/LocationsService.js, src/Shared/i18n/locales/en.json, es.json
+
+**Undo:** restore the `.bak` files from the backup folder and delete the two new files.
+
+---
+
+## 50. 2026-11-08 — Booking schedules: past dates not sent, today selected, preview per location
+
+**Backups:** `.ai_backups/2026-11-08_before_past_dates_preview/`.
+
+**Description:** works with shao #40.
+- `Bookingmappers.configurationToBundle(configuration, { today })`: dates before today are not sent (history).
+- The calendar opens on today (new schedule) or on the first open date from today on (saved schedule), never on a
+  past date; "open dates" counts only today onward; past dates stay greyed with their dot.
+- "Generated-space preview": the selected day's spaces in one row per location (name + count), "No location" and
+  "Customer chooses" rows too; many rows scroll inside the box. Without locations: one row as before. Singular texts
+  "1 space" / "1 open date" (en/es).
+Browser-tested (en/es): saved schedule with a past date (opens Nov 9, sends only Nov 9 and 12, saved toast), new
+schedule selects today, preview rows, earlier tests (flow, ranges). AI knowledge: updated (shao #40, usersAppAK #23).
+
+**Modified:** src/Modules/shao/bookingMaintenance/components/BookingAvailabilityMaintenance.jsx + .scss,
+Bookingmappers.js, src/Shared/i18n/locales/en.json, es.json
+
+**Undo:** restore the `.bak` files from the backup folder.
+
+---
+
+## 49. 2026-11-08 — Booking schedules in steps: service first, one mode, toasts
+
+**Backups:** `.ai_backups/2026-11-08_before_schedule_steps/`.
+
+**Description:** works with shao #39.
+- Step 1 "Choose the service" (search icon, highlighted); steps 2 and 3 and the hours stay locked and greyed out
+  ("Choose a service first…") until a service is chosen, so no work is lost by choosing the service late. The
+  "Create your locations first" box stays usable.
+- One mode only: changing the mode of a saved schedule asks first ("Change to …? When you save, the saved hours of …
+  are deleted… Appointments already booked are kept."); a note under the two options says what will happen;
+  `Bookingmappers.js` sends only the chosen mode's hours.
+- Toasts (react-toastify, already in App.js) for saved, could not save, validation problems, location clashes,
+  service opened/new and mode changed; the message under Save stays. The database overlap error becomes a clear
+  sentence. Old texts "…with mock data" fixed ("The booking schedule was saved."). en/es `steps.*`, `modeSwitch.*`,
+  `messages.rangesOverlapSaved`.
+Browser-tested (en/es): locked/unlocked, validation toast, saved toast, mode dialog (cancel / confirm), payload only
+the chosen mode, database overlap toast, earlier tests (ranges, hint, options).
+AI knowledge: updated (shao #39, usersAppAK #22); `assistantRoutes.js` not needed.
+
+**Modified:** src/Modules/shao/bookingMaintenance/components/BookingAvailabilityMaintenance.jsx + .scss,
+src/Modules/shao/bookingMaintenance/components/Bookingmappers.js, src/Shared/i18n/locales/en.json, es.json
+
+**Undo:** restore the `.bak` files from the backup folder.
+
+---
+
+## 48. 2026-11-08 — Booking schedules: 1-hour new ranges, overlap rule follows "same time", clear messages, layout
+
+**Backups:** `.ai_backups/2026-11-08_before_places_per_location/`.
+
+**Description:** works with shao #38.
+- A new time range (Add time range, or opening a calendar date) lasts one appointment (the appointment duration,
+  60 minutes by default) and starts where the last range ends (09:00 for the first). Was 3–4 hours.
+- Overlap rule: two ranges of the same day in two DIFFERENT locations may overlap only when "We can attend in more
+  than one location at the same time" is ON (each location keeps its own appointments); OFF = refused before saving.
+  A "Customer chooses" range never shares hours with another range. `LocationsService.forForms()` now also returns
+  `sameTime`.
+- Messages say the day/date, the hours and the reason: range too short or ending before it starts, overlap, two
+  locations at the same time (with the switch to turn on), "Customer chooses" overlap (en/es `messages.noRanges`,
+  `rangeTooShort`, `overlap`, `overlapPlaces`, `overlapChoice`).
+- Layout: with a Location, each range uses two lines (From · To · Appointments · delete, then Location); one field
+  per line on phones; nothing overflows. Appointments placeholder "General (N)".
+Browser-tested (en/es): new ranges, the 4 messages, same time ON/OFF, calendar and weekly, phone width, earlier tests.
+AI knowledge: updated (shao #38, usersAppAK #21); `assistantRoutes.js` not needed.
+
+**Modified:** src/Modules/shao/bookingMaintenance/components/BookingAvailabilityMaintenance.jsx + .scss,
+src/Modules/shao/locations/services/LocationsService.js, src/Shared/i18n/locales/en.json, es.json
+
+**Undo:** restore the `.bak` files from the backup folder.
+
+---
+
+## 47. 2026-11-08 — Booking schedules: "Create your locations first" box with "Go to Locations"
+
+**Backups:** `.ai_backups/2026-11-08_before_locations_hint/`.
+
+**Description:** works with shao #37 and usersAppAK #20 (AI knowledge only). In Booking schedules, under General
+information, a blue box explains that the Location field needs "We use locations" ON and at least one active
+location, with the button **Go to Locations** (`/shao/locations`) and a close button (×, remembered in this browser:
+localStorage `alephk.bookingSchedules.locationsHintClosed`). Texts: locations OFF → "Do you attend in more than one
+place? First turn on…"; ON without an active location → "Locations is on, but you have no active location…"; ON
+with an active location → no box. en/es `bookingAvailabilityMaintenance.locationsHint.*`. No backend or database
+change. Browser-tested (en/es, the 4 cases, Go button, close, phone width).
+AI knowledge: updated (shao #37, usersAppAK #20); `assistantRoutes.js` not needed.
+
+**Modified:** src/Modules/shao/bookingMaintenance/components/BookingAvailabilityMaintenance.jsx + .scss,
+src/Shared/i18n/locales/en.json, es.json
+
+**Undo:** restore the `.bak` files from the backup folder.
+
+---
+
+## 46. 2026-11-08 — "We use locations" switch + "Customer chooses (any active location)"
+
+**Backups:** `.ai_backups/2026-11-08_before_locations_options/`.
+
+**Description:** works with shao #35 (run its migration first; publish shao, p3 and the store together).
+- Locations: new main switch **"We use locations"** at the top (OFF = AlephK works without locations; the locations
+  stay saved and can be prepared). "We can attend in more than one location at the same time" is available only
+  when it is ON. Turning it ON while hours clash shows the list (same as the "same time" switch).
+- Booking schedules: the Location field shows only when locations are ON; new option **"Customer chooses (any active
+  location)"** with a short hint (stored as `customerChoosesLocation: true`, `locationId: null`; `Bookingmappers.js`
+  maps it to the field value `CUSTOMER_CHOOSES`). Such a block can not overlap another block of the same day; two
+  blocks in different fixed locations may overlap only when locations are ON. Hidden values are kept on save.
+- Book for a customer, Appointments, Booking requests: no location field / text when OFF (the saved location of a
+  loaded appointment is still sent back). Clash sentences say "the location the customer chooses".
+- `LocationsService`: settings `{ locationsEnabled, locationsSameTime }`, `saveSettings` sends only the fields given,
+  new `forForms()` (switch + list for the forms). en/es texts. Browser-tested (en/es): switch off/on/refused,
+  schedules option + overlap + payload, the three screens with locations off, and yesterday's tests.
+  AI knowledge: updated (shao #35, usersAppAK #19); `assistantRoutes.js` not needed (no new screen).
+
+**Modified:** src/Modules/shao/locations/ (components/LocationsMaintenance.jsx + .scss, services/LocationsService.js,
+services/locationUtils.js), src/Modules/shao/bookingMaintenance/components/ (BookingAvailabilityMaintenance.jsx +
+.scss, Bookingmappers.js), src/Modules/shao/bookingSelfReservation/components/BookingReservationForm.jsx,
+src/Modules/shao/trackingAppointments/components/AppointmentManagement.jsx,
+src/Modules/shao/bookingRequestManagment/components/BookingRequestManagement.jsx,
+src/Shared/i18n/locales/en.json, src/Shared/i18n/locales/es.json
+
+**Undo:** restore the `.bak` files from the backup folder.
+
+---
+
+## 45. 2026-11-07 — Locations ("Sedes") screen + location on hours and appointments
+
+**Backups:** `.ai_backups/2026-11-07_before_company_locations/`.
+
+**Description:** works with shao #34 (run its migration first; publish shao, p3 and the store together).
+- New screen **Locations** `/shao/locations` (menu Bookings, permission `NAV_LOCATIONS_ACCESS`; users with "Booking
+  schedules" also see it): list with usage ("3 blocks of hours · 2 upcoming appointments"), form (name, address,
+  details), map point by **"Use my current location"** (browser GPS; only https or localhost) or **pasting a Google
+  Maps link** (reads `@lat,lng`, `!3d!4d`, `?q=`, `query=`, `geo:` or plain coordinates; short `maps.app.goo.gl`
+  links are explained), latitude/longitude, **"Open in Maps"**. Disable (warning with future appointments), enable,
+  delete (a used one is disabled). Company switch **"We can attend in more than one location at the same time"**;
+  turning it off shows the clashing hours when refused.
+- Booking schedules: a **Location** field on each block of hours (weekly and dates; all-day dates too) when the
+  company has locations; overlapping blocks are allowed only in different locations; a 409 shows the list
+  ("Monday 10:00–12:00 is already in Heredia (Consulta)").
+- Book for a customer: **Location** field, sent on save and on cancel (keeps it); new warning "already N appointments
+  in another location". Appointments and Booking requests show the location (+ Open in Maps in the details).
+- Team and permissions: new item "Locations". AI assistant link `/shao/locations` (`assistantRoutes.js`).
+- en/es texts (`locations.*` and a few keys in booking / appointment screens). Browser-tested (en/es, 390 px).
+  AI knowledge: updated (shao #34, usersAppAK #18).
+
+**Created:** src/Modules/shao/locations/ (components/LocationsMaintenance.jsx + .scss, pages/LocationsShaoPage.jsx,
+services/LocationsService.js, services/locationUtils.js)
+**Modified:** src/Shared/routing/routing.js, src/Modules/shao/mainShao/templates/maintemplateShao.js,
+src/Modules/shao/CompanyUsersAccess/components/CompanyUsersAccess.jsx, src/Shared/Components/HeaderTools/assistantRoutes.js,
+src/Modules/shao/bookingMaintenance/components/BookingAvailabilityMaintenance.jsx (+ .scss), Bookingmappers.js,
+src/Modules/shao/bookingSelfReservation/components/BookingReservationForm.jsx,
+src/Modules/shao/trackingAppointments/components/AppointmentManagement.jsx (+ .scss),
+src/Modules/shao/bookingRequestManagment/components/BookingRequestManagement.jsx (+ .scss),
+src/Shared/i18n/locales/en.json, es.json
+
+**Revert:** copy the `.bak` files back ("__" = "/") and delete the `locations` module folder.
+
+---
+
 ## 44. 2026-11-04 — Clock in the top bar: company time + your computer's time
 
 **Backups:** `.ai_backups/2026-11-04_before_header_clock/`.
@@ -143,156 +326,5 @@ unused). The backend forces PLACED for new orders anyway.
 **Modified:** src/Modules/shao/orders/components/OrderMaintenance.jsx, src/Shared/i18n/locales/en.json, es.json
 
 **Revert:** copy the `.bak` files back.
-
----
-
-## 36. 2026-10-30 — Orders: "New customer" pop-up, better customer search, general tracking hidden
-
-**Backups:** `.ai_backups/2026-10-30_before_order_new_customer/`.
-
-**Description:** on `/shao/orders` (OrderMaintenance):
-- The "New customer" button (next to Search customer) did nothing (no onClick). It now opens the customer form in a
-  pop-up (react-bootstrap Modal, stacked by modalStacking), with the typed name prefilled; after Save the new customer is
-  selected in the order automatically. The pop-up is outside the order `<form>`, so it never saves the order.
-- Customer autocomplete: shows "Searching...", "No customers found." and the backend error (e.g. no plan) instead of
-  showing nothing; closes on outside click / Esc; Enter picks the first result (it used to submit the order); a
-  "Create a new customer" row at the end of the list; typing again also clears the old customer email; up to 8 results.
-- "Tracking" panel (general tracking) removed from the screen: tracking is per product now. The order always sends
-  `useGeneralTracking=false`, `generalTrackingId=""` (backend saves NULL). Panels renumbered (Details is 3).
-- CustomerCreateForm: new optional props `initialValues` and `onSaved(savedCustomer)` (pop-up mode); the customers page
-  is unchanged.
-
-**Modified:** src/Modules/shao/orders/components/OrderMaintenance.jsx + .scss,
-src/Modules/shao/customers/components/CustomerCreateForm.jsx, src/Shared/i18n/locales/en.json, es.json
-
-**Revert:** copy the `.bak` files back (README lists the paths).
-
----
-
-## 35. 2026-10-30 — Web orders: demo "Current company" card removed
-
-**Backups:** `.ai_backups/2026-10-30_before_web_orders_company_card/`.
-
-**Description:** `/shao/web-orders` showed a "Current company" card with a hard-coded demo name ("Maderas Finas CR",
-constant `CURRENT_COMPANY`) whatever company was selected. The card, the constant and the unused `FaGlobe` import were
-removed; the header already shows the real selected company. The web orders themselves always used the selected
-company (no change there). The text key `webOrderApproval.company.label` stays (unused).
-
-**Modified:** src/Modules/shao/webaprobal/components/WebOrderApproval.jsx
-
-**Revert:** copy the `.bak` file back.
-
----
-
-## 34. 2026-10-30 — Company page: "Use the AlephK general email" option
-
-**Backups:** `.ai_backups/2026-10-30_before_default_email_option/`.
-
-**Description:** works with shao AI_CHANGELOG #24. In Company page → communication with customers, new checkbox
-"Use the AlephK general email while my company has no email server (SMTP)" with help text: the company's own SMTP is
-always used when it exists; without it and without this option, customers receive no emails. Saved with the page
-(`useDefaultSmtp`). en/es texts, small styles.
-
-**Modified:** src/Modules/shao/pageConfiguration/components/PageConfiguration.jsx + .scss,
-src/Modules/shao/pageConfiguration/services/SavePageConfigurationService.js, src/Shared/i18n/locales/en.json, es.json
-
-**Revert:** copy the `.bak` files back (README lists the paths).
-
----
-
-## 33. 2026-10-30 — Processes: Delete / Disable / Enable buttons (page and product pop-up)
-
-**Backups:** `.ai_backups/2026-10-30_before_process_delete_disable/`.
-
-**Description:** works with shao AI_CHANGELOG #22. In the process screen (`/shao/order-stages` and the "+" pop-up of the
-product form, same component), after opening or saving a process the footer shows its usage ("Used by 2 product(s),
-5 order item(s)" / "Not used by any product or order") and:
-- **Delete** when it is not used (with a confirmation);
-- **Disable** when it is used, **Enable** when it is disabled.
-The search lists disabled processes too, with a "Disabled" label. The product form's Process list keeps only active
-ones; a product that already uses a disabled process shows "Current process (disabled)" so it is not lost. New
-`services/StepTemplateStatusService.js`; `SearchStepTemplatesService` option `includeInactive`. en/es texts.
-Browser test with a fake backend: Disable shown for a used process, Delete for an unused one, both work.
-
-**Modified:** src/Modules/shao/tracking/components/TrackingMaintenance.jsx + .scss,
-src/Modules/shao/tracking/services/SearchStepTemplatesService.js,
-src/Modules/shao/products/components/ProductMaintenanceForm.jsx, src/Shared/i18n/locales/en.json, es.json
-
-**New:** src/Modules/shao/tracking/services/StepTemplateStatusService.js
-
-**Revert:** copy the `.bak` files back (README lists the paths) and delete StepTemplateStatusService.js.
-
----
-
-## 32. 2026-10-30 — "Create a process": Save shows its message next to the button + missing fields in red
-
-**Backups:** `.ai_backups/2026-10-30_before_process_save_feedback/`.
-
-**Description:** QA: in the product form, "+" next to Process → **Save process** seemed to do nothing. The save works,
-but its messages (missing name / internal code / steps, or the server error) were shown only at the top of the window,
-out of sight in the pop-up. Now the same message also appears **right above the Save button** and the window scrolls to
-it; missing Name / Internal code / step names are outlined in red; the submit no longer bubbles to an outer form; save
-errors are written to the browser console. Browser test: empty save → "Please enter a name." visible next to Save, 2
-fields in red; server unreachable → error visible next to Save. No backend change.
-
-**Modified:** src/Modules/shao/tracking/components/TrackingMaintenance.jsx, TrackingMaintenance.scss
-
-**Revert:** copy the `.bak` files back (README lists the paths).
-
----
-
-## 31. 2026-10-29 — Pop-ups on top of pop-ups (quick actions) + "New category" button in the product form
-
-**Backups:** `.ai_backups/2026-10-29_before_nested_popups/`.
-
-**Description:**
-- **Bug:** AlephTelos home → Quick actions → Create your product → "+" (create a process) looked frozen. The quick action
-  window is a layer with z-index 2000 and Bootstrap modals use 1055, so the new window opened *behind* it while its
-  invisible backdrop blocked the page; the only way out was closing the form and losing the work. New
-  `src/Shared/Utils/modalStacking.js` (started once in `App.js`) gives every Bootstrap backdrop/modal a growing z-index
-  from 2100 in the order they open: the newest window is always on top, the one below is dimmed, and closing it
-  returns to the previous one unchanged. Applies to every pop-up in the app (also the product search window).
-  Browser test: before = hidden, after = 2nd and 3rd window on top, product data kept.
-- Quick action window: a click outside no longer closes it (only the X), so a half-filled form is not lost.
-- Product form (pop-up and regular page): new "+" button next to **Category** opens "Create a category" (the category
-  maintenance form) on top. After saving, the new category is selected and the window closes. Same for "+" next to
-  **Process (tracking)**: the new process is selected and the window closes. Both windows only close with X/Cancel.
-  `CategoryMaintenanceForm` and `TrackingMaintenance` accept an optional `onSaved(id)` (nothing changes where it is not
-  passed). The error messages of these two inline fields now show (`d-block`). Texts `products.form.addCategory`,
-  `products.form.addCategoryTitle` (en/es).
-
-**Modified:** src/App.js, src/Modules/shao/mainShao/components/ServiceHubStart.jsx,
-src/Modules/shao/products/components/ProductMaintenanceForm.jsx,
-src/Modules/shao/productCategories/components/CategoryMaintenanceForm.jsx,
-src/Modules/shao/tracking/components/TrackingMaintenance.jsx, src/Shared/i18n/locales/en.json, es.json
-
-**New:** src/Shared/Utils/modalStacking.js
-
-**Revert:** copy the `.bak` files back (README lists the paths) and delete modalStacking.js.
-
----
-
-## 30. 2026-10-29 — Basic company: Company page without a plan, "join a plan" messages, plan request needs name/logo/header
-
-**Backups:** `.ai_backups/2026-10-29_before_basic_company/`.
-
-**Description:** works with shao AI_CHANGELOG #20.
-- Logo/header upload sends `kind: PAGE_IMAGE` to the storage check (`ensureStorageSpace(companyId, size, kind)`), so a
-  company without a plan can set up its basic company. After saving Company page the plan cache is refreshed.
-- "No active plan" message (`plans.limits.required`) now says: join a plan to use this option; without a plan you can
-  only set up the basic company (name, logo, header) in Company page. The SMTP panel (save and test) uses it.
-  Read-only banner text says the same (`plans.readOnly.none`).
-- "Your plan" window: when name, logo or header is missing it shows "First create your basic company… Missing: …" with
-  a "Go to Company page" button, and hides the request buttons (also after a 409 `BASIC_COMPANY_REQUIRED`).
-  New keys `plans.basicCompany.*`, style `.plans-basic-company`.
-- Spanish texts added today (`login.verificationSent`, `companyUsersAccess.addUser.noPlan`) now use "usted" like
-  the rest of the app.
-
-**Modified:** src/Shared/Services/StorageService.js, src/Modules/shao/pageConfiguration/services/PageConfigurationImageUploadService.js,
-src/Modules/shao/pageConfiguration/components/PageConfiguration.jsx, CompanySmtpPanel.jsx,
-src/Shared/Components/Plans/PlansModal.jsx, Plans.scss, ReadOnlyBanner.jsx, src/Shared/Utils/planLimitMessage.js,
-src/Shared/i18n/locales/en.json, es.json
-
-**Revert:** copy the `.bak` files back (README lists the paths).
 
 ---

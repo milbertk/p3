@@ -134,7 +134,8 @@
       "myStore": "Mi tienda",
       "reports": "Reportes",
       "team": "Equipo"
-    }
+    },
+    "locations": "Sedes"
   },
   "platforms": {
     "home": {
@@ -1386,7 +1387,8 @@
         "selfbooking": "Crear citas para los clientes.",
         "appointments": "Administrar citas.",
         "pageConfiguration": "Logo, encabezado, correo de avisos y servidor de correo de la tienda.",
-        "reports": "Reportes de ventas y reservas."
+        "reports": "Reportes de ventas y reservas.",
+        "locations": "Los lugares donde la empresa atiende citas."
       }
     },
     "messages": {
@@ -1522,7 +1524,7 @@
     },
     "general": {
       "title": "Información general",
-      "description": "Identifique el servicio y defina la duración de cada espacio disponible."
+      "description": "Defina la duración y la cantidad de citas de cada espacio disponible."
     },
     "fields": {
       "name": {
@@ -1566,7 +1568,12 @@
         "help": "Rango único opcional para desactivar la reserva."
       },
       "rangeAppointments": "Citas",
-      "usesGeneral": "Usa la general"
+      "usesGeneral": "General",
+      "location": "Sede",
+      "noLocation": "Sin sede",
+      "locationDisabled": "desactivada",
+      "customerChooses": "El cliente elige (cualquier sede activa)",
+      "customerChoosesHint": "La tienda muestra estas horas en cada sede activa; el cliente escoge una."
     },
     "mode": {
       "title": "Modalidad de disponibilidad",
@@ -1592,7 +1599,8 @@
       "legend": "Día con disponibilidad",
       "selectedDate": "Fecha seleccionada",
       "dayClosed": "Esta fecha no se ha abierto para reservas.",
-      "allDay": "Disponible todo el día"
+      "allDay": "Disponible todo el día",
+      "openCount_one": "{{count}} fecha abierta"
     },
     "preview": {
       "title": "Vista previa de espacios generados",
@@ -1600,7 +1608,8 @@
       "count": "{{count}} espacios",
       "day": "Día para la vista previa",
       "slot": "{{start}} – {{end}}",
-      "empty": "No se pueden generar espacios con la configuración actual."
+      "empty": "No se pueden generar espacios con la configuración actual.",
+      "count_one": "{{count}} espacio"
     },
     "days": {
       "monday": {
@@ -1640,8 +1649,8 @@
       "required": "Elija un servicio.",
       "availabilityRequired": "Abra al menos un día o una fecha del calendario.",
       "invalidRanges": "Revise los horarios. No pueden traslaparse y cada horario debe admitir al menos una cita completa.",
-      "created": "La configuración de reservas se ha creado con datos de prueba.",
-      "updated": "La configuración de reservas se ha actualizado con datos de prueba.",
+      "created": "El horario de reservas se guardó.",
+      "updated": "El horario de reservas se actualizó.",
       "missingCompany": "No hay compañía seleccionada. Seleccione una compañía primero.",
       "searchDone": "Reservas encontradas.",
       "searchError": "No se pudieron buscar las reservas. Intente de nuevo.",
@@ -1650,7 +1659,15 @@
       "editingExisting": "Editando el horario existente de {{service}}.",
       "newForService": "Nuevo horario para {{service}}.",
       "serviceHasSchedule": "Este servicio ya tiene un horario de reservas.",
-      "checkServiceError": "No se pudo revisar el horario del servicio. Inténtelo de nuevo."
+      "checkServiceError": "No se pudo revisar el horario del servicio. Inténtelo de nuevo.",
+      "locationOverlap": "No se guardó: atiende en una sede a la vez y estas horas ya están en otra sede. Cambie las horas o la sede, o active \"Podemos atender en más de una sede al mismo tiempo\" en Sedes.",
+      "overlapTitle": "Horas que ya están en otra sede",
+      "noRanges": "{{when}}: agregue al menos un horario.",
+      "rangeTooShort": "{{when}}, {{hours}}: la hora final debe ser posterior a la inicial y dejar espacio para al menos una cita de {{minutes}} minutos.",
+      "overlap": "{{when}}: {{a}} y {{b}} se traslapan. Cambie las horas.",
+      "overlapPlaces": "{{when}}: {{a}} y {{b}} están a la misma hora en dos sedes. Active \"Podemos atender en más de una sede al mismo tiempo\" en Sedes, o cambie las horas.",
+      "overlapChoice": "{{when}}: {{a}} y {{b}} se traslapan. Un horario \"El cliente elige\" puede ser en cualquier sede, así que no puede compartir horas con otro horario.",
+      "rangesOverlapSaved": "No se guardó: dos horarios del mismo día están a la misma hora en la misma sede (o ambos sin sede). Cambie las horas o elija otra sede. Sus horas guardadas no cambiaron."
     },
     "mock": {
       "services": {
@@ -1669,6 +1686,26 @@
       "saveConflict": "{{service}} ya tiene un horario de reservas. Ábralo para editarlo.",
       "open": "Abrirlo",
       "keep": "Seguir editando"
+    },
+    "locationsHint": {
+      "off": "¿Atiende en más de un lugar? Primero active \"Usamos sedes\" y cree sus sedes en Sedes. Luego cada bloque de horas puede tener una sede, o dejar que el cliente elija.",
+      "noActive": "Las sedes están activadas, pero no tiene ninguna sede activa. Cree una en Sedes para elegirla aquí.",
+      "go": "Ir a Sedes",
+      "close": "Cerrar"
+    },
+    "steps": {
+      "service": "Elija el servicio",
+      "serviceHelp": "Empiece aquí: todo lo demás de este horario pertenece al servicio.",
+      "locked": "Primero elija un servicio. Luego se abre el resto del formulario."
+    },
+    "modeSwitch": {
+      "title": "¿Cambiar a {{mode}}?",
+      "body": "Un horario usa solo una opción. Al guardar, se borran las horas guardadas de \"{{current}}\" y empieza de nuevo con {{mode}}. Las citas ya reservadas se conservan.",
+      "confirm": "Cambiar y borrar al guardar",
+      "cancel": "Cancelar",
+      "done": "Ahora usa: {{mode}}. Solo estas horas se guardan y se publican.",
+      "willDelete": "Al guardar, se borran las horas guardadas de \"{{other}}\". Las citas reservadas se conservan.",
+      "onlyOne": "Use una de las dos opciones. Solo se guardan y ofrecen las horas de la opción elegida."
     }
   },
   "bookingRequestManagement": {
@@ -1744,7 +1781,9 @@
       "requestedAt": "Solicitud recibida",
       "notes": "Notas",
       "noNotes": "No se han incluido notas adicionales.",
-      "noEmail": "Sin correo — el cliente no recibirá avisos"
+      "noEmail": "Sin correo — el cliente no recibirá avisos",
+      "location": "Sede",
+      "openMaps": "Abrir en Maps"
     },
     "empty": {
       "title": "No se encontraron citas",
@@ -2344,7 +2383,10 @@
       "servicePlaceholder": "Buscar un servicio",
       "social": "Enlace de red social",
       "startHour": "Hora de inicio",
-      "useRegistered": "Seleccionar un cliente registrado"
+      "useRegistered": "Seleccionar un cliente registrado",
+      "location": "Sede",
+      "noLocation": "Sin sede",
+      "locationDisabled": "desactivada"
     },
     "title": "Reservar para un cliente",
     "titleEdit": "Editar cita",
@@ -2392,7 +2434,8 @@
       "loaded": "Cita cargada. Ya puede modificarla.",
       "notFound": "No se encontraron citas.",
       "rejected": "La cita fue rechazada / inactivada.",
-      "saved": "La cita se guardó correctamente."
+      "saved": "La cita se guardó correctamente.",
+      "otherLocation": "Atención: a esta hora ya tiene {count} cita(s) en otra sede."
     },
     "schedule": {
       "description": "Indique el día y la hora de inicio y fin.",
@@ -2438,7 +2481,9 @@
       "notes": "Notas",
       "phone": "Teléfono",
       "service": "Servicio",
-      "when": "Cita"
+      "when": "Cita",
+      "location": "Sede",
+      "openMaps": "Abrir en Maps"
     },
     "empty": "Ninguna cita coincide con los filtros actuales.",
     "eyebrow": "ALEPHTELOS · CITAS",
@@ -2783,5 +2828,127 @@
   },
   "brand": {
     "poweredBy": "Impulsado por"
+  },
+  "locations": {
+    "eyebrow": "Reservas",
+    "title": "Sedes",
+    "description": "Los lugares donde atiende citas. Elija la sede en cada bloque de horas en Horarios de reserva; la tienda muestra los horarios por sede.",
+    "actions": {
+      "new": "Nueva sede",
+      "save": "Guardar",
+      "saving": "Guardando…",
+      "disable": "Desactivar",
+      "enable": "Activar",
+      "delete": "Eliminar",
+      "cancel": "Cancelar"
+    },
+    "settings": {
+      "title": "Podemos atender en más de una sede al mismo tiempo",
+      "onHelp": "ACTIVADO: varias personas u oficinas atienden a la vez, así que sedes distintas pueden tener las mismas horas. Cada sede tiene sus propios cupos.",
+      "offHelp": "DESACTIVADO (recomendado para una sola persona): está en una sede a la vez, así que las mismas horas no pueden estar en dos sedes distintas.",
+      "savedOn": "Guardado: varias sedes pueden tener las mismas horas.",
+      "savedOff": "Guardado: una sede a la vez.",
+      "offRefused": "Todavía no se puede desactivar: estas horas están en dos sedes al mismo tiempo. Cámbielas primero en Horarios de reserva.",
+      "saveError": "No se pudo guardar la opción.",
+      "enabledTitle": "Usamos sedes",
+      "enabledOnHelp": "ACTIVADO: elija una sede en cada bloque de horas en Horarios de reserva (o deje que el cliente elija). La tienda, los formularios y los correos muestran la sede.",
+      "enabledOffHelp": "DESACTIVADO: AlephK funciona sin sedes. La tienda, los horarios, los formularios y los correos no muestran ninguna sede. Puede preparar sus sedes aquí y activar esto cuando esté listo.",
+      "enabledOn": "Guardado: AlephK ahora usa sus sedes.",
+      "enabledOff": "Guardado: las sedes se ocultan en todas partes. Sus sedes se conservan.",
+      "enableRefused": "Todavía no se pueden activar las sedes: estas horas están en dos sedes al mismo tiempo. Cámbielas primero en Horarios de reserva, o active \"Podemos atender en más de una sede al mismo tiempo\".",
+      "needsEnabled": "Disponible cuando \"Usamos sedes\" está activado."
+    },
+    "overlap": {
+      "title": "Horas en dos sedes al mismo tiempo",
+      "sentence": "{{when}} ya está en {{location}} ({{schedule}})",
+      "allDay": "(todo el día)",
+      "customerChooses": "la sede que elija el cliente"
+    },
+    "list": {
+      "title": "Sus sedes",
+      "count": "{{active}} activas de {{total}}",
+      "loading": "Cargando…",
+      "empty": "Todavía no hay sedes",
+      "emptyHelp": "Con un solo lugar no necesita sedes. Agréguelas cuando atienda en dos o más lugares (por ejemplo Heredia y San Pedro).",
+      "notUsed": "Sin usar todavía",
+      "usage": "{{hours}} bloque(s) de horas · {{upcoming}} cita(s) próxima(s)"
+    },
+    "status": {
+      "active": "Activa",
+      "disabled": "Desactivada"
+    },
+    "form": {
+      "newTitle": "Nueva sede",
+      "editTitle": "Editar sede"
+    },
+    "fields": {
+      "name": "Nombre",
+      "namePlaceholder": "p. ej. Oficina Heredia",
+      "address": "Dirección",
+      "addressPlaceholder": "p. ej. 100 m norte del parque, Heredia",
+      "details": "Detalles",
+      "detailsPlaceholder": "Piso, número de oficina, parqueo…",
+      "latitude": "Latitud",
+      "longitude": "Longitud"
+    },
+    "map": {
+      "title": "Punto en el mapa (opcional)",
+      "help": "Los clientes reciben un enlace \"Abrir en Maps\". Sin punto, el enlace usa la dirección.",
+      "useGps": "Usar mi ubicación actual",
+      "gpsBusy": "Leyendo…",
+      "gpsDone": "Punto tomado de su ubicación actual. Revíselo con \"Abrir en Maps\" y guarde.",
+      "gpsDenied": "Se negó el permiso de ubicación. Permítalo en el navegador o pegue un enlace de Google Maps.",
+      "gpsFailed": "No se pudo leer su ubicación. Intente de nuevo o pegue un enlace de Google Maps.",
+      "noGps": "Este navegador no puede dar su ubicación. Pegue un enlace de Google Maps.",
+      "insecure": "El navegador da su ubicación solo en páginas seguras (https) o en localhost. Pegue un enlace de Google Maps.",
+      "pasteLink": "Pegar un enlace de Google Maps",
+      "readLink": "Leer punto",
+      "linkDone": "Punto leído del enlace. Revíselo con \"Abrir en Maps\" y guarde.",
+      "linkInvalid": "No se encontró un punto en ese texto. En Google Maps abra el lugar y copie el enlace de la barra de direcciones (tiene @latitud,longitud).",
+      "shortLink": "Los enlaces cortos (maps.app.goo.gl) no traen el punto. Abra el enlace, copie el enlace largo de la barra de direcciones y péguelo aquí.",
+      "clear": "Quitar el punto",
+      "open": "Abrir en Maps",
+      "none": "Todavía sin punto ni dirección: los clientes no reciben enlace al mapa."
+    },
+    "messages": {
+      "created": "La sede fue creada. Ahora elíjala en las horas de sus Horarios de reserva.",
+      "updated": "La sede fue actualizada.",
+      "enabled": "La sede fue activada. La tienda vuelve a ofrecer sus horas.",
+      "disabled": "La sede fue desactivada. La tienda ya no ofrece sus horas.",
+      "disabledWithAppointments": "Tiene {{count}} cita(s) próxima(s): conservan esta sede. Avise a esos clientes si es necesario.",
+      "usedDisabled": "Esta sede la usan horarios o citas, por eso se desactivó en lugar de eliminarla (su historial se conserva).",
+      "deleted": "La sede fue eliminada."
+    },
+    "confirm": {
+      "deleteTitle": "¿Eliminar {{name}}?",
+      "deleteText": "Si la usan horarios o citas, se desactiva en lugar de eliminarse, así su historial se conserva.",
+      "disableTitle": "¿Desactivar {{name}}?",
+      "disableText": "Tiene {{count}} cita(s) próxima(s). Conservan esta sede; la tienda deja de ofrecer sus horas. Avise a esos clientes si es necesario."
+    },
+    "errors": {
+      "missingCompany": "No hay una empresa seleccionada.",
+      "load": "No se pudieron cargar las sedes.",
+      "nameRequired": "Escriba el nombre de la sede.",
+      "nameTaken": "Otra sede ya tiene este nombre.",
+      "pointBoth": "Escriba la latitud y la longitud, o ninguna.",
+      "latitude": "La latitud debe ser un número entre -90 y 90.",
+      "longitude": "La longitud debe ser un número entre -180 y 180.",
+      "save": "No se pudo guardar la sede.",
+      "status": "No se pudo cambiar el estado.",
+      "delete": "No se pudo eliminar la sede.",
+      "enableOverlap": "No se puede activar: sus horas son las mismas que las de otra sede (una sede a la vez)."
+    },
+    "appointmentEditor": {
+      "label": "Sede",
+      "noLocation": "Sin sede",
+      "disabled": "deshabilitada",
+      "save": "Guardar sede",
+      "saving": "Guardando…",
+      "saved": "Sede guardada.",
+      "savedNotified": "Sede guardada. El cliente recibe un correo con el cambio.",
+      "otherLocation": "Atención: a esta hora ya tiene {{count}} cita(s) en otra sede.",
+      "missing": "Esta solicitud todavía no tiene sede. Elíjala antes de aprobar.",
+      "error": "No se pudo guardar la sede."
+    }
   }
 }

@@ -1,0 +1,81 @@
+// Location of one appointment / booking request (2026-11-08).
+.appointment-location-editor {
+  display: grid;
+  flex: 0 0 auto;
+  align-self: start;
+  align-content: start;
+  gap: 6px;
+  padding: 12px;
+  background: #f7f9fc;
+  border: 1px solid #e1e5eb;
+  border-radius: 10px;
+
+  > label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #4b5565;
+    font-size: 0.8rem;
+    font-weight: 650;
+
+    svg {
+      color: #3459e6;
+    }
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    select {
+      flex: 1 1 200px;
+      min-width: 0;
+      height: 40px;
+      padding: 8px 10px;
+      color: #1d2735;
+      background: #fff;
+      border: 1px solid #cfd6e1;
+      border-radius: 8px;
+    }
+
+    button {
+      display: inline-flex;
+      flex: 0 0 auto;
+      height: 40px;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      color: #fff;
+      font-weight: 600;
+      background: #3459e6;
+      border: 0;
+      border-radius: 8px;
+      cursor: pointer;
+
+      &:disabled {
+        background: #a9b7ee;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  &__warning {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 2px 0 0;
+    color: #8a5a00;
+    font-size: 0.82rem;
+
+    svg {
+      flex: 0 0 auto;
+      color: #d29a1b;
+    }
+  }
+}
+
+// Inside the booking request window: same side margins as the other blocks.
+.booking-request-dialog .appointment-location-editor {
+  margin: 0 22px 14px;
+}

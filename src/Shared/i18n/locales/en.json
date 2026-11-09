@@ -134,7 +134,8 @@
       "myStore": "My store",
       "reports": "Reports",
       "team": "Team"
-    }
+    },
+    "locations": "Locations"
   },
   "platforms": {
     "home": {
@@ -1533,7 +1534,8 @@
         "selfbooking": "Create appointments for customers.",
         "appointments": "Manage appointments.",
         "pageConfiguration": "Logo, header, notification email and email server of the store.",
-        "reports": "Sales and booking reports."
+        "reports": "Sales and booking reports.",
+        "locations": "The places where the company attends appointments."
       }
     },
     "messages": {
@@ -1669,7 +1671,7 @@
     },
     "general": {
       "title": "General information",
-      "description": "Identify the service and define the duration of each available space."
+      "description": "Define the duration and the number of appointments of each available space."
     },
     "fields": {
       "name": {
@@ -1713,7 +1715,12 @@
         "help": "Optional single range to turn booking off."
       },
       "rangeAppointments": "Appointments",
-      "usesGeneral": "Uses general"
+      "usesGeneral": "General",
+      "location": "Location",
+      "noLocation": "No location",
+      "locationDisabled": "disabled",
+      "customerChooses": "Customer chooses (any active location)",
+      "customerChoosesHint": "The store shows these hours in every active location; the customer picks one."
     },
     "mode": {
       "title": "Availability mode",
@@ -1739,7 +1746,8 @@
       "legend": "Day with availability",
       "selectedDate": "Selected date",
       "dayClosed": "This date has not been opened for bookings.",
-      "allDay": "Available all day"
+      "allDay": "Available all day",
+      "openCount_one": "{{count}} open date"
     },
     "preview": {
       "title": "Generated-space preview",
@@ -1747,7 +1755,8 @@
       "count": "{{count}} spaces",
       "day": "Preview day",
       "slot": "{{start}} – {{end}}",
-      "empty": "No spaces can be generated with the current configuration."
+      "empty": "No spaces can be generated with the current configuration.",
+      "count_one": "{{count}} space"
     },
     "days": {
       "monday": {
@@ -1787,8 +1796,8 @@
       "required": "Choose a service.",
       "availabilityRequired": "Open at least one day or calendar date.",
       "invalidRanges": "Review the ranges. They cannot overlap, and each range must fit at least one complete appointment.",
-      "created": "The booking configuration has been created with mock data.",
-      "updated": "The booking configuration has been updated with mock data.",
+      "created": "The booking schedule was saved.",
+      "updated": "The booking schedule was updated.",
       "missingCompany": "No company is selected. Please select a company first.",
       "searchDone": "Bookings found.",
       "searchError": "Bookings could not be searched. Please try again.",
@@ -1797,7 +1806,15 @@
       "editingExisting": "Editing the existing schedule of {{service}}.",
       "newForService": "New schedule for {{service}}.",
       "serviceHasSchedule": "This service already has a booking schedule.",
-      "checkServiceError": "The service schedule could not be checked. Please try again."
+      "checkServiceError": "The service schedule could not be checked. Please try again.",
+      "locationOverlap": "Not saved: you attend in one location at a time and these hours are already in another location. Change the hours or the location, or turn on \"We can attend in more than one location at the same time\" in Locations.",
+      "overlapTitle": "Hours already in another location",
+      "noRanges": "{{when}}: add at least one time range.",
+      "rangeTooShort": "{{when}}, {{hours}}: the end must be after the start and leave room for at least one appointment of {{minutes}} minutes.",
+      "overlap": "{{when}}: {{a}} and {{b}} overlap. Change the hours.",
+      "overlapPlaces": "{{when}}: {{a}} and {{b}} are at the same time in two locations. Turn on \"We can attend in more than one location at the same time\" in Locations, or change the hours.",
+      "overlapChoice": "{{when}}: {{a}} and {{b}} overlap. A \"Customer chooses\" range can be in any location, so it can not share hours with another range.",
+      "rangesOverlapSaved": "Not saved: two ranges of the same day are at the same time in the same location (or both without a location). Change the hours or choose a different location. Your saved hours were not changed."
     },
     "mock": {
       "services": {
@@ -1816,6 +1833,26 @@
       "saveConflict": "{{service}} already has a booking schedule. Open it to edit it.",
       "open": "Open it",
       "keep": "Keep editing"
+    },
+    "locationsHint": {
+      "off": "Do you attend in more than one place? First turn on \"We use locations\" and create your locations in Locations. Then each block of hours can have a location, or let the customer choose.",
+      "noActive": "Locations is on, but you have no active location. Create one in Locations to choose it here.",
+      "go": "Go to Locations",
+      "close": "Close"
+    },
+    "steps": {
+      "service": "Choose the service",
+      "serviceHelp": "Start here: everything else in this schedule belongs to the service.",
+      "locked": "Choose a service first. Then the rest of the form opens."
+    },
+    "modeSwitch": {
+      "title": "Change to {{mode}}?",
+      "body": "A schedule uses only one option. When you save, the saved hours of \"{{current}}\" are deleted and you start again with {{mode}}. Appointments already booked are kept.",
+      "confirm": "Change and delete on save",
+      "cancel": "Cancel",
+      "done": "Now using: {{mode}}. Only these hours are saved and published.",
+      "willDelete": "When you save, the saved hours of \"{{other}}\" are deleted. Booked appointments are kept.",
+      "onlyOne": "Use one of the two options. Only the hours of the selected option are saved and offered."
     }
   },
   "bookingRequestManagement": {
@@ -1891,7 +1928,9 @@
       "requestedAt": "Request received",
       "notes": "Notes",
       "noNotes": "No additional notes have been provided.",
-      "noEmail": "No email — the customer won't be notified"
+      "noEmail": "No email — the customer won't be notified",
+      "location": "Location",
+      "openMaps": "Open in Maps"
     },
     "empty": {
       "title": "No appointments found",
@@ -2344,7 +2383,10 @@
       "servicePlaceholder": "Search a service",
       "social": "Social network link",
       "startHour": "Start hour",
-      "useRegistered": "Select a registered customer"
+      "useRegistered": "Select a registered customer",
+      "location": "Location",
+      "noLocation": "No location",
+      "locationDisabled": "disabled"
     },
     "title": "Book for a customer",
     "titleEdit": "Edit appointment",
@@ -2392,7 +2434,8 @@
       "loaded": "Appointment loaded. You can now modify it.",
       "notFound": "No appointments found.",
       "rejected": "The appointment was rejected / inactivated.",
-      "saved": "The appointment was saved successfully."
+      "saved": "The appointment was saved successfully.",
+      "otherLocation": "Heads up: at this time you already have {count} appointment(s) in another location."
     },
     "schedule": {
       "description": "Set the day and the start/end hour.",
@@ -2438,7 +2481,9 @@
       "notes": "Notes",
       "phone": "Phone",
       "service": "Service",
-      "when": "Appointment"
+      "when": "Appointment",
+      "location": "Location",
+      "openMaps": "Open in Maps"
     },
     "empty": "No appointments match the current filters.",
     "eyebrow": "ALEPHTELOS · APPOINTMENTS",
@@ -2783,5 +2828,127 @@
   },
   "brand": {
     "poweredBy": "Powered by"
+  },
+  "locations": {
+    "eyebrow": "Bookings",
+    "title": "Locations",
+    "description": "The places where you attend appointments. Choose a location on each block of hours in Booking schedules; the store shows the times by location.",
+    "actions": {
+      "new": "New location",
+      "save": "Save",
+      "saving": "Saving…",
+      "disable": "Disable",
+      "enable": "Enable",
+      "delete": "Delete",
+      "cancel": "Cancel"
+    },
+    "settings": {
+      "title": "We can attend in more than one location at the same time",
+      "onHelp": "ON: several people or offices attend at the same time, so different locations can have the same hours. Each location has its own places.",
+      "offHelp": "OFF (recommended for one person): you are in one location at a time, so the same hours can not be in two different locations.",
+      "savedOn": "Saved: several locations can have the same hours.",
+      "savedOff": "Saved: one location at a time.",
+      "offRefused": "It can not be turned off yet: these hours are in two locations at the same time. Change them in Booking schedules first.",
+      "saveError": "The setting could not be saved.",
+      "enabledTitle": "We use locations",
+      "enabledOnHelp": "ON: choose a location on each block of hours in Booking schedules (or let the customer choose). The store, the forms and the emails show the location.",
+      "enabledOffHelp": "OFF: AlephK works without locations. The store, the schedules, the forms and the emails show no location. You can prepare your locations here and turn this on when you are ready.",
+      "enabledOn": "Saved: AlephK now uses your locations.",
+      "enabledOff": "Saved: locations are hidden everywhere. Your locations are kept.",
+      "enableRefused": "Locations can not be turned on yet: these hours are in two locations at the same time. Change them in Booking schedules first, or turn on \"We can attend in more than one location at the same time\".",
+      "needsEnabled": "Available when \"We use locations\" is on."
+    },
+    "overlap": {
+      "title": "Hours in two locations at the same time",
+      "sentence": "{{when}} is already in {{location}} ({{schedule}})",
+      "allDay": "(all day)",
+      "customerChooses": "the location the customer chooses"
+    },
+    "list": {
+      "title": "Your locations",
+      "count": "{{active}} active of {{total}}",
+      "loading": "Loading…",
+      "empty": "No locations yet",
+      "emptyHelp": "With only one place you do not need locations. Add them when you attend in two or more places (for example Heredia and San Pedro).",
+      "notUsed": "Not used yet",
+      "usage": "{{hours}} block(s) of hours · {{upcoming}} upcoming appointment(s)"
+    },
+    "status": {
+      "active": "Active",
+      "disabled": "Disabled"
+    },
+    "form": {
+      "newTitle": "New location",
+      "editTitle": "Edit location"
+    },
+    "fields": {
+      "name": "Name",
+      "namePlaceholder": "e.g. Heredia office",
+      "address": "Address",
+      "addressPlaceholder": "e.g. 100 m north of the park, Heredia",
+      "details": "Details",
+      "detailsPlaceholder": "Floor, office number, parking…",
+      "latitude": "Latitude",
+      "longitude": "Longitude"
+    },
+    "map": {
+      "title": "Map point (optional)",
+      "help": "Customers get an \"Open in Maps\" link. Without a point the link uses the address.",
+      "useGps": "Use my current location",
+      "gpsBusy": "Reading…",
+      "gpsDone": "Point taken from your current location. Check it with \"Open in Maps\" and save.",
+      "gpsDenied": "The location permission was denied. Allow it in the browser, or paste a Google Maps link.",
+      "gpsFailed": "Your location could not be read. Try again or paste a Google Maps link.",
+      "noGps": "This browser cannot give your location. Paste a Google Maps link instead.",
+      "insecure": "The browser gives your location only on secure pages (https) or on localhost. Paste a Google Maps link instead.",
+      "pasteLink": "Paste a Google Maps link",
+      "readLink": "Read point",
+      "linkDone": "Point read from the link. Check it with \"Open in Maps\" and save.",
+      "linkInvalid": "No map point was found in that text. In Google Maps open the place and copy the address bar link (it has @latitude,longitude).",
+      "shortLink": "Short links (maps.app.goo.gl) do not include the point. Open the link, then copy the long link from the address bar and paste it here.",
+      "clear": "Remove the point",
+      "open": "Open in Maps",
+      "none": "No point and no address yet: customers get no map link."
+    },
+    "messages": {
+      "created": "The location was created. Now choose it on the hours of your Booking schedules.",
+      "updated": "The location was updated.",
+      "enabled": "The location was enabled. The store offers its hours again.",
+      "disabled": "The location was disabled. The store no longer offers its hours.",
+      "disabledWithAppointments": "It has {{count}} upcoming appointment(s): they keep this location. Tell those customers if needed.",
+      "usedDisabled": "This location is used by schedules or appointments, so it was disabled instead of deleted (its history stays).",
+      "deleted": "The location was deleted."
+    },
+    "confirm": {
+      "deleteTitle": "Delete {{name}}?",
+      "deleteText": "If schedules or appointments use it, it is disabled instead of deleted, so their history stays.",
+      "disableTitle": "Disable {{name}}?",
+      "disableText": "It has {{count}} upcoming appointment(s). They keep this location; the store stops offering its hours. Tell those customers if needed."
+    },
+    "errors": {
+      "missingCompany": "No company is selected.",
+      "load": "The locations could not be loaded.",
+      "nameRequired": "Write the name of the location.",
+      "nameTaken": "Another location already has this name.",
+      "pointBoth": "Write both latitude and longitude, or none.",
+      "latitude": "Latitude must be a number between -90 and 90.",
+      "longitude": "Longitude must be a number between -180 and 180.",
+      "save": "The location could not be saved.",
+      "status": "The status could not be changed.",
+      "delete": "The location could not be deleted.",
+      "enableOverlap": "It can not be enabled: its hours are the same as the hours of another location (one location at a time)."
+    },
+    "appointmentEditor": {
+      "label": "Location",
+      "noLocation": "No location",
+      "disabled": "disabled",
+      "save": "Save location",
+      "saving": "Saving…",
+      "saved": "Location saved.",
+      "savedNotified": "Location saved. The customer gets an email with the change.",
+      "otherLocation": "Heads up: at this time you already have {{count}} appointment(s) in another location.",
+      "missing": "This request has no location yet. Choose it before approving.",
+      "error": "The location could not be saved."
+    }
   }
 }

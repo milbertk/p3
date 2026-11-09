@@ -120,6 +120,14 @@ const PERMISSION_GROUPS = [
         description: "Create appointments for customers.",
       },
       {
+        // Locations ("Sedes", 2026-11-07).
+        id: "NAV_LOCATIONS_ACCESS",
+        labelKey: "sidebar.locations",
+        label: "Locations",
+        descriptionKey: "companyUsersAccess.permissions.menuDescriptions.locations",
+        description: "The places where the company attends appointments.",
+      },
+      {
         id: "NAV_CUSTOMERS_ACCESS",
         labelKey: "sidebar.customers",
         label: "Customers",

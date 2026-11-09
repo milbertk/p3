@@ -817,3 +817,40 @@ $warning: #a96800;
   line-height: 1.35;
 }
 .reservation__notify-warning { display: block; margin-top: 6px; }
+
+/* Location chosen by the customer (2026-11-07). */
+.booking-request-location {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 2px;
+  color: #6d7685;
+  font-size: 0.78rem;
+
+  svg {
+    flex: 0 0 auto;
+    color: #3459e6;
+  }
+}
+
+.booking-request-dialog__service > div {
+  > strong svg {
+    margin-right: 4px;
+    color: #3459e6;
+  }
+
+  > span {
+    color: #6d7685;
+    font-size: 0.85rem;
+  }
+
+  > a {
+    color: #3459e6;
+    font-weight: 650;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

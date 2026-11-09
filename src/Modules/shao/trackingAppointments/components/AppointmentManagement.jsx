@@ -8,6 +8,7 @@ import {
   FaChevronRight,
   FaList,
   FaClock,
+  FaLocationDot,
   FaEnvelope,
   FaFlagCheckered,
   FaMagnifyingGlass,
@@ -19,6 +20,9 @@ import {
 import "./AppointmentManagement.scss";
 import SearchAppointmentsService from "../../bookingSelfReservation/services/SearchAppointmentsService";
 import AppointmentStatusService from "../services/AppointmentStatusService";
+import { mapsUrl } from "../../locations/services/locationUtils";
+import LocationsService from "../../locations/services/LocationsService";
+import AppointmentLocationEditor from "../../locations/components/AppointmentLocationEditor";
 
 const SELECTED_COMPANY_STORAGE_KEY = "selectedCompany";
 
@@ -35,6 +39,16 @@ function readSelectedCompanyId() {
 
 const searchAppointmentsService = new SearchAppointmentsService();
 const appointmentStatusService = new AppointmentStatusService();
+const locationsService = new LocationsService();
+
+// "We use locations" off (2026-11-08): the screen shows no location.
+const withoutLocation = (appointment) => ({
+  ...appointment,
+  locationId: "",
+  locationName: "",
+  locationAddress: "",
+  locationMapsUrl: "",
+});
 
 // Three real stages for this screen. PENDING/REJECTED are request stages and
 // are handled in the booking-requests screen, so they are filtered out here.
@@ -74,6 +88,13 @@ function mapAppointmentRow(row) {
     startAt,
     status,
     notes: row.comments || "",
+    // Location (2026-11-07); "" when the appointment has none.
+    locationId: row.locationId || "",
+    locationName: row.locationName || "",
+    locationAddress: row.locationAddress || "",
+    locationMapsUrl: row.locationName
+      ? mapsUrl({ address: row.locationAddress, latitude: row.locationLatitude, longitude: row.locationLongitude })
+      : "",
   };
 }
 
@@ -158,6 +179,10 @@ export default function AppointmentManagement({ t, locale = "en" }) {
   const [selectedDay, setSelectedDay] = useState(todayYmd);
   const [dayModalOpen, setDayModalOpen] = useState(false); // day appointments popup
 
+  // Locations of the company when it uses them (2026-11-08): the detail
+  // can change the location of the appointment.
+  const [companyLocations, setCompanyLocations] = useState([]);
+
   const loadAppointments = async () => {
     const companyId = readSelectedCompanyId();
     if (!companyId) {
@@ -167,13 +192,23 @@ export default function AppointmentManagement({ t, locale = "en" }) {
     setLoading(true);
     setMessage("");
     try {
-      const rows = await searchAppointmentsService.getAppointments({
-        companyId,
-        filters: { limit: 500 },
-      });
+      const [rows, settings] = await Promise.all([
+        searchAppointmentsService.getAppointments({
+          companyId,
+          filters: { limit: 500 },
+        }),
+        locationsService.getSettings({ companyId }).catch(() => ({ locationsEnabled: false })),
+      ]);
+      const locationsOn = Boolean(settings?.locationsEnabled);
+      setCompanyLocations(
+        locationsOn
+          ? await locationsService.list({ companyId, includeInactive: true }).catch(() => [])
+          : [],
+      );
       const mapped = (Array.isArray(rows) ? rows : [])
         .map(mapAppointmentRow)
         .filter(Boolean)
+        .map((appointment) => (locationsOn ? appointment : withoutLocation(appointment)))
         .sort((a, b) => String(a.startAt || "").localeCompare(String(b.startAt || "")));
       setAppointments(mapped);
     } catch (error) {
@@ -199,7 +234,7 @@ export default function AppointmentManagement({ t, locale = "en" }) {
         if (!t0 || t0 < now) return false;
       }
       if (term) {
-        const hay = `${a.customerName} ${a.serviceName} ${a.phone} ${a.email}`.toLowerCase();
+        const hay = `${a.customerName} ${a.serviceName} ${a.phone} ${a.email} ${a.locationName}`.toLowerCase();
         if (!hay.includes(term)) return false;
       }
       return true;
@@ -229,6 +264,26 @@ export default function AppointmentManagement({ t, locale = "en" }) {
   const goNextMonth = () => setCalMonth((m) => new Date(m.getFullYear(), m.getMonth() + 1, 1));
 
   const selected = appointments.find((a) => a.id === selectedId) || null;
+
+  // After "Save location": show the new location in the list and detail.
+  const applyLocation = (appointmentId, locationId) => {
+    const location = companyLocations.find((item) => item.locationId === locationId);
+    setAppointments((current) =>
+      current.map((a) =>
+        a.id === appointmentId
+          ? {
+              ...a,
+              locationId: locationId || "",
+              locationName: location?.name || "",
+              locationAddress: location?.address || "",
+              locationMapsUrl: location
+                ? mapsUrl({ address: location.address, latitude: location.latitude, longitude: location.longitude })
+                : "",
+            }
+          : a,
+      ),
+    );
+  };
   const openDetails = (a) => setSelectedId(a.id);
   const closeDetails = () => setSelectedId(null);
 
@@ -392,7 +447,14 @@ export default function AppointmentManagement({ t, locale = "en" }) {
                     <small>{formatDateTime(a.startAt, appLocale)}</small>
                   </td>
                   <td>{a.customerName || "—"}</td>
-                  <td>{a.serviceName || "—"}</td>
+                  <td>
+                    {a.serviceName || "—"}
+                    {a.locationName && (
+                      <small className="appointment-location">
+                        <FaLocationDot aria-hidden="true" /> {a.locationName}
+                      </small>
+                    )}
+                  </td>
                   <td>
                     <span className={`appointment-status appointment-status--${a.status}`}>
                       {STATUS_LABEL[a.status] || a.status}
@@ -522,7 +584,10 @@ export default function AppointmentManagement({ t, locale = "en" }) {
                         </div>
                         <div className="appointment-day-item__info">
                           <strong>{a.customerName || "\u2014"}</strong>
-                          <small>{a.serviceName || ""}</small>
+                          <small>
+                            {a.serviceName || ""}
+                            {a.locationName ? ` · ${a.locationName}` : ""}
+                          </small>
                         </div>
                         <span className={`appointment-status appointment-status--${a.status}`}>
                           {STATUS_LABEL[a.status] || a.status}
@@ -614,7 +679,34 @@ export default function AppointmentManagement({ t, locale = "en" }) {
                     <strong>{selected.serviceName || "—"}</strong>
                   </div>
                 </div>
+                {selected.locationName && (
+                  <div className="appointment-detail__card">
+                    <FaLocationDot aria-hidden="true" />
+                    <div>
+                      <small>{tr("appointmentManagement.detail.location", "Location")}</small>
+                      <strong>{selected.locationName}</strong>
+                      {selected.locationAddress && <span>{selected.locationAddress}</span>}
+                      {selected.locationMapsUrl && (
+                        <a href={selected.locationMapsUrl} target="_blank" rel="noopener noreferrer">
+                          {tr("appointmentManagement.detail.openMaps", "Open in Maps")}
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                )}
               </div>
+
+              {companyLocations.some((location) => location.active) && selected.status === "scheduled" && (
+                <AppointmentLocationEditor
+                  t={t}
+                  companyId={readSelectedCompanyId()}
+                  appointmentId={selected.id}
+                  locationId={selected.locationId}
+                  locations={companyLocations}
+                  notifiesCustomer
+                  onSaved={(locationId) => applyLocation(selected.id, locationId)}
+                />
+              )}
 
               <div className="appointment-detail__notes">
                 <small>{tr("appointmentManagement.detail.notes", "Notes")}</small>

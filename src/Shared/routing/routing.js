@@ -31,6 +31,7 @@ import AppointmentManagement from "../../Modules/shao/trackingAppointments/compo
 import AppointmentManagmentInShaoPage from "../../Modules/shao/trackingAppointments/pages/AppointmentManagmentInShaoPage";
 import Reportsinshaopage from "../../Modules/shao/reports/pages/reportsinshaopage";
 import PageConfigurationShaoPage from "../../Modules/shao/pageConfiguration/pages/PageConfigurationShaoPage";
+import LocationsShaoPage from "../../Modules/shao/locations/pages/LocationsShaoPage";
 
 
 
@@ -72,6 +73,8 @@ export default function AppRoutes(props) {
       <Route path="/shao/book-for-customer" element={<BookingSelfShaoPage t = {t} setRefreshCheckLogin = {setRefreshCheckLogin}></BookingSelfShaoPage>}></Route> 
       <Route path="/shao/appointments" element={<AppointmentManagmentInShaoPage t = {t} setRefreshCheckLogin = {setRefreshCheckLogin}></AppointmentManagmentInShaoPage>}></Route> 
       <Route path="/shao/page-configuration" element={<PageConfigurationShaoPage t={t} setRefreshCheckLogin={setRefreshCheckLogin} />} />
+      {/* Locations ("Sedes", 2026-11-07). */}
+      <Route path="/shao/locations" element={<LocationsShaoPage t={t} setRefreshCheckLogin={setRefreshCheckLogin} />} />
 
       {/* Old addresses (bookmarks, old assistant answers) -> new ones. */}
       <Route path="/shao/customersadd" element={<Navigate to="/shao/customers" replace />} />
